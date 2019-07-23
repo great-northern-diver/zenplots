@@ -1,0 +1,111 @@
+useDynLib(zenplots, .registration = TRUE)
+
+
+### Imports ####################################################################
+
+import("graphics")
+import("grid")
+## import("loon") # requires tcltk installed => avoid (work with 'loon::l_')
+
+importFrom("MASS", "kde2d")
+importFrom("tcltk",
+           "tktoplevel", "tktitle<-", "tkgrid", "tkconfigure", "tkgrid.rowconfigure",
+           "tkgrid.columnconfigure", "tkframe", "tkpack")
+importFrom("graph", "ftM2graphNEL") # from Bioconductor
+importFrom("PairViz", # also tricky to install
+           "eseq", "hpaths", "eulerian", "bipartite_graph")
+importFrom("grDevices", "colorRampPalette", "contourLines", "hcl", "xy.coords")
+importFrom("stats", "density", "qnorm", "quantile", "runif", "na.omit", "as.dist",
+           "median", "qqplot", "approx")
+importFrom("methods", "hasArg")
+importFrom("utils", "head", "tail")
+
+
+### Exports ####################################################################
+
+export(## General functions
+       ## Plotting related functions (see zenplot.R)
+       "zenplot", "unfold",
+       ## Path related functions (see zenpath.R)
+       "zenpath", "extract_pairs", "connect_pairs", "graph_pairs", "groupData",
+       "indexData",
+       ## General tools to write your own plot1d(), plot2d() (see zentools.R)
+       "plot_indices", "burst", "extract_1d", "extract_2d", "convert_occupancy",
+       ## Graphics tools
+       "plot_region",
+       ## Grid tools
+       "vport",
+       ## Loon tools
+       ## "na_omit_loon", "l_ispace_config",
+
+       ## graphics functions
+       ## 1d
+       "rug_1d_graphics",
+       "points_1d_graphics",
+       "jitter_1d_graphics",
+       "density_1d_graphics",
+       "boxplot_1d_graphics",
+       "hist_1d_graphics",
+       "arrow_1d_graphics",
+       "rect_1d_graphics",
+       "lines_1d_graphics",
+       "label_1d_graphics",
+       "layout_1d_graphics",
+       ## 2d
+       "group_2d_graphics",
+       "points_2d_graphics",
+       "qq_2d_graphics",
+       "density_2d_graphics",
+       "axes_2d_graphics",
+       "arrow_2d_graphics",
+       "rect_2d_graphics",
+       "label_2d_graphics",
+       "layout_2d_graphics",
+
+       ## grid functions
+       ## 1d
+       "rug_1d_grid",
+       "points_1d_grid",
+       "jitter_1d_grid",
+       "density_1d_grid",
+       "boxplot_1d_grid",
+       "hist_1d_grid",
+       "arrow_1d_grid",
+       "rect_1d_grid",
+       "lines_1d_grid",
+       "label_1d_grid",
+       "layout_1d_grid",
+       ## 2d
+       "group_2d_grid",
+       "points_2d_grid",
+       "qq_2d_grid",
+       "density_2d_grid",
+       "axes_2d_grid",
+       "arrow_2d_grid",
+       "rect_2d_grid",
+       "label_2d_grid",
+       "layout_2d_grid",
+
+       ## loon functions
+       ## 1d
+       "rug_1d_loon",
+       "points_1d_loon",
+       "jitter_1d_loon",
+       "density_1d_loon",
+       "boxplot_1d_loon",
+       "hist_1d_loon",
+       "arrow_1d_loon",
+       "rect_1d_loon",
+       "lines_1d_loon",
+       "label_1d_loon",
+       "layout_1d_loon",
+       ## 2d
+       "group_2d_loon",
+       "points_2d_loon",
+       "density_2d_loon",
+       "axes_2d_loon",
+       "arrow_2d_loon",
+       "rect_2d_loon",
+       "label_2d_loon",
+       "layout_2d_loon"
+    )
