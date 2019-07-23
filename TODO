@@ -1,0 +1,42 @@
+### TODO #######################################################################
+
+- Bug under macOS (gdb fails; works fine under Linux):
+  source("http://bioconductor.org/biocLite.R")
+  biocLite("graph") # correctly installs in version independent library
+  biocLite("Rgraphviz")
+  install.packages(c("TSP", "gtools", "PairViz", "zenplots"))
+  zenplots::zenplot(matrix(rnorm(100), ncol = 5))
+  # => after the plot window is opened and the plot finished, close the
+  plot window. Check the R process. Under Mac, I see:
+
+   *** caught segfault ***
+  address 0x18, cause 'memory not mapped'
+
+  Possible actions:
+  1: abort (with core dump, if enabled)
+  2: normal R exit
+  3: exit R without saving workspace
+  4: exit R saving workspace
+
+- rownames of 'x' are lost after burst (maybe force it on every column?)
+  *might* be a problem for time series
+- Maybe we can speed-up the computation of a full Eulerian and (thus?) avoid the
+  dependence on 'graph' and 'PairViz'?
+- Fix all *_*_loon functions (see grid/graphics) for the use of 'loc' etc.
+- Fix/adapt intro.Rmd + write paper (use cross2d() for showing ACFs and CCFs)
+
+
+### New ideas/features #########################################################
+
+- layout() (base graphics) has a limit of 10007 plots, see ?layout.
+  pairs() doesn't have this limit, it uses par(mfrow =
+  c(length(horInd), length(verInd))) instead. But we can't do that
+  because width1d and width2d would not be respected then.
+  (Even if so, we would loop over all rows and columns and figure out
+  which plots contain which variables or work with par(mfg = ...) to
+  plot in the right plot -- but that only works if all plots have the
+  same scales ("global"))
+- write gridMerge which essentially builds gTree(children = gList(plot1call, plot2call))
+- be able to write plot1d = list(fun = c("hist", "density", "label"),
+                                 args = list(fun1 = , fun2 = , fun3 = ))
+  and get overlaid 1d plots (same for 2d)
