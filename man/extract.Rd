@@ -1,6 +1,6 @@
 \name{extract}
-\alias{extract_1d}
-\alias{extract_2d}
+%\alias{extract_1d}
+%\alias{extract_2d}
 \title{Extracting Information from Zen Arguments}
 \description{
   Auxiliary functions to extract information from zargs for 1d and 2d

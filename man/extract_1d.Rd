@@ -7,22 +7,34 @@
 extract_1d(zargs)
 }
 \arguments{
-\item{zargs}{The argument list as passed from zenplot(); this must at least
-contain 'x', 'orientations', 'vars', 'num', 'lim' and 'labs'.}
+\item{zargs}{The argument list as passed from \code{\link{zenplot}()}.
+This must at least contain \code{x}, \code{orientations},
+\code{vars}, \code{num}, \code{lim} and \code{labs};  
+see \code{\link{zenplot}()} for an explanation of these variables.}
 }
 \value{
-A list with
-        - the data x to plot in the 1d plot;
-        - a list with all columns of x;
-        - the group numbers (for each column of x);
-        - the variable numbers (for each column of x);
-        - the group labels (for each column of x);
-        - the variable labels (for each column of x);
-        - horizontal (logical);
-        - the (x-)axis limits
+A list \code{\link{list}} with 
+    \describe{
+       \item{\code{x}:}{the data to be plotted in the 1d plot}
+       \item{\code{xcols}:}{a list with all columns of \code{x}}
+       \item{\code{groups}:}{the group numbers for each column of \code{x}}
+       \item{\code{vars}:}{the variable numbers for each column of \code{x}}
+       \item{\code{glabs}:}{the group labels for each column of \code{x}}
+       \item{\code{vlabs}:}{the variable labels for each column of \code{x}}
+       \item{\code{horizontal}:}{a \code{\link{logical}} indicating
+                                 whether the plot is horizontal or vertical, and}
+       \item{\code{xlim}:}{the axis limits.}
+       }
 }
 \description{
 Extracting information for our default/provided plot1d()
+}
+\details{
+This is an auxiliary function called on \code{zargs} within any
+         1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+         \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
+         to extract the 1d data from \code{zargs} needed for plotting.
+         For performance reasons, no checking of the input object is done.
 }
 \note{
 Performance critical
@@ -31,8 +43,11 @@ Performance critical
 Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
   \code{\link{burst}}, \code{\link{check_zargs}},
   \code{\link{extract_2d}}, \code{\link{plot_indices}}
+
+Other extracting information to build plots: \code{\link{extract_2d}}
 }
 \author{
-Marius Hofert
+Marius Hofert and Wayne Oldford
 }
+\concept{extracting information to build plots}
 \concept{tools for constructing your own plot1d and plot2d functions}

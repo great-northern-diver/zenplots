@@ -1,6 +1,7 @@
 zenplots.Rproj
 .DS_Store
 .gitignore
+.travis.yml
 .Rhistory
 .Rproj.user_pkgdown.yml
 ../.DS_Store

@@ -18,8 +18,7 @@ if \code{NULL}, \code{0:1} is used.}
 
 \item{y}{y data (only used if \code{is.null(ylim)}); if \code{NULL}, \code{0:1} is used.}
 
-\item{...}{additional arguments passed to the underlying 
-\code{\link{viewport}()}.}
+\item{...}{additional arguments passed to the underlying \code{\link{viewport}()}.}
 }
 \value{
 The \code{\link{viewport}}.
@@ -39,8 +38,6 @@ Ideas from dataViewport() and extendrange()
       stopifnot(0 <= ispace, ispace <= 1)
 }
 \seealso{
-\link{plots_grid}
-
 Other graphical tools: \code{\link{l_ispace_config}},
   \code{\link{na_omit_loon}}, \code{\link{plot_region}},
   \code{\link{zenarrow}}

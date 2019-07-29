@@ -7,22 +7,34 @@
 extract_2d(zargs)
 }
 \arguments{
-\item{zargs}{The argument list as passed from zenplot(); this must at least
-contain 'x', 'vars', 'num', 'lim' and 'labs'.}
+\item{zargs}{The argument list  as passed from \code{\link{zenplot}()}. 
+This must at least contain \code{x}, \code{vars}, \code{num}, \code{lim} and
+\code{labs} (for \code{extract_2d()});  see \code{\link{zenplot}()}
+for an explanation of these variables.}
 }
 \value{
-A list with
-        - the data x and y to plot in the 2d plot;
-        - a list with all columns of x;
-        - the group numbers (for each column of x);
-        - the variable numbers (for each column of x);
-        - the group labels (for each column of x);
-        - the variable labels (for each column of x);
-        - the x- and y-axis limits;
-        - a logical indicating whether x and y are in the same group
+A list \code{\link{list}} with 
+    \describe{
+       \item{\code{x} and \code{y}:}{the data to be plotted in the 2d plot}
+       \item{\code{xcols}:}{a list with all columns of \code{x}}
+       \item{\code{groups}:}{the group numbers for each column of \code{x}}
+       \item{\code{vars}:}{the variable numbers for each column of \code{x}}
+       \item{\code{glabs}:}{the group labels for each column of \code{x}}
+       \item{\code{vlabs}:}{the variable labels for each column of \code{x}}
+       \item{\code{xlim} and \code{ylim}:}{the x-axis and y-axis limits, and}
+       \item{\code{same.group}:}{a \code{\link{logical}} indicating
+       whether the x and y variables belong to the same group.}
+       }
 }
 \description{
 Extracting information for our default/provided plot2d()
+}
+\details{
+This is an auxiliary function called on \code{zargs} within any
+         1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+         \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
+         to extract the 1d data from \code{zargs} needed for plotting.
+         For performance reasons, no checking of the input object is done.
 }
 \note{
 Performance critical
@@ -31,8 +43,11 @@ Performance critical
 Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
   \code{\link{burst}}, \code{\link{check_zargs}},
   \code{\link{extract_1d}}, \code{\link{plot_indices}}
+
+Other extracting information to build plots: \code{\link{extract_1d}}
 }
 \author{
-Marius Hofert
+Marius Hofert and Wayne Oldford
 }
+\concept{extracting information to build plots}
 \concept{tools for constructing your own plot1d and plot2d functions}

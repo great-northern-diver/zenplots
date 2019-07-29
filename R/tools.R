@@ -51,7 +51,6 @@ zenarrow <- function(turn, angle = 80, length = 1, coord.scale = 1)
 ##' @param ylim y-axis limits
 ##' @param plot... arguments passed to the underlying \code{\link{plot}()}
 ##' @return \code{\link{invisible}()}
-##' @seealso  \code{\link{plots_graphics}}
 ##' @author Marius Hofert
 ##' @keywords dplot
 ##' @export
@@ -78,10 +77,8 @@ plot_region <- function(xlim, ylim, plot... = NULL)
 ##' @param x x data (only used if \code{is.null(xlim)});
 ##' if \code{NULL}, \code{0:1} is used.
 ##' @param y y data (only used if \code{is.null(ylim)}); if \code{NULL}, \code{0:1} is used.
-##' @param ... additional arguments passed to the underlying 
-##' \code{\link{viewport}()}.
+##' @param ... additional arguments passed to the underlying \code{\link{viewport}()}.
 ##' @return The \code{\link{viewport}}.
-##' @seealso \link{plots_grid}
 ##' @keywords dplot
 ##' @usage vport(ispace, xlim = NULL, ylim = NULL, x = NULL, y = NULL, ...)
 ##' @author Marius Hofert
@@ -608,7 +605,7 @@ as_numeric <- function(x)
 ##' @title Checking whether certain arguments appear in zargs
 ##' @family tools for constructing your own plot1d and plot2d functions
 ##' @param zargs The argument list as passed from zenplot()
-##' @param ... The arguments to check zargs for
+##' @param ... The arguments to be checked for presence in zargs
 ##' @return A logical indicating whether some arguments are missing in zargs
 ##' @author Marius Hofert
 ##' @export
@@ -625,18 +622,30 @@ check_zargs <- function(zargs, ...)
 
 ##' @title Extracting information for our default/provided plot1d()
 ##' @family tools for constructing your own plot1d and plot2d functions
-##' @param zargs The argument list as passed from zenplot(); this must at least
-##'        contain 'x', 'orientations', 'vars', 'num', 'lim' and 'labs'.
-##' @return A list with
-##'         - the data x to plot in the 1d plot;
-##'         - a list with all columns of x;
-##'         - the group numbers (for each column of x);
-##'         - the variable numbers (for each column of x);
-##'         - the group labels (for each column of x);
-##'         - the variable labels (for each column of x);
-##'         - horizontal (logical);
-##'         - the (x-)axis limits
-##' @author Marius Hofert
+##' @family extracting information to build plots
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}.
+##'        This must at least contain \code{x}, \code{orientations},
+##'        \code{vars}, \code{num}, \code{lim} and \code{labs};  
+##'        see \code{\link{zenplot}()} for an explanation of these variables.
+##' @return A list \code{\link{list}} with 
+##'     \describe{
+##'        \item{\code{x}:}{the data to be plotted in the 1d plot}
+##'        \item{\code{xcols}:}{a list with all columns of \code{x}}
+##'        \item{\code{groups}:}{the group numbers for each column of \code{x}}
+##'        \item{\code{vars}:}{the variable numbers for each column of \code{x}}
+##'        \item{\code{glabs}:}{the group labels for each column of \code{x}}
+##'        \item{\code{vlabs}:}{the variable labels for each column of \code{x}}
+##'        \item{\code{horizontal}:}{a \code{\link{logical}} indicating
+##'                                  whether the plot is horizontal or vertical, and}
+##'        \item{\code{xlim}:}{the axis limits.}
+##'        }
+##' 
+##' @details This is an auxiliary function called on \code{zargs} within any
+##'          1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
+##'          to extract the 1d data from \code{zargs} needed for plotting.
+##'          For performance reasons, no checking of the input object is done.
+##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export
 extract_1d <- function(zargs)
@@ -714,18 +723,30 @@ extract_1d <- function(zargs)
 
 ##' @title Extracting information for our default/provided plot2d()
 ##' @family tools for constructing your own plot1d and plot2d functions
-##' @param zargs The argument list as passed from zenplot(); this must at least
-##'        contain 'x', 'vars', 'num', 'lim' and 'labs'.
-##' @return A list with
-##'         - the data x and y to plot in the 2d plot;
-##'         - a list with all columns of x;
-##'         - the group numbers (for each column of x);
-##'         - the variable numbers (for each column of x);
-##'         - the group labels (for each column of x);
-##'         - the variable labels (for each column of x);
-##'         - the x- and y-axis limits;
-##'         - a logical indicating whether x and y are in the same group
-##' @author Marius Hofert
+##' @family extracting information to build plots
+##' @param zargs The argument list  as passed from \code{\link{zenplot}()}. 
+##'         This must at least contain \code{x}, \code{vars}, \code{num}, \code{lim} and
+##'         \code{labs} (for \code{extract_2d()});  see \code{\link{zenplot}()}
+##'         for an explanation of these variables.
+##' @return A list \code{\link{list}} with 
+##'     \describe{
+##'        \item{\code{x} and \code{y}:}{the data to be plotted in the 2d plot}
+##'        \item{\code{xcols}:}{a list with all columns of \code{x}}
+##'        \item{\code{groups}:}{the group numbers for each column of \code{x}}
+##'        \item{\code{vars}:}{the variable numbers for each column of \code{x}}
+##'        \item{\code{glabs}:}{the group labels for each column of \code{x}}
+##'        \item{\code{vlabs}:}{the variable labels for each column of \code{x}}
+##'        \item{\code{xlim} and \code{ylim}:}{the x-axis and y-axis limits, and}
+##'        \item{\code{same.group}:}{a \code{\link{logical}} indicating
+##'        whether the x and y variables belong to the same group.}
+##'        }
+##' 
+##' @details This is an auxiliary function called on \code{zargs} within any
+##'          1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
+##'          to extract the 1d data from \code{zargs} needed for plotting.
+##'          For performance reasons, no checking of the input object is done.
+##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export
 extract_2d <- function(zargs)

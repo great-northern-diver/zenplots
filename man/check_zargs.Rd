@@ -9,7 +9,7 @@ check_zargs(zargs, ...)
 \arguments{
 \item{zargs}{The argument list as passed from zenplot()}
 
-\item{...}{The arguments to check zargs for}
+\item{...}{The arguments to be checked for presence in zargs}
 }
 \value{
 A logical indicating whether some arguments are missing in zargs
