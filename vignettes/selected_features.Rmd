@@ -14,12 +14,17 @@ This vignette accompanies the paper "Zigzag expanded navigation plots in R: The 
 Note that sections are numbered accordingly (or omitted). Furthermore, it is
 recommended to read the paper to follow this vignette.
 
+```{r setup, message = FALSE}
+# attaching required packages
+library(PairViz)
+library(MASS)
+library(zenplots)
+```
 
 ## 2 Zenplots
 
 As example data, we use the `olive` data set:
 ```{r, message = FALSE}
-library(zenplots)
 data(olive)
 ```
 

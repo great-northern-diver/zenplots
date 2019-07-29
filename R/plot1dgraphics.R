@@ -1,8 +1,13 @@
 ## Default 1d plot functions based on graphics
-
+library(graphics)
+library(stats)
 
 ##' @title Rug plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name rug_1d_graphics
+##' @aliases rug_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param length length of the rugs
@@ -13,6 +18,7 @@
 ##' @param ... additional arguments passed to segments()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rug_1d_graphics <- function(zargs,
                             loc = 0.5, length = 0.5, width = 1, col = par("fg"),
                             add = FALSE, plot... = NULL, ...)
@@ -54,7 +60,11 @@ rug_1d_graphics <- function(zargs,
 }
 
 ##' @title Dot plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name points_1d_graphics
+##' @aliases points_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param cex character expansion factor
@@ -63,6 +73,7 @@ rug_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 points_1d_graphics <- function(zargs,
                                loc = 0.5, cex = 0.4,
                                add = FALSE, plot... = NULL, ...)
@@ -99,7 +110,11 @@ points_1d_graphics <- function(zargs,
 }
 
 ##' @title Jittered dot plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name jitter_1d_graphics
+##' @aliases jitter_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param offset number in [0,0.5] determining how far off the center
@@ -110,6 +125,7 @@ points_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 jitter_1d_graphics <- function(zargs,
                                loc = 0.5, offset = 0.25, cex = 0.4,
                                add = FALSE, plot... = NULL, ...)
@@ -122,7 +138,11 @@ jitter_1d_graphics <- function(zargs,
 }
 
 ##' @title Histogram as 1d plot
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name hist_1d_graphics
+##' @aliases hist_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param breaks see ?hist; the default is 20 equi-width bins covering the data range
 ##' @param length.out number of break points if breaks = NULL
 ##' @param col vector of colors for the bars or bar components; see ?barplot
@@ -132,8 +152,10 @@ jitter_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to barplot()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 hist_1d_graphics <- function(zargs,
                              breaks = NULL, length.out = 21, col = NULL,
+                             axes = FALSE, add = TRUE,
                              plot... = NULL, ...)
 {
     r <- extract_1d(zargs)
@@ -165,12 +187,16 @@ hist_1d_graphics <- function(zargs,
         ## Plotting
         plot_region(xlim = xlim, ylim = ylim, plot... = plot...) # plot region; uses xlim, ylim
         barplot(heights, width = widths, space = 0, horiz = !horizontal,
-                main = "", xlab = "", col = col, border = col, add = TRUE, axes = FALSE, ...)
+                main = "", xlab = "", col = col, border = col, add = add, axes = axes, ...)
     }
 }
 
 ##' @title Density plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name density_1d_graphics
+##' @aliases density_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param density... list of arguments for density()
 ##' @param offset number in [0, 0.5] determining how far away the density stays
 ##'        from the plot margins (for creating space between the two)
@@ -179,6 +205,7 @@ hist_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to polygon()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_1d_graphics <- function(zargs,
                                 density... = NULL, offset = 0.08,
                                 add = FALSE, plot... = NULL, ...)
@@ -233,7 +260,11 @@ density_1d_graphics <- function(zargs,
 }
 
 ##' @title Box plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name boxplot_1d_graphics
+##' @aliases boxplot_1d_graphics
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param cex The character expansion factor
 ##' @param range A numerical value which determines how far the plot whiskers extend.
 ##'        If NULL, the whiskers (range) grows with sample size.
@@ -242,6 +273,7 @@ density_1d_graphics <- function(zargs,
 ##' @param ... Additional arguments passed to boxplot()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 boxplot_1d_graphics <- function(zargs,
                                 cex = 0.4, range = NULL, axes = FALSE,
                                 add = FALSE, ...)
@@ -260,7 +292,11 @@ boxplot_1d_graphics <- function(zargs,
 }
 
 ##' @title Arrow plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name arrow_1d_graphics
+##' @aliases arrow_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param angle angle in [0, 180]
@@ -270,6 +306,7 @@ boxplot_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to segments()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_1d_graphics <- function(zargs,
                               loc = c(0.5, 0.5), angle = 60, length = 0.6,
                               add = FALSE, plot... = NULL, ...)
@@ -303,7 +340,11 @@ arrow_1d_graphics <- function(zargs,
 }
 
 ##' @title Rectangle plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name rect_1d_graphics
+##' @aliases rect_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param width width of the rectangle (when viewed in walking direction)
@@ -313,6 +354,7 @@ arrow_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to lines()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_1d_graphics <- function(zargs,
                              loc = c(0.5, 0.5), width = 1, height = 1,
                              add = FALSE, plot... = NULL, ...)
@@ -344,7 +386,11 @@ rect_1d_graphics <- function(zargs,
 }
 
 ##' @title Line plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name lines_1d_graphics
+##' @aliases lines_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param length length of the line (in [0,1])
@@ -353,6 +399,7 @@ rect_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to lines()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 lines_1d_graphics <- function(zargs,
                               loc = c(0.5, 0.5), length = 1,
                               add = FALSE, plot... = NULL, ...)
@@ -384,7 +431,11 @@ lines_1d_graphics <- function(zargs,
 }
 
 ##' @title Label plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 1d plot functions using R's base graphics
+##' @family default 1d plot functions
+##' @name label_1d_graphics
+##' @aliases label_1d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param label label to be used
@@ -394,6 +445,7 @@ lines_1d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to text() and box()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_1d_graphics <- function(zargs,
                               loc = c(0.5, 0.5), label = NULL, box = FALSE,
                               add = FALSE, plot... = NULL, ...)
@@ -427,7 +479,7 @@ label_1d_graphics <- function(zargs,
 }
 
 ##' @title Layout plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_1d_graphics()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford

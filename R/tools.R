@@ -1,12 +1,15 @@
 ### Graphical tools ############################################################
-
+library(graphics)
 ##' @title Defining an arrow
-##' @param turn The direction in which the arrow shall point ("l", "r", "d", "u")
+##' @family graphical tools
+##' @param turn The direction in which the arrow will point ("l", "r", "d", "u")
 ##' @param length The length of the arrow in [0,1] from tip to base
 ##' @param angle The angle
+##' @param coord.scale Scale the coordinates of the arrow
 ##' @return A 3-column matrix containing the (x,y) coordinates of the left
 ##'         edge end point, the arrow head and the right edge end point
 ##' @author Marius Hofert
+##' @export
 zenarrow <- function(turn, angle = 80, length = 1, coord.scale = 1)
 {
     stopifnot(0 <= angle, angle <= 180)
@@ -37,12 +40,21 @@ zenarrow <- function(turn, angle = 80, length = 1, coord.scale = 1)
     cbind(left = left, head = head, right = right) # (2, 3)-matrix
 }
 
-##' @title Function to set up plot region for graphics plots
+##' @title Function to set up the plot region for graphics plots
+##' @family graphical tools
+##' @description Auxiliary function for setting up the plot region 
+##' of 1d and 2d graphics plots.
+##' @details  This is an auxiliary function used by the 
+##' provided \pkg{graphics}-related 1d and 2d plots.
+##' @usage plot_region(xlim, ylim, plot... = NULL)
 ##' @param xlim x-axis limits
 ##' @param ylim y-axis limits
-##' @param plot... arguments passed to the underlying 'plot()'
-##' @return invisible()
+##' @param plot... arguments passed to the underlying \code{\link{plot}()}
+##' @return \code{\link{invisible}()}
+##' @seealso  \code{\link{plots_graphics}}
 ##' @author Marius Hofert
+##' @keywords dplot
+##' @export
 plot_region <- function(xlim, ylim, plot... = NULL)
 {
     if(is.null(plot...)) {
@@ -53,19 +65,31 @@ plot_region <- function(xlim, ylim, plot... = NULL)
     }
 }
 
-##' @title Constructing the viewports for grid functions
-##' @param ispace inner space (in [0,1])
-##' @param xlim x-axis limits; if NULL, the data limits are used
-##' @param ylim y-axis limits; if NULL, the data limits are used
-##' @param x x data (only used if is.null(xlim)); if NULL, 0:1 is used
-##' @param y y data (only used if is.null(ylim)); if NULL, 0:1 is used
-##' @param ... Additional arguments passed to the underlying viewport()
-##' @return The viewport
+##' @title Viewport Constructing Function for Grid Functions
+##' @family graphical tools
+##' @name vport
+##' @description  Auxiliary function for constructing viewports 
+##' for 1d and 2d (default) plots.
+##' @details This is an auxiliary function used by the provided 
+##' \pkg{grid}-related 1d and 2d plots.
+##' @param ispace inner space (in \eqn{[0,1]}))
+##' @param xlim x-axis limits; if  \code{NULL}, the data limits are used.
+##' @param ylim y-axis limits; if  \code{NULL}, the data limits are used.
+##' @param x x data (only used if \code{is.null(xlim)});
+##' if \code{NULL}, \code{0:1} is used.
+##' @param y y data (only used if \code{is.null(ylim)}); if \code{NULL}, \code{0:1} is used.
+##' @param ... additional arguments passed to the underlying 
+##' \code{\link{viewport}()}.
+##' @return The \code{\link{viewport}}.
+##' @seealso \link{plots_grid}
+##' @keywords dplot
+##' @usage vport(ispace, xlim = NULL, ylim = NULL, x = NULL, y = NULL, ...)
 ##' @author Marius Hofert
 ##' @note Ideas from dataViewport() and extendrange()
 ##'       Omitted check:
 ##'       if(length(ispace) != 4) ispace <- rep(ispace, length.out = 4)
 ##'       stopifnot(0 <= ispace, ispace <= 1)
+##' @export
 vport <- function(ispace, xlim = NULL, ylim = NULL, x = NULL, y = NULL, ...)
 {
   if(is.null(xlim) && is.null(ylim) && is.null(x) && is.null(y)) {
@@ -96,6 +120,7 @@ l_is_plot <- function (plot) grepl("plot", plot)
 l_is_hist <- function (plot) grepl("hist", plot)
 
 ##' @title Helper function to remove NAs for loon plots
+##' @family graphical tools
 ##' @param x The vector of x values (required)
 ##' @param y The vector of y values (optional) of the same length as x;
 ##'        if NULL then it's ignored.
@@ -106,6 +131,7 @@ l_is_hist <- function (plot) grepl("hist", plot)
 ##' @return A list(x, y, linkingKey, itemLabel) where any NA in x or y will
 ##'         have been omitted from all
 ##' @author R. W. Oldford
+##' @export
 na_omit_loon <- function(x, y = NULL, linkingKey = NULL, itemLabel = NULL)
 {
     if (missing(x)) stop("x must be provided")
@@ -134,6 +160,7 @@ na_omit_loon <- function(x, y = NULL, linkingKey = NULL, itemLabel = NULL)
 }
 
 ##' @title Configuring a loon plot to accommodate ispace
+##' @family graphical tools
 ##' @param baseplot The plot to be modified
 ##' @param ispace The inner space (in [0,1])
 ##' @param x The x data
@@ -143,6 +170,7 @@ na_omit_loon <- function(x, y = NULL, linkingKey = NULL, itemLabel = NULL)
 ##' @param ... Additional arguments passed to loon::l_configure
 ##' @return The baseplot
 ##' @author R. W. Oldford
+##' @export
 l_ispace_config <- function(baseplot, ispace = NULL,
                             x = NULL, y = NULL, xlim = NULL, ylim = NULL, ...)
 {
@@ -186,10 +214,34 @@ l_ispace_config <- function(baseplot, ispace = NULL,
 ### Technical tools ############################################################
 
 ##' @title Converting an Occupancy Matrix
-##' @param x an occupancy matrix
-##' @param to symbols being mapped to by the occupancy matrix
-##' @return matrix of encoded entries of the occupancy matrix
+##' @description Convert an occupancy matrix to matrix with different symbols.
+##' @family zenplot technical tools
+##' @param x an occupancy \code{\link{matrix}} consisting of the
+##'        \code{\link{character}} \code{""} (unoccupied), \code{"l"} (left),
+##'        \code{"r"} (right), \code{"d"} (down) or \code{"u"} (up) as returned by
+##'        \code{\link{zenplot}()}.
+##' @param to a \code{\link{vector}} of symbols to which \code{""}, 
+##'        \code{"l"}, \code{"r"}, \code{"d"} and \code{"u"}
+##'        should be mapped.
+##' @return \code{\link{matrix}} as the occupancy matrix but with entries replaced
+##'        by those in \code{to}.
 ##' @author Marius Hofert
+##' @export
+##' @examples 
+##' ## Generate some data
+##' n <- 1000 # sample size
+##' d <- 20 # dimension
+##' set.seed(271) # set seed (for reproducibility)
+##' x <- matrix(rnorm(n * d), ncol = d) # i.i.d. N(0,1) data
+##' 
+##' ## Extract the occupancy matrix from a zenplot
+##' res <- zenplot(x)
+##' (occ <- res[["path"]][["occupancy"]])
+##' 
+##' ## Convert the occupancy matrix
+##' convert_occupancy(occ)
+##' @keywords utilities
+##' 
 convert_occupancy <- function(x, to = c("", "<", ">", "v", "^"))
 {
     stopifnot(x %in% c("", "l", "r", "d", "u"), length(to) == 5)
@@ -202,10 +254,12 @@ convert_occupancy <- function(x, to = c("", "<", ">", "v", "^"))
 }
 
 ##' @title Auxiliary Function for Constructing Default n2dcols
+##' @family zenplot technical tools
 ##' @param n2dplots The number of variates (= nfaces)
 ##' @param method One of "letter", "square", "A4", "golden", "legal"
 ##' @return An odd integer for n2dcols
 ##' @author Wayne Oldford
+##' @export
 n2dcols_aux <- function(n2dplots, method = c("letter", "square", "A4", "golden", "legal"))
 {
     method <- match.arg(method)
@@ -228,12 +282,14 @@ n2dcols_aux <- function(n2dplots, method = c("letter", "square", "A4", "golden",
 }
 
 ##' @title Check the Turns (Number/Type)
+##' @family zenplot technical tools
 ##' @param turns The turns
 ##' @param n2dplots The number of 2d plots
 ##' @param first1d A logical indicating whether the first 1d plot should be plotted
 ##' @param last1d A logical indicating whether the last 1d plot should be plotted
 ##' @return TRUE (unless it fails)
 ##' @author Marius Hofert
+##' @export
 turn_checker <- function(turns, n2dplots, first1d, last1d)
 {
     ## Check the type of the turns
@@ -249,9 +305,11 @@ turn_checker <- function(turns, n2dplots, first1d, last1d)
 }
 
 ##' @title Check Argument for Being a Vector, Matrix, Data Frame or a List of such
+##' @family zenplot technical tools
 ##' @param x A vector, matrix, data.frame or list of such
 ##' @return A logical indicating whether x is of the above type
 ##' @author Marius Hofert
+##' @export
 is.standard <- function(x) {
     if(!is.vector(x, mode = "list")) { # has to be a vector, matrix or data.frame
         is.vector(x) || is.matrix(x) || is.data.frame(x)
@@ -261,9 +319,11 @@ is.standard <- function(x) {
 }
 
 ##' @title Determine the number of columns if is.standard(x)
+##' @family zenplot technical tools
 ##' @param x A numeric vector, matrix, data.frame or a list of such.
 ##' @return The number of data columns of 'x'
 ##' @author Marius Hofert
+##' @export
 num_cols <- function(x)
 {
     if(!is.standard(x))
@@ -279,17 +339,29 @@ num_cols <- function(x)
 
 ### Tools for constructing your own plot1d and plot2d functions ################
 
-##' @title Determining the indices of the x and y variables of the current plot
-##' @param zargs The argument list as passed from zenplot().
-##' @return A vector of length two giving the plot variables (integers)
+##' @title Plot Indices of the Current Plot
+##' @family tools for constructing your own plot1d and plot2d functions
+##' @description Determining the indices of the x and y variables of the current plot
+##' @details This is an auxiliary function useful, for example, when writing
+##' user-provided 1d and 2d plot functions.
+##' @keywords datagen
+##' @usage plot_indices(zargs)
+##' @param zargs argument list as passed from \code{\link{zenplot}()}.
+##' This must at least contain \code{vars} and \code{num}; see
+##' \code{\link{zenplot}()} for an explanation of these variables..
+##' @return A \code{numeric(2)} containing the indices of the x and y variables to
+##' be plotted in the current plot (the plot with number \code{num}). If
+##' the current plot is a 2d plot, the same variable is used twice.
 ##' @author Marius Hofert
 ##' @note This is exported so that one doesn't always have to figure
 ##'       out whether the variables (axes) in the current plot need
 ##'       to be switched manually.
+##' @export
 plot_indices <- function(zargs)
     zargs$vars[zargs$num,] # access 2-column matrix of plot variables at current plot number
 
 ##' @title Auxiliary function for burst()
+##' @family tools for constructing your own plot1d and plot2d functions
 ##' @param x A vector, matrix or data.frame (or a (pure) list, but that we don't use here)
 ##' @param labs The variable labels:
 ##'        - if NULL, no labels are used
@@ -304,6 +376,7 @@ plot_indices <- function(zargs)
 ##'         ugly but we have to use them here as we cannot
 ##'         determine whether they were assigned automatically or
 ##'         on purpose.
+##' @export
 burst_aux <- function(x, labs = "V")
 {
     ## Construct labels
@@ -330,23 +403,92 @@ burst_aux <- function(x, labs = "V")
     x # return
 }
 
-##' @title Auxiliary function for checking and converting the data argument of zenplot()
-##' @param x A numeric vector, matrix, data.frame or a list of such
-##' @param labs A list with components
-##'        'group': the label names for group labels (or NULL for no group labels)
-##'        'var': the variable labels (or NULL for no variable labels)
-##'        'sep': the separator between group and variable labels
-##'        'group2d': a logical indicating whether labels of group_2d_*() plots
-##'                   are affected by 'group = NULL' (or still printed)
-##'        If labs = NULL, neither group nor variable labels are used
-##' @return A list with components
-##'         'xcols': a list containing the column vectors of x
-##'         'groups': the group number for each column of x
-##'         'vars': the variable number (within each group) for each column of x
-##'         'glabs': the group label for each column of x
-##'         'labs': the group and variable labels for each column of x
+##' @title Splitting an Input Object into a List of Columns
+##' @family tools for constructing your own plot1d and plot2d functions
+##' @description Splits a (numeric/logical/character) vector, matrix, 
+##' data.frame or a list of such into a list of columns, with corresponding 
+##' group and variable information as well as labels.  
+##' This is an auxiliary function for checking and converting the data argument of zenplot().
+##' @usage burst(x, labs = list())
+##' @param x A \code{\link{numeric}} \code{\link{vector}}, \code{\link{matrix}},
+##' \code{\link{data.frame}} or, for \code{burst()}, a \code{\link{list}} of such.
+##' @param labs Either \code{\link{NULL}} 
+##' (in which case neither group nor variable labels are used or computed) or 
+##' a list with components
+##' 
+##'        \code{group} - the group label basename or labels for the groups 
+##'                      (or \code{\link{NULL}} for no group labels)
+##'        
+##'        \code{var} - the variable label basename or labels for the variables 
+##'        (or \code{\link{NULL}} for no variable labels)
+##'        
+##'        \code{sep} - the string used as the separator between group and 
+##'        variable labels
+##'        
+##'        \code{group2d} - a \code{\link{logical}} indicating whether labels of 
+##'        \code{group_2d_*()} plots are affected by \code{group = NULL} (or printed anyway)
+##'            
+##' If any of these components is not given, it is set to the defaults as described in
+##' \code{\link{zenplot}()}. 
+##' Note that if at least one (group or variable) label is given in \code{x}, 
+##' then those (original) labels will be used.       
+##' If labs = NULL, neither group nor variable labels are used.
+##' 
+##' @return A \code{\link{list}} with components
+##' 
+##'          \code{xcols} - a list containing the column vectors of  \code{x}
+##'          
+##'          \code{groups} - the group number for each column of  \code{x}
+##'          
+##'          \code{vars} - the variable number (within each group) for each column of  \code{x}
+##'          
+##'          \code{glabs} - the group label for each column of  \code{x}
+##'          
+##'          \code{labs} - the group and variable labels for each column of  \code{x}
+##' @examples 
+##' ## Unnamed list of (some named, some unnamed) valid components
+##' A <- matrix(1:12, ncol = 3)
+##' x <- list(A, 1:4, as.data.frame(A))
+##' 
+##' burst(x, labs = list(group = "G", var = "V", sep = ", "))
+##' burst(x) # the same defaults as above
+##' burst(x, labs = list(sep = " ")) # only changing the separator
+##' ## Note: - No group labels are given in 'x' and thus they are constructed
+##' ##         in the above call
+##' ##        - The variable names are only constructed if not given
+##' 
+##' burst(x, labs = list(group = ""))
+##' burst(x, labs = list(group = NULL, group2d = TRUE)) # no group labels
+##' ##  Note: There's no effect of 'group2d = TRUE' visible here as
+##' ##        'x' doesn't contain group labels
+##' 
+##' burst(x, labs = list(group = NULL)) # no group labels unless groups change
+##' burst(x, labs = list(var = NULL)) # no variable labels
+##' burst(x, labs = list(group = NULL, var = NULL)) # neither one
+##' burst(x, labs = NULL) # similarly, without any labels at all
+##' 
+##' ##  Named list
+##' x <- list(mat = A, vec = 1:4, df = as.data.frame(A))
+##' burst(x)
+##' ##  Note: - The given group labels are used
+##' ##        - The variable names are only constructed if not given
+##' 
+##' burst(x, labs = list(group = NULL, group2d = TRUE)) # no group labels
+##' burst(x, labs = list(group = NULL)) # no group labels unless groups change
+##' ##  Note: Now the effect of 'group2d' is visible.
+##' 
+##' ##  Partially named list
+##' x <- list(mat = A, vec = 1:4, as.data.frame(A))
+##' burst(x)
+##' burst(x, labs = list(group = NULL, group2d = TRUE)) # no group labels
+##' burst(x, labs = list(group = NULL)) # no group labels unless groups change
+##' burst(x, labs = list(var = NULL)) # no variable labels
+##' burst(x, labs = list(group = NULL, var = NULL)) # only group labels and only if groups change
+##' burst(x, labs = NULL) # neither group nor variable labels
+##' @keywords datagen
 ##' @author Marius Hofert
 ##' @note Performance critical
+##' @export
 burst <- function(x, labs = list())
 {
     ## Checks
@@ -464,10 +606,12 @@ as_numeric <- function(x)
     })
 
 ##' @title Checking whether certain arguments appear in zargs
+##' @family tools for constructing your own plot1d and plot2d functions
 ##' @param zargs The argument list as passed from zenplot()
 ##' @param ... The arguments to check zargs for
 ##' @return A logical indicating whether some arguments are missing in zargs
 ##' @author Marius Hofert
+##' @export
 check_zargs <- function(zargs, ...)
 {
     args <- list(...)
@@ -480,6 +624,7 @@ check_zargs <- function(zargs, ...)
 }
 
 ##' @title Extracting information for our default/provided plot1d()
+##' @family tools for constructing your own plot1d and plot2d functions
 ##' @param zargs The argument list as passed from zenplot(); this must at least
 ##'        contain 'x', 'orientations', 'vars', 'num', 'lim' and 'labs'.
 ##' @return A list with
@@ -493,6 +638,7 @@ check_zargs <- function(zargs, ...)
 ##'         - the (x-)axis limits
 ##' @author Marius Hofert
 ##' @note Performance critical
+##' @export
 extract_1d <- function(zargs)
 {
     ## Checks
@@ -567,6 +713,7 @@ extract_1d <- function(zargs)
 }
 
 ##' @title Extracting information for our default/provided plot2d()
+##' @family tools for constructing your own plot1d and plot2d functions
 ##' @param zargs The argument list as passed from zenplot(); this must at least
 ##'        contain 'x', 'vars', 'num', 'lim' and 'labs'.
 ##' @return A list with
@@ -580,6 +727,7 @@ extract_1d <- function(zargs)
 ##'         - a logical indicating whether x and y are in the same group
 ##' @author Marius Hofert
 ##' @note Performance critical
+##' @export
 extract_2d <- function(zargs)
 {
     ## Checks

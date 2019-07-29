@@ -1,8 +1,12 @@
+.DS_Store
 */.DS_Store
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+.Rproj.user
+zenplots.Rproj
+*.tar.gz
 src/*.o
 src/*.so
 src/*.dll

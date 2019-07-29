@@ -1,8 +1,13 @@
 ## Default 2d plot functions based on graphics
-
+library(graphics)
+library(MASS) # for kde2d
 
 ##' @title Plot of labels indicating adjacent groups
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name group_2d_graphics
+##' @aliases group_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param glabs group labels being indexed by the plot variables
 ##'        (and thus of length as the number of variables);
 ##'        if NULL then they are determined with extract_2d()
@@ -13,9 +18,10 @@
 ##' @param plot... additional arguments passed to plot_region()
 ##' @param ... additional arguments passed to text()
 ##' @return invisible()
-##' @author Marius Hofert
+##' @author Marius Hofert and Wayne Oldford
 ##' @note For performance reasons (avoiding having to call extract_2d() twice),
 ##'       'glabs' is an extra argument
+##' @export
 group_2d_graphics <- function(zargs,
                               glabs = NULL, sep = "\n", loc = c(0.5, 0.5),
                               add = FALSE, plot... = NULL, ...)
@@ -42,7 +48,11 @@ group_2d_graphics <- function(zargs,
 }
 
 ##' @title Point plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name points_2d_graphics
+##' @aliases points_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param cex character expansion factor
 ##' @param box logical indicating whether a box should be drawn
 ##' @param add logical indicating whether this plot should be added to the last one
@@ -51,6 +61,7 @@ group_2d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 points_2d_graphics <- function(zargs,
                                cex = 0.4, box = FALSE,
                                add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -72,7 +83,11 @@ points_2d_graphics <- function(zargs,
 }
 
 ##' @title Q-Q plot in 2d (two data sets against each other)
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name qq_2d_graphics
+##' @aliases qq_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param do.line logical indicating whether a line is drawn (through both
 ##'        empirical c(0.25, 0.75)-quantiles)
 ##' @param lines... additional arguments passed to lines()
@@ -85,6 +100,7 @@ points_2d_graphics <- function(zargs,
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note line iff both margins are of the same *type*
+##' @export
 qq_2d_graphics <- function(zargs,
                            do.line = TRUE, lines... = NULL, cex = 0.4, box = FALSE,
                            add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -123,7 +139,11 @@ qq_2d_graphics <- function(zargs,
 }
 
 ##' @title Density plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name density_2d_graphics
+##' @aliases density_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ngrids number of grid points in each dimension.
 ##'        Can be scalar or a length-2 integer vector.
 ##' @param drawlabels logical indicating whether the contours should be labelled
@@ -134,6 +154,7 @@ qq_2d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_2d_graphics <- function(zargs,
                                 ngrids = 25, drawlabels = FALSE,
                                 axes = FALSE, box = FALSE,
@@ -158,7 +179,11 @@ density_2d_graphics <- function(zargs,
 }
 
 ##' @title Axes arrows in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name axes_2d_graphics
+##' @aliases axes_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param length length of the arrow head
 ##' @param eps distance by which the axes are moved away from the plot region
 ##' @param code integer code determining the kind of arrows to be drawn; see ?arrows
@@ -166,11 +191,12 @@ density_2d_graphics <- function(zargs,
 ##'        takes place; see ?par
 ##' @param add logical indicating whether this plot should be added to the last one
 ##' @param group... list of arguments passed to group_2d_graphics (or NULL)
-##' @param plot...
+##' @param plot... additional arguments passed to plot_region() 
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html
+##' @export
 axes_2d_graphics <- function(zargs,
                              length = 0.1, eps = 0.04, code = 2, xpd = NA,
                              add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -194,7 +220,11 @@ axes_2d_graphics <- function(zargs,
 }
 
 ##' @title Arrow plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name arrow_2d_graphics
+##' @aliases arrow_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location (in (0,1)^2) of the center of the arrow
 ##' @param angle angle from the shaft to the edge of the arrow head
 ##' @param length length of the arrow in [0,1] from tip to base
@@ -204,6 +234,7 @@ axes_2d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_2d_graphics <- function(zargs,
                               loc = c(0.5, 0.5), angle = 60, length = 0.2,
                               add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -229,7 +260,11 @@ arrow_2d_graphics <- function(zargs,
 }
 
 ##' @title Rectangle plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name rect_2d_graphics
+##' @aliases rect_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location (in (0,1)^2) of the center of the rectangle
 ##' @param width width of the rectangle as a fraction of 1
 ##' @param height height of the rectangle as a fraction of 1
@@ -239,6 +274,7 @@ arrow_2d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to rect()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_2d_graphics <- function(zargs,
                              loc = c(0.5, 0.5), width = 1, height = 1,
                              add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -260,7 +296,11 @@ rect_2d_graphics <- function(zargs,
 }
 
 ##' @title Label plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @family default 2d plot functions using R's base graphics
+##' @family default 2d plot functions
+##' @name label_2d_graphics
+##' @aliases label_2d_graphics
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location (in (0,1)^2) of the center of the rectangle
 ##' @param label label to be used
 ##' @param adj x (and optionally y) adjustment of the label
@@ -271,6 +311,7 @@ rect_2d_graphics <- function(zargs,
 ##' @param ... additional arguments passed to rect()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_2d_graphics <- function(zargs,
                               loc = c(0.98, 0.05), label = NULL, adj = 1:0, box = FALSE,
                               add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -298,7 +339,7 @@ label_2d_graphics <- function(zargs,
 }
 
 ##' @title Layout plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_2d_graphics()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford

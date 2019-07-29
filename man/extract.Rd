@@ -44,11 +44,11 @@ extract_2d(zargs)
   For performance reasons, no checking of the input object is done.
 }
 \author{Marius Hofert}
-\seealso{
-  \code{\link{plots_graphics}},
-  \code{\link{plots_grid}},
-  \code{\link{plots_loon}}
-}
+%\seealso{
+% \code{\link{plots_graphics}},
+%  \code{\link{plots_grid}},
+%  \code{\link{plots_loon}}
+%}
 \examples{
 ## Dummy example (mimicking how zargs are built internally)
 set.seed(271)
