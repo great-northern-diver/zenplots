@@ -69,7 +69,7 @@ my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
                 }
 
 ## And now try it out
-zenplot(iris, plot1d = my_2d_plot)
+zenplot(iris, plot2d = my_2d_plot)
 }
 \seealso{
 Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},

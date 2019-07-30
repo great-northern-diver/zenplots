@@ -587,6 +587,7 @@ burst <- function(x, labs = list())
 ##'         can be plotted, etc.)
 ##' @author Marius Hofert
 ##' @note See plot.default -> xy.coords()
+##' @export
 as_numeric <- function(x)
     lapply(x, function(x.) {
         if (is.language(x.)) {
@@ -814,7 +815,7 @@ extract_1d <- function(zargs)
 ##'                 }
 ##' 
 ##' ## And now try it out
-##' zenplot(iris, plot1d = my_2d_plot)
+##' zenplot(iris, plot2d = my_2d_plot)
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export
