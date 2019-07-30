@@ -1,7 +1,12 @@
 addons:
   apt:
     packages:
-     - libgs10-dev
+     - mesa-common-dev
+     - libglu1-mesa-dev
+     - freeglut3-dev
+     - libssl-dev
+     - libcurl4-gnutls-dev
+     - libxml2-dev
      - xvfb
 
 sudo: false
