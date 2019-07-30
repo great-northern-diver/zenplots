@@ -1,6 +1,7 @@
 addons:
   apt:
     packages:
+     - libgs10-dev
      - xvfb
 
 sudo: false
