@@ -622,7 +622,8 @@ check_zargs <- function(zargs, ...)
 
 ##' @title Extracting information for our default/provided plot1d()
 ##' @family tools for constructing your own plot1d and plot2d functions
-##' @family extracting information to build plots
+##' @family data extraction functions to build plots
+##' @family default 1d plot functions
 ##' @param zargs The argument list as passed from \code{\link{zenplot}()}.
 ##'        This must at least contain \code{x}, \code{orientations},
 ##'        \code{vars}, \code{num}, \code{lim} and \code{labs};  
@@ -645,6 +646,42 @@ check_zargs <- function(zargs, ...)
 ##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
 ##'          to extract the 1d data from \code{zargs} needed for plotting.
 ##'          For performance reasons, no checking of the input object is done.
+##' @examples 
+##' ## This function is used within the default (any user defined) 
+##' ## 1d plots
+##' my_1d_plot <- function(zargs, your_name = "Bob", ...) {
+##'                    data_1d <- extract_1d(zargs)
+##'                    msg <- paste("Components of zargs available",
+##'                                 "to construct a 1d plot for ", 
+##'                                 your_name)
+##'                    print(msg)
+##'                    ## just print the names of the data components 
+##'                    ## which you might want to use in your plot
+##'                    print(names(data_1d))
+##'                    ## You might have to draw your 1d plot differently depending
+##'                    ## upon whether it is to appear horizontally or vertically
+##'                    if (data_1d$horizontal) {
+##'                           print("This plot would be horizontal")
+##'                           } else {
+##'                           print("This one would be vertical")
+##'                     }
+##'                     ## You can plot whatever you want using the information in
+##'                     ## could use any of these to construct any 1d plot you want
+##'                     ## using R's graphics or any of zemplot's built in 1d plots.
+##'                     ##
+##'                     ## For example, here we use zenplot's base graphics functions
+##'                     ## First a histogram
+##'                     hist_1d_graphics(zargs, ...)
+##'                     ## to which we add the variable label
+##'                     label_1d_graphics(zargs, add = TRUE, col = "red", ...)
+##'                     ## similar functions could be called for the other packages.
+##'                     ## You can print the source of anyone of the default functions
+##'                     ## to get some idea of managing details.
+##'                     }
+##' 
+##' ## And now try it out
+##' zenplot(iris[,1:3], plot1d = my_1d_plot)
+##' 
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export
@@ -723,7 +760,8 @@ extract_1d <- function(zargs)
 
 ##' @title Extracting information for our default/provided plot2d()
 ##' @family tools for constructing your own plot1d and plot2d functions
-##' @family extracting information to build plots
+##' @family data extraction functions to build plots
+##' @family default 2d plot functions
 ##' @param zargs The argument list  as passed from \code{\link{zenplot}()}. 
 ##'         This must at least contain \code{x}, \code{vars}, \code{num}, \code{lim} and
 ##'         \code{labs} (for \code{extract_2d()});  see \code{\link{zenplot}()}
@@ -746,6 +784,37 @@ extract_1d <- function(zargs)
 ##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
 ##'          to extract the 1d data from \code{zargs} needed for plotting.
 ##'          For performance reasons, no checking of the input object is done.
+##' @examples 
+##' ## This function is used within the default (any user defined) 
+##' ## 2d plot functions
+##' ##
+##' my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
+##'                    data_2d <- extract_2d(zargs)
+##'                    msg <- paste("Components of zargs available",
+##'                                 "to construct a 2d plot for ", 
+##'                                 your_name)
+##'                    print(msg)
+##'                    ## just print the names of the data components 
+##'                    ## which you might want to use in your plot
+##'                    print(names(data_2d))
+##'                 
+##'                    ## You can plot whatever you want using the information in
+##'                    ## could use any of these to construct any 1d plot you want
+##'                    ## using R's graphics or any of zemplot's built in 1d plots.
+##'                    ##
+##'                    ## For example, here we could use 
+##'                    ## use zenplot's base graphics functions
+##'                    ## First a scatterplot
+##'                    points_2d_graphics(zargs, ...)
+##'                    ## to which we overlay density contours
+##'                    density_2d_graphics(zargs, add = TRUE, col = "steelblue", ...)
+##'                    ## similar functions could be called for the other packages.
+##'                    ## You can print the source of anyone of the default functions
+##'                    ## to get some idea of managing details.
+##'                 }
+##' 
+##' ## And now try it out
+##' zenplot(iris, plot1d = my_2d_plot)
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export

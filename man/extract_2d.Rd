@@ -39,15 +39,66 @@ This is an auxiliary function called on \code{zargs} within any
 \note{
 Performance critical
 }
+\examples{
+## This function is used within the default (any user defined) 
+## 2d plot functions
+##
+my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
+                   data_2d <- extract_2d(zargs)
+                   msg <- paste("Components of zargs available",
+                                "to construct a 2d plot for ", 
+                                your_name)
+                   print(msg)
+                   ## just print the names of the data components 
+                   ## which you might want to use in your plot
+                   print(names(data_2d))
+                
+                   ## You can plot whatever you want using the information in
+                   ## could use any of these to construct any 1d plot you want
+                   ## using R's graphics or any of zemplot's built in 1d plots.
+                   ##
+                   ## For example, here we could use 
+                   ## use zenplot's base graphics functions
+                   ## First a scatterplot
+                   points_2d_graphics(zargs, ...)
+                   ## to which we overlay density contours
+                   density_2d_graphics(zargs, add = TRUE, col = "steelblue", ...)
+                   ## similar functions could be called for the other packages.
+                   ## You can print the source of anyone of the default functions
+                   ## to get some idea of managing details.
+                }
+
+## And now try it out
+zenplot(iris, plot1d = my_2d_plot)
+}
 \seealso{
 Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
   \code{\link{burst}}, \code{\link{check_zargs}},
   \code{\link{extract_1d}}, \code{\link{plot_indices}}
 
-Other extracting information to build plots: \code{\link{extract_1d}}
+Other data extraction functions to build plots: \code{\link{extract_1d}}
+
+Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
+  \code{\link{arrow_2d_grid}}, \code{\link{arrow_2d_loon}},
+  \code{\link{axes_2d_graphics}},
+  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
+  \code{\link{density_2d_graphics}},
+  \code{\link{density_2d_grid}},
+  \code{\link{density_2d_loon}},
+  \code{\link{group_2d_graphics}},
+  \code{\link{group_2d_grid}}, \code{\link{group_2d_loon}},
+  \code{\link{label_2d_graphics}},
+  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
+  \code{\link{points_2d_graphics}},
+  \code{\link{points_2d_grid}},
+  \code{\link{points_2d_loon}},
+  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
+  \code{\link{rect_2d_graphics}},
+  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
 }
 \author{
 Marius Hofert and Wayne Oldford
 }
-\concept{extracting information to build plots}
+\concept{data extraction functions to build plots}
+\concept{default 2d plot functions}
 \concept{tools for constructing your own plot1d and plot2d functions}

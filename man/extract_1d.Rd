@@ -39,15 +39,78 @@ This is an auxiliary function called on \code{zargs} within any
 \note{
 Performance critical
 }
+\examples{
+## This function is used within the default (any user defined) 
+## 1d plots
+my_1d_plot <- function(zargs, your_name = "Bob", ...) {
+                   data_1d <- extract_1d(zargs)
+                   msg <- paste("Components of zargs available",
+                                "to construct a 1d plot for ", 
+                                your_name)
+                   print(msg)
+                   ## just print the names of the data components 
+                   ## which you might want to use in your plot
+                   print(names(data_1d))
+                   ## You might have to draw your 1d plot differently depending
+                   ## upon whether it is to appear horizontally or vertically
+                   if (data_1d$horizontal) {
+                          print("This plot would be horizontal")
+                          } else {
+                          print("This one would be vertical")
+                    }
+                    ## You can plot whatever you want using the information in
+                    ## could use any of these to construct any 1d plot you want
+                    ## using R's graphics or any of zemplot's built in 1d plots.
+                    ##
+                    ## For example, here we use zenplot's base graphics functions
+                    ## First a histogram
+                    hist_1d_graphics(zargs, ...)
+                    ## to which we add the variable label
+                    label_1d_graphics(zargs, add = TRUE, col = "red", ...)
+                    ## similar functions could be called for the other packages.
+                    ## You can print the source of anyone of the default functions
+                    ## to get some idea of managing details.
+                    }
+
+## And now try it out
+zenplot(iris[,1:3], plot1d = my_1d_plot)
+
+}
 \seealso{
 Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
   \code{\link{burst}}, \code{\link{check_zargs}},
   \code{\link{extract_2d}}, \code{\link{plot_indices}}
 
-Other extracting information to build plots: \code{\link{extract_2d}}
+Other data extraction functions to build plots: \code{\link{extract_2d}}
+
+Other default 1d plot functions: \code{\link{arrow_1d_graphics}},
+  \code{\link{arrow_1d_grid}}, \code{\link{arrow_1d_loon}},
+  \code{\link{boxplot_1d_graphics}},
+  \code{\link{boxplot_1d_grid}},
+  \code{\link{boxplot_1d_loon}},
+  \code{\link{density_1d_graphics}},
+  \code{\link{density_1d_grid}},
+  \code{\link{density_1d_loon}},
+  \code{\link{hist_1d_graphics}},
+  \code{\link{hist_1d_grid}}, \code{\link{hist_1d_loon}},
+  \code{\link{jitter_1d_graphics}},
+  \code{\link{jitter_1d_grid}},
+  \code{\link{jitter_1d_loon}},
+  \code{\link{label_1d_graphics}},
+  \code{\link{label_1d_grid}}, \code{\link{label_1d_loon}},
+  \code{\link{lines_1d_graphics}},
+  \code{\link{lines_1d_grid}}, \code{\link{lines_1d_loon}},
+  \code{\link{points_1d_graphics}},
+  \code{\link{points_1d_grid}},
+  \code{\link{points_1d_loon}},
+  \code{\link{rect_1d_graphics}},
+  \code{\link{rect_1d_grid}}, \code{\link{rect_1d_loon}},
+  \code{\link{rug_1d_graphics}}, \code{\link{rug_1d_grid}},
+  \code{\link{rug_1d_loon}}
 }
 \author{
 Marius Hofert and Wayne Oldford
 }
-\concept{extracting information to build plots}
+\concept{data extraction functions to build plots}
+\concept{default 1d plot functions}
 \concept{tools for constructing your own plot1d and plot2d functions}

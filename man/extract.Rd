@@ -6,10 +6,10 @@
   Auxiliary functions to extract information from zargs for 1d and 2d
   (default) plots.
 }
-\usage{
-extract_1d(zargs)
-extract_2d(zargs)
-}
+%\usage{
+%extract_1d(zargs)
+%extract_2d(zargs)
+%}
 \arguments{
   \item{zargs}{argument list as passed from \code{\link{zenplot}()}.
     This must at least contain \code{x}, \code{orientations},
@@ -50,6 +50,7 @@ extract_2d(zargs)
 %  \code{\link{plots_loon}}
 %}
 \examples{
+## This function would be used primarily when building your own 1d plot
 ## Dummy example (mimicking how zargs are built internally)
 set.seed(271)
 n <- 100
