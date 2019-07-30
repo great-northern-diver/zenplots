@@ -13,7 +13,7 @@ navbar:
     - text: Articles
       menu:
       - text: Introduction
-        href: articles/introd.html
+        href: articles/intro.html
       - text: Selected features
         href: articles/selected_features.html
         

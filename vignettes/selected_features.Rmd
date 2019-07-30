@@ -25,7 +25,7 @@ library(zenplots)
 
 As example data, we use the `olive` data set:
 ```{r, message = FALSE}
-data(olive)
+data(olive, package = "zenplots")
 ```
 
 Reproducing the plots of Figure 1:

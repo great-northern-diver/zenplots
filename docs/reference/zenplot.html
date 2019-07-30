@@ -89,7 +89,7 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/introd.html">Introduction</a>
+      <a href="../articles/intro.html">Introduction</a>
     </li>
     <li>
       <a href="../articles/selected_features.html">Selected features</a>
@@ -343,7 +343,7 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <code><a href='vport.html'>vport</a>()</code> for how to construct a viewport for 
 (our default) <span class="pkg">grid</span> (<code>plot1d</code> and <code>plot2d</code>) functions.</p>
 <p><code><a href='extract_pairs.html'>extract_pairs</a>()</code>, <code><a href='connect_pairs.html'>connect_pairs</a>()</code>,
-<code><a href='https://www.rdocumentation.org/packages/ggplot2/topics/aes_group_order'>group</a>()</code> and <code><a href='zenpath.html'>zenpath</a>()</code> for
+<code><a href='https://ggplot2.tidyverse.org/reference/aes_group_order.html'>group</a>()</code> and <code><a href='zenpath.html'>zenpath</a>()</code> for
 (zen)path-related functions.</p>
 <p>The various vignettes for additional examples.</p>
 <p>Other creating zenplots: <code><a href='unfold.html'>unfold</a></code></p></div>
@@ -702,12 +702,12 @@ zenplot(U[,ord], # has correct variable names as column names
            <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='no'>irs</span>[,<span class='st'>"Species"</span>]
        }
        <span class='no'>num2d</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>num</span>/<span class='fl'>2</span> <span class='co'># plot number among all 2d plots</span>
-       <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>() + <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/geom_point'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cols</span>),
+       <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>() + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='no'>cols</span>),
                                   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='no'>num2d</span> <span class='kw'>==</span> <span class='fl'>3</span>) +
-           <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/labs'>labs</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>""</span>) <span class='co'># 2d plot</span>
-       <span class='kw'>if</span>(<span class='no'>num2d</span> <span class='kw'>==</span> <span class='fl'>3</span>) <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>p</span> + <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/theme'>theme</a></span>(<span class='kw'>legend.position</span> <span class='kw'>=</span> <span class='st'>"bottom"</span>, <span class='co'># legend for last 2d plot</span>
-                                     <span class='kw'>legend.title</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/element'>element_blank</a></span>())
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/ggplot_gtable'>ggplot_gtable</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/ggplot2/topics/ggplot_build'>ggplot_build</a></span>(<span class='no'>p</span>)) <span class='co'># 2d plot as grob</span>
+           <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>""</span>) <span class='co'># 2d plot</span>
+       <span class='kw'>if</span>(<span class='no'>num2d</span> <span class='kw'>==</span> <span class='fl'>3</span>) <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>p</span> + <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span>(<span class='kw'>legend.position</span> <span class='kw'>=</span> <span class='st'>"bottom"</span>, <span class='co'># legend for last 2d plot</span>
+                                     <span class='kw'>legend.title</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span>())
+       <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot_gtable.html'>ggplot_gtable</a></span>(<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot_build.html'>ggplot_build</a></span>(<span class='no'>p</span>)) <span class='co'># 2d plot as grob</span>
    }
 
 <span class='co'>## Plotting</span>

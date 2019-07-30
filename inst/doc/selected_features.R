@@ -5,7 +5,7 @@ library(MASS)
 library(zenplots)
 
 ## ---- message = FALSE----------------------------------------------------
-data(olive)
+data(olive, package = "zenplots")
 
 ## ---- fig.align = "center", fig.width = 6, fig.height = 8----------------
 zenplot(olive)
