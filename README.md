@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/great-northern-diver/zenplots.svg?branch=master)](https://travis-ci.org/great-northern-diver/zenplots) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/zenplots)](https://cran.r-project.org/package=zenplots)
 
 # zenplots
-The path to visualizing high-dimensional data  <img src="man/figures/logo.png" align="right" width="120" />
+The path to data enlightenment <img src="man/figures/logo.png" align="right" width="120" />
 
 * Online documentation is available [here](http://great-northern-diver.github.io/zenplots/)
 
