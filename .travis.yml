@@ -1,12 +1,6 @@
 addons:
   apt:
     packages:
-     - mesa-common-dev
-     - libglu1-mesa-dev
-     - freeglut3-dev
-     - libssl-dev
-     - libcurl4-gnutls-dev
-     - libxml2-dev
      - xvfb
 
 sudo: false
@@ -19,6 +13,7 @@ before_install:
 
   
 cache: packages
+warnings_are_errors: false
 
 r:
  - release
