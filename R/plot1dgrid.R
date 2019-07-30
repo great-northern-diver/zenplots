@@ -1,8 +1,13 @@
 ## Default 1d plot functions based on grid
+library(grid)
+library(stats)
 
-
-##' @title Rug plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Rug plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name rug_1d_grid
+##' @aliases rug_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param length length of the rugs
@@ -12,6 +17,7 @@
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 ##' @note The choice of width and height is to leave the rugs enough space to not
 ##'       touch points (so to avoid points and rugs overplotting).
 rug_1d_grid <- function(zargs,
@@ -49,8 +55,12 @@ rug_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Dot plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Dot plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name points_1d_grid
+##' @aliases points_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param pch plotting symbol
@@ -59,6 +69,7 @@ rug_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 ##' @note The default point size was chosen to match the default of graphics
 points_1d_grid <- function(zargs,
                            loc = 0.5, pch = 21, size = 0.02,
@@ -96,8 +107,12 @@ points_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Jittered dot plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Jittered dot plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name jitter_1d_grid
+##' @aliases jitter_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc location in [0,1]; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param offset number in [0,0.5] determining how far off the center
@@ -109,6 +124,7 @@ points_1d_grid <- function(zargs,
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note The default point size was chosen to match the default of graphics
+##' @export
 jitter_1d_grid <- function(zargs,
                            loc = 0.5, offset = 0.25, pch = 21, size = 0.02,
                            draw = FALSE, ...)
@@ -120,8 +136,11 @@ jitter_1d_grid <- function(zargs,
     points_1d_grid(zargs, loc = loc., pch = pch, size = size, draw = draw, ...)
 }
 
-##' @title Histogram in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Histogram in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name hist_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param breaks see ?hist; the default is 20 equi-width bins covering the data range
 ##' @param length.out number of break points if breaks = NULL
 ##' @param col colour of the histogram bar interiors, unless fill is specified, then
@@ -131,6 +150,7 @@ jitter_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 hist_1d_grid <- function(zargs,
                          breaks = NULL, length.out = 21, col = NULL, fill = NULL,
                          draw = FALSE, ...)
@@ -186,13 +206,20 @@ hist_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Density plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Density plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name density_1d_grid
+##' @aliases density_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param density... list of arguments for density()
+##' @param offset numerical value in \deqn{[0, 0.5]} used to offset
+##'        the density within the height 1 box in which it appears
 ##' @param draw logical indicating whether drawing should take place
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_1d_grid <- function(zargs,
                             density... = NULL, offset = 0.08,
                             draw = FALSE, ...)
@@ -222,7 +249,8 @@ density_1d_grid <- function(zargs,
             y <- c(0, y., 0)
             ## Scaling (f(y) = a * y + b with f(0) = b = offset * ylim[2] and
             ## f(ylim[2]) = a * ylim[2] + b = (1-offset) * ylim[2])
-            y <- (1-2*offset) * y + offset * if(turn.out == "d") ylim[1] else ylim[2] # scale to [offset, 1-offset] * ylim[2]
+            y <- (1-2*offset) * y + offset * if(turn.out == "d") ylim[1] else ylim[2] 
+            # scale to [offset, 1-offset] * ylim[2]
         } else {
             xlim <- range(0, y.)
             ylim <- range(x.)
@@ -242,8 +270,12 @@ density_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Boxplot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Boxplot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name boxplot_1d_grid
+##' @aliases boxplot_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param pch plot symbol
 ##' @param size size of the plot symbol
 ##' @param col color
@@ -255,6 +287,7 @@ density_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return gTree grob containing the boxplot components as grobs
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 boxplot_1d_grid <- function(zargs,
                             pch = 21, size = 0.02,
                             col = NULL, lwd = 2, bpwidth = 0.5, range = NULL,
@@ -398,8 +431,11 @@ boxplot_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Arrow plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Arrow plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name arrow_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param angle angle from the shaft to the edge of the arrow head
@@ -408,6 +444,7 @@ boxplot_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_1d_grid <- function(zargs,
                           loc = c(0.5, 0.5), angle = 60, length = 0.6,
                           draw = FALSE, ...)
@@ -437,8 +474,12 @@ arrow_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Rectangle plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Rectangle plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name rect_1d_grid
+##' @aliases rect_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location of the rectangle
 ##' @param width width of the rectangle (when viewed in walking direction)
 ##' @param height height of the rectangle (when viewed in walking direction)
@@ -446,6 +487,7 @@ arrow_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_1d_grid <- function(zargs,
                          loc = c(0.5, 0.5), width = 1, height = 1,
                          draw = FALSE, ...)
@@ -476,8 +518,12 @@ rect_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Lines plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Lines plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name lines_1d_grid
+##' @aliases lines_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param length length of the line (in [0,1])
@@ -486,6 +532,7 @@ rect_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 lines_1d_grid <- function(zargs,
                           loc = c(0.5, 0.5), length = 1, arrow = NULL,
                           draw = FALSE, ...)
@@ -518,8 +565,12 @@ lines_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Label plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Label plot in 1d using the grid package
+##' @family default 1d plot functions using the grid package
+##' @family default 1d plot functions
+##' @name label_1d_grid
+##' @aliases label_1d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param label label to be used
@@ -532,6 +583,7 @@ lines_1d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_1d_grid <- function(zargs,
                           loc = c(0.5, 0.5), label = NULL, cex = 0.66,
                           box = FALSE, box.width = 1, box.height = 1,
@@ -575,8 +627,8 @@ label_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Layout plot in 1d
-##' @param zargs argument list as passed from zenplot()
+##' @title Layout plot in 1d using the grid package
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_1d_grid()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford

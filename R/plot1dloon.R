@@ -1,8 +1,13 @@
-## Default 1d plot functions based on grid
+## Default 1d plot functions based on loon
+# library(loon)
+library(stats)
 
-
-##' @title Rug plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Rug plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name rug_1d_loon
+##' @aliases rug_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ... Additional parameters passed to loon::l_plot()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
@@ -10,8 +15,12 @@
 rug_1d_loon <- function(zargs, ...)
     points_1d_loon(zargs, glyph = "square", ...)
 
-##' @title Dot plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Dot plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name points_1d_loon
+##' @aliases points_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param linkingGroup A string specifying the initial group of plots to be
 ##'        linked to this plot
 ##' @param linkingKey List of IDs to link on
@@ -27,6 +36,7 @@ rug_1d_loon <- function(zargs, ...)
 ##' @param ... Additional parameters passed to loon::l_plot()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 points_1d_loon <- function(zargs,
                            linkingGroup = NULL, linkingKey = NULL,
                            showLabels = FALSE, showScales = FALSE,
@@ -87,8 +97,12 @@ points_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Jittered dot plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Jittered dot plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name jitter_1d_loon
+##' @aliases jitter_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param linkingGroup A string specifying the initial group of plots to be
 ##'        linked to this plot
 ##' @param showLabels Logical determining whether axis labels are displayed
@@ -104,6 +118,7 @@ points_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_plot()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 jitter_1d_loon <- function(zargs,
                            linkingGroup = NULL, showLabels = FALSE,
                            showScales = FALSE, showGuides = FALSE,
@@ -158,8 +173,12 @@ jitter_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Histogram in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Histogram in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name hist_1d_loon
+##' @aliases hist_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param breaks Argument passed to hist() to get information on bins. Default
 ##'        is 20 equi-width bins covering the range of x
 ##' @param color colour of the histogram bar interiors, unless fill is specified,
@@ -178,6 +197,7 @@ jitter_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_hist()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 hist_1d_loon <- function(zargs,
                          breaks = NULL, color = NULL, fill = NULL,
                          showStackedColors = TRUE,
@@ -246,8 +266,12 @@ hist_1d_loon <- function(zargs,
     h
 }
 
-##' @title Density plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Density plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name density_1d_loon
+##' @aliases density_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param density.args A list of arguments for density()
 ##' @param method A character specifying the type of density used
 ##' @param lwd Line width  used only when linewidth = NULL, value of 1 used
@@ -271,6 +295,7 @@ hist_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_1d_loon <- function(zargs,
                             density.args = list(), method = c("single", "double"),
                             lwd = NULL, linewidth = NULL, color = NULL,
@@ -361,8 +386,12 @@ density_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Boxplot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Boxplot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name boxplot_1d_loon
+##' @aliases boxplot_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param color colour for boxplot
 ##' @param linecolor Colour used for the lines to draw the boxplot
 ##' @param lwd The parameter line width for whiskers and median and box
@@ -380,6 +409,7 @@ density_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to gpar()
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 boxplot_1d_loon <- function(zargs,
                             color = NULL, linecolor = NULL, lwd = 2,
                             range = NULL, showLabels = FALSE, showScales = FALSE,
@@ -527,8 +557,12 @@ boxplot_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Arrow plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Arrow plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name arrow_1d_loon
+##' @aliases arrow_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc The (x,y) location of the center of the arrow
 ##' @param length The length of the arrow
 ##' @param angle The angle from the shaft to the edge of the arrow head
@@ -543,6 +577,7 @@ boxplot_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_line(...)
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_1d_loon <- function(zargs,
                           loc = c(0.5, 0.5), length = 0.6, angle = NULL,
                           linkingGroup = NULL, showLabels = FALSE,
@@ -566,8 +601,12 @@ arrow_1d_loon <- function(zargs,
                   ...)
 }
 
-##' @title Rectangle plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Rectangle plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name rect_1d_loon
+##' @aliases rect_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc.x x-location of rectangle
 ##' @param loc.y y-location of rectangle
 ##' @param color Colour of the rectangle outline
@@ -585,6 +624,7 @@ arrow_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_text(...)
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_1d_loon <- function(zargs,
                          loc.x = NULL, loc.y = NULL, color = NULL,
                          fill = NULL, lwd = 1,
@@ -654,8 +694,12 @@ rect_1d_loon <- function(zargs,
     ## Return
     baseplot
 }
-##' @title Lines plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Lines plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name lines_1d_loon
+##' @aliases lines_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc.x x-coordinates of the points on the line
 ##' @param loc.y y-coordinates of the pointson the line
 ##' @param color Colour of the line
@@ -672,6 +716,7 @@ rect_1d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_text(...)
 ##' @return A loon loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 lines_1d_loon <- function(zargs,
                           loc.x = NULL, loc.y = NULL,
                           color = NULL, lwd = 1,
@@ -719,13 +764,20 @@ lines_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Label plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Label plot in 1d using the interactive loon package
+##' @family default 1d plot functions using the interactive loon package
+##' @family default 1d plot functions
+##' @name label_1d_loon
+##' @aliases label_1d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc.x x-location of the label
 ##' @param loc.y y-location of the label
 ##' @param label The label to be used
 ##' @param rot The rotation of the label
 ##' @param size The font size
+##' @param box A \code{\link{logical}} indicating whether the label is to be enclosed
+##'        in a box.
+##' @param color Color of the label (and of box when \code{box = TRUE}).
 ##' @param linkingGroup A string specifying the initial group of plots to be
 ##'        linked to this plot
 ##' @param showLabels Logical determining whether axis labels are displayed
@@ -736,8 +788,9 @@ lines_1d_loon <- function(zargs,
 ##'        layered
 ##' @param parent The tk parent for this loon plot widget
 ##' @param ... Additional parameters passed to loon::l_layer_text(...)
-##' @return A loon loon::l_plot(...)
+##' @return A loon::l_plot(...)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_1d_loon <- function(zargs,
                           loc.x = NULL, loc.y = NULL, label = NULL,
                           rot = NULL, size = 8, box = FALSE, color = NULL,
@@ -791,8 +844,8 @@ label_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Layout plot in 1d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Layout plot in 1d using the interactive loon package
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ... Additional arguments passed to label_1d_loon()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford

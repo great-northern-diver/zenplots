@@ -1,8 +1,13 @@
 ## Default 2d plot functions based on loon
+# library(loon)
+library(MASS) # for kde2d
 
-
-##' @title Plot of labels indicating adjacent groups
-##' @param zargs argument list as passed from zenplot()
+##' @title Plot of labels indicating adjacent groups using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name group_2d_loon
+##' @aliases group_2d_loon
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param glabs group labels being indexed by the plot variables
 ##'        (and thus of length as the number of variables);
 ##'        if NULL then they are determined with extract_2d()
@@ -17,6 +22,7 @@
 ##' @author Marius Hofert & Wayne Oldford
 ##' @note For performance reasons (avoiding having to call extract_2d() twice),
 ##'       'glabs' is an extra argument
+##' @export
 group_2d_loon <- function(zargs,
                           glabs = NULL, sep = "\n", size = 8, rot = 0,
                           baseplot = NULL, parent = NULL, ...)
@@ -48,8 +54,12 @@ group_2d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Point plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Point plot in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name points_2d_loon
+##' @aliases points_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param showLabels Logical determining whether axis labels are displayed
 ##' @param showScales Logical determining whether scales are displayed
 ##' @param showGuides Logical determining whether the background guidelines are displayed
@@ -63,6 +73,7 @@ group_2d_loon <- function(zargs,
 ##' @param ... Additional arguments passed to loon::l_plot()
 ##' @return A loon plot
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 points_2d_loon <- function(zargs,
                            showLabels = FALSE, showScales = FALSE,
                            showGuides = FALSE, linkingGroup = NULL,
@@ -104,8 +115,12 @@ points_2d_loon <- function(zargs,
     }
 }
 
-##' @title Density plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Density plot in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name density_2d_loon
+##' @aliases density_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ngrids Number of grid points in each direction. Can be scalar or
 ##'        a length-2 integer vector.
 ##' @param ccol A vector (which is then recycled to the appropriate length)
@@ -125,6 +140,7 @@ points_2d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_line()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_2d_loon <- function(zargs, ngrids = 25,
                             ccol = NULL, color = NULL, clwd = NULL, lwd = NULL,
                             linewidth = 1, showLabels = FALSE,
@@ -229,8 +245,12 @@ density_2d_loon <- function(zargs, ngrids = 25,
     }
 }
 
-##' @title Axes arrows in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Axes arrows in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name axes_2d_loon
+##' @aliases axes_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param angle The angle of the arrow head
 ##' @param length The length of the arrow head
 ##' @param eps The distance by which the axes are moved away from the plot region
@@ -246,6 +266,7 @@ density_2d_loon <- function(zargs, ngrids = 25,
 ##' @return the loon plot
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html
+##' @export
 axes_2d_loon <- function(zargs,
                          angle = 30, length = 0.05, eps = 0.02,
                          linkingGroup = NULL, color = NULL, showLabels = FALSE,
@@ -346,8 +367,12 @@ axes_2d_loon <- function(zargs,
     }
 }
 
-##' @title Arrow plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Arrow plot in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name arrow_2d_loon
+##' @aliases arrow_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc The (x,y) location of the center of the arrow
 ##' @param length The length of the arrow
 ##' @param angle The angle from the shaft to the edge of the arrow head
@@ -362,6 +387,7 @@ axes_2d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_line()
 ##' @return the plot (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_2d_loon <- function(zargs,
                           loc = rep(0.5, 2), length = 0.2, angle = 30,
                           linkingGroup = NULL, color = NULL,
@@ -393,8 +419,12 @@ arrow_2d_loon <- function(zargs,
     }
 }
 
-##' @title Rectangle plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Rectangle plot in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name rect_2d_loon
+##' @aliases rect_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc.x x-location of rectangle
 ##' @param loc.y y-location of rectangle
 ##' @param color Colour of the rectangle outline
@@ -410,6 +440,7 @@ arrow_2d_loon <- function(zargs,
 ##' @param ... Additional parameters passed to loon::l_layer_text(...)
 ##' @return The base loon::l_plot with the added text layer
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_2d_loon <- function(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
                          fill = NULL, lwd = 1, linkingGroup = NULL,
                          showLabels = FALSE, showScales = FALSE,
@@ -453,12 +484,19 @@ rect_2d_loon <- function(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
     }
 }
 
-##' @title Label plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Label plot in 2d using the interactive loon package
+##' @family default 2d plot functions using the interactive loon package
+##' @family default 2d plot functions
+##' @name label_2d_loon
+##' @aliases label_2d_loon
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param loc The location of the label
 ##' @param label The label to be used
 ##' @param rot The rotation of the label
 ##' @param size The font size
+##' @param box A \code{\link{logical}} indicating whether the label is to be enclosed
+##'        in a box.
+##' @param color Color of the label (and of box when \code{box = TRUE}).
 ##' @param linkingGroup The initial linking group
 ##' @param showLabels Logical determining whether axis labels are displayed
 ##' @param showScales Logical determining whether scales are displayed
@@ -469,6 +507,7 @@ rect_2d_loon <- function(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
 ##' @param ... Additional parameters passed to loon::l_layer_text(...)
 ##' @return The base loon::l_plot with the added text layer
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_2d_loon <- function(zargs,
                           loc = NULL, label = NULL, rot = 0, size = 8,
                           box = FALSE, color = NULL,
@@ -521,8 +560,8 @@ label_2d_loon <- function(zargs,
     }
 }
 
-##' @title Layout plot in 2d
-##' @param zargs The argument list as passed from zenplot()
+##' @title Layout plot in 2d using the interactive loon package
+##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ... Additional arguments passed to label_2d_grid()
 ##' @return A loon plot
 ##' @author Marius Hofert and Wayne Oldford

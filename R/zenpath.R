@@ -1,16 +1,36 @@
 ## Tools for computing a path through all variables which can then be plotted
 ## with a zen plot
+library(PairViz)
 
-
-##' @title Extract Pairs from a Path of Indices and Return the Shortened Path
-##' @param x The path as a vector or list of indices of the variables to be plotted
-##' @param n A vector of length 2 giving the number of pairs to extract from
-##'        the path x. The first number corresponds to the beginning of the path,
-##'        the second to the end. At least one should be > 0.
-##'        If NULL, all pairs are returned, nothing extracted; if n is of
-##'        length 1, this corresponds to rep(extract, 2).
-##' @return Object of the same type as 'x' but shortened (unless n = NULL)
-##' @author Marius Hofert
+##' @title Extract Pairs from a Path of Indices
+##' @usage extract_pairs(x, n)
+##' @description Extracts pairs from a path of indices, representing the path
+##' by the pairs (connected by common variable) and return a shortened path.
+##' @family tools related to constructing zenpaths
+##' @param x the path, a \code{\link{vector}} or
+##' \code{\link{list}} of indices of the variables to be plotted.
+##' @param n A \code{\link{vector}} of length two giving the number 
+##' of pairs to extract from the path \code{x} (if \code{NULL}, all pairs are
+##' returned (nothing extracted); if of length one, it is replicated in the pair).
+##' The first number corresponds to the beginning of the path,
+##' the second to the end; at least one of the two numbers should be >= 1.
+##' @return returns an object of the same type as the input
+##' \code{x} but (possibly) shortened. It extracts the first/last so-many
+##' pairs of \code{x}.
+##' @author Marius Hofert and Wayne Oldford
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @export
+##' @examples 
+##' ## Begin with a path
+##' (zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
+##' 
+##' ## Extract the first two pairs and last four of indices
+##' extract_pairs(zp, n = c(2, 4))
+##' 
+##' ## Extract the first and last three pairs of indices
+##' extract_pairs(zp, n = 3) # the 3 is repeated automatically
+##' 
+##' 
 extract_pairs <- function(x, n)
 {
     if(is.null(n))
@@ -68,14 +88,52 @@ extract_pairs <- function(x, n)
         c(head(x, n = n[1] + 1), tail(x, n = n[2] + 1))
 
     }
-}
+} 
 
-##' @title Connecting a List of Pairs if They Overlap
-##' @param x A two-column matrix or a list of pairs (vectors of lengths 2)
-##' @param duplicate.rm A logical indicating whether equal pairs (up to
-##'        permutation) are omitted.
-##' @return A list containing vectors of length >= 2 (if > 2, those are connected pairs)
-##' @author Marius Hofert
+##' @title Connecting Possibly Overlapping Pairs Into a List of Paths
+##' @usage connect_pairs(x, duplicate.rm = FALSE)
+##' @name connect_pairs
+##' @aliases connect_pairs
+##' @description Pairs, given as rows of a \code{\link{matrix}},  
+##' \code{\link{data.frame}}, or \code{\link{list}}, are processed to return
+##' a list of paths, each identifying the connected pairs in the rows of \code{x}.
+##' @family tools related to constructing zenpaths
+##' @param x two-column \code{\link{matrix}}, \code{\link{data.frame}}, or
+##' a \code{\link{list}} containing vectors of length two representing
+##' the pairs to be connected.
+##' @param duplicate.rm \code{\link{logical}} indicating whether equal
+##' pairs (up to permutation) are to be omitted.
+##' @return A \code{\link{list}} each of whose elements give a path of connected pairs. 
+##' Each list element is a vector of length at least 2 
+##' (longer vectors > 2 in length identify the pairs connected in a path).
+##' @author Marius Hofert and Wayne Oldford 
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @export
+##' @examples 
+##' ## First something simple.  
+##' (pairs <- matrix(c(1,2,2,3,3,5,5,7,8,9), ncol = 2, byrow = TRUE))
+##' ## Connect pairs into separate paths defined by the row order.
+##' connect_pairs(pairs)
+##' 
+##' ## Now something different
+##' nVars <- 5
+##' pairs <- expand.grid(1:nVars, 1:nVars)
+##' ## and take those where
+##' (pairs <- pairs[pairs[,1] < pairs[,2],])
+##' connect_pairs(pairs)
+##' 
+##' ## Something more complicated. 
+##' ## Get weights
+##' set.seed(27135)
+##' x <- runif(choose(nVars,2)) # weights
+##' 
+##' ## We imagine pairs identify edges of a graph with these weights
+##' ## Get a zenpath ordering the edges based on weights 
+##' (zp <- zenpath(x, pairs = pairs, method = "strictly.weighted"))
+##' 
+##' ## And connect these giving the list of paths
+##' connect_pairs(zp)
+##' 
 connect_pairs <- function(x, duplicate.rm = FALSE)
 {
     if(is.list(x)) {
@@ -142,14 +200,61 @@ connect_pairs <- function(x, duplicate.rm = FALSE)
     res[1:l]
 }
 
-##' @title Plot pairs along a zenpath in the form of a graph
-##' @param x Matrix or list of pairs along a zenpath. Can also be a list with
-##'        vectors longer than 2 (then being interpreted as *connected* pairs)
-##' @param var.names names of the variables appearing in x
-##' @return graphNEL object; can be plot()ed
-##' @author Marius Hofert
-graph_pairs <- function(x, var.names = NULL)
-{
+##' @title Turn pairs or paths into a graph
+##' @family tools related to constructing zenpaths
+##' @usage graph_pairs(x, var.names = NULL, edgemode = c("undirected", "directed"))
+##' @name graph_pairs
+##' @aliases graph_pairs
+##' @description Pairs are processed to produce a graph with the elements 
+##' of the pairs as vertices and the pairs as undirected edges.
+##' The result can be displayed using \code{\link{plot}()}.
+##' @param x \code{\link{matrix}} or \code{\link{list}} of pairs along a zenpath.
+##'        Can also be a list containing vectors representing paths in the graph.
+##'        Every path must be of length at least 2 (i.e. each vector element of
+##'        the list).
+##' @param var.names names of the variables appearing in \code{x}.
+##' @param edgemode type of edges to be used: either \code{"undirected"} (the default)
+##'        or \code{"directed"} (in which case the order of the nodes in each pair matters).
+##' @return a \code{\link{graphNEL}} object; can be displayed using 
+##' \code{\link{plot}()}.
+##' @author Marius Hofert and Wayne Oldford
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @note \code{\link{zenplot}()} never use directed graphs nor graphs with isolated (disconnected) nodes.
+##' @export
+##' @examples 
+##' ## Get some pairs
+##' pairs <- matrix(c(1,2, 5,1, 3,4, 2,3, 4,2), ncol = 2, byrow = TRUE)
+##' g <- graph_pairs(pairs)
+##' ## which can be displayed using plot(g) 
+##' ## if the graph package is installed.
+##' library(graph) 
+##' plot(g) 
+##' 
+##' ## Build a graph from a list of paths
+##' paths <- list(3:1, c(3,5,7), c(1,4,7), c(6,7))
+##' gp <- graph_pairs(paths)
+##' ## graph package draws with grid, so clear
+##' grid.newpage()
+##' plot(gp)
+##' 
+##' ## Nodes do not need to be numbers
+##' alpha_paths <- list(letters[3:1], letters[c(3,5,7)], 
+##'                     letters[c(1,4,7)], letters[c(6,7)])
+##' grid.newpage()
+##' plot(graph_pairs(alpha_paths))
+##' 
+##' ## Zenplots never uses this feature but you could
+##' ## build a directed graph with a single isolated node
+##' dg <- graph_pairs(alpha_paths, 
+##'                   var.names = c(letters[1:7], "ALONE"),
+##'                   edgemode = "directed" )
+##' grid.newpage()
+##' plot(dg)
+##' 
+graph_pairs <- function(x, var.names = NULL, 
+                        edgemode = c("undirected", "directed"))
+{   
+    edgemode <- match.arg(edgemode)
     ## If x a list (even with different lengths of its components, so
     ## 'grouped'), convert x to a 2-column matrix
     if(is.list(x) && !is.data.frame(x)) {
@@ -178,23 +283,59 @@ graph_pairs <- function(x, var.names = NULL)
     ## }
 
     ## Build vertex names
-    var.ind <- sort(unique(as.vector(x))) # indices of vertices
-    if(is.null(var.names)) var.names <- as.character(var.ind)
-    if(length(var.names) != length(var.ind))
-        stop("'var.names' must be of length ",length(var.ind))
+    var.x <- as.character(sort(unique(as.vector(x)))) # vertices in x as characters
+    if(is.null(var.names)) {
+        var.names <- var.x
+    } else {
+        # var.names must be a character vector
+        var.names <- as.character(var.names)
+        # Must have at least as many names in 
+        # var.names as in var.x
+        if(length(var.names) < length(var.x)){
+            stop("'var.names' must be at least of length ",length(var.x))
+        }
+        # check that var.names contain all of var.x
+        var.x_notin_var.names <-setdiff(var.x, var.names)
+        if (length(var.x_notin_var.names) != 0) {
+            stop(paste("var.names are missing", 
+                       paste(var.x_notin_var.names, collapse = ", "),
+                       "from `x`."))
+        }
+    }
+
 
     ## Build graph
-    ftM2graphNEL(x, V = var.names, edgemode = "undirected") # possibly uneven, disconnected
+    ftM2graphNEL(x, V = var.names, edgemode = edgemode) # possibly uneven, disconnected
 }
 
 ##' @title Splitting a Matrix into a List of Matrices
-##' @param x A matrix
+##' @family tools related to constructing zenpaths
+##' @usage groupData(x, indices, byrow = FALSE)
+##' @name groupData
+##' @aliases groupData
+##' @description Takes a matrix \code{x} and groups its rows (or columns) 
+##' as specified by \code{indices}.  Returns a list of matrices, one for each group.
+##' @param x A \code{\link{matrix}} (or an object
+##'          convertible to such via \code{\link{as.matrix}()}).
 ##' @param indices list of vectors of indices according to
-##'        which 'x' is grouped
-##' @param byrow logical indicating whether the rows are grouped (byrow)
-##'        or the columns (!byrow)
-##' @return A list of (grouped) matrices
-##' @author Marius Hofert
+##'        which \code{x} is grouped; each vector of indices define a group.
+##' @param byrow \code{\link{logical}} indicating whether the grouping is
+##'        done by row (\code{byrow = TRUE}) 
+##'        or by column (\code{byrow = FALSE}, the default).
+##' @return A \code{\link{list}} of matrices (one per group). 
+##'         Such a list, grouped by columns, is then typically passed on to \code{\link{zenplot}()}.
+##' @author Marius Hofert and Wayne Oldford
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @export
+##' @examples 
+##' ## get a matrix
+##' x <- matrix(1:15, ncol = 3)
+##' colGroups <- list(c(1,2), list(2:3))
+##' rowGroups <- list(c(1,4), list(2:3))
+##' groupData(x, indices = colGroups)
+##' groupData(x, indices = rowGroups, byrow = TRUE)
+##' 
+##' 
 groupData <- function(x, indices, byrow = FALSE)
 {
     if(length(dim(x)) != 2)
@@ -206,13 +347,34 @@ groupData <- function(x, indices, byrow = FALSE)
 }
 
 ##' @title Indexing a Matrix or Data Frame According to Given Indices
-##' @param x A matrix or data.frame (mostly useful for the latter)
-##' @param indices vector of column indices of x (typically obtained from
-##'        zenpath())
-##' @return An indexed x where columns are repeated according to 'indices'
+##' @usage indexData(x, indices)
+##' @family tools related to constructing zenpaths
+##' @param x A \code{\link{matrix}} or \code{\link{data.frame}} 
+##'       (most useful for the latter).
+##' @param indices vector of column indices of \code{x}
+##'        (typically obtained from \code{\link{zenpath}()}).
+##' @return An object as \code{x} 
+##'        (typically a \code{\link{data.frame}} or 
+##'         \code{\link{matrix}}) containing \code{x}
+##'         indexed by \code{indices}.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Useful for constructing data.frames without .1, .2, ... in their
 ##'       names when indexing a data.frame with a zenpath.
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @export
+##' @examples 
+##' ## The function is handiest for data frames
+##' ## where we want to reuse the variable names
+##' ## without adding a suffix like ".1" etc.
+##' ## For example, 
+##' x <-  BOD  # Biochemical Oxygen Demand data in base R
+##' indices <- rep(1:2, 2)
+##' ## now compare 
+##' indexData(x, indices)
+##' ## to
+##' x[, indices]
+##' ## zenplots prefer not to have the suffixes.
+##' 
 indexData <- function(x, indices)
 {
     if(length(dim(x)) != 2)
@@ -222,40 +384,88 @@ indexData <- function(x, indices)
     res
 }
 
-##' @title Computing Indices to Sort Data for a Zenplot
-##' @param x An input object giving the weights (depending on the method)
-##'        according to which the pairs of variables are sorted. For
-##'        "front.loaded": A single integer >= 1
-##'        "back.loaded":  A single integer >= 1
-##'        "balanced":     A single integer >= 1
-##'        "eulerian.cross": Two integers >= 1.
-##'        "greedy.weighted": A vector (or matrix or distance matrix)
-##'        "strictly.weighted": A vector (or matrix or distance matrix)
-##' @param pairs An (n, 2)-matrix (some n) containing the pairs of variables
-##'        to be sorted according to the weights
-##' @param method A sorting method; one of
-##'        "front.loaded": Sort all pairs such that the first variables appear
+
+
+## \references{
+##   Hofert, M., Oldford, W. (2015). Zigzag Expanded Navigation Plots.
+##   \emph{} \bold{}(), --.
+## }
+
+##' @title Construct a Path of Indices to Order Variables
+##' @usage 
+##' zenpath(x, pairs = NULL,
+##'         method = c("front.loaded", "back.loaded",
+##'                    "balanced", "eulerian.cross", 
+##'                    "greedy.weighted", "strictly.weighted"),
+##'         decreasing = TRUE)
+##' @family tools related to constructing zenpaths
+##' @description Constructing zenpaths and tools for extracting, 
+##' connecting and displaying pairs, as well as 
+##' grouping and indexing data structures.
+##' @name zenpath
+##' @aliases zenpath 
+##' @param x 
+##' \describe{for \code{method}
+##'         \describe{
+##'             \item{\code{"front.loaded"}:}{single \code{\link{integer}} >= 1.}
+##'             \item{\code{"back.loaded"}:}{as for \code{method = "front.loaded"}.}
+##'             \item{\code{"balanced"}:}{as for \code{method = "front.loaded"}.}
+##'             \item{\code{"eulerian.cross"}:}{two \code{\link{integer}}s >= 1
+##'                 representing the group sizes.}
+##'             \item{\code{"greedy.weighted"}:}{\code{\link{numeric}} weight
+##'                 \code{\link{vector}} (or
+##'                                       \code{\link{matrix}} or distance matrix).}
+##'             \item{\code{"strictly.weighted"}:}{as for
+##'                 \code{method = "greedy.weighted"}.}
+##'         }
+##'     }
+##'
+##' @param pairs a two-column \code{\link{matrix}} containing (row-wise)
+##' the pairs of connected variables to be sorted according to the
+##' weights. The \code{pairs} argument is only used for the \code{method}s
+##' \code{greedy.weighted} and \code{strictly.weighted} and can be
+##' \code{NULL} (in which case a default is constructed in lexicographical order).
+##' @param method \code{\link{character}} string indicating the sorting
+##' method to be used. Available methods are:
+##' \describe{
+##'        \item{\code{"front.loaded"}:}{Sort all pairs such that the first variables appear
 ##'                        the most frequently early in the sequence;
 ##'                        an Eulerian path; note that it might be slightly
 ##'                        longer than the number of pairs because, first, an even
-##'                        graph has to be made
-##'        "back.loaded": Sort all pairs such that the later variables appear
+##'                        graph has to be made.}
+##'        \item{\code{"back.loaded"}:}{Sort all pairs such that the later variables appear
 ##'                       the most frequently later in the sequence;
-##'                       an Eulerian path (+ see front.loaded concerning length)
-##'        "balanced": Sort all pairs such that all variables appear in
+##'                       an Eulerian path (+ see front.loaded concerning length)}
+##'        \item{\code{"balanced"}:}{Sort all pairs such that all variables appear in
 ##'                    balanced blocks throughout the sequence
-##'                    (a Hamiltonian Decomposition; Eulerian, too).
-##'        "eulerian.cross": Generate a sequence of pairs such that
-##'                          each is formed with one variable from each group.
-##'        "greedy.weighted": Sort all pairs according to a greedy (heuristic)
-##'                             Euler path with 'x' as weights visiting each
-##'                             edge precisely once.
-##'        "strictly.weighted": Strictly respect the order of the weights.
-##' @param decreasing A logical indicating whether the sorting is done according
-##'        to increasing or decreasing weights
-##' @return A vector or list of indices according to which data can be
-##'         indexed via group() for plotting with zenplot()
-##' @author Marius Hofert
+##'                    (a Hamiltonian Decomposition; Eulerian, too).}
+##'        \item{\code{"eulerian.cross"}:}{Generate a sequence of pairs such that
+##'                          each is formed with one variable from each group.}
+##'        \item{\code{"greedy.weighted"}:}{Sort all pairs according to a greedy (heuristic)
+##'                             Euler path with \code{x} as weights visiting each
+##'                             edge precisely once.}
+##'        \item{\code{"strictly.weighted"}:}{
+##'         Strictly respect the order of the weights - so the first, second, 
+##'         third, and so on, adjacent pair of numbers of the output of 
+##'         \code{zenpath()} corresponds to the pair with largest,
+##'         second-largest, third-largest, and so on, weight.
+##'        }
+##'        }
+##' @param decreasing A \code{\link{logical}} indicating whether the
+##' sorting is done according to increasing or decreasing weights.
+##' @return Returns a sequence of variables (indices or names,
+##' possibly a list of such), which can then be used to index the data
+##' (via \code{\link{groupData}()}for plotting via \code{\link{zenplot}()}.
+##' @author Marius Hofert and Wayne Oldford
+##' @seealso \code{\link{zenplot}()} which provides the zenplot.
+##' @export
+##' @examples 
+##' ## Some calls of zenpath()
+##' zenpath(10) # integer argument
+##' ## Note that the result is of length 50 > 10 choose 2 as the underlying graph has to
+##' ## be even (and thus edges are added here)
+##' (zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
+##' 
 zenpath <- function(x, pairs = NULL,
                     method = c("front.loaded", "back.loaded", "balanced",
                                "eulerian.cross", "greedy.weighted",

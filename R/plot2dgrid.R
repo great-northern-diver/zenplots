@@ -1,8 +1,13 @@
 ## Default 2d plot functions based on grid
+library(grid)
+library(MASS) # for kde2d
 
-
-##' @title Plot of labels indicating adjacent groups
-##' @param zargs argument list as passed from zenplot()
+##' @title Plot of labels indicating adjacent groups using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name group_2d_grid
+##' @aliases group_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param glabs group labels being indexed by the plot variables
 ##'        (and thus of length as the number of variables);
 ##'        if NULL then they are determined with extract_2d()
@@ -15,6 +20,7 @@
 ##' @author Marius Hofert
 ##' @note For performance reasons (avoiding having to call extract_2d() twice),
 ##'       'glabs' is an extra argument
+##' @export
 group_2d_grid <- function(zargs,
                           glabs = NULL, sep = "\n", loc = c(0.5, 0.5),
                           draw = FALSE, ...)
@@ -42,8 +48,12 @@ group_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Point plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Point plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name points_2d_grid
+##' @aliases points_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param type line type
 ##' @param pch plot symbol
 ##' @param size size of the plot symbol
@@ -58,6 +68,7 @@ group_2d_grid <- function(zargs,
 ##' @note - We use names depending on the 'type' here since otherwise, if one calls it
 ##'         once for 'p' and once for 'l', only one of them is plotted
 ##'       - The default point size was chosen to match the default of graphics
+##' @export
 points_2d_grid <- function(zargs,
                            type = c("p", "l", "o"), pch = NULL, size = 0.02,
                            box = FALSE, box.width = 1, box.height = 1,
@@ -125,8 +136,12 @@ points_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Q-Q plot in 2d (two data sets against each other)
-##' @param zargs argument list as passed from zenplot()
+##' @title Quantile-quantile plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name qq_2d_grid
+##' @aliases qq_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param do.line logical indicating whether a line is drawn (through both
 ##'        empirical c(0.25, 0.75)-quantiles)
 ##' @param lines... additional arguments passed to lines()
@@ -142,6 +157,7 @@ points_2d_grid <- function(zargs,
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note - line iff both margins are of the same *type*
 ##'       - The default point size was chosen to match the default of graphics
+##' @export
 qq_2d_grid <- function(zargs,
                        do.line = TRUE, lines... = NULL, pch = NULL, size = 0.02,
                        box = FALSE, box.width = 1, box.height = 1,
@@ -209,8 +225,12 @@ qq_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Density plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Density plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name density_2d_grid
+##' @aliases density_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ngrids number of grid points in each direction. Can be scalar or
 ##'        a length-2 integer vector.
 ##' @param ccol vector (which is then recycled to the appropriate length)
@@ -231,6 +251,7 @@ qq_2d_grid <- function(zargs,
 ##'         once for 'p' and once for 'l', only one of them is plotted
 ##'       - The default point size was chosen to match the default of graphics
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 density_2d_grid <- function(zargs,
                             ngrids = 25, ccol = NULL, clwd = 1, clty = 1,
                             box = FALSE, box.width = 1, box.height = 1,
@@ -300,8 +321,12 @@ density_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Axes arrow
-##' @param zargs argument list as passed from zenplot()
+##' @title Axes arrow using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name axes_2d_grid
+##' @aliases axes_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param angle angle of the arrow head (see ?arrow)
 ##' @param length length of the arrow in [0,1] from tip to base
 ##' @param type type of the arrow head (see ?arrow)
@@ -312,6 +337,7 @@ density_2d_grid <- function(zargs,
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html
+##' @export
 axes_2d_grid <- function(zargs,
                          angle = 30, length = unit(0.05, "npc"), type = "open", eps = 0.02,
                          group... = list(cex = 0.66), draw = FALSE, ...)
@@ -346,8 +372,12 @@ axes_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Arrow plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Arrow plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name arrow_2d_grid
+##' @aliases arrow_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location of the center of the arrow
 ##' @param angle angle from the shaft to the edge of the arrow head
 ##' @param length length of the arrow in [0,1] from tip to base
@@ -356,6 +386,7 @@ axes_2d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 arrow_2d_grid <- function(zargs,
                           loc = c(0.5, 0.5), angle = 60, length = 0.2,
                           group... = list(cex = 0.66), draw = FALSE, ...)
@@ -380,8 +411,12 @@ arrow_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Rectangle plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Rectangle plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name rect_2d_grid
+##' @aliases rect_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location of the rectangle
 ##' @param width rectangle width as a fraction of 1
 ##' @param height rectangle height as a fraction of 1
@@ -390,6 +425,7 @@ arrow_2d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 rect_2d_grid <- function(zargs,
                          loc = c(0.5, 0.5), width = 1, height = 1,
                          group... = list(cex = 0.66), draw = FALSE, ...)
@@ -410,8 +446,12 @@ rect_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Label plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Label plot in 2d using the grid package
+##' @family default 2d plot functions using the grid package
+##' @family default 2d plot functions
+##' @name label_2d_grid
+##' @aliases label_2d_grid
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param loc (x,y)-location in [0,1]^2; 0 corresponds to left, 1 to right (in
 ##'        the direction of the path)
 ##' @param label label to be used
@@ -426,6 +466,7 @@ rect_2d_grid <- function(zargs,
 ##' @param ... additional arguments passed to gpar()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford
+##' @export
 label_2d_grid <- function(zargs,
                           loc = c(0.98, 0.05), label = NULL, cex = 0.66,
                           just = c("right", "bottom"), rot = 0,
@@ -464,8 +505,8 @@ label_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Layout plot in 2d
-##' @param zargs argument list as passed from zenplot()
+##' @title Layout plot in 2d using the grid package
+##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_2d_grid()
 ##' @return grob (invisibly)
 ##' @author Marius Hofert and Wayne Oldford

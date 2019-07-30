@@ -30,7 +30,8 @@ export(## General functions
        "zenpath", "extract_pairs", "connect_pairs", "graph_pairs", "groupData",
        "indexData",
        ## General tools to write your own plot1d(), plot2d() (see zentools.R)
-       "plot_indices", "burst", "extract_1d", "extract_2d", "convert_occupancy",
+       "plot_indices", "burst", "check_zargs", "extract_1d", 
+       "extract_2d", "convert_occupancy", ".zenplots_burst_envir", "as_numeric",
        ## Graphics tools
        "plot_region",
        ## Grid tools
