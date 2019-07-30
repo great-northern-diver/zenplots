@@ -1,0 +1,170 @@
+home:
+  strip_header: true
+
+navbar:
+  type: default
+
+  left:
+    - text: Intro
+      href: articles/intro.html
+    - text: Reference
+      href: reference/index.html
+      
+    - text: Articles
+      menu:
+      - text: Introduction
+        href: articles/introd.html
+      - text: Selected features
+        href: articles/selected_features.html
+        
+    - text: Publications
+      menu:
+      - text: visualizing dependence - S&P 500 data
+        href: https://www.sciencedirect.com/science/article/pii/S245230621730031X
+      - text: measuring association of random vectors
+        href: https://www.sciencedirect.com/science/article/pii/S0047259X1830023X
+
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/rwoldford/zenplots
+
+development:
+  mode: release
+
+destination: ./docs/
+
+
+
+reference:
+  - title: zenplots
+    desc:  Main functions for creating zenplots
+    contents:
+    - zenplot
+    - zenpath
+  - title: Data
+    desc:  Data sets
+    contents:
+    - de_elect
+    - happiness
+    - olive
+    - wine
+  - title: 1d plotting functions
+    desc: Built in functions for 1d plots (<plotname>_1d_<pkgname>)
+    contents:
+    - arrow_1d_graphics
+    - arrow_1d_graphics
+    - arrow_1d_grid
+    - arrow_1d_loon
+    - boxplot_1d_graphics
+    - boxplot_1d_grid
+    - boxplot_1d_loon
+    - density_1d_graphics
+    - density_1d_grid
+    - density_1d_loon
+    - hist_1d_graphics
+    - hist_1d_grid
+    - hist_1d_loon
+    - jitter_1d_graphics
+    - jitter_1d_grid
+    - jitter_1d_loon
+    - label_1d_graphics
+    - label_1d_grid
+    - label_1d_loon
+    - layout_1d_graphics
+    - layout_1d_grid
+    - layout_1d_loon
+    - lines_1d_graphics
+    - lines_1d_grid
+    - lines_1d_loon
+    - points_1d_graphics
+    - points_1d_grid
+    - points_1d_loon
+    - rect_1d_graphics
+    - rect_1d_grid
+    - rect_1d_loon
+    - rug_1d_graphics
+    - rug_1d_grid
+    - rug_1d_loon
+    
+  - title: 2d plotting functions
+    desc: Built in functions for 2d plots (<plotname>_2d_<pkgname>)
+    contents:
+    - arrow_2d_graphics
+    - arrow_2d_grid
+    - arrow_2d_loon
+    - axes_2d_graphics
+    - axes_2d_grid
+    - axes_2d_loon
+    - density_2d_graphics
+    - density_2d_grid
+    - density_2d_loon
+    - group_2d_graphics
+    - group_2d_grid
+    - group_2d_loon
+    - label_2d_graphics
+    - label_2d_grid
+    - label_2d_loon
+    - layout_2d_graphics
+    - layout_2d_grid
+    - layout_2d_loon
+    - points_2d_graphics
+    - points_2d_grid
+    - points_2d_loon
+    - qq_2d_graphics
+    - qq_2d_grid
+    - rect_2d_graphics
+    - rect_2d_grid
+    - rect_2d_loon
+    
+  - title: Building your own plots (manipulating zargs)
+    desc: Utility functions useful in constructing your own 1d and 2d plots
+    contents:
+    - check_zargs
+    - extract_1d
+    - extract_2d
+    - plot_indices
+    
+  - title: Building your own plots (manipulating data)
+    desc: Utility functions useful in manipulating data for your own plots
+    contents:
+    - as_numeric
+    - burst
+    - burst_aux
+    - na_omit_loon
+    
+  - title: Miscellaneous graphical tools
+    desc: Miscellaneous useful functions for constructing your own plots
+    contents:
+    - adjust_bb
+    - l_ispace_config
+    - plot_region
+    - vport
+    - zenarrow
+    
+  - title: The zenplot algorithm
+    desc: Functions related to understanding the algorithms underlying zenplot
+    contents:
+    - unfold
+    - get_layout
+    - get_path
+    - get_zigzag_turns
+    - move
+    - next_move_tidy
+    
+  - title: Constructing zenpaths
+    desc:  Functions useful in constructing zenpaths
+    contents:
+    - connect_pairs
+    - extract_pairs
+    - graph_pairs
+    - groupData
+    - indexData
+    
+  - title: Zenplot technical tools
+    desc: All other functions
+    contents:
+    - convert_occupancy
+    - is.standard
+    - n2dcols_aux
+    - num_cols
+    - turn_checker

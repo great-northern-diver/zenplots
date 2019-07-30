@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{density_1d_graphics}
 \alias{density_1d_graphics}
-\title{Density plot in 1d}
+\title{Density plot in 1d using R's base graphics}
 \usage{
 density_1d_graphics(zargs, density... = NULL, offset = 0.08,
   add = FALSE, plot... = NULL, ...)
@@ -25,7 +25,7 @@ from the plot margins (for creating space between the two)}
 invisible()
 }
 \description{
-Density plot in 1d
+Density plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

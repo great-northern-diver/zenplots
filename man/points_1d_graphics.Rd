@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{points_1d_graphics}
 \alias{points_1d_graphics}
-\title{Dot plot in 1d}
+\title{Dot plot in 1d using R's base graphics}
 \usage{
 points_1d_graphics(zargs, loc = 0.5, cex = 0.4, add = FALSE,
   plot... = NULL, ...)
@@ -25,7 +25,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Dot plot in 1d
+Dot plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

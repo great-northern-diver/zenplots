@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{rect_1d_grid}
 \alias{rect_1d_grid}
-\title{Rectangle plot in 1d}
+\title{Rectangle plot in 1d using the grid package}
 \usage{
 rect_1d_grid(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
   draw = FALSE, ...)
@@ -24,7 +24,7 @@ rect_1d_grid(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
 grob (invisibly)
 }
 \description{
-Rectangle plot in 1d
+Rectangle plot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

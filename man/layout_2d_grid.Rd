@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{layout_2d_grid}
 \alias{layout_2d_grid}
-\title{Layout plot in 2d}
+\title{Layout plot in 2d using the grid package}
 \usage{
 layout_2d_grid(zargs, ...)
 }
@@ -15,7 +15,7 @@ layout_2d_grid(zargs, ...)
 grob (invisibly)
 }
 \description{
-Layout plot in 2d
+Layout plot in 2d using the grid package
 }
 \note{
 Here we also pass '...' to group_2d_grid() (to easily adjust

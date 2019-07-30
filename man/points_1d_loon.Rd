@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{points_1d_loon}
 \alias{points_1d_loon}
-\title{Dot plot in 1d}
+\title{Dot plot in 1d using the interactive loon package}
 \usage{
 points_1d_loon(zargs, linkingGroup = NULL, linkingKey = NULL,
   showLabels = FALSE, showScales = FALSE, showGuides = FALSE,
@@ -39,7 +39,7 @@ hover}
 A loon loon::l_plot(...)
 }
 \description{
-Dot plot in 1d
+Dot plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

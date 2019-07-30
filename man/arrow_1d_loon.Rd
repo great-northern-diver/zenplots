@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{arrow_1d_loon}
 \alias{arrow_1d_loon}
-\title{Arrow plot in 1d}
+\title{Arrow plot in 1d using the interactive loon package}
 \usage{
 arrow_1d_loon(zargs, loc = c(0.5, 0.5), length = 0.6, angle = NULL,
   linkingGroup = NULL, showLabels = FALSE, showScales = FALSE,
@@ -37,7 +37,7 @@ displayed}
 A loon loon::l_plot(...)
 }
 \description{
-Arrow plot in 1d
+Arrow plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{boxplot_1d_loon}},

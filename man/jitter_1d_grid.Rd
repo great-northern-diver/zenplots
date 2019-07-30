@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{jitter_1d_grid}
 \alias{jitter_1d_grid}
-\title{Jittered dot plot in 1d}
+\title{Jittered dot plot in 1d using the grid package}
 \usage{
 jitter_1d_grid(zargs, loc = 0.5, offset = 0.25, pch = 21,
   size = 0.02, draw = FALSE, ...)
@@ -28,7 +28,7 @@ the jittered points reach maximally}
 grob (invisibly)
 }
 \description{
-Jittered dot plot in 1d
+Jittered dot plot in 1d using the grid package
 }
 \note{
 The default point size was chosen to match the default of graphics

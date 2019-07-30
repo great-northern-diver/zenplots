@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{label_1d_grid}
 \alias{label_1d_grid}
-\title{Label plot in 1d}
+\title{Label plot in 1d using the grid package}
 \usage{
 label_1d_grid(zargs, loc = c(0.5, 0.5), label = NULL, cex = 0.66,
   box = FALSE, box.width = 1, box.height = 1, draw = FALSE, ...)
@@ -32,7 +32,7 @@ the text}
 grob (invisibly)
 }
 \description{
-Label plot in 1d
+Label plot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

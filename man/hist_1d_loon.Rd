@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{hist_1d_loon}
 \alias{hist_1d_loon}
-\title{Histogram in 1d}
+\title{Histogram in 1d using the interactive loon package}
 \usage{
 hist_1d_loon(zargs, breaks = NULL, color = NULL, fill = NULL,
   showStackedColors = TRUE, showBinHandle = FALSE,
@@ -43,7 +43,7 @@ displayed}
 A loon loon::l_plot(...)
 }
 \description{
-Histogram in 1d
+Histogram in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

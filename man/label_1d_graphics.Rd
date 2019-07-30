@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{label_1d_graphics}
 \alias{label_1d_graphics}
-\title{Label plot in 1d}
+\title{Label plot in 1d using R's base graphics}
 \usage{
 label_1d_graphics(zargs, loc = c(0.5, 0.5), label = NULL,
   box = FALSE, add = FALSE, plot... = NULL, ...)
@@ -27,7 +27,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Label plot in 1d
+Label plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

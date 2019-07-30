@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{density_2d_loon}
 \alias{density_2d_loon}
-\title{Density plot in 2d}
+\title{Density plot in 2d using the interactive loon package}
 \usage{
 density_2d_loon(zargs, ngrids = 25, ccol = NULL, color = NULL,
   clwd = NULL, lwd = NULL, linewidth = 1, showLabels = FALSE,
@@ -47,7 +47,7 @@ giving the line widths of the contours}
 invisible()
 }
 \description{
-Density plot in 2d
+Density plot in 2d using the interactive loon package
 }
 \seealso{
 Other default 2d plot functions using the interactive loon package: \code{\link{arrow_2d_loon}},

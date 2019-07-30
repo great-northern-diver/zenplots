@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{arrow_1d_graphics}
 \alias{arrow_1d_graphics}
-\title{Arrow plot in 1d}
+\title{Arrow plot in 1d using R's base graphics}
 \usage{
 arrow_1d_graphics(zargs, loc = c(0.5, 0.5), angle = 60, length = 0.6,
   add = FALSE, plot... = NULL, ...)
@@ -27,7 +27,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Arrow plot in 1d
+Arrow plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{boxplot_1d_graphics}},

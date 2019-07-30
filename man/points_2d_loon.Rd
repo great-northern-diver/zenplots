@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{points_2d_loon}
 \alias{points_2d_loon}
-\title{Point plot in 2d}
+\title{Point plot in 2d using the interactive loon package}
 \usage{
 points_2d_loon(zargs, showLabels = FALSE, showScales = FALSE,
   showGuides = FALSE, linkingGroup = NULL, linkingKey = NULL,
@@ -38,7 +38,7 @@ points_2d_loon(zargs, showLabels = FALSE, showScales = FALSE,
 A loon plot
 }
 \description{
-Point plot in 2d
+Point plot in 2d using the interactive loon package
 }
 \seealso{
 Other default 2d plot functions using the interactive loon package: \code{\link{arrow_2d_loon}},

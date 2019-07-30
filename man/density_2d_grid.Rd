@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{density_2d_grid}
 \alias{density_2d_grid}
-\title{Density plot in 2d}
+\title{Density plot in 2d using the grid package}
 \usage{
 density_2d_grid(zargs, ngrids = 25, ccol = NULL, clwd = 1,
   clty = 1, box = FALSE, box.width = 1, box.height = 1,
@@ -39,7 +39,7 @@ giving the line types of the contours}
 grob (invisibly)
 }
 \description{
-Density plot in 2d
+Density plot in 2d using the grid package
 }
 \note{
 - We use names depending on the 'type' here since otherwise, if one calls it

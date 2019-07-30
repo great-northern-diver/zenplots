@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{layout_1d_loon}
 \alias{layout_1d_loon}
-\title{Layout plot in 1d}
+\title{Layout plot in 1d using the interactive loon package}
 \usage{
 layout_1d_loon(zargs, ...)
 }
@@ -15,7 +15,7 @@ layout_1d_loon(zargs, ...)
 invisible()
 }
 \description{
-Layout plot in 1d
+Layout plot in 1d using the interactive loon package
 }
 \author{
 Marius Hofert and Wayne Oldford

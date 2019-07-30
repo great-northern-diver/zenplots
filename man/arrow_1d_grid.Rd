@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{arrow_1d_grid}
 \alias{arrow_1d_grid}
-\title{Arrow plot in 1d}
+\title{Arrow plot in 1d using the grid package}
 \usage{
 arrow_1d_grid(zargs, loc = c(0.5, 0.5), angle = 60, length = 0.6,
   draw = FALSE, ...)
@@ -25,7 +25,7 @@ the direction of the path)}
 grob (invisibly)
 }
 \description{
-Arrow plot in 1d
+Arrow plot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{boxplot_1d_grid}},

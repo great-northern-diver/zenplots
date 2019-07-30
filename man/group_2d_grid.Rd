@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{group_2d_grid}
 \alias{group_2d_grid}
-\title{Plot of labels indicating adjacent groups}
+\title{Plot of labels indicating adjacent groups using the grid package}
 \usage{
 group_2d_grid(zargs, glabs = NULL, sep = "\\n", loc = c(0.5, 0.5),
   draw = FALSE, ...)
@@ -27,7 +27,7 @@ the direction of the path)}
 grob (invisibly)
 }
 \description{
-Plot of labels indicating adjacent groups
+Plot of labels indicating adjacent groups using the grid package
 }
 \note{
 For performance reasons (avoiding having to call extract_2d() twice),

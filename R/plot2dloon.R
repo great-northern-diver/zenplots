@@ -2,7 +2,7 @@
 # library(loon)
 library(MASS) # for kde2d
 
-##' @title Plot of labels indicating adjacent groups
+##' @title Plot of labels indicating adjacent groups using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name group_2d_loon
@@ -54,7 +54,7 @@ group_2d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Point plot in 2d
+##' @title Point plot in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name points_2d_loon
@@ -115,7 +115,7 @@ points_2d_loon <- function(zargs,
     }
 }
 
-##' @title Density plot in 2d
+##' @title Density plot in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name density_2d_loon
@@ -245,7 +245,7 @@ density_2d_loon <- function(zargs, ngrids = 25,
     }
 }
 
-##' @title Axes arrows in 2d
+##' @title Axes arrows in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name axes_2d_loon
@@ -367,7 +367,7 @@ axes_2d_loon <- function(zargs,
     }
 }
 
-##' @title Arrow plot in 2d
+##' @title Arrow plot in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name arrow_2d_loon
@@ -419,7 +419,7 @@ arrow_2d_loon <- function(zargs,
     }
 }
 
-##' @title Rectangle plot in 2d
+##' @title Rectangle plot in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name rect_2d_loon
@@ -484,7 +484,7 @@ rect_2d_loon <- function(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
     }
 }
 
-##' @title Label plot in 2d
+##' @title Label plot in 2d using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions
 ##' @name label_2d_loon
@@ -560,7 +560,7 @@ label_2d_loon <- function(zargs,
     }
 }
 
-##' @title Layout plot in 2d
+##' @title Layout plot in 2d using the interactive loon package
 ##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ... Additional arguments passed to label_2d_grid()
 ##' @return A loon plot

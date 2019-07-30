@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{label_1d_loon}
 \alias{label_1d_loon}
-\title{Label plot in 1d}
+\title{Label plot in 1d using the interactive loon package}
 \usage{
 label_1d_loon(zargs, loc.x = NULL, loc.y = NULL, label = NULL,
   rot = NULL, size = 8, box = FALSE, color = NULL,
@@ -48,7 +48,7 @@ layered}
 A loon::l_plot(...)
 }
 \description{
-Label plot in 1d
+Label plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

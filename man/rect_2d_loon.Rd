@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{rect_2d_loon}
 \alias{rect_2d_loon}
-\title{Rectangle plot in 2d}
+\title{Rectangle plot in 2d using the interactive loon package}
 \usage{
 rect_2d_loon(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
   fill = NULL, lwd = 1, linkingGroup = NULL, showLabels = FALSE,
@@ -42,7 +42,7 @@ rect_2d_loon(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
 The base loon::l_plot with the added text layer
 }
 \description{
-Rectangle plot in 2d
+Rectangle plot in 2d using the interactive loon package
 }
 \seealso{
 Other default 2d plot functions using the interactive loon package: \code{\link{arrow_2d_loon}},

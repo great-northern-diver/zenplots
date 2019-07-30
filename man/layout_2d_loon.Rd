@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{layout_2d_loon}
 \alias{layout_2d_loon}
-\title{Layout plot in 2d}
+\title{Layout plot in 2d using the interactive loon package}
 \usage{
 layout_2d_loon(zargs, ...)
 }
@@ -15,7 +15,7 @@ layout_2d_loon(zargs, ...)
 A loon plot
 }
 \description{
-Layout plot in 2d
+Layout plot in 2d using the interactive loon package
 }
 \note{
 Here we also pass '...' to group_2d_loon() (to easily adjust

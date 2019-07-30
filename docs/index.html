@@ -41,10 +41,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="articles/intro.html">Intro</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -57,12 +54,37 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/selected_features.html">Zigzag expanded navigation plots in R: The R package zenplots</a>
+      <a href="articles/introd.html">Introduction</a>
+    </li>
+    <li>
+      <a href="articles/selected_features.html">Selected features</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Publications
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
+    </li>
+    <li>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">measuring association of random vectors</a>
     </li>
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/rwoldford/zenplots">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -73,11 +95,14 @@
       
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="zenplots" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#zenplots" class="anchor"></a>zenplots <img src="reference/figures/logo.png" align="right" width="120">
-</h1></div>
-<p>Zigzag Expanded Navigation Plots – Visualizing high-dimensional data by laying out a path of alternating 1d and 2d views</p>
+<div id="zenplots---the-path-to-visualizing-high-dimensional-data" class="section level1">
+
+<p>The package zenplots (<strong>z</strong>igzag <strong>e</strong>xpanded <strong>n</strong>avigation <strong>plots</strong>) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate. Zenplots are especially useful when subsets of pairs can be identified as of particular interest by some measure, or as not meaningfully comparable, or when pairs of variates can be ordered in terms of potential interest to view, or the number of pairs is too large for more traditional layouts such as a scatterplot matrix. They also allow an essentially arbitrary layout of plots.</p>
+<p>High dimensional space can be explored in a zenplot (<code><a href="reference/zenplot.html">zenplot()</a></code>) by navigating through lower dimensional subspaces along a zenpath (<code><a href="reference/zenpath.html">zenpath()</a></code>) which orders the dimensions (i.e. variates) visited according to some measure of interestingness; see <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">Hofert and Oldford (2017))</a> for an application to S&amp;P 500 constituent data or <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">Hofert et al (2019)</a> for application to visualizing dependence between two sets of variates.</p>
+<p>The <code>R</code> package zenplots provides compact displays for high-dimensional data via the notion of zenplots, grouping of variates, and customizable displays of zigzag layouts. It accommodates different graphical systems including the base <code>graphics</code> package, the <code>grid</code> package (and hence packages like <code>ggplot2</code>), and the interactive graphical package <code>loon</code>.</p>
+<p>zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that zenplot() and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.</p>
+<p>Complete documentation is available <a href="http://rwoldford.github.io/zenplot/">here</a></p>
+<p>Try it. Become one with your data!</p>
 </div>
   </div>
 

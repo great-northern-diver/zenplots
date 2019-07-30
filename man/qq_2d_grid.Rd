@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{qq_2d_grid}
 \alias{qq_2d_grid}
-\title{Q-Q plot in 2d (two data sets against each other)}
+\title{Quantile-quantile plot in 2d using the grid package}
 \usage{
 qq_2d_grid(zargs, do.line = TRUE, lines... = NULL, pch = NULL,
   size = 0.02, box = FALSE, box.width = 1, box.height = 1,
@@ -36,7 +36,7 @@ empirical c(0.25, 0.75)-quantiles)}
 grob (invisibly)
 }
 \description{
-Q-Q plot in 2d (two data sets against each other)
+Quantile-quantile plot in 2d using the grid package
 }
 \note{
 - line iff both margins are of the same *type*

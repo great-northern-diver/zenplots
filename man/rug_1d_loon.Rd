@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{rug_1d_loon}
 \alias{rug_1d_loon}
-\title{Rug plot in 1d}
+\title{Rug plot in 1d using the interactive loon package}
 \usage{
 rug_1d_loon(zargs, ...)
 }
@@ -15,7 +15,7 @@ rug_1d_loon(zargs, ...)
 A loon loon::l_plot(...)
 }
 \description{
-Rug plot in 1d
+Rug plot in 1d using the interactive loon package
 }
 \note{
 Just calls points_1d_loon with glyph = "osquare" to preserve linking

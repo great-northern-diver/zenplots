@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{boxplot_1d_loon}
 \alias{boxplot_1d_loon}
-\title{Boxplot in 1d}
+\title{Boxplot in 1d using the interactive loon package}
 \usage{
 boxplot_1d_loon(zargs, color = NULL, linecolor = NULL, lwd = 2,
   range = NULL, showLabels = FALSE, showScales = FALSE,
@@ -42,7 +42,7 @@ linked to this plot}
 A loon loon::l_plot(...)
 }
 \description{
-Boxplot in 1d
+Boxplot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

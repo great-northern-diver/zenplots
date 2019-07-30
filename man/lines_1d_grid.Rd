@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{lines_1d_grid}
 \alias{lines_1d_grid}
-\title{Lines plot in 1d}
+\title{Lines plot in 1d using the grid package}
 \usage{
 lines_1d_grid(zargs, loc = c(0.5, 0.5), length = 1, arrow = NULL,
   draw = FALSE, ...)
@@ -25,7 +25,7 @@ the direction of the path)}
 grob (invisibly)
 }
 \description{
-Lines plot in 1d
+Lines plot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

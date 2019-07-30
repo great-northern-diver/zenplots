@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{qq_2d_graphics}
 \alias{qq_2d_graphics}
-\title{Q-Q plot in 2d (two data sets against each other)}
+\title{Quantile-quantile plot in 2d using R's base graphics}
 \usage{
 qq_2d_graphics(zargs, do.line = TRUE, lines... = NULL, cex = 0.4,
   box = FALSE, add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -31,7 +31,7 @@ empirical c(0.25, 0.75)-quantiles)}
 invisible()
 }
 \description{
-Q-Q plot in 2d (two data sets against each other)
+Quantile-quantile plot in 2d using R's base graphics
 }
 \note{
 line iff both margins are of the same *type*

@@ -2,7 +2,7 @@
 # library(loon)
 library(stats)
 
-##' @title Rug plot in 1d
+##' @title Rug plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name rug_1d_loon
@@ -15,7 +15,7 @@ library(stats)
 rug_1d_loon <- function(zargs, ...)
     points_1d_loon(zargs, glyph = "square", ...)
 
-##' @title Dot plot in 1d
+##' @title Dot plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name points_1d_loon
@@ -97,7 +97,7 @@ points_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Jittered dot plot in 1d
+##' @title Jittered dot plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name jitter_1d_loon
@@ -173,7 +173,7 @@ jitter_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Histogram in 1d
+##' @title Histogram in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name hist_1d_loon
@@ -266,7 +266,7 @@ hist_1d_loon <- function(zargs,
     h
 }
 
-##' @title Density plot in 1d
+##' @title Density plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name density_1d_loon
@@ -386,7 +386,7 @@ density_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Boxplot in 1d
+##' @title Boxplot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name boxplot_1d_loon
@@ -557,7 +557,7 @@ boxplot_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Arrow plot in 1d
+##' @title Arrow plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name arrow_1d_loon
@@ -601,7 +601,7 @@ arrow_1d_loon <- function(zargs,
                   ...)
 }
 
-##' @title Rectangle plot in 1d
+##' @title Rectangle plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name rect_1d_loon
@@ -694,7 +694,7 @@ rect_1d_loon <- function(zargs,
     ## Return
     baseplot
 }
-##' @title Lines plot in 1d
+##' @title Lines plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name lines_1d_loon
@@ -764,7 +764,7 @@ lines_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Label plot in 1d
+##' @title Label plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions
 ##' @name label_1d_loon
@@ -844,7 +844,7 @@ label_1d_loon <- function(zargs,
     baseplot
 }
 
-##' @title Layout plot in 1d
+##' @title Layout plot in 1d using the interactive loon package
 ##' @param zargs The argument list as passed from \code{\link{zenplot}()}
 ##' @param ... Additional arguments passed to label_1d_loon()
 ##' @return invisible()

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{label_2d_loon}
 \alias{label_2d_loon}
-\title{Label plot in 2d}
+\title{Label plot in 2d using the interactive loon package}
 \usage{
 label_2d_loon(zargs, loc = NULL, label = NULL, rot = 0, size = 8,
   box = FALSE, color = NULL, linkingGroup = NULL,
@@ -45,7 +45,7 @@ in a box.}
 The base loon::l_plot with the added text layer
 }
 \description{
-Label plot in 2d
+Label plot in 2d using the interactive loon package
 }
 \seealso{
 Other default 2d plot functions using the interactive loon package: \code{\link{arrow_2d_loon}},

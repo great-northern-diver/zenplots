@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{boxplot_1d_graphics}
 \alias{boxplot_1d_graphics}
-\title{Box plot in 1d}
+\title{Box plot in 1d using R's base graphics}
 \usage{
 boxplot_1d_graphics(zargs, cex = 0.4, range = NULL, axes = FALSE,
   add = FALSE, ...)
@@ -25,7 +25,7 @@ If NULL, the whiskers (range) grows with sample size.}
 invisible()
 }
 \description{
-Box plot in 1d
+Box plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

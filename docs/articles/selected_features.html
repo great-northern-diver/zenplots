@@ -38,10 +38,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
-     
-  </a>
+  <a href="../articles/intro.html">Intro</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -54,12 +51,37 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/selected_features.html">Zigzag expanded navigation plots in R: The R package zenplots</a>
+      <a href="../articles/introd.html">Introduction</a>
+    </li>
+    <li>
+      <a href="../articles/selected_features.html">Selected features</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Publications
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
+    </li>
+    <li>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">measuring association of random vectors</a>
     </li>
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/rwoldford/zenplots">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -74,7 +96,7 @@
       <h1>Zigzag expanded navigation plots in R: The R package zenplots</h1>
                         <h4 class="author">M. Hofert and R. W. Oldford</h4>
             
-            <h4 class="date">2019-07-29</h4>
+            <h4 class="date">2019-07-30</h4>
       
       
       <div class="hidden name"><code>selected_features.Rmd</code></div>
@@ -201,19 +223,19 @@ ggplot2d &lt;-<span class="st"> </span><span class="cf">function</span>(zargs) {
   r &lt;-<span class="st"> </span><span class="kw"><a href="../reference/extract_2d.html">extract_2d</a></span>(zargs)
   num2d &lt;-<span class="st"> </span>zargs<span class="op">$</span>num<span class="op">/</span><span class="dv">2</span>
   df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(r<span class="op">$</span>x), <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(r<span class="op">$</span>y))
-  p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">data =</span> df, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="dt">cex =</span> <span class="fl">0.1</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),
-          <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),
-          <span class="dt">axis.text.x =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),
-          <span class="dt">axis.text.y =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),
-          <span class="dt">axis.title.x =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),
-          <span class="dt">axis.title.y =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>())
+  p &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_point">geom_point</a></span>(<span class="dt">data =</span> df, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="dt">cex =</span> <span class="fl">0.1</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>(),
+          <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>(),
+          <span class="dt">axis.text.x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>(),
+          <span class="dt">axis.text.y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>(),
+          <span class="dt">axis.title.x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>(),
+          <span class="dt">axis.title.y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_blank</a></span>())
   <span class="cf">if</span>(num2d <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) p &lt;-<span class="st"> </span>p <span class="op">+</span>
-<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">panel.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">'royalblue3'</span>))
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">panel.background =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">'royalblue3'</span>))
   <span class="cf">if</span>(num2d <span class="op">==</span><span class="st"> </span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/length">length</a></span>(zargs<span class="op">$</span>turns)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">2</span>) p &lt;-<span class="st"> </span>p <span class="op">+</span>
-<span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">panel.background =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">'maroon3'</span>))
-  <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot_gtable.html">ggplot_gtable</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot_build.html">ggplot_build</a></span>(p))
+<span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">panel.background =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_rect</a></span>(<span class="dt">fill =</span> <span class="st">'maroon3'</span>))
+  <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot_gtable">ggplot_gtable</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot_build">ggplot_build</a></span>(p))
 }
 
 <span class="kw"><a href="../reference/zenplot.html">zenplot</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/matrix">as.matrix</a></span>(oliveAcids)[,path], <span class="dt">turns =</span> turns, <span class="dt">pkg =</span> <span class="st">"grid"</span>,
@@ -380,7 +402,7 @@ M[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/
 ##         do.call(group_2d_graphics, args)
 ##     }
 ## }
-## &lt;bytecode: 0x7ff418bfb238&gt;
+## &lt;bytecode: 0x7ff3ff0acc80&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>For setting up the plot region of plots based on <code>graphics</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_region</code></pre></div>
@@ -393,13 +415,13 @@ M[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/
 ##         do.call(fun, plot...)
 ##     }
 ## }
-## &lt;bytecode: 0x7ff414e1add0&gt;
+## &lt;bytecode: 0x7ff3fb41e2e0&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>Determining the indices of the two variables to be plotted in the current 1d or 2d plot (the same for 1d plots):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_indices</code></pre></div>
 <pre><code>## function(zargs)
 ##     zargs$vars[zargs$num,]
-## &lt;bytecode: 0x7ff418f8fa90&gt;
+## &lt;bytecode: 0x7ff3ff274908&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>Basic check that the return value of <code><a href="../reference/zenplot.html">zenplot()</a></code> is actually the return value of the underlying <code><a href="../reference/unfold.html">unfold()</a></code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n2dcols &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nrow">ncol</a></span>(olive) <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="co"># number of faces of the hypercube</span>

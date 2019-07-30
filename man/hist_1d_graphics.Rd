@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{hist_1d_graphics}
 \alias{hist_1d_graphics}
-\title{Histogram as 1d plot}
+\title{Histogram as 1d plot using R's base graphics}
 \usage{
 hist_1d_graphics(zargs, breaks = NULL, length.out = 21, col = NULL,
   axes = FALSE, add = TRUE, plot... = NULL, ...)
@@ -28,7 +28,7 @@ hist_1d_graphics(zargs, breaks = NULL, length.out = 21, col = NULL,
 invisible()
 }
 \description{
-Histogram as 1d plot
+Histogram as 1d plot using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{density_2d_graphics}
 \alias{density_2d_graphics}
-\title{Density plot in 2d}
+\title{Density plot in 2d using R's base graphics}
 \usage{
 density_2d_graphics(zargs, ngrids = 25, drawlabels = FALSE,
   axes = FALSE, box = FALSE, add = FALSE, group... = NULL, ...)
@@ -29,7 +29,7 @@ Can be scalar or a length-2 integer vector.}
 invisible()
 }
 \description{
-Density plot in 2d
+Density plot in 2d using R's base graphics
 }
 \seealso{
 Other default 2d plot functions using R's base graphics: \code{\link{arrow_2d_graphics}},

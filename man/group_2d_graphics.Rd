@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{group_2d_graphics}
 \alias{group_2d_graphics}
-\title{Plot of labels indicating adjacent groups}
+\title{Plot of labels indicating adjacent groups using R's base graphics}
 \usage{
 group_2d_graphics(zargs, glabs = NULL, sep = "\\n", loc = c(0.5,
   0.5), add = FALSE, plot... = NULL, ...)
@@ -29,7 +29,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Plot of labels indicating adjacent groups
+Plot of labels indicating adjacent groups using R's base graphics
 }
 \note{
 For performance reasons (avoiding having to call extract_2d() twice),

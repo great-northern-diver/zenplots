@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{jitter_1d_graphics}
 \alias{jitter_1d_graphics}
-\title{Jittered dot plot in 1d}
+\title{Jittered dot plot in 1d using R's base graphics}
 \usage{
 jitter_1d_graphics(zargs, loc = 0.5, offset = 0.25, cex = 0.4,
   add = FALSE, plot... = NULL, ...)
@@ -28,7 +28,7 @@ the jittered points reach maximally}
 invisible()
 }
 \description{
-Jittered dot plot in 1d
+Jittered dot plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

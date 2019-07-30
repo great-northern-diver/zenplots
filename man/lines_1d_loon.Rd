@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{lines_1d_loon}
 \alias{lines_1d_loon}
-\title{Lines plot in 1d}
+\title{Lines plot in 1d using the interactive loon package}
 \usage{
 lines_1d_loon(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
   lwd = 1, linkingGroup = NULL, showLabels = FALSE,
@@ -41,7 +41,7 @@ layered}
 A loon loon::l_plot(...)
 }
 \description{
-Lines plot in 1d
+Lines plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{jitter_1d_loon}
 \alias{jitter_1d_loon}
-\title{Jittered dot plot in 1d}
+\title{Jittered dot plot in 1d using the interactive loon package}
 \usage{
 jitter_1d_loon(zargs, linkingGroup = NULL, showLabels = FALSE,
   showScales = FALSE, showGuides = FALSE, glyph = "ocircle",
@@ -37,7 +37,7 @@ hover}
 A loon loon::l_plot(...)
 }
 \description{
-Jittered dot plot in 1d
+Jittered dot plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

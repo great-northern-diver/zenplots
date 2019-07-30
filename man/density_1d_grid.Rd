@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{density_1d_grid}
 \alias{density_1d_grid}
-\title{Density plot in 1d}
+\title{Density plot in 1d using the grid package}
 \usage{
 density_1d_grid(zargs, density... = NULL, offset = 0.08,
   draw = FALSE, ...)
@@ -23,7 +23,7 @@ the density within the height 1 box in which it appears}
 grob (invisibly)
 }
 \description{
-Density plot in 1d
+Density plot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

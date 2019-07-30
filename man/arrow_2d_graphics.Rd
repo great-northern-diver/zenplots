@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{arrow_2d_graphics}
 \alias{arrow_2d_graphics}
-\title{Arrow plot in 2d}
+\title{Arrow plot in 2d using R's base graphics}
 \usage{
 arrow_2d_graphics(zargs, loc = c(0.5, 0.5), angle = 60, length = 0.2,
   add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -28,7 +28,7 @@ arrow_2d_graphics(zargs, loc = c(0.5, 0.5), angle = 60, length = 0.2,
 invisible()
 }
 \description{
-Arrow plot in 2d
+Arrow plot in 2d using R's base graphics
 }
 \seealso{
 Other default 2d plot functions using R's base graphics: \code{\link{axes_2d_graphics}},

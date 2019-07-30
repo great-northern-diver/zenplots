@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{label_2d_graphics}
 \alias{label_2d_graphics}
-\title{Label plot in 2d}
+\title{Label plot in 2d using R's base graphics}
 \usage{
 label_2d_graphics(zargs, loc = c(0.98, 0.05), label = NULL,
   adj = 1:0, box = FALSE, add = FALSE, group... = NULL,
@@ -31,7 +31,7 @@ label_2d_graphics(zargs, loc = c(0.98, 0.05), label = NULL,
 invisible()
 }
 \description{
-Label plot in 2d
+Label plot in 2d using R's base graphics
 }
 \seealso{
 Other default 2d plot functions using R's base graphics: \code{\link{arrow_2d_graphics}},

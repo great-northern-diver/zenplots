@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{arrow_2d_loon}
 \alias{arrow_2d_loon}
-\title{Arrow plot in 2d}
+\title{Arrow plot in 2d using the interactive loon package}
 \usage{
 arrow_2d_loon(zargs, loc = rep(0.5, 2), length = 0.2, angle = 30,
   linkingGroup = NULL, color = NULL, showLabels = FALSE,
@@ -40,7 +40,7 @@ arrow_2d_loon(zargs, loc = rep(0.5, 2), length = 0.2, angle = 30,
 the plot (invisibly)
 }
 \description{
-Arrow plot in 2d
+Arrow plot in 2d using the interactive loon package
 }
 \seealso{
 Other default 2d plot functions using the interactive loon package: \code{\link{axes_2d_loon}},

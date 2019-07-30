@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{rect_2d_grid}
 \alias{rect_2d_grid}
-\title{Rectangle plot in 2d}
+\title{Rectangle plot in 2d using the grid package}
 \usage{
 rect_2d_grid(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
   group... = list(cex = 0.66), draw = FALSE, ...)
@@ -26,7 +26,7 @@ rect_2d_grid(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
 grob (invisibly)
 }
 \description{
-Rectangle plot in 2d
+Rectangle plot in 2d using the grid package
 }
 \seealso{
 Other default 2d plot functions using the grid package: \code{\link{arrow_2d_grid}},

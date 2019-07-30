@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{axes_2d_graphics}
 \alias{axes_2d_graphics}
-\title{Axes arrows in 2d}
+\title{Axes arrows in 2d using R's base graphics}
 \usage{
 axes_2d_graphics(zargs, length = 0.1, eps = 0.04, code = 2,
   xpd = NA, add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -31,7 +31,7 @@ takes place; see ?par}
 invisible()
 }
 \description{
-Axes arrows in 2d
+Axes arrows in 2d using R's base graphics
 }
 \note{
 Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html

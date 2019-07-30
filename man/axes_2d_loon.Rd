@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{axes_2d_loon}
 \alias{axes_2d_loon}
-\title{Axes arrows in 2d}
+\title{Axes arrows in 2d using the interactive loon package}
 \usage{
 axes_2d_loon(zargs, angle = 30, length = 0.05, eps = 0.02,
   linkingGroup = NULL, color = NULL, showLabels = FALSE,
@@ -40,7 +40,7 @@ axes_2d_loon(zargs, angle = 30, length = 0.05, eps = 0.02,
 the loon plot
 }
 \description{
-Axes arrows in 2d
+Axes arrows in 2d using the interactive loon package
 }
 \note{
 Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{rect_2d_graphics}
 \alias{rect_2d_graphics}
-\title{Rectangle plot in 2d}
+\title{Rectangle plot in 2d using R's base graphics}
 \usage{
 rect_2d_graphics(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
   add = FALSE, group... = NULL, plot... = NULL, ...)
@@ -28,7 +28,7 @@ rect_2d_graphics(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
 invisible()
 }
 \description{
-Rectangle plot in 2d
+Rectangle plot in 2d using R's base graphics
 }
 \seealso{
 Other default 2d plot functions using R's base graphics: \code{\link{arrow_2d_graphics}},

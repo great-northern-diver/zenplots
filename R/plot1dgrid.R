@@ -2,7 +2,7 @@
 library(grid)
 library(stats)
 
-##' @title Rug plot in 1d
+##' @title Rug plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name rug_1d_grid
@@ -55,7 +55,7 @@ rug_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Dot plot in 1d
+##' @title Dot plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name points_1d_grid
@@ -107,7 +107,7 @@ points_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Jittered dot plot in 1d
+##' @title Jittered dot plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name jitter_1d_grid
@@ -136,7 +136,7 @@ jitter_1d_grid <- function(zargs,
     points_1d_grid(zargs, loc = loc., pch = pch, size = size, draw = draw, ...)
 }
 
-##' @title Histogram in 1d
+##' @title Histogram in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name hist_1d_grid
@@ -206,7 +206,7 @@ hist_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Density plot in 1d
+##' @title Density plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name density_1d_grid
@@ -270,7 +270,7 @@ density_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Boxplot in 1d
+##' @title Boxplot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name boxplot_1d_grid
@@ -431,7 +431,7 @@ boxplot_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Arrow plot in 1d
+##' @title Arrow plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name arrow_1d_grid
@@ -474,7 +474,7 @@ arrow_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Rectangle plot in 1d
+##' @title Rectangle plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name rect_1d_grid
@@ -518,7 +518,7 @@ rect_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Lines plot in 1d
+##' @title Lines plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name lines_1d_grid
@@ -565,7 +565,7 @@ lines_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Label plot in 1d
+##' @title Label plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
 ##' @name label_1d_grid
@@ -627,7 +627,7 @@ label_1d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Layout plot in 1d
+##' @title Layout plot in 1d using the grid package
 ##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_1d_grid()
 ##' @return grob (invisibly)

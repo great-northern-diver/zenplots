@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgraphics.R
 \name{points_2d_graphics}
 \alias{points_2d_graphics}
-\title{Point plot in 2d}
+\title{Point plot in 2d using R's base graphics}
 \usage{
 points_2d_graphics(zargs, cex = 0.4, box = FALSE, add = FALSE,
   group... = NULL, plot... = NULL, ...)
@@ -26,7 +26,7 @@ points_2d_graphics(zargs, cex = 0.4, box = FALSE, add = FALSE,
 invisible()
 }
 \description{
-Point plot in 2d
+Point plot in 2d using R's base graphics
 }
 \seealso{
 Other default 2d plot functions using R's base graphics: \code{\link{arrow_2d_graphics}},

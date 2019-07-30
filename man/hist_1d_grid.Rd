@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{hist_1d_grid}
 \alias{hist_1d_grid}
-\title{Histogram in 1d}
+\title{Histogram in 1d using the grid package}
 \usage{
 hist_1d_grid(zargs, breaks = NULL, length.out = 21, col = NULL,
   fill = NULL, draw = FALSE, ...)
@@ -27,7 +27,7 @@ this is the colour of the border}
 grob (invisibly)
 }
 \description{
-Histogram in 1d
+Histogram in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

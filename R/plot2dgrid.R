@@ -2,7 +2,7 @@
 library(grid)
 library(MASS) # for kde2d
 
-##' @title Plot of labels indicating adjacent groups
+##' @title Plot of labels indicating adjacent groups using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name group_2d_grid
@@ -48,7 +48,7 @@ group_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Point plot in 2d
+##' @title Point plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name points_2d_grid
@@ -136,7 +136,7 @@ points_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Q-Q plot in 2d (two data sets against each other)
+##' @title Quantile-quantile plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name qq_2d_grid
@@ -225,7 +225,7 @@ qq_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Density plot in 2d
+##' @title Density plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name density_2d_grid
@@ -321,7 +321,7 @@ density_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Axes arrow
+##' @title Axes arrow using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name axes_2d_grid
@@ -372,7 +372,7 @@ axes_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Arrow plot in 2d
+##' @title Arrow plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name arrow_2d_grid
@@ -411,7 +411,7 @@ arrow_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Rectangle plot in 2d
+##' @title Rectangle plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name rect_2d_grid
@@ -446,7 +446,7 @@ rect_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Label plot in 2d
+##' @title Label plot in 2d using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions
 ##' @name label_2d_grid
@@ -505,7 +505,7 @@ label_2d_grid <- function(zargs,
     invisible(res)
 }
 
-##' @title Layout plot in 2d
+##' @title Layout plot in 2d using the grid package
 ##' @param zargs argument list as passed from \code{\link{zenplot}()}
 ##' @param ... additional arguments passed to label_2d_grid()
 ##' @return grob (invisibly)

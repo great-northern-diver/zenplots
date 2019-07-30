@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{density_1d_loon}
 \alias{density_1d_loon}
-\title{Density plot in 1d}
+\title{Density plot in 1d using the interactive loon package}
 \usage{
 density_1d_loon(zargs, density.args = list(), method = c("single",
   "double"), lwd = NULL, linewidth = NULL, color = NULL,
@@ -52,7 +52,7 @@ layered}
 A loon loon::l_plot(...)
 }
 \description{
-Density plot in 1d
+Density plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

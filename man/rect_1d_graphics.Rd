@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{rect_1d_graphics}
 \alias{rect_1d_graphics}
-\title{Rectangle plot in 1d}
+\title{Rectangle plot in 1d using R's base graphics}
 \usage{
 rect_1d_graphics(zargs, loc = c(0.5, 0.5), width = 1, height = 1,
   add = FALSE, plot... = NULL, ...)
@@ -27,7 +27,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Rectangle plot in 1d
+Rectangle plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

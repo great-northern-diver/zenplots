@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{rug_1d_grid}
 \alias{rug_1d_grid}
-\title{Rug plot in 1d}
+\title{Rug plot in 1d using the grid package}
 \usage{
 rug_1d_grid(zargs, loc = 0.5, length = 0.5, width = 0.001,
   col = par("fg"), draw = FALSE, ...)
@@ -27,7 +27,7 @@ the direction of the path)}
 grob (invisibly)
 }
 \description{
-Rug plot in 1d
+Rug plot in 1d using the grid package
 }
 \note{
 The choice of width and height is to leave the rugs enough space to not

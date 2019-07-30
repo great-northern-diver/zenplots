@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dloon.R
 \name{group_2d_loon}
 \alias{group_2d_loon}
-\title{Plot of labels indicating adjacent groups}
+\title{Plot of labels indicating adjacent groups using the interactive loon package}
 \usage{
 group_2d_loon(zargs, glabs = NULL, sep = "\\n", size = 8, rot = 0,
   baseplot = NULL, parent = NULL, ...)
@@ -31,7 +31,7 @@ layered}
 invisible()
 }
 \description{
-Plot of labels indicating adjacent groups
+Plot of labels indicating adjacent groups using the interactive loon package
 }
 \note{
 For performance reasons (avoiding having to call extract_2d() twice),

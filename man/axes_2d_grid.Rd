@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2dgrid.R
 \name{axes_2d_grid}
 \alias{axes_2d_grid}
-\title{Axes arrow}
+\title{Axes arrow using the grid package}
 \usage{
 axes_2d_grid(zargs, angle = 30, length = unit(0.05, "npc"),
   type = "open", eps = 0.02, group... = list(cex = 0.66),
@@ -29,7 +29,7 @@ axes_2d_grid(zargs, angle = 30, length = unit(0.05, "npc"),
 grob (invisibly)
 }
 \description{
-Axes arrow
+Axes arrow using the grid package
 }
 \note{
 Inspired by https://stat.ethz.ch/pipermail/r-help/2004-October/059525.html

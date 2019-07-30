@@ -2,7 +2,7 @@
 library(graphics)
 library(stats)
 
-##' @title Rug plot in 1d
+##' @title Rug plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name rug_1d_graphics
@@ -59,7 +59,7 @@ rug_1d_graphics <- function(zargs,
                  col = col, lwd = width, ...)
 }
 
-##' @title Dot plot in 1d
+##' @title Dot plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name points_1d_graphics
@@ -109,7 +109,7 @@ points_1d_graphics <- function(zargs,
     points(x = x, y = y, cex = cex, ...)
 }
 
-##' @title Jittered dot plot in 1d
+##' @title Jittered dot plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name jitter_1d_graphics
@@ -137,7 +137,7 @@ jitter_1d_graphics <- function(zargs,
     points_1d_graphics(zargs, loc = loc., cex = cex, add = add, plot... = plot..., ...)
 }
 
-##' @title Histogram as 1d plot
+##' @title Histogram as 1d plot using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name hist_1d_graphics
@@ -191,7 +191,7 @@ hist_1d_graphics <- function(zargs,
     }
 }
 
-##' @title Density plot in 1d
+##' @title Density plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name density_1d_graphics
@@ -259,7 +259,7 @@ density_1d_graphics <- function(zargs,
     }
 }
 
-##' @title Box plot in 1d
+##' @title Box plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name boxplot_1d_graphics
@@ -291,7 +291,7 @@ boxplot_1d_graphics <- function(zargs,
             add = add, axes = axes, ...)
 }
 
-##' @title Arrow plot in 1d
+##' @title Arrow plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name arrow_1d_graphics
@@ -339,7 +339,7 @@ arrow_1d_graphics <- function(zargs,
              x1 = c(arr[1,1], arr[1,3]), y1 = c(arr[2,1], arr[2,3]), ...)
 }
 
-##' @title Rectangle plot in 1d
+##' @title Rectangle plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name rect_1d_graphics
@@ -385,7 +385,7 @@ rect_1d_graphics <- function(zargs,
     rect(xleft = x[1], ybottom = y[1], xright = x[2], ytop = y[2], ...)
 }
 
-##' @title Line plot in 1d
+##' @title Line plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name lines_1d_graphics
@@ -430,7 +430,7 @@ lines_1d_graphics <- function(zargs,
     lines(x, y = y, ...) # uses x, y
 }
 
-##' @title Label plot in 1d
+##' @title Label plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions
 ##' @name label_1d_graphics

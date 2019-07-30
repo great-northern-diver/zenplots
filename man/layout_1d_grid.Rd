@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{layout_1d_grid}
 \alias{layout_1d_grid}
-\title{Layout plot in 1d}
+\title{Layout plot in 1d using the grid package}
 \usage{
 layout_1d_grid(zargs, ...)
 }
@@ -15,7 +15,7 @@ layout_1d_grid(zargs, ...)
 grob (invisibly)
 }
 \description{
-Layout plot in 1d
+Layout plot in 1d using the grid package
 }
 \author{
 Marius Hofert and Wayne Oldford

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{rug_1d_graphics}
 \alias{rug_1d_graphics}
-\title{Rug plot in 1d}
+\title{Rug plot in 1d using R's base graphics}
 \usage{
 rug_1d_graphics(zargs, loc = 0.5, length = 0.5, width = 1,
   col = par("fg"), add = FALSE, plot... = NULL, ...)
@@ -29,7 +29,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Rug plot in 1d
+Rug plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

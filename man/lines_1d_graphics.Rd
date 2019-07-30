@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgraphics.R
 \name{lines_1d_graphics}
 \alias{lines_1d_graphics}
-\title{Line plot in 1d}
+\title{Line plot in 1d using R's base graphics}
 \usage{
 lines_1d_graphics(zargs, loc = c(0.5, 0.5), length = 1, add = FALSE,
   plot... = NULL, ...)
@@ -25,7 +25,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Line plot in 1d
+Line plot in 1d using R's base graphics
 }
 \seealso{
 Other default 1d plot functions using R's base graphics: \code{\link{arrow_1d_graphics}},

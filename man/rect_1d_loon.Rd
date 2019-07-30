@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dloon.R
 \name{rect_1d_loon}
 \alias{rect_1d_loon}
-\title{Rectangle plot in 1d}
+\title{Rectangle plot in 1d using the interactive loon package}
 \usage{
 rect_1d_loon(zargs, loc.x = NULL, loc.y = NULL, color = NULL,
   fill = NULL, lwd = 1, linkingGroup = NULL, showLabels = FALSE,
@@ -43,7 +43,7 @@ layered}
 A loon loon::l_plot(...)
 }
 \description{
-Rectangle plot in 1d
+Rectangle plot in 1d using the interactive loon package
 }
 \seealso{
 Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{boxplot_1d_grid}
 \alias{boxplot_1d_grid}
-\title{Boxplot in 1d}
+\title{Boxplot in 1d using the grid package}
 \usage{
 boxplot_1d_grid(zargs, pch = 21, size = 0.02, col = NULL, lwd = 2,
   bpwidth = 0.5, range = NULL, draw = FALSE, ...)
@@ -31,7 +31,7 @@ NULL, the whiskers (range) grows with sample size.}
 gTree grob containing the boxplot components as grobs
 }
 \description{
-Boxplot in 1d
+Boxplot in 1d using the grid package
 }
 \seealso{
 Other default 1d plot functions using the grid package: \code{\link{arrow_1d_grid}},

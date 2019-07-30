@@ -2,7 +2,7 @@
 library(graphics)
 library(MASS) # for kde2d
 
-##' @title Plot of labels indicating adjacent groups
+##' @title Plot of labels indicating adjacent groups using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name group_2d_graphics
@@ -47,7 +47,7 @@ group_2d_graphics <- function(zargs,
     text(x = loc[1], y = loc[2], labels = labs, ...)
 }
 
-##' @title Point plot in 2d
+##' @title Point plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name points_2d_graphics
@@ -82,7 +82,7 @@ points_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Q-Q plot in 2d (two data sets against each other)
+##' @title Quantile-quantile plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name qq_2d_graphics
@@ -138,7 +138,7 @@ qq_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Density plot in 2d
+##' @title Density plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name density_2d_graphics
@@ -178,7 +178,7 @@ density_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Axes arrows in 2d
+##' @title Axes arrows in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name axes_2d_graphics
@@ -219,7 +219,7 @@ axes_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Arrow plot in 2d
+##' @title Arrow plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name arrow_2d_graphics
@@ -259,7 +259,7 @@ arrow_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Rectangle plot in 2d
+##' @title Rectangle plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name rect_2d_graphics
@@ -295,7 +295,7 @@ rect_2d_graphics <- function(zargs,
     }
 }
 
-##' @title Label plot in 2d
+##' @title Label plot in 2d using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
 ##' @name label_2d_graphics

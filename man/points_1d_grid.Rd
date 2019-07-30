@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot1dgrid.R
 \name{points_1d_grid}
 \alias{points_1d_grid}
-\title{Dot plot in 1d}
+\title{Dot plot in 1d using the grid package}
 \usage{
 points_1d_grid(zargs, loc = 0.5, pch = 21, size = 0.02,
   draw = FALSE, ...)
@@ -25,7 +25,7 @@ the direction of the path)}
 invisible()
 }
 \description{
-Dot plot in 1d
+Dot plot in 1d using the grid package
 }
 \note{
 The default point size was chosen to match the default of graphics
