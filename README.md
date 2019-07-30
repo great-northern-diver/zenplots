@@ -13,6 +13,6 @@ notion of zenplots, grouping of variates, and customizable displays of zigzag la
 
 zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that zenplot() and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.
 
-Complete documentation is available [here](http://rwoldford.github.io/zenplot/)
+Complete documentation is available [here](http://rwoldford.github.io/zenplots/)
 
 Try it.  Become one with your data!
