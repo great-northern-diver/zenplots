@@ -1,4 +1,7 @@
-# zenplots - the path to visualizing high-dimensional data  <img src="man/figures/logo.png" align="right" width="120" />
+# zenplots
+The path to visualizing high-dimensional data  <img src="man/figures/logo.png" align="right" width="120" />
+
+* Online documentation is available [here](http://rwoldford.github.io/zenplots/)
 
 The package zenplots (**z**igzag
 **e**xpanded **n**avigation **plots**) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate. 
@@ -12,7 +15,5 @@ The `R` package zenplots provides compact displays for high-dimensional data via
 notion of zenplots, grouping of variates, and customizable displays of zigzag layouts. It accommodates different graphical systems including the base `graphics` package, the `grid` package (and hence packages like `ggplot2`), and the interactive graphical package `loon`. 
 
 zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that zenplot() and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.
-
-Complete documentation is available [here](http://rwoldford.github.io/zenplots/)
 
 Try it.  Become one with your data!

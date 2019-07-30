@@ -402,7 +402,7 @@ M[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/
 ##         do.call(group_2d_graphics, args)
 ##     }
 ## }
-## &lt;bytecode: 0x7f99a3dcbea8&gt;
+## &lt;bytecode: 0x7f9c016a02a8&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>For setting up the plot region of plots based on <code>graphics</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_region</code></pre></div>
@@ -415,13 +415,13 @@ M[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/
 ##         do.call(fun, plot...)
 ##     }
 ## }
-## &lt;bytecode: 0x7f99a0fe0710&gt;
+## &lt;bytecode: 0x7f9c03526110&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>Determining the indices of the two variables to be plotted in the current 1d or 2d plot (the same for 1d plots):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_indices</code></pre></div>
 <pre><code>## function(zargs)
 ##     zargs$vars[zargs$num,]
-## &lt;bytecode: 0x7f99a41c83a8&gt;
+## &lt;bytecode: 0x7f9c0751e778&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>Basic check that the return value of <code><a href="../reference/zenplot.html">zenplot()</a></code> is actually the return value of the underlying <code><a href="../reference/unfold.html">unfold()</a></code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n2dcols &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nrow">ncol</a></span>(olive) <span class="op">-</span><span class="st"> </span><span class="dv">1</span> <span class="co"># number of faces of the hypercube</span>

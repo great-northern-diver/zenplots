@@ -95,14 +95,18 @@
       
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="zenplots---the-path-to-visualizing-high-dimensional-data" class="section level1">
+<div id="zenplots" class="section level1">
 
+<p>The path to visualizing high-dimensional data <img src="reference/figures/logo.png" align="right" width="120"></p>
+<ul>
+<li>Online documentation is available <a href="http://rwoldford.github.io/zenplots/">here</a>
+</li>
+</ul>
 <p>The package zenplots (<strong>z</strong>igzag <strong>e</strong>xpanded <strong>n</strong>avigation <strong>plots</strong>) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate.</p>
 <p>Zenplots are especially useful when subsets of pairs can be identified as of particular interest by some measure, or as not meaningfully comparable, or when pairs of variates can be ordered in terms of potential interest to view, or the number of pairs is too large for more traditional layouts such as a scatterplot matrix. They also allow an essentially arbitrary layout of plots.</p>
 <p>High dimensional space can be explored in a zenplot (<code><a href="reference/zenplot.html">zenplot()</a></code>) by navigating through lower dimensional subspaces along a zenpath (<code><a href="reference/zenpath.html">zenpath()</a></code>) which orders the dimensions (i.e. variates) visited according to some measure of interestingness; see <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">Hofert and Oldford (2018))</a> for an application to S&amp;P 500 constituent data or <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">Hofert et al (2019)</a> for application to visualizing dependence between two sets of variates.</p>
 <p>The <code>R</code> package zenplots provides compact displays for high-dimensional data via the notion of zenplots, grouping of variates, and customizable displays of zigzag layouts. It accommodates different graphical systems including the base <code>graphics</code> package, the <code>grid</code> package (and hence packages like <code>ggplot2</code>), and the interactive graphical package <code>loon</code>.</p>
 <p>zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that zenplot() and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.</p>
-<p>Complete documentation is available <a href="http://rwoldford.github.io/zenplot/">here</a></p>
 <p>Try it. Become one with your data!</p>
 </div>
   </div>
