@@ -10,7 +10,6 @@ language: r
 before_install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-  - R -q -e 'install.packages("loon"); install.packages("loon.data")'
   - R -q -e 'install.packages("BiocManager"); BiocManager::install(c("graph", "Rgraphviz"), update=FALSE, ask=FALSE)'
 
   
