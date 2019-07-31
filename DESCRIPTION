@@ -1,5 +1,5 @@
 Package: zenplots
-Version: 0.0-5
+Version: 0.0.5.9000
 Encoding: UTF-8
 Title: Zigzag Expanded Navigation Plots
 Description: Graphical tools for visualizing high-dimensional data with a path
@@ -12,9 +12,10 @@ Authors@R: c(person(given = "Marius", family = "Hofert", role = c("aut", "cre"),
                     email = "rwoldford@uwaterloo.ca"))
 Author: Marius Hofert [aut, cre], Wayne Oldford [aut]
 Maintainer: Marius Hofert <marius.hofert@uwaterloo.ca>
+URL: https://github.com/great-northern-diver/zenplots
 Depends: R (>= 3.4.0)
-Imports: grid, graphics, stats, methods, MASS, graph, PairViz
-Suggests: loon, knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
+Imports: grid, graphics, loon, stats, methods, MASS, graph, PairViz
+Suggests: knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
           qrmdata, qrmtools, rugarch, zoo, ggplot2, lattice, gridExtra,
 	  scagnostics
 Enhances:
