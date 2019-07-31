@@ -16,7 +16,10 @@ High dimensional space can be explored in a zenplot (`zenplot()`) by navigating 
 The `R` package zenplots provides compact displays for high-dimensional data via the
 notion of zenplots, grouping of variates, and customizable displays of zigzag layouts. It accommodates different graphical systems including the base `graphics` package, the `grid` package (and hence packages like `ggplot2`), and the interactive graphical package `loon`. 
 
-zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that `zenplot()` and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.
+`zenplots` handles groups of variates, partial and fully missing data, and more. 
+
+One important feature is that `zenplot()` and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.
 
 Try it. 
+
 Become one with your data!
