@@ -5,7 +5,7 @@ useDynLib(zenplots, .registration = TRUE)
 
 import("graphics")
 import("grid")
-## import("loon") # requires tcltk installed => avoid (work with 'loon::l_')
+import("loon") # requires tcltk installed => avoid (work with 'loon::l_')
 
 importFrom("MASS", "kde2d")
 importFrom("tcltk",
