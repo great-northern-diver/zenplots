@@ -1,6 +1,7 @@
 addons:
   apt:
     packages:
+     - libtk-img
      - libgsl0-dev
      - xvfb
 
@@ -14,7 +15,6 @@ before_install:
 
   
 cache: packages
-warnings_are_errors: false
 
 r:
  - release
