@@ -1,17 +1,17 @@
 Package: zenplots
-Version: 0.0.5.9000
+Version: 1.0.0
 Encoding: UTF-8
 Title: Zigzag Expanded Navigation Plots
-Description: Graphical tools for visualizing high-dimensional data with a path
- of pairs. Note that this requires 'graph' from Bioconductor.
- If you want to use dynamic graphics based on 'loon', you also need to have
- 'loon' installed, see <https://github.com/waddella/loon>.
-Authors@R: c(person(given = "Marius", family = "Hofert", role = c("aut", "cre"),
+Description: Graphical tools for visualizing high-dimensional data along a path
+ of alternating one- and two-dimensional plots. Note that this
+ includes interactive graphics plots based on 'loon' in turn based on tcltk 
+ (included as part of the standard R distribution).  It also requires 'graph' from Bioconductor.
+Authors@R: c(person(given = "Marius", family = "Hofert", role = "aut",
                     email = "marius.hofert@uwaterloo.ca"),
-             person(given = "Wayne", family = "Oldford", role = "aut",
+             person(given = "Wayne", family = "Oldford", role =  c("aut", "cre"),
                     email = "rwoldford@uwaterloo.ca"))
-Author: Marius Hofert [aut, cre], Wayne Oldford [aut]
-Maintainer: Marius Hofert <marius.hofert@uwaterloo.ca>
+Author: Marius Hofert [aut], Wayne Oldford [aut, cre]
+Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
 URL: https://github.com/great-northern-diver/zenplots
 Depends: R (>= 3.4.0)
 Imports: grid, graphics, loon, stats, methods, MASS, graph, PairViz
@@ -23,5 +23,5 @@ License: GPL-2 | GPL-3
 NeedsCompilation: yes
 VignetteBuilder: knitr, rmarkdown
 Repository: CRAN
-Date/Publication: 2015-02-19 15:26:50
+Date: 2019-08-01
 RoxygenNote: 6.1.1
