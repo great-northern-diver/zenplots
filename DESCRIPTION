@@ -2,10 +2,10 @@ Package: zenplots
 Version: 1.0.0
 Encoding: UTF-8
 Title: Zigzag Expanded Navigation Plots
-Description: Graphical tools for visualizing high-dimensional data with a path
- of pairs. Note that this requires 'graph' from Bioconductor.
- It also includes interactive graphics plots based on 'loon' in turn based on tcltk 
- (included as part of the standard R distribution).
+Description: Graphical tools for visualizing high-dimensional data along a path
+ of alternating one- and two-dimensional plots. Note that this
+ includes interactive graphics plots based on 'loon' in turn based on tcltk 
+ (included as part of the standard R distribution).  It also requires 'graph' from Bioconductor.
 Authors@R: c(person(given = "Marius", family = "Hofert", role = "aut",
                     email = "marius.hofert@uwaterloo.ca"),
              person(given = "Wayne", family = "Oldford", role =  c("aut", "cre"),
