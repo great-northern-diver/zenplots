@@ -10,10 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Zigzag Expanded Navigation Plots">
-<meta property="og:description" content="Graphical tools for visualizing high-dimensional data with a path
- of pairs. Note that this requires 'graph' from Bioconductor.
- If you want to use dynamic graphics based on 'loon', you also need to have
- 'loon' installed, see &lt;https://github.com/waddella/loon&gt;.">
+<meta property="og:description" content="Graphical tools for visualizing high-dimensional data along a path
+ of alternating one- and two-dimensional plots. Note that this
+ includes interactive graphics plots based on 'loon' in turn based on 'tcltk'
+ (included as part of the standard R distribution).  It also requires 'graph' from Bioconductor.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/rwoldford/zenplots">
+  <a href="https://github.com/great-northern-diver/zenplots">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -97,17 +97,20 @@
   <div class="contents col-md-9">
 <div id="zenplots" class="section level1">
 
-<p>The path to visualizing high-dimensional data <img src="reference/figures/logo.png" align="right" width="120"></p>
+
+<p>Plotting paths to data enlightenment <img src="reference/figures/logo.png" align="right" width="120"></p>
 <ul>
-<li>Online documentation is available <a href="http://rwoldford.github.io/zenplots/">here</a>
+<li>Online documentation is available <a href="http://great-northern-diver.github.io/zenplots/">here</a>
 </li>
 </ul>
 <p>The package zenplots (<strong>z</strong>igzag <strong>e</strong>xpanded <strong>n</strong>avigation <strong>plots</strong>) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate.</p>
 <p>Zenplots are especially useful when subsets of pairs can be identified as of particular interest by some measure, or as not meaningfully comparable, or when pairs of variates can be ordered in terms of potential interest to view, or the number of pairs is too large for more traditional layouts such as a scatterplot matrix. They also allow an essentially arbitrary layout of plots.</p>
 <p>High dimensional space can be explored in a zenplot (<code><a href="reference/zenplot.html">zenplot()</a></code>) by navigating through lower dimensional subspaces along a zenpath (<code><a href="reference/zenpath.html">zenpath()</a></code>) which orders the dimensions (i.e. variates) visited according to some measure of interestingness; see <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">Hofert and Oldford (2018))</a> for an application to S&amp;P 500 constituent data or <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">Hofert et al (2019)</a> for application to visualizing dependence between two sets of variates.</p>
 <p>The <code>R</code> package zenplots provides compact displays for high-dimensional data via the notion of zenplots, grouping of variates, and customizable displays of zigzag layouts. It accommodates different graphical systems including the base <code>graphics</code> package, the <code>grid</code> package (and hence packages like <code>ggplot2</code>), and the interactive graphical package <code>loon</code>.</p>
-<p>zenplots handles groups of variates, partial and fully missing data, and more. One important feature is that zenplot() and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and twodimensional plot functions; predefined functions are exported for all graphical systems.</p>
-<p>Try it. Become one with your data!</p>
+<p><code>zenplots</code> handles groups of variates, partial and fully missing data, and more.</p>
+<p>One important feature is that <code><a href="reference/zenplot.html">zenplot()</a></code> and its auxiliary functions in zenplots distinguish layout from plotting which allows one to freely choose and create one- and two-dimensional plot functions; predefined functions are exported for all graphical systems.</p>
+<p>Try it.</p>
+<p>Become one with your data!</p>
 </div>
   </div>
 
@@ -116,6 +119,8 @@
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=zenplots">https://​cloud.r-project.org/​package=zenplots</a>
+</li>
+<li>Browse source code at <br><a href="https://github.com/great-northern-diver/zenplots">https://​github.com/​great-northern-diver/​zenplots</a>
 </li>
 </ul>
 </div>
@@ -130,12 +135,19 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Marius Hofert <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Wayne Oldford <br><small class="roles"> Author </small>  </li>
+<li>Marius Hofert <br><small class="roles"> Author </small>  </li>
+<li>Wayne Oldford <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/great-northern-diver/zenplots"><img src="https://travis-ci.org/great-northern-diver/zenplots.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://cran.r-project.org/package=zenplots"><img src="http://www.r-pkg.org/badges/version/zenplots" alt="CRAN_Status_Badge"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
       <footer><div class="copyright">
