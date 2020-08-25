@@ -14,6 +14,6 @@
 #'
 #' @docType package
 #' @name zenplots
-#' @useDynLib zenplots
+#' @useDynLib zenplots, .registration=TRUE
 NULL
 #> NULL
