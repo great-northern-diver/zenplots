@@ -1,5 +1,5 @@
 Package: zenplots
-Version: 1.0.1
+Version: 1.0.2
 Encoding: UTF-8
 Title: Zigzag Expanded Navigation Plots
 Description: Graphical tools for visualizing high-dimensional data along a path
@@ -23,5 +23,5 @@ License: GPL-2 | GPL-3
 NeedsCompilation: yes
 VignetteBuilder: knitr, rmarkdown
 Repository: CRAN
-Date: 2019-08-01
-RoxygenNote: 6.1.1
+Date: 2020-08-25
+RoxygenNote: 7.1.0
