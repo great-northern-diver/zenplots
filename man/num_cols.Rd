@@ -16,9 +16,11 @@ The number of data columns of 'x'
 Determine the number of columns if is.standard(x)
 }
 \seealso{
-Other zenplot technical tools: \code{\link{convert_occupancy}},
-  \code{\link{is.standard}}, \code{\link{n2dcols_aux}},
-  \code{\link{turn_checker}}
+Other zenplot technical tools: 
+\code{\link{convert_occupancy}()},
+\code{\link{is.standard}()},
+\code{\link{n2dcols_aux}()},
+\code{\link{turn_checker}()}
 }
 \author{
 Marius Hofert

@@ -4,9 +4,17 @@
 \alias{label_2d_graphics}
 \title{Label plot in 2d using R's base graphics}
 \usage{
-label_2d_graphics(zargs, loc = c(0.98, 0.05), label = NULL,
-  adj = 1:0, box = FALSE, add = FALSE, group... = NULL,
-  plot... = NULL, ...)
+label_2d_graphics(
+  zargs,
+  loc = c(0.98, 0.05),
+  label = NULL,
+  adj = 1:0,
+  box = FALSE,
+  add = FALSE,
+  group... = NULL,
+  plot... = NULL,
+  ...
+)
 }
 \arguments{
 \item{zargs}{argument list as passed from \code{\link{zenplot}()}}
@@ -34,30 +42,39 @@ invisible()
 Label plot in 2d using R's base graphics
 }
 \seealso{
-Other default 2d plot functions using R's base graphics: \code{\link{arrow_2d_graphics}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{qq_2d_graphics}},
-  \code{\link{rect_2d_graphics}}
+Other default 2d plot functions using R's base graphics: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{rect_2d_graphics}()}
 
-Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
-  \code{\link{arrow_2d_grid}}, \code{\link{arrow_2d_loon}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{density_2d_grid}},
-  \code{\link{density_2d_loon}}, \code{\link{extract_2d}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{group_2d_grid}}, \code{\link{group_2d_loon}},
-  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{points_2d_grid}},
-  \code{\link{points_2d_loon}},
-  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
-  \code{\link{rect_2d_graphics}},
-  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{arrow_2d_grid}()},
+\code{\link{arrow_2d_loon}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{density_2d_grid}()},
+\code{\link{density_2d_loon}()},
+\code{\link{extract_2d}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{group_2d_grid}()},
+\code{\link{group_2d_loon}()},
+\code{\link{label_2d_grid}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{points_2d_grid}()},
+\code{\link{points_2d_loon}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_graphics}()},
+\code{\link{rect_2d_grid}()},
+\code{\link{rect_2d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

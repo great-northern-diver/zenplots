@@ -4,8 +4,16 @@
 \alias{group_2d_loon}
 \title{Plot of labels indicating adjacent groups using the interactive loon package}
 \usage{
-group_2d_loon(zargs, glabs = NULL, sep = "\\n", size = 8, rot = 0,
-  baseplot = NULL, parent = NULL, ...)
+group_2d_loon(
+  zargs,
+  glabs = NULL,
+  sep = "\\n",
+  size = 8,
+  rot = 0,
+  baseplot = NULL,
+  parent = NULL,
+  ...
+)
 }
 \arguments{
 \item{zargs}{argument list as passed from \code{\link{zenplot}()}}
@@ -38,29 +46,38 @@ For performance reasons (avoiding having to call extract_2d() twice),
       'glabs' is an extra argument
 }
 \seealso{
-Other default 2d plot functions using the interactive loon package: \code{\link{arrow_2d_loon}},
-  \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_loon}},
-  \code{\link{label_2d_loon}},
-  \code{\link{points_2d_loon}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions using the interactive loon package: 
+\code{\link{arrow_2d_loon}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_loon}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_loon}()},
+\code{\link{rect_2d_loon}()}
 
-Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
-  \code{\link{arrow_2d_grid}}, \code{\link{arrow_2d_loon}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{density_2d_grid}},
-  \code{\link{density_2d_loon}}, \code{\link{extract_2d}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{group_2d_grid}},
-  \code{\link{label_2d_graphics}},
-  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{points_2d_grid}},
-  \code{\link{points_2d_loon}},
-  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
-  \code{\link{rect_2d_graphics}},
-  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{arrow_2d_grid}()},
+\code{\link{arrow_2d_loon}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{density_2d_grid}()},
+\code{\link{density_2d_loon}()},
+\code{\link{extract_2d}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{group_2d_grid}()},
+\code{\link{label_2d_graphics}()},
+\code{\link{label_2d_grid}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{points_2d_grid}()},
+\code{\link{points_2d_loon}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_graphics}()},
+\code{\link{rect_2d_grid}()},
+\code{\link{rect_2d_loon}()}
 }
 \author{
 Marius Hofert & Wayne Oldford

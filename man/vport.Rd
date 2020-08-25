@@ -38,9 +38,11 @@ Ideas from dataViewport() and extendrange()
       stopifnot(0 <= ispace, ispace <= 1)
 }
 \seealso{
-Other graphical tools: \code{\link{l_ispace_config}},
-  \code{\link{na_omit_loon}}, \code{\link{plot_region}},
-  \code{\link{zenarrow}}
+Other graphical tools: 
+\code{\link{l_ispace_config}()},
+\code{\link{na_omit_loon}()},
+\code{\link{plot_region}()},
+\code{\link{zenarrow}()}
 }
 \author{
 Marius Hofert

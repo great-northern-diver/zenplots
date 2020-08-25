@@ -72,29 +72,40 @@ my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
 zenplot(iris, plot2d = my_2d_plot)
 }
 \seealso{
-Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
-  \code{\link{burst}}, \code{\link{check_zargs}},
-  \code{\link{extract_1d}}, \code{\link{plot_indices}}
+Other tools for constructing your own plot1d and plot2d functions: 
+\code{\link{burst_aux}()},
+\code{\link{burst}()},
+\code{\link{check_zargs}()},
+\code{\link{extract_1d}()},
+\code{\link{plot_indices}()}
 
-Other data extraction functions to build plots: \code{\link{extract_1d}}
+Other data extraction functions to build plots: 
+\code{\link{extract_1d}()}
 
-Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
-  \code{\link{arrow_2d_grid}}, \code{\link{arrow_2d_loon}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{density_2d_grid}},
-  \code{\link{density_2d_loon}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{group_2d_grid}}, \code{\link{group_2d_loon}},
-  \code{\link{label_2d_graphics}},
-  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{points_2d_grid}},
-  \code{\link{points_2d_loon}},
-  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
-  \code{\link{rect_2d_graphics}},
-  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{arrow_2d_grid}()},
+\code{\link{arrow_2d_loon}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{density_2d_grid}()},
+\code{\link{density_2d_loon}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{group_2d_grid}()},
+\code{\link{group_2d_loon}()},
+\code{\link{label_2d_graphics}()},
+\code{\link{label_2d_grid}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{points_2d_grid}()},
+\code{\link{points_2d_loon}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_graphics}()},
+\code{\link{rect_2d_grid}()},
+\code{\link{rect_2d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

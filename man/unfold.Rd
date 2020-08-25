@@ -111,7 +111,8 @@ unfolding <- unfold(nfaces = dim -1)
 names(unfolding)
 }
 \seealso{
-Other creating zenplots: \code{\link{zenplot}}
+Other creating zenplots: 
+\code{\link{zenplot}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

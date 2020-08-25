@@ -4,8 +4,15 @@
 \alias{l_ispace_config}
 \title{Configuring a loon plot to accommodate ispace}
 \usage{
-l_ispace_config(baseplot, ispace = NULL, x = NULL, y = NULL,
-  xlim = NULL, ylim = NULL, ...)
+l_ispace_config(
+  baseplot,
+  ispace = NULL,
+  x = NULL,
+  y = NULL,
+  xlim = NULL,
+  ylim = NULL,
+  ...
+)
 }
 \arguments{
 \item{baseplot}{The plot to be modified}
@@ -29,9 +36,11 @@ The baseplot
 Configuring a loon plot to accommodate ispace
 }
 \seealso{
-Other graphical tools: \code{\link{na_omit_loon}},
-  \code{\link{plot_region}}, \code{\link{vport}},
-  \code{\link{zenarrow}}
+Other graphical tools: 
+\code{\link{na_omit_loon}()},
+\code{\link{plot_region}()},
+\code{\link{vport}()},
+\code{\link{zenarrow}()}
 }
 \author{
 R. W. Oldford

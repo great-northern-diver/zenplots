@@ -4,8 +4,14 @@
 \alias{arrow_1d_grid}
 \title{Arrow plot in 1d using the grid package}
 \usage{
-arrow_1d_grid(zargs, loc = c(0.5, 0.5), angle = 60, length = 0.6,
-  draw = FALSE, ...)
+arrow_1d_grid(
+  zargs,
+  loc = c(0.5, 0.5),
+  angle = 60,
+  length = 0.6,
+  draw = FALSE,
+  ...
+)
 }
 \arguments{
 \item{zargs}{argument list as passed from \code{\link{zenplot}()}}
@@ -28,37 +34,48 @@ grob (invisibly)
 Arrow plot in 1d using the grid package
 }
 \seealso{
-Other default 1d plot functions using the grid package: \code{\link{boxplot_1d_grid}},
-  \code{\link{density_1d_grid}},
-  \code{\link{hist_1d_grid}}, \code{\link{jitter_1d_grid}},
-  \code{\link{label_1d_grid}}, \code{\link{lines_1d_grid}},
-  \code{\link{points_1d_grid}}, \code{\link{rect_1d_grid}},
-  \code{\link{rug_1d_grid}}
+Other default 1d plot functions using the grid package: 
+\code{\link{boxplot_1d_grid}()},
+\code{\link{density_1d_grid}()},
+\code{\link{hist_1d_grid}()},
+\code{\link{jitter_1d_grid}()},
+\code{\link{label_1d_grid}()},
+\code{\link{lines_1d_grid}()},
+\code{\link{points_1d_grid}()},
+\code{\link{rect_1d_grid}()},
+\code{\link{rug_1d_grid}()}
 
-Other default 1d plot functions: \code{\link{arrow_1d_graphics}},
-  \code{\link{arrow_1d_loon}},
-  \code{\link{boxplot_1d_graphics}},
-  \code{\link{boxplot_1d_grid}},
-  \code{\link{boxplot_1d_loon}},
-  \code{\link{density_1d_graphics}},
-  \code{\link{density_1d_grid}},
-  \code{\link{density_1d_loon}}, \code{\link{extract_1d}},
-  \code{\link{hist_1d_graphics}},
-  \code{\link{hist_1d_grid}}, \code{\link{hist_1d_loon}},
-  \code{\link{jitter_1d_graphics}},
-  \code{\link{jitter_1d_grid}},
-  \code{\link{jitter_1d_loon}},
-  \code{\link{label_1d_graphics}},
-  \code{\link{label_1d_grid}}, \code{\link{label_1d_loon}},
-  \code{\link{lines_1d_graphics}},
-  \code{\link{lines_1d_grid}}, \code{\link{lines_1d_loon}},
-  \code{\link{points_1d_graphics}},
-  \code{\link{points_1d_grid}},
-  \code{\link{points_1d_loon}},
-  \code{\link{rect_1d_graphics}},
-  \code{\link{rect_1d_grid}}, \code{\link{rect_1d_loon}},
-  \code{\link{rug_1d_graphics}}, \code{\link{rug_1d_grid}},
-  \code{\link{rug_1d_loon}}
+Other default 1d plot functions: 
+\code{\link{arrow_1d_graphics}()},
+\code{\link{arrow_1d_loon}()},
+\code{\link{boxplot_1d_graphics}()},
+\code{\link{boxplot_1d_grid}()},
+\code{\link{boxplot_1d_loon}()},
+\code{\link{density_1d_graphics}()},
+\code{\link{density_1d_grid}()},
+\code{\link{density_1d_loon}()},
+\code{\link{extract_1d}()},
+\code{\link{hist_1d_graphics}()},
+\code{\link{hist_1d_grid}()},
+\code{\link{hist_1d_loon}()},
+\code{\link{jitter_1d_graphics}()},
+\code{\link{jitter_1d_grid}()},
+\code{\link{jitter_1d_loon}()},
+\code{\link{label_1d_graphics}()},
+\code{\link{label_1d_grid}()},
+\code{\link{label_1d_loon}()},
+\code{\link{lines_1d_graphics}()},
+\code{\link{lines_1d_grid}()},
+\code{\link{lines_1d_loon}()},
+\code{\link{points_1d_graphics}()},
+\code{\link{points_1d_grid}()},
+\code{\link{points_1d_loon}()},
+\code{\link{rect_1d_graphics}()},
+\code{\link{rect_1d_grid}()},
+\code{\link{rect_1d_loon}()},
+\code{\link{rug_1d_graphics}()},
+\code{\link{rug_1d_grid}()},
+\code{\link{rug_1d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

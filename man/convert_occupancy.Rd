@@ -38,9 +38,11 @@ res <- zenplot(x)
 convert_occupancy(occ)
 }
 \seealso{
-Other zenplot technical tools: \code{\link{is.standard}},
-  \code{\link{n2dcols_aux}}, \code{\link{num_cols}},
-  \code{\link{turn_checker}}
+Other zenplot technical tools: 
+\code{\link{is.standard}()},
+\code{\link{n2dcols_aux}()},
+\code{\link{num_cols}()},
+\code{\link{turn_checker}()}
 }
 \author{
 Marius Hofert

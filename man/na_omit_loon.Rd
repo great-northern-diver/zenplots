@@ -26,9 +26,11 @@ A list(x, y, linkingKey, itemLabel) where any NA in x or y will
 Helper function to remove NAs for loon plots
 }
 \seealso{
-Other graphical tools: \code{\link{l_ispace_config}},
-  \code{\link{plot_region}}, \code{\link{vport}},
-  \code{\link{zenarrow}}
+Other graphical tools: 
+\code{\link{l_ispace_config}()},
+\code{\link{plot_region}()},
+\code{\link{vport}()},
+\code{\link{zenarrow}()}
 }
 \author{
 R. W. Oldford

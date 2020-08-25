@@ -96,9 +96,12 @@ burst(x, labs = list(group = NULL, var = NULL)) # only group labels and only if 
 burst(x, labs = NULL) # neither group nor variable labels
 }
 \seealso{
-Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
-  \code{\link{check_zargs}}, \code{\link{extract_1d}},
-  \code{\link{extract_2d}}, \code{\link{plot_indices}}
+Other tools for constructing your own plot1d and plot2d functions: 
+\code{\link{burst_aux}()},
+\code{\link{check_zargs}()},
+\code{\link{extract_1d}()},
+\code{\link{extract_2d}()},
+\code{\link{plot_indices}()}
 }
 \author{
 Marius Hofert

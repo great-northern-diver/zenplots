@@ -83,9 +83,12 @@ zenpath(10) # integer argument
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.
 
-Other tools related to constructing zenpaths: \code{\link{connect_pairs}},
-  \code{\link{extract_pairs}}, \code{\link{graph_pairs}},
-  \code{\link{groupData}}, \code{\link{indexData}}
+Other tools related to constructing zenpaths: 
+\code{\link{connect_pairs}()},
+\code{\link{extract_pairs}()},
+\code{\link{graph_pairs}()},
+\code{\link{groupData}()},
+\code{\link{indexData}()}
 }
 \author{
 Marius Hofert and Wayne Oldford
