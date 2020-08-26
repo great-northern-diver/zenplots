@@ -620,8 +620,8 @@ unfold <- function(nfaces, turns = NULL,
 ##' Z <- matrix(rnorm(n * d), ncol = n) # (d,n)-matrix
 ##' P <- matrix(0.5, nrow = d, ncol = d)
 ##' diag(P) <- 1
-##' L <- t(chol(P)) # L: LL^T = P
-##' Y <- t(L \%*\% Z) # (n,d)-matrix containing n d-vectors following N(0,P)
+##' L <- t(chol(P))   # L: LL^T = P
+##' Y <- t(L %*% Z) # (n,d)-matrix containing n d-vectors following N(0,P)
 ##' U. <- runif(n)
 ##' W <- sapply(nu, function(nu.) 1/qgamma(U., shape = nu./2, rate = nu./2)) # (n,d)-matrix
 ##' X <- sqrt(W) * Y # (n,d)-matrix
