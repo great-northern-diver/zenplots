@@ -23,5 +23,5 @@ License: GPL-2 | GPL-3
 NeedsCompilation: yes
 VignetteBuilder: knitr, rmarkdown
 Repository: CRAN
-Date: 2020-08-25
+Date: 2020-10-02
 RoxygenNote: 7.1.0

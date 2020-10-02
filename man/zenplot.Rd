@@ -513,7 +513,7 @@ my_points_2d_grid <- function(zargs, basecol, d.) {
            }
        } # determine the colors
        vp <- vport(zargs$ispace, xlim = xlim, ylim = ylim, x = x, y = y) # viewport
-       pointsGrob(x = x, y = y, pch = 21, size = unit(0.02, units = "npc"),
+       pointsGrob(x = x[[1]], y = y[[1]], pch = 21, size = unit(0.02, units = "npc"),
                   name = "points_2d", gp = gpar(col = col), vp = vp)
    }
 ## Plot a random permutation of columns via a zenplot

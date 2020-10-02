@@ -9,21 +9,36 @@
 <title>Unfold the hypercube and produce all information concerning the zenpath
        and zenplot layout — unfold • zenplots</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -31,9 +46,9 @@
 
 
 
+
 <meta property="og:title" content="Unfold the hypercube and produce all information concerning the zenpath
        and zenplot layout — unfold" />
-
 <meta property="og:description" content="The unfold() function imagines each pair of variables/dimensions 
 as a &quot;face&quot; of a high dimensional cube. These faces are &quot;unfolded&quot; from one 2d space
 or &quot;face&quot; to the next about the 1d face or &quot;edge&quot; they share.  The unfold() 
@@ -42,9 +57,8 @@ the number of 2d plots/spaces to be &quot;unfolded&quot; and produces the zenpat
 zenplot layout required for the function zenplot().  Laying out these pairs 
 with a zenplot is what is alluded to as an &quot;unfolding&quot; of (at least a part of) 
 the high dimensional space." />
-
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -58,9 +72,10 @@ the high dimensional space." />
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +89,7 @@ the high dimensional space." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
@@ -109,6 +124,9 @@ the high dimensional space." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="https://doi.org/10.18637/jss.v095.i04">Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software</a>
+    </li>
+    <li>
       <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
     </li>
     <li>
@@ -117,7 +135,6 @@ the high dimensional space." />
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
@@ -132,6 +149,7 @@ the high dimensional space." />
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -144,7 +162,6 @@ the high dimensional space." />
     </div>
 
     <div class="ref-description">
-    
     <p>The <code>unfold()</code> function imagines each pair of variables/dimensions 
 as a "face" of a high dimensional cube. These faces are "unfolded" from one 2d space
 or "face" to the next about the 1d face or "edge" they share.  The <code>unfold()</code> 
@@ -153,14 +170,13 @@ the number of 2d plots/spaces to be "unfolded" and produces the zenpath and
 zenplot layout required for the function zenplot().  Laying out these pairs 
 with a zenplot is what is alluded to as an "unfolding" of (at least a part of) 
 the high dimensional space.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>unfold</span>(<span class='no'>nfaces</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-       <span class='kw'>n2dcols</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span>),
-       <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span>),
+       <span class='kw'>n2dcols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span>),
+       <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span>),
        <span class='kw'>first1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>width2d</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -170,7 +186,7 @@ the high dimensional space.</p>
     </tr>
     <tr>
       <th>turns</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code> vector (of length two times the
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector (of length two times the
 number of variables to be plotted minus 1) consisting of <code>"d"</code>,
 <code>"u"</code>, <code>"r"</code> or <code>"l"</code> indicating the turns out of the
 current plot position; if <code>NULL</code>, the <code>turns</code> are
@@ -185,8 +201,8 @@ Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></
     </tr>
     <tr>
       <th>method</th>
-      <td><p>The type of zigzag plot (a <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code>).</p>
-<p>Available are:</p><dl class='dl-horizontal'>
+      <td><p>The type of zigzag plot (a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>).</p>
+<p>Available are:</p><dl'>
     <dt><code>tidy</code>:</dt><dd><p>more tidied-up <code>double.zigzag</code>
          (slightly more compact placement of plots towards the end).</p></dd>
     <dt><code>double.zigzag</code>:</dt><dd><p>zigzag plot in the form of a
@@ -198,16 +214,17 @@ Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></
     <dt><code>rectangular</code>:</dt><dd><p>plots that fill the page from
         left to right and top to bottom. This is useful (and most compact)
         for plots that do not share an axis.</p></dd>
+
 </dl><p>Note that <code>method</code> is ignored if <code>turns</code> are provided.</p></td>
     </tr>
     <tr>
       <th>first1d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> indicating whether the first one-dimensional (1d)
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether the first one-dimensional (1d)
 plot should be plotted.</p></td>
     </tr>
     <tr>
       <th>last1d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> indicating whether the last one-dimensional (1d)
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether the last one-dimensional (1d)
 plot should be plotted</p></td>
     </tr>
     <tr>
@@ -219,14 +236,14 @@ plot should be plotted</p></td>
       <td><p>A graphical parameter &gt; 0 giving the width of 2d plots.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></code> describing the unfolded path and its layout
- as a list of named components:</p><dl class='dl-horizontal'>
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> describing the unfolded path and its layout
+ as a list of named components:</p><dl'>
     <dt><code>path</code>:</dt><dd><p>the path of the unfolding, itself given 
-    as a structured <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></code> having components
-    <dl class='dl-horizontal'>
+    as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
+    <dl'>
     <dt><code>turns</code>:</dt><dd><p>the sequence of turns 
      -- each being one of &#8220;l&#8221; (for left), &#8220;r&#8221; (for right), 
     &#8220;d&#8221; (for down), and &#8220;u&#8221;  (for up) --
@@ -235,11 +252,10 @@ plot should be plotted</p></td>
     <dt><code>positions</code>:</dt><dd><p>the path as a matrix of <code>(x, y)</code> positions giving
      the indices in the <code>occupancy</code> matrix of each plot in the path.</p></dd>
     <dt><code>occupancy</code>:</dt><dd><p>A rectangular array whose cells indicate the positions
-    of the plots on the page.</p></dd>
-    </dl></p></dd>
+    of the plots on the page.</p></dd></dl></p></dd>
     <dt><code>layout</code>:</dt><dd><p>the details of the visual layout of the plots and given 
-    as a structured <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></code> having components
-    <dl class='dl-horizontal'>
+    as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
+    <dl'>
     <dt><code>orientations</code>:</dt><dd><p>a vector indicating the orientation of each of the
     displays in order -- &#8220;h&#8221; for horizontal, &#8220;v&#8221; for vertical, and
     &#8220;s&#8221; for square.</p></dd>
@@ -253,44 +269,31 @@ plot should be plotted</p></td>
     a 2d plot.</p></dd>
     <dt><code>boundingBoxes</code>:</dt><dd><p>A matrix of 4 columns giving locations (<code>left</code>,
     <code>right</code>, <code>bottom</code>, and <code>top</code>) of the box which bound each of the
-    plots in order.</p></dd>
-    </dl></p></dd>
-    </dl>
-
+    plots in order.</p></dd></dl></p></dd>
     
+</dl>
+
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p>Although <code>unfold()</code> is probably rather rarely used directly by a user,
  it provides insight into how zenplots are constructed.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other creating zenplots: <code><a href='zenplot.html'>zenplot</a></code></p></div>
-    
+    <div class='dont-index'><p>Other creating zenplots: 
+<code><a href='zenplot.html'>zenplot</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>dim</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span>
 <span class='no'>unfolding</span> <span class='kw'>&lt;-</span> <span class='fu'>unfold</span>(<span class='kw'>nfaces</span> <span class='kw'>=</span> <span class='no'>dim</span> -<span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>unfolding</span>)</div><div class='output co'>#&gt; [1] "path"   "layout"</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>unfolding</span>)</div><div class='output co'>#&gt; [1] "path"   "layout"</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#note">Note</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Marius Hofert and Wayne Oldford</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -298,13 +301,16 @@ plot should be plotted</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

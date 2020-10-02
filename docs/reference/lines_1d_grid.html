@@ -8,21 +8,36 @@
 
 <title>Lines plot in 1d using the grid package — lines_1d_grid • zenplots</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,12 +45,11 @@
 
 
 
+
 <meta property="og:title" content="Lines plot in 1d using the grid package — lines_1d_grid" />
-
 <meta property="og:description" content="Lines plot in 1d using the grid package" />
-
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -49,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -65,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
@@ -100,6 +115,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="https://doi.org/10.18637/jss.v095.i04">Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software</a>
+    </li>
+    <li>
       <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
     </li>
     <li>
@@ -108,7 +126,6 @@
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
@@ -123,6 +140,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -134,14 +152,18 @@
     </div>
 
     <div class="ref-description">
-    
     <p>Lines plot in 1d using the grid package</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'>lines_1d_grid</span>(<span class='no'>zargs</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>), <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>arrow</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>lines_1d_grid</span>(
+  <span class='no'>zargs</span>,
+  <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.5</span>, <span class='fl'>0.5</span>),
+  <span class='kw'>length</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>arrow</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='no'>...</span>
+)</pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -171,61 +193,62 @@ the direction of the path)</p></td>
       <td><p>additional arguments passed to gpar()</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>grob (invisibly)</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other default 1d plot functions using the grid package: <code><a href='arrow_1d_grid.html'>arrow_1d_grid</a></code>,
-  <code><a href='boxplot_1d_grid.html'>boxplot_1d_grid</a></code>,
-  <code><a href='density_1d_grid.html'>density_1d_grid</a></code>,
-  <code><a href='hist_1d_grid.html'>hist_1d_grid</a></code>, <code><a href='jitter_1d_grid.html'>jitter_1d_grid</a></code>,
-  <code><a href='label_1d_grid.html'>label_1d_grid</a></code>,
-  <code><a href='points_1d_grid.html'>points_1d_grid</a></code>, <code><a href='rect_1d_grid.html'>rect_1d_grid</a></code>,
-  <code><a href='rug_1d_grid.html'>rug_1d_grid</a></code></p>
-<p>Other default 1d plot functions: <code><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a></code>,
-  <code><a href='arrow_1d_grid.html'>arrow_1d_grid</a></code>, <code><a href='arrow_1d_loon.html'>arrow_1d_loon</a></code>,
-  <code><a href='boxplot_1d_graphics.html'>boxplot_1d_graphics</a></code>,
-  <code><a href='boxplot_1d_grid.html'>boxplot_1d_grid</a></code>,
-  <code><a href='boxplot_1d_loon.html'>boxplot_1d_loon</a></code>,
-  <code><a href='density_1d_graphics.html'>density_1d_graphics</a></code>,
-  <code><a href='density_1d_grid.html'>density_1d_grid</a></code>,
-  <code><a href='density_1d_loon.html'>density_1d_loon</a></code>, <code><a href='extract_1d.html'>extract_1d</a></code>,
-  <code><a href='hist_1d_graphics.html'>hist_1d_graphics</a></code>,
-  <code><a href='hist_1d_grid.html'>hist_1d_grid</a></code>, <code><a href='hist_1d_loon.html'>hist_1d_loon</a></code>,
-  <code><a href='jitter_1d_graphics.html'>jitter_1d_graphics</a></code>,
-  <code><a href='jitter_1d_grid.html'>jitter_1d_grid</a></code>,
-  <code><a href='jitter_1d_loon.html'>jitter_1d_loon</a></code>,
-  <code><a href='label_1d_graphics.html'>label_1d_graphics</a></code>,
-  <code><a href='label_1d_grid.html'>label_1d_grid</a></code>, <code><a href='label_1d_loon.html'>label_1d_loon</a></code>,
-  <code><a href='lines_1d_graphics.html'>lines_1d_graphics</a></code>,
-  <code><a href='lines_1d_loon.html'>lines_1d_loon</a></code>,
-  <code><a href='points_1d_graphics.html'>points_1d_graphics</a></code>,
-  <code><a href='points_1d_grid.html'>points_1d_grid</a></code>,
-  <code><a href='points_1d_loon.html'>points_1d_loon</a></code>,
-  <code><a href='rect_1d_graphics.html'>rect_1d_graphics</a></code>,
-  <code><a href='rect_1d_grid.html'>rect_1d_grid</a></code>, <code><a href='rect_1d_loon.html'>rect_1d_loon</a></code>,
-  <code><a href='rug_1d_graphics.html'>rug_1d_graphics</a></code>, <code><a href='rug_1d_grid.html'>rug_1d_grid</a></code>,
-  <code><a href='rug_1d_loon.html'>rug_1d_loon</a></code></p></div>
-    
+    <div class='dont-index'><p>Other default 1d plot functions using the grid package: 
+<code><a href='arrow_1d_grid.html'>arrow_1d_grid</a>()</code>,
+<code><a href='boxplot_1d_grid.html'>boxplot_1d_grid</a>()</code>,
+<code><a href='density_1d_grid.html'>density_1d_grid</a>()</code>,
+<code><a href='hist_1d_grid.html'>hist_1d_grid</a>()</code>,
+<code><a href='jitter_1d_grid.html'>jitter_1d_grid</a>()</code>,
+<code><a href='label_1d_grid.html'>label_1d_grid</a>()</code>,
+<code><a href='points_1d_grid.html'>points_1d_grid</a>()</code>,
+<code><a href='rect_1d_grid.html'>rect_1d_grid</a>()</code>,
+<code><a href='rug_1d_grid.html'>rug_1d_grid</a>()</code></p>
+<p>Other default 1d plot functions: 
+<code><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a>()</code>,
+<code><a href='arrow_1d_grid.html'>arrow_1d_grid</a>()</code>,
+<code><a href='arrow_1d_loon.html'>arrow_1d_loon</a>()</code>,
+<code><a href='boxplot_1d_graphics.html'>boxplot_1d_graphics</a>()</code>,
+<code><a href='boxplot_1d_grid.html'>boxplot_1d_grid</a>()</code>,
+<code><a href='boxplot_1d_loon.html'>boxplot_1d_loon</a>()</code>,
+<code><a href='density_1d_graphics.html'>density_1d_graphics</a>()</code>,
+<code><a href='density_1d_grid.html'>density_1d_grid</a>()</code>,
+<code><a href='density_1d_loon.html'>density_1d_loon</a>()</code>,
+<code><a href='extract_1d.html'>extract_1d</a>()</code>,
+<code><a href='hist_1d_graphics.html'>hist_1d_graphics</a>()</code>,
+<code><a href='hist_1d_grid.html'>hist_1d_grid</a>()</code>,
+<code><a href='hist_1d_loon.html'>hist_1d_loon</a>()</code>,
+<code><a href='jitter_1d_graphics.html'>jitter_1d_graphics</a>()</code>,
+<code><a href='jitter_1d_grid.html'>jitter_1d_grid</a>()</code>,
+<code><a href='jitter_1d_loon.html'>jitter_1d_loon</a>()</code>,
+<code><a href='label_1d_graphics.html'>label_1d_graphics</a>()</code>,
+<code><a href='label_1d_grid.html'>label_1d_grid</a>()</code>,
+<code><a href='label_1d_loon.html'>label_1d_loon</a>()</code>,
+<code><a href='lines_1d_graphics.html'>lines_1d_graphics</a>()</code>,
+<code><a href='lines_1d_loon.html'>lines_1d_loon</a>()</code>,
+<code><a href='points_1d_graphics.html'>points_1d_graphics</a>()</code>,
+<code><a href='points_1d_grid.html'>points_1d_grid</a>()</code>,
+<code><a href='points_1d_loon.html'>points_1d_loon</a>()</code>,
+<code><a href='rect_1d_graphics.html'>rect_1d_graphics</a>()</code>,
+<code><a href='rect_1d_grid.html'>rect_1d_grid</a>()</code>,
+<code><a href='rect_1d_loon.html'>rect_1d_loon</a>()</code>,
+<code><a href='rug_1d_graphics.html'>rug_1d_graphics</a>()</code>,
+<code><a href='rug_1d_grid.html'>rug_1d_grid</a>()</code>,
+<code><a href='rug_1d_loon.html'>rug_1d_loon</a>()</code></p></div>
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-          </ul>
-
-    <h2>Author</h2>
-    <p>Marius Hofert and Wayne Oldford</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -233,13 +256,16 @@ the direction of the path)</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
