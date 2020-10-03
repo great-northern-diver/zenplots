@@ -4,10 +4,21 @@
 \alias{arrow_2d_loon}
 \title{Arrow plot in 2d using the interactive loon package}
 \usage{
-arrow_2d_loon(zargs, loc = rep(0.5, 2), length = 0.2, angle = 30,
-  linkingGroup = NULL, color = NULL, showLabels = FALSE,
-  showScales = FALSE, showGuides = FALSE, baseplot = NULL,
-  parent = NULL, group... = NULL, ...)
+arrow_2d_loon(
+  zargs,
+  loc = rep(0.5, 2),
+  length = 0.2,
+  angle = 30,
+  linkingGroup = NULL,
+  color = NULL,
+  showLabels = FALSE,
+  showScales = FALSE,
+  showGuides = FALSE,
+  baseplot = NULL,
+  parent = NULL,
+  group... = NULL,
+  ...
+)
 }
 \arguments{
 \item{zargs}{The argument list as passed from \code{\link{zenplot}()}}
@@ -43,28 +54,38 @@ the plot (invisibly)
 Arrow plot in 2d using the interactive loon package
 }
 \seealso{
-Other default 2d plot functions using the interactive loon package: \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_loon}},
-  \code{\link{group_2d_loon}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_loon}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions using the interactive loon package: 
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_loon}()},
+\code{\link{group_2d_loon}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_loon}()},
+\code{\link{rect_2d_loon}()}
 
-Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
-  \code{\link{arrow_2d_grid}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{density_2d_grid}},
-  \code{\link{density_2d_loon}}, \code{\link{extract_2d}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{group_2d_grid}}, \code{\link{group_2d_loon}},
-  \code{\link{label_2d_graphics}},
-  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{points_2d_grid}},
-  \code{\link{points_2d_loon}},
-  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
-  \code{\link{rect_2d_graphics}},
-  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{arrow_2d_grid}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{density_2d_grid}()},
+\code{\link{density_2d_loon}()},
+\code{\link{extract_2d}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{group_2d_grid}()},
+\code{\link{group_2d_loon}()},
+\code{\link{label_2d_graphics}()},
+\code{\link{label_2d_grid}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{points_2d_grid}()},
+\code{\link{points_2d_loon}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_graphics}()},
+\code{\link{rect_2d_grid}()},
+\code{\link{rect_2d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

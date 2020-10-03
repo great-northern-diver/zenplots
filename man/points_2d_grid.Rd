@@ -4,9 +4,18 @@
 \alias{points_2d_grid}
 \title{Point plot in 2d using the grid package}
 \usage{
-points_2d_grid(zargs, type = c("p", "l", "o"), pch = NULL,
-  size = 0.02, box = FALSE, box.width = 1, box.height = 1,
-  group... = list(cex = 0.66), draw = FALSE, ...)
+points_2d_grid(
+  zargs,
+  type = c("p", "l", "o"),
+  pch = NULL,
+  size = 0.02,
+  box = FALSE,
+  box.width = 1,
+  box.height = 1,
+  group... = list(cex = 0.66),
+  draw = FALSE,
+  ...
+)
 }
 \arguments{
 \item{zargs}{argument list as passed from \code{\link{zenplot}()}}
@@ -41,28 +50,39 @@ Point plot in 2d using the grid package
       - The default point size was chosen to match the default of graphics
 }
 \seealso{
-Other default 2d plot functions using the grid package: \code{\link{arrow_2d_grid}},
-  \code{\link{axes_2d_grid}},
-  \code{\link{density_2d_grid}},
-  \code{\link{group_2d_grid}}, \code{\link{label_2d_grid}},
-  \code{\link{qq_2d_grid}}, \code{\link{rect_2d_grid}}
+Other default 2d plot functions using the grid package: 
+\code{\link{arrow_2d_grid}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{density_2d_grid}()},
+\code{\link{group_2d_grid}()},
+\code{\link{label_2d_grid}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_grid}()}
 
-Other default 2d plot functions: \code{\link{arrow_2d_graphics}},
-  \code{\link{arrow_2d_grid}}, \code{\link{arrow_2d_loon}},
-  \code{\link{axes_2d_graphics}},
-  \code{\link{axes_2d_grid}}, \code{\link{axes_2d_loon}},
-  \code{\link{density_2d_graphics}},
-  \code{\link{density_2d_grid}},
-  \code{\link{density_2d_loon}}, \code{\link{extract_2d}},
-  \code{\link{group_2d_graphics}},
-  \code{\link{group_2d_grid}}, \code{\link{group_2d_loon}},
-  \code{\link{label_2d_graphics}},
-  \code{\link{label_2d_grid}}, \code{\link{label_2d_loon}},
-  \code{\link{points_2d_graphics}},
-  \code{\link{points_2d_loon}},
-  \code{\link{qq_2d_graphics}}, \code{\link{qq_2d_grid}},
-  \code{\link{rect_2d_graphics}},
-  \code{\link{rect_2d_grid}}, \code{\link{rect_2d_loon}}
+Other default 2d plot functions: 
+\code{\link{arrow_2d_graphics}()},
+\code{\link{arrow_2d_grid}()},
+\code{\link{arrow_2d_loon}()},
+\code{\link{axes_2d_graphics}()},
+\code{\link{axes_2d_grid}()},
+\code{\link{axes_2d_loon}()},
+\code{\link{density_2d_graphics}()},
+\code{\link{density_2d_grid}()},
+\code{\link{density_2d_loon}()},
+\code{\link{extract_2d}()},
+\code{\link{group_2d_graphics}()},
+\code{\link{group_2d_grid}()},
+\code{\link{group_2d_loon}()},
+\code{\link{label_2d_graphics}()},
+\code{\link{label_2d_grid}()},
+\code{\link{label_2d_loon}()},
+\code{\link{points_2d_graphics}()},
+\code{\link{points_2d_loon}()},
+\code{\link{qq_2d_graphics}()},
+\code{\link{qq_2d_grid}()},
+\code{\link{rect_2d_graphics}()},
+\code{\link{rect_2d_grid}()},
+\code{\link{rect_2d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

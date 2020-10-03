@@ -4,8 +4,11 @@
 \alias{get_zigzag_turns}
 \title{Compute turns for zigzag}
 \usage{
-get_zigzag_turns(nPlots, n2dcols, method = c("tidy", "double.zigzag",
-  "single.zigzag"))
+get_zigzag_turns(
+  nPlots,
+  n2dcols,
+  method = c("tidy", "double.zigzag", "single.zigzag")
+)
 }
 \arguments{
 \item{nPlots}{total number of plots}

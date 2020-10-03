@@ -38,9 +38,12 @@ groupData(x, indices = rowGroups, byrow = TRUE)
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.
 
-Other tools related to constructing zenpaths: \code{\link{connect_pairs}},
-  \code{\link{extract_pairs}}, \code{\link{graph_pairs}},
-  \code{\link{indexData}}, \code{\link{zenpath}}
+Other tools related to constructing zenpaths: 
+\code{\link{connect_pairs}()},
+\code{\link{extract_pairs}()},
+\code{\link{graph_pairs}()},
+\code{\link{indexData}()},
+\code{\link{zenpath}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

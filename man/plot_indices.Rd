@@ -29,9 +29,12 @@ This is exported so that one doesn't always have to figure
       to be switched manually.
 }
 \seealso{
-Other tools for constructing your own plot1d and plot2d functions: \code{\link{burst_aux}},
-  \code{\link{burst}}, \code{\link{check_zargs}},
-  \code{\link{extract_1d}}, \code{\link{extract_2d}}
+Other tools for constructing your own plot1d and plot2d functions: 
+\code{\link{burst_aux}()},
+\code{\link{burst}()},
+\code{\link{check_zargs}()},
+\code{\link{extract_1d}()},
+\code{\link{extract_2d}()}
 }
 \author{
 Marius Hofert

@@ -474,8 +474,8 @@ set.seed(271)
 Z <- matrix(rnorm(n * d), ncol = n) # (d,n)-matrix
 P <- matrix(0.5, nrow = d, ncol = d)
 diag(P) <- 1
-L <- t(chol(P)) # L: LL^T = P
-Y <- t(L \\\%*\\\% Z) # (n,d)-matrix containing n d-vectors following N(0,P)
+L <- t(chol(P))   # L: LL^T = P
+Y <- t(L \%*\% Z) # (n,d)-matrix containing n d-vectors following N(0,P)
 U. <- runif(n)
 W <- sapply(nu, function(nu.) 1/qgamma(U., shape = nu./2, rate = nu./2)) # (n,d)-matrix
 X <- sqrt(W) * Y # (n,d)-matrix
@@ -513,7 +513,7 @@ my_points_2d_grid <- function(zargs, basecol, d.) {
            }
        } # determine the colors
        vp <- vport(zargs$ispace, xlim = xlim, ylim = ylim, x = x, y = y) # viewport
-       pointsGrob(x = x, y = y, pch = 21, size = unit(0.02, units = "npc"),
+       pointsGrob(x = x[[1]], y = y[[1]], pch = 21, size = unit(0.02, units = "npc"),
                   name = "points_2d", gp = gpar(col = col), vp = vp)
    }
 ## Plot a random permutation of columns via a zenplot
@@ -675,7 +675,8 @@ information useful for plotting (see our default \code{plot1d} and \code{plot2d}
 
 The various vignettes for additional examples.
 
-Other creating zenplots: \code{\link{unfold}}
+Other creating zenplots: 
+\code{\link{unfold}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

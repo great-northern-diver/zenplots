@@ -4,8 +4,14 @@
 \alias{get_layout}
 \title{Compute the layout of the zen plot}
 \usage{
-get_layout(turns, n2dplots, first1d = TRUE, last1d = TRUE,
-  width1d = 1, width2d = 10)
+get_layout(
+  turns,
+  n2dplots,
+  first1d = TRUE,
+  last1d = TRUE,
+  width1d = 1,
+  width2d = 10
+)
 }
 \arguments{
 \item{turns}{turns (character vector consisting if "u", "d", "l", "r")}

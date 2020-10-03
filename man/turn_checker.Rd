@@ -22,9 +22,11 @@ TRUE (unless it fails)
 Check the Turns (Number/Type)
 }
 \seealso{
-Other zenplot technical tools: \code{\link{convert_occupancy}},
-  \code{\link{is.standard}}, \code{\link{n2dcols_aux}},
-  \code{\link{num_cols}}
+Other zenplot technical tools: 
+\code{\link{convert_occupancy}()},
+\code{\link{is.standard}()},
+\code{\link{n2dcols_aux}()},
+\code{\link{num_cols}()}
 }
 \author{
 Marius Hofert

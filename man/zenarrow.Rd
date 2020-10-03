@@ -23,9 +23,11 @@ A 3-column matrix containing the (x,y) coordinates of the left
 Defining an arrow
 }
 \seealso{
-Other graphical tools: \code{\link{l_ispace_config}},
-  \code{\link{na_omit_loon}}, \code{\link{plot_region}},
-  \code{\link{vport}}
+Other graphical tools: 
+\code{\link{l_ispace_config}()},
+\code{\link{na_omit_loon}()},
+\code{\link{plot_region}()},
+\code{\link{vport}()}
 }
 \author{
 Marius Hofert

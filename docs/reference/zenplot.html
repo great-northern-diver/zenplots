@@ -8,21 +8,36 @@
 
 <title>Main function to create a zenplot — zenplot • zenplots</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,16 +45,15 @@
 
 
 
-<meta property="og:title" content="Main function to create a zenplot — zenplot" />
 
+<meta property="og:title" content="Main function to create a zenplot — zenplot" />
 <meta property="og:description" content="Constructs and draws a zigzag expanded navigation plot for a 
 graphical exploratory analysis of a path of variables.  The result is an 
 alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 variates (or coordinates) in common with that of the 1d plot appearing between them." />
-
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
+
 
 
 
@@ -53,9 +67,10 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +84,7 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
@@ -104,6 +119,9 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="https://doi.org/10.18637/jss.v095.i04">Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software</a>
+    </li>
+    <li>
       <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
     </li>
     <li>
@@ -112,7 +130,6 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
   </ul>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
@@ -127,6 +144,7 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -138,51 +156,49 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
     </div>
 
     <div class="ref-description">
-    
     <p>Constructs and draws a zigzag expanded navigation plot for a 
 graphical exploratory analysis of a path of variables.  The result is an 
 alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 variates (or coordinates) in common with that of the 1d plot appearing between them.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
         <span class='kw'>first1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-        <span class='kw'>n2dcols</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span>),
+        <span class='kw'>n2dcols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span>),
         <span class='kw'>n2dplots</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-        <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"label"</span>, <span class='st'>"points"</span>, <span class='st'>"jitter"</span>, <span class='st'>"density"</span>, <span class='st'>"boxplot"</span>, <span class='st'>"hist"</span>,
+        <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"label"</span>, <span class='st'>"points"</span>, <span class='st'>"jitter"</span>, <span class='st'>"density"</span>, <span class='st'>"boxplot"</span>, <span class='st'>"hist"</span>,
                    <span class='st'>"rug"</span>, <span class='st'>"arrow"</span>, <span class='st'>"rect"</span>, <span class='st'>"lines"</span>, <span class='st'>"layout"</span>),
-        <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"points"</span>, <span class='st'>"density"</span>, <span class='st'>"axes"</span>, <span class='st'>"label"</span>, <span class='st'>"arrow"</span>, <span class='st'>"rect"</span>, <span class='st'>"layout"</span>),
-        <span class='kw'>zargs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>orientations</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+        <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"points"</span>, <span class='st'>"density"</span>, <span class='st'>"axes"</span>, <span class='st'>"label"</span>, <span class='st'>"arrow"</span>, <span class='st'>"rect"</span>, <span class='st'>"layout"</span>),
+        <span class='kw'>zargs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>orientations</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
                   <span class='kw'>vars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>num</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>lim</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
                   <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                  <span class='kw'>ispace</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/match.arg'>match.arg</a></span>(<span class='no'>pkg</span>) <span class='kw'>!=</span> <span class='st'>"graphics"</span>),
-        <span class='kw'>lim</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"individual"</span>, <span class='st'>"groupwise"</span>, <span class='st'>"global"</span>),
-        <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"G"</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"V"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>", "</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
-        <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"graphics"</span>, <span class='st'>"grid"</span>, <span class='st'>"loon"</span>),
-        <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span>),
-        <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>plot1d</span>)) <span class='fl'>0.5</span> <span class='kw'>else</span> <span class='fl'>1</span>,
+                  <span class='kw'>ispace</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/match.arg.html'>match.arg</a></span>(<span class='no'>pkg</span>) <span class='kw'>!=</span> <span class='st'>"graphics"</span>),
+        <span class='kw'>lim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"individual"</span>, <span class='st'>"groupwise"</span>, <span class='st'>"global"</span>),
+        <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"G"</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"V"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>", "</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
+        <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"graphics"</span>, <span class='st'>"grid"</span>, <span class='st'>"loon"</span>),
+        <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span>),
+        <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>plot1d</span>)) <span class='fl'>0.5</span> <span class='kw'>else</span> <span class='fl'>1</span>,
         <span class='kw'>width2d</span> <span class='kw'>=</span> <span class='fl'>10</span>,
         <span class='kw'>ospace</span> <span class='kw'>=</span> <span class='kw'>if</span>(<span class='no'>pkg</span> <span class='kw'>==</span> <span class='st'>"loon"</span>) <span class='fl'>0</span> <span class='kw'>else</span> <span class='fl'>0.02</span>,
         <span class='kw'>ispace</span> <span class='kw'>=</span> <span class='kw'>if</span>(<span class='no'>pkg</span> <span class='kw'>==</span> <span class='st'>"graphics"</span>) <span class='fl'>0</span> <span class='kw'>else</span> <span class='fl'>0.037</span>,
         <span class='kw'>draw</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
         <span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A data object of "standard forms", being a <code><a href='https://www.rdocumentation.org/packages/base/topics/vector'>vector</a></code>, or a <code><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></code>,
-or a <code><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></code>, or a <code><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></code> of any of these.  
+      <td><p>A data object of "standard forms", being a <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, or a <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>,
+or a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>, or a <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of any of these.  
 In the case of a list, the components of <code>x</code> are interpreted as 
 groups of data which are visually separated by a two-dimensional 
 (group) plot.</p></td>
     </tr>
     <tr>
       <th>turns</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code> vector (of length two times the
+      <td><p>A <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> vector (of length two times the
 number of variables to be plotted minus 1) consisting of <code>"d"</code>,
 <code>"u"</code>, <code>"r"</code> or <code>"l"</code> indicating the turns out of the
 current plot position; if <code>NULL</code>, the <code>turns</code> are
@@ -190,12 +206,12 @@ constructed (if <code>x</code> is of the "standard form" described above).</p></
     </tr>
     <tr>
       <th>first1d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> indicating whether the first
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether the first
 one-dimensional plot is included.</p></td>
     </tr>
     <tr>
       <th>last1d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> indicating whether the last
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether the last
 one-dimensional plot is included.</p></td>
     </tr>
     <tr>
@@ -212,9 +228,9 @@ Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></
     </tr>
     <tr>
       <th>plot1d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/function'>function</a></code> to use to return a
+      <td><p>A <code><a href='https://rdrr.io/r/base/function.html'>function</a></code> to use to return a
 one-dimensional plot constructed with package <code>pkg</code>.
-Alternatively, a <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code> string of an existing
+Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
 function. 
 For the defaults provided, the corresponding functions
 are obtained when appending <code>_1d_graphics</code>, <code>_1d_grid</code> 
@@ -223,9 +239,9 @@ or <code>_1d_loon</code> depending on which <code>pkg</code> is used.</p>
     </tr>
     <tr>
       <th>plot2d</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/function'>function</a></code> returning a two-dimensional plot 
+      <td><p>A <code><a href='https://rdrr.io/r/base/function.html'>function</a></code> returning a two-dimensional plot 
 constructed with package <code>pkg</code>.
-Alternatively, a <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code> string of an existing
+Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
 function. For the defaults provided, the corresponding functions
 are obtained when appending <code>_2d_graphics</code>, <code>_2d_grid</code>
 or <code>_2d_loon</code> depending on which <code>pkg</code> is used.</p>
@@ -233,7 +249,7 @@ or <code>_2d_loon</code> depending on which <code>pkg</code> is used.</p>
     </tr>
     <tr>
       <th>zargs</th>
-      <td><p>A fully named <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> <code><a href='https://www.rdocumentation.org/packages/base/topics/vector'>vector</a></code>
+      <td><p>A fully named <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>
 indicating whether the respective arguments are (possibly) passed to
 <code>plot1d()</code> and <code>plot2d()</code> (if the latter contain the
 formal argument <code>zargs</code>, which they typically do/should, but
@@ -246,8 +262,8 @@ on to <code>plot1d</code> and <code>plot2d</code>. If one of them is set to
     </tr>
     <tr>
       <th>lim</th>
-      <td><p>(x-/y-)axis limits. This can be a <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code> string 
-or a <code><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric(2)</a></code>.</p>
+      <td><p>(x-/y-)axis limits. This can be a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string 
+or a <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>.</p>
 <p>If <code>lim = "groupwise"</code> and <code>x</code> does not contain groups, 
 the behaviour is equivalent to <code>lim = "global"</code>.</p></td>
     </tr>
@@ -267,8 +283,8 @@ among the supported ones).</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>The type of zigzag plot (a <code><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a></code>).</p>
-<p>Available are:</p><dl class='dl-horizontal'>
+      <td><p>The type of zigzag plot (a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>).</p>
+<p>Available are:</p><dl'>
            <dt><code>tidy</code>:</dt><dd><p>more tidied-up <code>double.zigzag</code>
                 (slightly more compact placement of plots towards the end).</p></dd>
            <dt><code>double.zigzag</code>:</dt><dd><p>zigzag plot in the form of a
@@ -280,7 +296,8 @@ among the supported ones).</p></td>
            <dt><code>rectangular</code>:</dt><dd><p>plots that fill the page from
                left to right and top to bottom. This is useful (and most compact)
                for plots that do not share an axis.</p></dd>
-       </dl><p>Note that <code>method</code> is ignored if <code>turns</code> are provided.</p></td>
+       
+</dl><p>Note that <code>method</code> is ignored if <code>turns</code> are provided.</p></td>
     </tr>
     <tr>
       <th>width1d</th>
@@ -309,7 +326,7 @@ whose values are repeated to produce a vector of length four.</p></td>
     </tr>
     <tr>
       <th>draw</th>
-      <td><p>A <code><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a></code> indicating whether a the <code>zenplot</code>
+      <td><p>A <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether a the <code>zenplot</code>
 is immediately displayed (the default) or not.</p></td>
     </tr>
     <tr>
@@ -320,18 +337,17 @@ of them, say, <code>plot2d</code>, consider providing your own
 <code>plot2d</code>; see the examples below.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>(besides plotting) invisibly returns a list containing at least
        the path and layout (see <code><a href='unfold.html'>unfold</a></code> for details).</p>       
 <p>Depending on the graphics package <code>pkg</code> used, the returned list
        includes additional components.  For <code>pkg = "grid"</code>, 
-       this will be the whole plot as a <code><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>grob</a></code> (grid object).
+       this will be the whole plot as a <code><a href='https://rdrr.io/r/grid/grid.grob.html'>grob</a></code> (grid object).
        For <code>pkg = "loon"</code>,  this will be the whole plot as a 
        <code>loon</code> plot object as
        well as the toplevel <code>tk</code> object in which the plot appears.</p>
-    
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>All provided default <code>plot1d</code> and <code>plot2d</code> functions.</p>
@@ -346,8 +362,8 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <code><a href='https://ggplot2.tidyverse.org/reference/aes_group_order.html'>group</a>()</code> and <code><a href='zenpath.html'>zenpath</a>()</code> for
 (zen)path-related functions.</p>
 <p>The various vignettes for additional examples.</p>
-<p>Other creating zenplots: <code><a href='unfold.html'>unfold</a></code></p></div>
-    
+<p>Other creating zenplots: 
+<code><a href='unfold.html'>unfold</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>### Basics #####################################################################</span>
@@ -355,16 +371,16 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='co'>## Generate some data</span>
 <span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>1000</span> <span class='co'># sample size</span>
 <span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span> <span class='co'># dimension</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>271</span>) <span class='co'># set seed (for reproducibility)</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/Normal'>rnorm</a></span>(<span class='no'>n</span> * <span class='no'>d</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>d</span>) <span class='co'># i.i.d. N(0,1) data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>271</span>) <span class='co'># set seed (for reproducibility)</span>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span> * <span class='no'>d</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>d</span>) <span class='co'># i.i.d. N(0,1) data</span>
 
 <span class='co'>## A basic zenplot</span>
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>zenplot</span>(<span class='no'>x</span>)</div><div class='img'><img src='zenplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/stopifnot'>stopifnot</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/identical'>identical</a></span>(<span class='no'>res</span>, <span class='fu'><a href='unfold.html'>unfold</a></span>(<span class='kw'>nfaces</span> <span class='kw'>=</span> <span class='no'>d</span> - <span class='fl'>1</span>)))
+<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>zenplot</span>(<span class='no'>x</span>)</div><div class='img'><img src='zenplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span>(<span class='no'>res</span>, <span class='fu'><a href='unfold.html'>unfold</a></span>(<span class='kw'>nfaces</span> <span class='kw'>=</span> <span class='no'>d</span> - <span class='fl'>1</span>)))
 <span class='co'>## =&gt; The return value of zenplot() is the underlying unfold()</span>
 
 <span class='co'>## Some missing data</span>
 <span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='no'>x</span>
-<span class='no'>z</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq_len</a></span>(<span class='no'>n</span>-<span class='fl'>10</span>), <span class='fl'>5</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span> <span class='co'># all NA except 10 points</span>
+<span class='no'>z</span>[<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='no'>n</span>-<span class='fl'>10</span>), <span class='fl'>5</span>] <span class='kw'>&lt;-</span> <span class='fl'>NA</span> <span class='co'># all NA except 10 points</span>
 <span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Another column with fully missing data (use arrows)</span>
 <span class='co'>## Note: This could be more 'compactified', but is technically</span>
@@ -373,19 +389,19 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Lists of vectors, matrices and data frames as arguments (=&gt; groups of data)</span>
 <span class='co'>## Only two vectors</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>], <span class='no'>x</span>[,<span class='fl'>2</span>])
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>], <span class='no'>x</span>[,<span class='fl'>2</span>])
 <span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## A matrix and a vector</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='no'>x</span>[,<span class='fl'>3</span>])
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='no'>x</span>[,<span class='fl'>3</span>])
 <span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## A matrix, NA column and a vector</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fl'>NA</span>, <span class='no'>x</span>[,<span class='fl'>3</span>])
-<span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='no'>x</span>[,<span class='fl'>3</span>])
-<span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fl'>1</span>:<span class='fl'>10</span>, <span class='no'>x</span>[,<span class='fl'>3</span>])
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fl'>NA</span>, <span class='no'>x</span>[,<span class='fl'>3</span>])
+<span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-6.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='no'>x</span>[,<span class='fl'>3</span>])
+<span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='fl'>1</span>:<span class='fl'>10</span>, <span class='no'>x</span>[,<span class='fl'>3</span>])
 <span class='fu'>zenplot</span>(<span class='no'>z</span>)</div><div class='img'><img src='zenplot-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Without labels or with different labels</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>A</span> <span class='kw'>=</span> <span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='kw'>B</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='kw'>C</span> <span class='kw'>=</span> <span class='no'>x</span>[,<span class='fl'>3</span>])
-<span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>) <span class='co'># without any labels</span></div><div class='img'><img src='zenplot-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) <span class='co'># without group labels</span></div><div class='img'><img src='zenplot-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># without group labels unless groups change</span></div><div class='img'><img src='zenplot-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># without variable labels</span></div><div class='img'><img src='zenplot-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"Variable "</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" - "</span>)) <span class='co'># change default labels</span></div><div class='img'><img src='zenplot-13.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>A</span> <span class='kw'>=</span> <span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>2</span>], <span class='kw'>B</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='kw'>C</span> <span class='kw'>=</span> <span class='no'>x</span>[,<span class='fl'>3</span>])
+<span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>) <span class='co'># without any labels</span></div><div class='img'><img src='zenplot-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) <span class='co'># without group labels</span></div><div class='img'><img src='zenplot-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># without group labels unless groups change</span></div><div class='img'><img src='zenplot-11.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># without variable labels</span></div><div class='img'><img src='zenplot-12.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"Variable "</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" - "</span>)) <span class='co'># change default labels</span></div><div class='img'><img src='zenplot-13.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Example with a factor</span>
 <span class='fu'>zenplot</span>(<span class='no'>iris</span>)</div><div class='img'><img src='zenplot-14.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>iris</span>, <span class='kw'>lim</span> <span class='kw'>=</span> <span class='st'>"global"</span>) <span class='co'># global scaling of axis</span></div><div class='img'><img src='zenplot-15.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>iris</span>, <span class='kw'>lim</span> <span class='kw'>=</span> <span class='st'>"groupwise"</span>) <span class='co'># acts as 'global' here (no groups in the data)</span>
 
@@ -394,28 +410,31 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 
 <span class='co'>## Note: The third component (data.frame) naturally has default labels.</span>
 <span class='co'>##       zenplot() uses these labels and prepends a default group label.</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>5</span>], <span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>6</span>:<span class='fl'>7</span>], <span class='fl'>NA</span>,
-          <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq_len</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Round'>round</a></span>(<span class='no'>n</span>/<span class='fl'>5</span>)), <span class='fl'>8</span>:<span class='fl'>19</span>]), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/cbind'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>20</span>])
-<span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"Group "</span>)) <span class='co'># change the group label (var and sep are defaults)</span></div><div class='img'><img src='zenplot-16.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## Alternatively, give z labels</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>z</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"Group"</span>, <span class='no'>LETTERS</span>[<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq_len</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>z</span>))]) <span class='co'># give group names</span>
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>5</span>], <span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>6</span>:<span class='fl'>7</span>], <span class='fl'>NA</span>,
+          <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='no'>x</span>[<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='no'>n</span>/<span class='fl'>5</span>)), <span class='fl'>8</span>:<span class='fl'>19</span>]), <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span>(<span class='fl'>NA</span>, <span class='fl'>NA</span>), <span class='no'>x</span>[<span class='fl'>1</span>:<span class='fl'>10</span>, <span class='fl'>20</span>])
+<span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"Group "</span>)) <span class='co'># change the group label (var and sep are defaults)</span></div><div class='img'><img src='zenplot-16.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## Alternatively, give z labels</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>z</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Group"</span>, <span class='no'>LETTERS</span>[<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>z</span>))]) <span class='co'># give group names</span>
 <span class='fu'>zenplot</span>(<span class='no'>z</span>) <span class='co'># uses given group names</span></div><div class='img'><img src='zenplot-17.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## Now let's change the variable labels</span>
-<span class='no'>z.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/lapply'>lapply</a></span>(<span class='no'>z</span>, <span class='kw'>function</span>(<span class='no'>z.</span>) {
-                     <span class='kw'>if</span>(!<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>is.matrix</a></span>(<span class='no'>z.</span>)) <span class='no'>z.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>z.</span>)
-                     <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>z.</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste</a></span>(<span class='st'>"Var."</span>, <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq_len</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>ncol</a></span>(<span class='no'>z.</span>)))
+<span class='no'>z.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>z</span>, <span class='kw'>function</span>(<span class='no'>z.</span>) {
+                     <span class='kw'>if</span>(!<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>is.matrix</a></span>(<span class='no'>z.</span>)) <span class='no'>z.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span>(<span class='no'>z.</span>)
+                     <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>z.</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Var."</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_len</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span>(<span class='no'>z.</span>)))
                      <span class='no'>z.</span>
                      }
             )
 <span class='fu'>zenplot</span>(<span class='no'>z.</span>)</div><div class='img'><img src='zenplot-18.png' alt='' width='700' height='433' /></div><div class='input'>
 
-### A dynamic plot based on 'loon' (if installed and R compiled with tcl support)
+<span class='co'>### A dynamic plot based on 'loon' (if installed and R compiled with tcl support)</span>
 
-</div><div class='input'>    <span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/ns-load'>requireNamespace</a></span>(<span class='st'>"loon"</span>, <span class='kw'>quietly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
-        <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"loon"</span>)</div><div class='input'>
+<span class='co'># \donttest{</span>
+    <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"loon"</span>, <span class='kw'>quietly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
+        <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"loon"</span>)
+<span class='co'># }</span>
+
 
 <span class='co'>### Providing your own turns ###################################################</span>
 
 <span class='co'>## A basic example</span>
-<span class='no'>turns</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"l"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,
+<span class='no'>turns</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"l"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,
            <span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,<span class='st'>"u"</span>,<span class='st'>"u"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"l"</span>,<span class='st'>"l"</span>,
            <span class='st'>"d"</span>,<span class='st'>"d"</span>,<span class='st'>"r"</span>,<span class='st'>"r"</span>,<span class='st'>"d"</span>,<span class='st'>"d"</span>)
 <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"layout"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='st'>"layout"</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='no'>turns</span>) <span class='co'># layout of plot regions</span></div><div class='img'><img src='zenplot-19.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## =&gt; The tiles stick together as ispace = 0.</span>
@@ -423,8 +442,8 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
         <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>) <span class='co'># layout of plot regions with grid</span></div><div class='img'><img src='zenplot-20.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## =&gt; Here the tiles show the small (default) ispace</span>
 
 <span class='co'>## Another example (with own turns and groups)</span>
-<span class='fu'>zenplot</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>x</span>[,<span class='fl'>4</span>:<span class='fl'>7</span>]), <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='st'>"rect"</span>,
-        <span class='kw'>turns</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"d"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"d"</span>,
+<span class='fu'>zenplot</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>x</span>[,<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>x</span>[,<span class='fl'>4</span>:<span class='fl'>7</span>]), <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='st'>"rect"</span>,
+        <span class='kw'>turns</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"d"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"r"</span>, <span class='st'>"d"</span>,
                   <span class='st'>"d"</span>, <span class='st'>"l"</span>, <span class='st'>"l"</span>, <span class='st'>"l"</span>, <span class='st'>"l"</span>, <span class='st'>"l"</span>), <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='img'><img src='zenplot-21.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'>### Providing your own plot1d() or plot2d() ####################################</span>
@@ -432,32 +451,37 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='co'>## Creating a box</span>
 <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"label"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
     <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>box</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))</div><div class='img'><img src='zenplot-22.png' alt='' width='700' height='433' /></div><div class='input'>
-## With grid
-</div><div class='input'>    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"label"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
-        <span class='fu'><a href='density_2d_grid.html'>density_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>box</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>)</div><div class='img'><img src='zenplot-23.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## With grid</span>
+<span class='co'># \donttest{</span>
+    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"label"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
+        <span class='fu'><a href='density_2d_grid.html'>density_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>box</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>), <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>)</div><div class='img'><img src='zenplot-23.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+
 <span class='co'>## An example with width1d = width2d and where no zargs are passed on.</span>
 <span class='co'>## Note: This could have also been done with 'rect_2d_graphics(zargs, col = ...)'</span>
 <span class='co'>##       as plot1d and plot2d.</span>
 <span class='no'>myrect</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>...</span>) {
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='fl'>NA</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"n"</span>, <span class='kw'>ann</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>)
-    <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/rect'>rect</a></span>(<span class='kw'>xleft</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>ybottom</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>xright</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ytop</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
+    <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='fl'>NA</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"n"</span>, <span class='kw'>ann</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>)
+    <span class='fu'><a href='https://rdrr.io/r/graphics/rect.html'>rect</a></span>(<span class='kw'>xleft</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>ybottom</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>xright</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>ytop</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='no'>...</span>)
 }
-<span class='fu'>zenplot</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>matrix</a></span>(<span class='fl'>0</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>15</span>),
+<span class='fu'>zenplot</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>15</span>),
         <span class='kw'>n2dcol</span> <span class='kw'>=</span> <span class='st'>"square"</span>, <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>width2d</span> <span class='kw'>=</span> <span class='fl'>10</span>,
         <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'>myrect</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"royalblue3"</span>),
         <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>...</span>) <span class='fu'>myrect</span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"maroon3"</span>))</div><div class='img'><img src='zenplot-24.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Colorized rugs as plot1d()</span>
-<span class='no'>basecol</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"royalblue3"</span>, <span class='st'>"darkorange2"</span>, <span class='st'>"maroon3"</span>)
-<span class='no'>palette</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/colorRamp'>colorRampPalette</a></span>(<span class='no'>basecol</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"Lab"</span>)
-<span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/palette'>palette</a></span>(<span class='no'>d</span>) <span class='co'># different color for each 1d plot</span>
+<span class='no'>basecol</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"royalblue3"</span>, <span class='st'>"darkorange2"</span>, <span class='st'>"maroon3"</span>)
+<span class='no'>palette</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/colorRamp.html'>colorRampPalette</a></span>(<span class='no'>basecol</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='st'>"Lab"</span>)
+<span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palette.html'>palette</a></span>(<span class='no'>d</span>) <span class='co'># different color for each 1d plot</span>
 <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
               <span class='fu'><a href='rug_1d_graphics.html'>rug_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>[(<span class='no'>zargs</span>$<span class='no'>num</span>+<span class='fl'>1</span>)/<span class='fl'>2</span>])
               }
        )</div><div class='img'><img src='zenplot-25.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## With grid</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>grid</span>) <span class='co'># for gTree() and gList()</span></div><div class='input'>    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='co'># you are responsible for choosing the right pkg (cannot be tested!)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>grid</span>) <span class='co'># for gTree() and gList()</span>
+<span class='co'># \donttest{</span>
+    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='co'># you are responsible for choosing the right pkg (cannot be tested!)</span>
             <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
-                <span class='fu'><a href='rug_1d_grid.html'>rug_1d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>[(<span class='no'>zargs</span>$<span class='no'>num</span>+<span class='fl'>1</span>)/<span class='fl'>2</span>]))</div><div class='img'><img src='zenplot-26.png' alt='' width='700' height='433' /></div><div class='input'>
+                <span class='fu'><a href='rug_1d_grid.html'>rug_1d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>[(<span class='no'>zargs</span>$<span class='no'>num</span>+<span class='fl'>1</span>)/<span class='fl'>2</span>]))</div><div class='img'><img src='zenplot-26.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+
 <span class='co'>## Rectangles with labels as plot2d() (shows how to overlay plots)</span>
 <span class='co'>## With graphics</span>
 <span class='co'>## Note: myplot2d() could be written directly in a simpler way, but is</span>
@@ -466,30 +490,34 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
     <span class='fu'><a href='rect_2d_graphics.html'>rect_2d_graphics</a></span>(<span class='no'>zargs</span>)
     <span class='fu'><a href='label_2d_graphics.html'>label_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 })</div><div class='img'><img src='zenplot-27.png' alt='' width='700' height='433' /></div><div class='input'>
-## With grid
-</div><div class='input'>    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
-        <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>gTree</a></span>(<span class='kw'>children</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>gList</a></span>(<span class='fu'><a href='rect_2d_grid.html'>rect_2d_grid</a></span>(<span class='no'>zargs</span>),
-                               <span class='fu'><a href='label_2d_grid.html'>label_2d_grid</a></span>(<span class='no'>zargs</span>))))</div><div class='img'><img src='zenplot-28.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## With grid</span>
+<span class='co'># \donttest{</span>
+    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
+        <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gTree</a></span>(<span class='kw'>children</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gList</a></span>(<span class='fu'><a href='rect_2d_grid.html'>rect_2d_grid</a></span>(<span class='no'>zargs</span>),
+                               <span class='fu'><a href='label_2d_grid.html'>label_2d_grid</a></span>(<span class='no'>zargs</span>))))</div><div class='img'><img src='zenplot-28.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+
 <span class='co'>## Rectangles with labels outside the 2d plotting region as plot2d()</span>
 <span class='co'>## With graphics</span>
 <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
     <span class='fu'><a href='rect_2d_graphics.html'>rect_2d_graphics</a></span>(<span class='no'>zargs</span>)
     <span class='fu'><a href='label_2d_graphics.html'>label_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>xpd</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>srt</span> <span class='kw'>=</span> <span class='fl'>90</span>,
-                      <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.04</span>, <span class='fl'>0</span>), <span class='kw'>adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>), <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.7</span>)
+                      <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.04</span>, <span class='fl'>0</span>), <span class='kw'>adj</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>,<span class='fl'>1</span>), <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.7</span>)
 })</div><div class='img'><img src='zenplot-29.png' alt='' width='700' height='433' /></div><div class='input'>
-## With grid
-</div><div class='input'>    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
-        <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>gTree</a></span>(<span class='kw'>children</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>gList</a></span>(<span class='fu'><a href='rect_2d_grid.html'>rect_2d_grid</a></span>(<span class='no'>zargs</span>),
-                               <span class='fu'><a href='label_2d_grid.html'>label_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>1.04</span>, <span class='fl'>0</span>),
-                                             <span class='kw'>just</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"left"</span>, <span class='st'>"top"</span>),
-                                             <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.45</span>))))</div><div class='img'><img src='zenplot-30.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## With grid</span>
+<span class='co'># \donttest{</span>
+    <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
+        <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gTree</a></span>(<span class='kw'>children</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gList</a></span>(<span class='fu'><a href='rect_2d_grid.html'>rect_2d_grid</a></span>(<span class='no'>zargs</span>),
+                               <span class='fu'><a href='label_2d_grid.html'>label_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.04</span>, <span class='fl'>0</span>),
+                                             <span class='kw'>just</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"left"</span>, <span class='st'>"top"</span>),
+                                             <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.45</span>))))</div><div class='img'><img src='zenplot-30.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+
 <span class='co'>## 2d density with points, 1d arrows and labels</span>
 <span class='fu'>zenplot</span>(<span class='no'>x</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
     <span class='fu'><a href='rect_1d_graphics.html'>rect_1d_graphics</a></span>(<span class='no'>zargs</span>)
-    <span class='fu'><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.5</span>))
-    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.8</span>, <span class='fl'>0.5</span>))
+    <span class='fu'><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.5</span>))
+    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.8</span>, <span class='fl'>0.5</span>))
 }, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
-    <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/adjustcolor'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.4</span>))
+    <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.4</span>))
     <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 })</div><div class='img'><img src='zenplot-31.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## 2d density with labels, 1d histogram with density and label</span>
@@ -506,21 +534,22 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
                                         <span class='kw'>border</span> <span class='kw'>=</span> <span class='st'>"royalblue3"</span>,
                                         <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>1.4</span>)
                     <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                                      <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.8</span>),
+                                      <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.8</span>),
                                       <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.6</span>, <span class='kw'>font</span> <span class='kw'>=</span> <span class='fl'>2</span>,
                                       <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"darkorange2"</span>)
                     },
     <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
                     <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span>(<span class='no'>zargs</span>)
                     <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                                       <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/adjustcolor'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.3</span>))
+                                       <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.3</span>))
                                 }
             )</div><div class='img'><img src='zenplot-32.png' alt='' width='700' height='433' /></div><div class='input'>
 
-### More sophisticated examples ################################################
+<span class='co'>### More sophisticated examples ################################################</span>
 
-### Example: Overlaying histograms with densities (the *proper* way)
-</div><div class='input'><span class='co'>## Define proper 1d plot for overlaying histograms with densities</span>
+<span class='co'>### Example: Overlaying histograms with densities (the *proper* way)</span>
+<span class='co'># \donttest{</span>
+<span class='co'>## Define proper 1d plot for overlaying histograms with densities</span>
 <span class='no'>hist_with_density_1d</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
 {
 <span class='co'>## Extract information and data</span>
@@ -529,20 +558,20 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='no'>horizontal</span> <span class='kw'>&lt;-</span> <span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"d"</span> <span class='kw'>||</span> <span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"u"</span>
 <span class='co'># the indices of the 'x' variable to be displayed in the current plot</span>
 <span class='no'>ii</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='plot_indices.html'>plot_indices</a></span>(<span class='no'>zargs</span>)
-<span class='no'>label</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"V"</span>, <span class='no'>ii</span>[<span class='fl'>1</span>]) <span class='co'># label</span>
+<span class='no'>label</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"V"</span>, <span class='no'>ii</span>[<span class='fl'>1</span>]) <span class='co'># label</span>
 <span class='no'>srt</span> <span class='kw'>&lt;-</span> <span class='kw'>if</span>(<span class='no'>horizontal</span>) <span class='fl'>0</span> <span class='kw'>else</span> <span class='kw'>if</span>(<span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"r"</span>) -<span class='fl'>90</span> <span class='kw'>else</span> <span class='fl'>90</span> <span class='co'># label rotation</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>x</span>[,<span class='no'>ii</span>[<span class='fl'>1</span>]] <span class='co'># data</span>
-<span class='no'>lim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='no'>x</span>) <span class='co'># data limits</span>
+<span class='no'>lim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>x</span>) <span class='co'># data limits</span>
 <span class='co'>## Compute histogram information</span>
-<span class='no'>breaks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/seq'>seq</a></span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='no'>lim</span>[<span class='fl'>1</span>], <span class='kw'>to</span> <span class='kw'>=</span> <span class='no'>lim</span>[<span class='fl'>2</span>], <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>21</span>)
-<span class='no'>binInfo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/hist'>hist</a></span>(<span class='no'>x</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='no'>breaks</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='no'>breaks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='kw'>from</span> <span class='kw'>=</span> <span class='no'>lim</span>[<span class='fl'>1</span>], <span class='kw'>to</span> <span class='kw'>=</span> <span class='no'>lim</span>[<span class='fl'>2</span>], <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fl'>21</span>)
+<span class='no'>binInfo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span>(<span class='no'>x</span>, <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='no'>breaks</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 <span class='no'>binBoundaries</span> <span class='kw'>&lt;-</span> <span class='no'>binInfo</span>$<span class='no'>breaks</span>
-<span class='no'>widths</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/diff'>diff</a></span>(<span class='no'>binBoundaries</span>)
+<span class='no'>widths</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/diff.html'>diff</a></span>(<span class='no'>binBoundaries</span>)
 <span class='no'>heights</span> <span class='kw'>&lt;-</span> <span class='no'>binInfo</span>$<span class='no'>density</span>
 <span class='co'>## Compute density information</span>
-<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/density'>density</a></span>(<span class='no'>x</span>)
+<span class='no'>dens</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span>(<span class='no'>x</span>)
 <span class='no'>xvals</span> <span class='kw'>&lt;-</span> <span class='no'>dens</span>$<span class='no'>x</span>
-<span class='no'>keepers</span> <span class='kw'>&lt;-</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Extremes'>min</a></span>(<span class='no'>x</span>) <span class='kw'>&lt;=</span> <span class='no'>xvals</span>) <span class='kw'>&amp;</span> (<span class='no'>xvals</span> <span class='kw'>&lt;=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Extremes'>max</a></span>(<span class='no'>x</span>)) <span class='co'># keep those within the range of the data</span>
+<span class='no'>keepers</span> <span class='kw'>&lt;-</span> (<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span>(<span class='no'>x</span>) <span class='kw'>&lt;=</span> <span class='no'>xvals</span>) <span class='kw'>&amp;</span> (<span class='no'>xvals</span> <span class='kw'>&lt;=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span>(<span class='no'>x</span>)) <span class='co'># keep those within the range of the data</span>
 <span class='no'>x.</span> <span class='kw'>&lt;-</span> <span class='no'>xvals</span>[<span class='no'>keepers</span>]
 <span class='no'>y.</span> <span class='kw'>&lt;-</span> <span class='no'>dens</span>$<span class='no'>y</span>[<span class='no'>keepers</span>]
 <span class='co'>## Determine plot limits and data</span>
@@ -553,42 +582,42 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='kw'>if</span>(<span class='no'>horizontal</span>) {
     <span class='no'>xlim</span> <span class='kw'>&lt;-</span> <span class='no'>lim</span>
     <span class='no'>xlim.bp</span> <span class='kw'>&lt;-</span> <span class='no'>xlim</span> - <span class='no'>xlim</span>[<span class='fl'>1</span>] <span class='co'># special for barplot(); need to shift the bars</span>
-    <span class='no'>ylim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='fl'>0</span>, <span class='no'>heights</span>, <span class='no'>y.</span>)
+    <span class='no'>ylim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fl'>0</span>, <span class='no'>heights</span>, <span class='no'>y.</span>)
     <span class='no'>ylim.bp</span> <span class='kw'>&lt;-</span> <span class='no'>ylim</span>
-    <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>xlim</span>[<span class='fl'>1</span>], <span class='no'>x.</span>, <span class='no'>xlim</span>[<span class='fl'>2</span>]) - <span class='no'>xlim</span>[<span class='fl'>1</span>] <span class='co'># shift due to plot region set up by barplot()</span>
-    <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='no'>y.</span>, <span class='fl'>0</span>)
+    <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>xlim</span>[<span class='fl'>1</span>], <span class='no'>x.</span>, <span class='no'>xlim</span>[<span class='fl'>2</span>]) - <span class='no'>xlim</span>[<span class='fl'>1</span>] <span class='co'># shift due to plot region set up by barplot()</span>
+    <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='no'>y.</span>, <span class='fl'>0</span>)
 } <span class='kw'>else</span> {
-    <span class='no'>xlim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/range'>range</a></span>(<span class='fl'>0</span>, <span class='no'>heights</span>, <span class='no'>y.</span>)
+    <span class='no'>xlim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fl'>0</span>, <span class='no'>heights</span>, <span class='no'>y.</span>)
     <span class='no'>xlim.bp</span> <span class='kw'>&lt;-</span> <span class='no'>xlim</span>
     <span class='no'>ylim</span> <span class='kw'>&lt;-</span> <span class='no'>lim</span>
     <span class='no'>ylim.bp</span> <span class='kw'>&lt;-</span> <span class='no'>ylim</span> - <span class='no'>ylim</span>[<span class='fl'>1</span>] <span class='co'># special for barplot(); need to shift the bars</span>
-    <span class='no'>x</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='no'>y.</span>, <span class='fl'>0</span>)
-    <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='no'>xlim</span>[<span class='fl'>1</span>], <span class='no'>x.</span>, <span class='no'>xlim</span>[<span class='fl'>2</span>]) - <span class='no'>ylim</span>[<span class='fl'>1</span>] <span class='co'># shift due to plot region set up by barplot()</span>
+    <span class='no'>x</span> <span class='kw'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='no'>y.</span>, <span class='fl'>0</span>)
+    <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>xlim</span>[<span class='fl'>1</span>], <span class='no'>x.</span>, <span class='no'>xlim</span>[<span class='fl'>2</span>]) - <span class='no'>ylim</span>[<span class='fl'>1</span>] <span class='co'># shift due to plot region set up by barplot()</span>
 }
 <span class='co'>## Determining label position relative to the zenpath</span>
-<span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.6</span>)
+<span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.6</span>)
 
 <span class='co'># when walking downwards, change both left/right and up/down</span>
 <span class='kw'>if</span>(<span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"d"</span>) <span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fl'>1</span>-<span class='no'>loc</span>
 
 <span class='co'># when walking to the right, coordinates change and 2nd is flipped</span>
 <span class='kw'>if</span>(<span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"r"</span>) {
-    <span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>loc</span>)
+    <span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>loc</span>)
     <span class='no'>loc</span>[<span class='fl'>2</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>-<span class='no'>loc</span>[<span class='fl'>2</span>]
 }
 
 <span class='co'># when walking to the left, coordinates change and 1st is flipped</span>
 <span class='kw'>if</span>(<span class='no'>turn.out</span> <span class='kw'>==</span> <span class='st'>"l"</span>) {
-    <span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rev'>rev</a></span>(<span class='no'>loc</span>)
+    <span class='no'>loc</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span>(<span class='no'>loc</span>)
     <span class='no'>loc</span>[<span class='fl'>1</span>] <span class='kw'>&lt;-</span> <span class='fl'>1</span>-<span class='no'>loc</span>[<span class='fl'>1</span>]
 }
 <span class='co'>## Plotting</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/barplot'>barplot</a></span>(<span class='no'>heights</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='no'>widths</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='no'>xlim.bp</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='no'>ylim.bp</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/barplot.html'>barplot</a></span>(<span class='no'>heights</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='no'>widths</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='no'>xlim.bp</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='no'>ylim.bp</span>,
         <span class='kw'>space</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>horiz</span> <span class='kw'>=</span> !<span class='no'>horizontal</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>axes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) <span class='co'># histogram</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/polygon'>polygon</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>border</span> <span class='kw'>=</span> <span class='st'>"royalblue3"</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>1.4</span>) <span class='co'># density</span>
-<span class='no'>opar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='kw'>usr</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)) <span class='co'># switch to relative coordinates for text</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/on.exit'>on.exit</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/par'>par</a></span>(<span class='no'>opar</span>))
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/text'>text</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>loc</span>[<span class='fl'>1</span>], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>loc</span>[<span class='fl'>2</span>], <span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>label</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.7</span>, <span class='kw'>srt</span> <span class='kw'>=</span> <span class='no'>srt</span>, <span class='kw'>font</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+<span class='fu'><a href='https://rdrr.io/r/graphics/polygon.html'>polygon</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>, <span class='kw'>border</span> <span class='kw'>=</span> <span class='st'>"royalblue3"</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>1.4</span>) <span class='co'># density</span>
+<span class='no'>opar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='kw'>usr</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)) <span class='co'># switch to relative coordinates for text</span>
+<span class='fu'><a href='https://rdrr.io/r/base/on.exit.html'>on.exit</a></span>(<span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span>(<span class='no'>opar</span>))
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>loc</span>[<span class='fl'>1</span>], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>loc</span>[<span class='fl'>2</span>], <span class='kw'>labels</span> <span class='kw'>=</span> <span class='no'>label</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.7</span>, <span class='kw'>srt</span> <span class='kw'>=</span> <span class='no'>srt</span>, <span class='kw'>font</span> <span class='kw'>=</span> <span class='fl'>2</span>,
      <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"darkorange2"</span>) <span class='co'># label</span>
     }
 
@@ -599,106 +628,104 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
        <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span>(<span class='no'>zargs</span>)
        <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span>(<span class='no'>zargs</span>,
                           <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-                          <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/adjustcolor'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.3</span>))
+                          <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></span>(<span class='st'>"black"</span>, <span class='kw'>alpha.f</span> <span class='kw'>=</span> <span class='fl'>0.3</span>))
 }
-)</div><div class='output co'>#&gt; <span class='error'>Error in zenplot(x, plot1d = "hist_with_density_1d", plot2d = function(zargs) {    density_2d_graphics(zargs)    points_2d_graphics(zargs, add = TRUE, col = adjustcolor("black",         alpha.f = 0.3))}): Function provided as argument 'plot1d' does not exist.</span></div><div class='input'>
-### Example: A path through pairs of a grouped t copula sample
+)</div><div class='output co'>#&gt; <span class='error'>Error in zenplot(x, plot1d = "hist_with_density_1d", plot2d = function(zargs) {    density_2d_graphics(zargs)    points_2d_graphics(zargs, add = TRUE, col = adjustcolor("black",         alpha.f = 0.3))}): Function provided as argument 'plot1d' does not exist.</span></div><div class='input'><span class='co'># }</span>
 
-</div><div class='input'>## 1) Build a random sample from a 17-dimensional grouped t copula
-d. <- c(8, 5, 4) # sector dimensions
-d <- sum(d.) # total dimension
-nu <- rep(c(12, 1, 0.25), times = d.) # d.o.f. for each dimension
-n <- 500 # sample size
-set.seed(271)
-Z <- matrix(rnorm(n * d), ncol = n) # (d,n)-matrix
-P <- matrix(0.5, nrow = d, ncol = d)
-diag(P) <- 1
-L <- t(chol(P)) # L: LL^T = P
-Y <- t(L \%*\% Z) # (n,d)-matrix containing n d-vectors following N(0,P)
-U. <- runif(n)
-W <- sapply(nu, function(nu.) 1/qgamma(U., shape = nu./2, rate = nu./2)) # (n,d)-matrix
-X <- sqrt(W) * Y # (n,d)-matrix
-U <- sapply(1:d, function(j) pt(X[,j], df = nu[j])) # (n,d)-matrix
+<span class='co'>### Example: A path through pairs of a grouped t copula sample</span>
 
-## 2) Plot the data with a pairs plot, colorizing the groups
-cols <- matrix("black", nrow = d, ncol = d) # colors
-start <- c(1, cumsum(head(d., n = -1))+1) # block start indices
-end <- cumsum(d.) # block end indices
-for(j in seq_along(d.)) cols[start[j]:end[j], start[j]:end[j]] <- basecol[j] # colors
-diag(cols) <- NA # remove colors corresponding to diagonal entries
-cols <- as.vector(cols) # convert to a vector
-cols <- cols[!is.na(cols)] # remove NA entries corresponding to diagonal
-count <- 0 # panel number
-my_panel <- function(x, y, ...) # panel function for colorizing groups
-             { count <<- count + 1; points(x, y, pch = ".", col = cols[count]) }
-pairs(U, panel = my_panel, gap = 0,
-     labels = as.expression( sapply(1:d, function(j) bquote(italic(U[.(j)]))) ))
+<span class='co'># \donttest{</span>
+<span class='co'>## 1) Build a random sample from a 17-dimensional grouped t copula</span>
+<span class='no'>d.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>8</span>, <span class='fl'>5</span>, <span class='fl'>4</span>) <span class='co'># sector dimensions</span>
+<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span>(<span class='no'>d.</span>) <span class='co'># total dimension</span>
+<span class='no'>nu</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>1</span>, <span class='fl'>0.25</span>), <span class='kw'>times</span> <span class='kw'>=</span> <span class='no'>d.</span>) <span class='co'># d.o.f. for each dimension</span>
+<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>500</span> <span class='co'># sample size</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>271</span>)
+<span class='no'>Z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span> * <span class='no'>d</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>n</span>) <span class='co'># (d,n)-matrix</span>
+<span class='no'>P</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0.5</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='no'>d</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>d</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='no'>P</span>) <span class='kw'>&lt;-</span> <span class='fl'>1</span>
+<span class='no'>L</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/chol.html'>chol</a></span>(<span class='no'>P</span>))   <span class='co'># L: LL^T = P</span>
+<span class='no'>Y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/t.html'>t</a></span>(<span class='no'>L</span> <span class='kw'>%*%</span> <span class='no'>Z</span>) <span class='co'># (n,d)-matrix containing n d-vectors following N(0,P)</span>
+<span class='no'>U.</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='no'>n</span>)
+<span class='no'>W</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='no'>nu</span>, <span class='kw'>function</span>(<span class='no'>nu.</span>) <span class='fl'>1</span>/<span class='fu'><a href='https://rdrr.io/r/stats/GammaDist.html'>qgamma</a></span>(<span class='no'>U.</span>, <span class='kw'>shape</span> <span class='kw'>=</span> <span class='no'>nu.</span>/<span class='fl'>2</span>, <span class='kw'>rate</span> <span class='kw'>=</span> <span class='no'>nu.</span>/<span class='fl'>2</span>)) <span class='co'># (n,d)-matrix</span>
+<span class='no'>X</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='no'>W</span>) * <span class='no'>Y</span> <span class='co'># (n,d)-matrix</span>
+<span class='no'>U</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='fl'>1</span>:<span class='no'>d</span>, <span class='kw'>function</span>(<span class='no'>j</span>) <span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>pt</a></span>(<span class='no'>X</span>[,<span class='no'>j</span>], <span class='kw'>df</span> <span class='kw'>=</span> <span class='no'>nu</span>[<span class='no'>j</span>])) <span class='co'># (n,d)-matrix</span>
 
-## 3) Zenplot of a random path through all pairs, colorizing the respective group
-## Define our own points_2d_grid() for colorizing the groups
-my_points_2d_grid <- function(zargs, basecol, d.) {
-       r <- extract_2d(zargs) # extract information from zargs
-       x <- r$x
-       y <- r$y
-       xlim <- r$xlim
-       ylim <- r$ylim
-       num2d <- zargs$num/2
-       vars <- as.numeric(r$vlabs[num2d:(num2d+1)]) # two variables to be plotted
-       ## Alternatively, we could have used ord[r$vars[num2d:(num2d+1)]] with
-       ## the order 'ord' (see below) being passed to my_points_2d_grid()
-       col <- if(all(1 <= vars & vars <= d.[1])) { basecol[1] } else {
-           if(all(d.[1]+1 <= vars & vars <= d.[1]+d.[2])) { basecol[2] } else {
-               if(all(d.[1]+d.[2]+1 <= vars & vars <= d)) basecol[3] else "black"
+<span class='co'>## 2) Plot the data with a pairs plot, colorizing the groups</span>
+<span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='st'>"black"</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='no'>d</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>d</span>) <span class='co'># colors</span>
+<span class='no'>start</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span>(<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>d.</span>, <span class='kw'>n</span> <span class='kw'>=</span> -<span class='fl'>1</span>))+<span class='fl'>1</span>) <span class='co'># block start indices</span>
+<span class='no'>end</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span>(<span class='no'>d.</span>) <span class='co'># block end indices</span>
+<span class='kw'>for</span>(<span class='no'>j</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq_along</a></span>(<span class='no'>d.</span>)) <span class='no'>cols</span>[<span class='no'>start</span>[<span class='no'>j</span>]:<span class='no'>end</span>[<span class='no'>j</span>], <span class='no'>start</span>[<span class='no'>j</span>]:<span class='no'>end</span>[<span class='no'>j</span>]] <span class='kw'>&lt;-</span> <span class='no'>basecol</span>[<span class='no'>j</span>] <span class='co'># colors</span>
+<span class='fu'><a href='https://rdrr.io/r/base/diag.html'>diag</a></span>(<span class='no'>cols</span>) <span class='kw'>&lt;-</span> <span class='fl'>NA</span> <span class='co'># remove colors corresponding to diagonal entries</span>
+<span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/vector.html'>as.vector</a></span>(<span class='no'>cols</span>) <span class='co'># convert to a vector</span>
+<span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='no'>cols</span>[!<span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span>(<span class='no'>cols</span>)] <span class='co'># remove NA entries corresponding to diagonal</span>
+<span class='no'>count</span> <span class='kw'>&lt;-</span> <span class='fl'>0</span> <span class='co'># panel number</span>
+<span class='no'>my_panel</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>) <span class='co'># panel function for colorizing groups</span>
+             { <span class='no'>count</span> <span class='kw'>&lt;&lt;-</span> <span class='no'>count</span> + <span class='fl'>1</span>; <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>cols</span>[<span class='no'>count</span>]) }
+<span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span>(<span class='no'>U</span>, <span class='kw'>panel</span> <span class='kw'>=</span> <span class='no'>my_panel</span>, <span class='kw'>gap</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+     <span class='kw'>labels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/expression.html'>as.expression</a></span>( <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span>(<span class='fl'>1</span>:<span class='no'>d</span>, <span class='kw'>function</span>(<span class='no'>j</span>) <span class='fu'><a href='https://rdrr.io/r/base/bquote.html'>bquote</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/plotmath.html'>italic</a></span>(<span class='no'>U</span>[<span class='fu'>.</span>(<span class='no'>j</span>)]))) ))</div><div class='img'><img src='zenplot-33.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='co'>## 3) Zenplot of a random path through all pairs, colorizing the respective group</span>
+<span class='co'>## Define our own points_2d_grid() for colorizing the groups</span>
+<span class='no'>my_points_2d_grid</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>zargs</span>, <span class='no'>basecol</span>, <span class='no'>d.</span>) {
+       <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='extract_2d.html'>extract_2d</a></span>(<span class='no'>zargs</span>) <span class='co'># extract information from zargs</span>
+       <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>r</span>$<span class='no'>x</span>
+       <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>r</span>$<span class='no'>y</span>
+       <span class='no'>xlim</span> <span class='kw'>&lt;-</span> <span class='no'>r</span>$<span class='no'>xlim</span>
+       <span class='no'>ylim</span> <span class='kw'>&lt;-</span> <span class='no'>r</span>$<span class='no'>ylim</span>
+       <span class='no'>num2d</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>num</span>/<span class='fl'>2</span>
+       <span class='no'>vars</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span>(<span class='no'>r</span>$<span class='no'>vlabs</span>[<span class='no'>num2d</span>:(<span class='no'>num2d</span>+<span class='fl'>1</span>)]) <span class='co'># two variables to be plotted</span>
+       <span class='co'>## Alternatively, we could have used ord[r$vars[num2d:(num2d+1)]] with</span>
+       <span class='co'>## the order 'ord' (see below) being passed to my_points_2d_grid()</span>
+       <span class='no'>col</span> <span class='kw'>&lt;-</span> <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='fl'>1</span> <span class='kw'>&lt;=</span> <span class='no'>vars</span> <span class='kw'>&amp;</span> <span class='no'>vars</span> <span class='kw'>&lt;=</span> <span class='no'>d.</span>[<span class='fl'>1</span>])) { <span class='no'>basecol</span>[<span class='fl'>1</span>] } <span class='kw'>else</span> {
+           <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>d.</span>[<span class='fl'>1</span>]+<span class='fl'>1</span> <span class='kw'>&lt;=</span> <span class='no'>vars</span> <span class='kw'>&amp;</span> <span class='no'>vars</span> <span class='kw'>&lt;=</span> <span class='no'>d.</span>[<span class='fl'>1</span>]+<span class='no'>d.</span>[<span class='fl'>2</span>])) { <span class='no'>basecol</span>[<span class='fl'>2</span>] } <span class='kw'>else</span> {
+               <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/all.html'>all</a></span>(<span class='no'>d.</span>[<span class='fl'>1</span>]+<span class='no'>d.</span>[<span class='fl'>2</span>]+<span class='fl'>1</span> <span class='kw'>&lt;=</span> <span class='no'>vars</span> <span class='kw'>&amp;</span> <span class='no'>vars</span> <span class='kw'>&lt;=</span> <span class='no'>d</span>)) <span class='no'>basecol</span>[<span class='fl'>3</span>] <span class='kw'>else</span> <span class='st'>"black"</span>
            }
-       } # determine the colors
-       vp <- vport(zargs$ispace, xlim = xlim, ylim = ylim, x = x, y = y) # viewport
-       pointsGrob(x = x, y = y, pch = 21, size = unit(0.02, units = "npc"),
-                  name = "points_2d", gp = gpar(col = col), vp = vp)
+       } <span class='co'># determine the colors</span>
+       <span class='no'>vp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='vport.html'>vport</a></span>(<span class='no'>zargs</span>$<span class='no'>ispace</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='no'>xlim</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='no'>ylim</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span>) <span class='co'># viewport</span>
+       <span class='fu'><a href='https://rdrr.io/r/grid/grid.points.html'>pointsGrob</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>x</span><span class='kw'>[[</span><span class='fl'>1</span>]], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>y</span><span class='kw'>[[</span><span class='fl'>1</span>]], <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>21</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/unit.html'>unit</a></span>(<span class='fl'>0.02</span>, <span class='kw'>units</span> <span class='kw'>=</span> <span class='st'>"npc"</span>),
+                  <span class='kw'>name</span> <span class='kw'>=</span> <span class='st'>"points_2d"</span>, <span class='kw'>gp</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/gpar.html'>gpar</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>col</span>), <span class='kw'>vp</span> <span class='kw'>=</span> <span class='no'>vp</span>)
    }
-## Plot a random permutation of columns via a zenplot
-## Note: We set column labels here, as otherwise the labels can only
-##       show *indices* of the variables to be plotted, i.e., the column
-##       number in U[,ord], and not the original column number in U (which
-##       is what we want to see in order to see how our 'path' through
-##       the pairs of variables looks like).
-colnames(U) <- 1:d
-set.seed(1)
-(ord <- sample(1:d, size = d)) # path; 1:d would walk parallel to the secondary diagonal
-zenplot(U[,ord], plot1d = "layout", plot2d = "layout", pkg = "grid") # layout
-zenplot(U[,ord], # has correct variable names as column names
-        pkg = "grid",
-        plot1d = function(zargs) arrow_1d_grid(zargs, col = "grey50"),
-        plot2d = function(zargs)
-               gTree(children = gList(
-                   my_points_2d_grid(zargs, basecol = basecol, d. = d.),
-                   rect_2d_grid(zargs, width = 1.05, height = 1.05,
-                                col = "grey50", lty = 3),
-                   label_2d_grid(zargs, loc = c(1.06, -0.03),
-                                 just = c("left", "top"), rot = 90, cex = 0.45,
-                                 fontface = "bold") )))
-## => The points are colorized correctly (compare with the pairs plot).
-</div><div class='output co'>#&gt; <span class='error'>Error: &lt;text&gt;:11:10: unexpected input</span>
-#&gt; <span class='error'>10: L &lt;- t(chol(P)) # L: LL^T = P</span>
-#&gt; <span class='error'>11: Y &lt;- t(L \</span>
-#&gt; <span class='error'>             ^</span></div><div class='input'>
+<span class='co'>## Plot a random permutation of columns via a zenplot</span>
+<span class='co'>## Note: We set column labels here, as otherwise the labels can only</span>
+<span class='co'>##       show *indices* of the variables to be plotted, i.e., the column</span>
+<span class='co'>##       number in U[,ord], and not the original column number in U (which</span>
+<span class='co'>##       is what we want to see in order to see how our 'path' through</span>
+<span class='co'>##       the pairs of variables looks like).</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>U</span>) <span class='kw'>&lt;-</span> <span class='fl'>1</span>:<span class='no'>d</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>1</span>)
+(<span class='no'>ord</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fl'>1</span>:<span class='no'>d</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>d</span>)) <span class='co'># path; 1:d would walk parallel to the secondary diagonal</span></div><div class='output co'>#&gt;  [1]  4  7  1  2 13 16 11 14  3 15  5 12 10  6 17  9  8</div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>U</span>[,<span class='no'>ord</span>], <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"layout"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='st'>"layout"</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>) <span class='co'># layout</span></div><div class='img'><img src='zenplot-34.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>U</span>[,<span class='no'>ord</span>], <span class='co'># has correct variable names as column names</span>
+        <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>,
+        <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) <span class='fu'><a href='arrow_1d_grid.html'>arrow_1d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>),
+        <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>)
+               <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gTree</a></span>(<span class='kw'>children</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>gList</a></span>(
+                   <span class='fu'>my_points_2d_grid</span>(<span class='no'>zargs</span>, <span class='kw'>basecol</span> <span class='kw'>=</span> <span class='no'>basecol</span>, <span class='kw'>d.</span> <span class='kw'>=</span> <span class='no'>d.</span>),
+                   <span class='fu'><a href='rect_2d_grid.html'>rect_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>1.05</span>, <span class='kw'>height</span> <span class='kw'>=</span> <span class='fl'>1.05</span>,
+                                <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"grey50"</span>, <span class='kw'>lty</span> <span class='kw'>=</span> <span class='fl'>3</span>),
+                   <span class='fu'><a href='label_2d_grid.html'>label_2d_grid</a></span>(<span class='no'>zargs</span>, <span class='kw'>loc</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.06</span>, -<span class='fl'>0.03</span>),
+                                 <span class='kw'>just</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"left"</span>, <span class='st'>"top"</span>), <span class='kw'>rot</span> <span class='kw'>=</span> <span class='fl'>90</span>, <span class='kw'>cex</span> <span class='kw'>=</span> <span class='fl'>0.45</span>,
+                                 <span class='kw'>fontface</span> <span class='kw'>=</span> <span class='st'>"bold"</span>) )))</div><div class='img'><img src='zenplot-35.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'>## =&gt; The points are colorized correctly (compare with the pairs plot).</span>
+<span class='co'># }</span>
 
-### Using ggplot2 ##############################################################
 
-## Although not thoroughly tested, in principle ggplot2 can also be used via
-## pkg = "grid" as follows.
-</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: package ‘ggplot2’ was built under R version 3.5.2</span></div><div class='input'>
+<span class='co'>### Using ggplot2 ##############################################################</span>
+
+<span class='co'>## Although not thoroughly tested, in principle ggplot2 can also be used via</span>
+<span class='co'>## pkg = "grid" as follows.</span>
+<span class='co'># \donttest{</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+
 <span class='co'>## Define our own 2d plot</span>
 <span class='no'>my_points_2d_ggplot</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>zargs</span>, <span class='no'>extract2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
    {
        <span class='kw'>if</span>(<span class='no'>extract2d</span>) {
            <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='extract_2d.html'>extract_2d</a></span>(<span class='no'>zargs</span>) <span class='co'># extract results from zargs</span>
-           <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='no'>r</span>$<span class='no'>x</span>, <span class='no'>r</span>$<span class='no'>y</span>) <span class='co'># data frame</span>
-           <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/names'>names</a></span>(<span class='no'>df</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"x"</span>, <span class='st'>"y"</span>)
+           <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='no'>r</span>$<span class='no'>x</span>, <span class='no'>r</span>$<span class='no'>y</span>) <span class='co'># data frame</span>
+           <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>df</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"x"</span>, <span class='st'>"y"</span>)
            <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>x</span>[,<span class='st'>"Species"</span>]
        } <span class='kw'>else</span> {
            <span class='no'>ii</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='plot_indices.html'>plot_indices</a></span>(<span class='no'>zargs</span>) <span class='co'># the indices of the variables to be plotted</span>
            <span class='no'>irs</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>x</span> <span class='co'># iris data</span>
-           <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>irs</span>[,<span class='no'>ii</span>[<span class='fl'>1</span>]], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>irs</span>[,<span class='no'>ii</span>[<span class='fl'>2</span>]]) <span class='co'># data frame</span>
+           <span class='no'>df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>irs</span>[,<span class='no'>ii</span>[<span class='fl'>1</span>]], <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>irs</span>[,<span class='no'>ii</span>[<span class='fl'>2</span>]]) <span class='co'># data frame</span>
            <span class='no'>cols</span> <span class='kw'>&lt;-</span> <span class='no'>irs</span>[,<span class='st'>"Species"</span>]
        }
        <span class='no'>num2d</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>num</span>/<span class='fl'>2</span> <span class='co'># plot number among all 2d plots</span>
@@ -712,14 +739,16 @@ zenplot(U[,ord], # has correct variable names as column names
 
 <span class='co'>## Plotting</span>
 <span class='no'>iris.</span> <span class='kw'>&lt;-</span> <span class='no'>iris</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>iris.</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/grep'>gsub</a></span>(<span class='st'>"\\\\."</span>, <span class='st'>" "</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/colnames'>colnames</a></span>(<span class='no'>iris</span>)) <span class='co'># =&gt; nicer 1d labels</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>iris.</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span>(<span class='st'>"\\\\."</span>, <span class='st'>" "</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>iris</span>)) <span class='co'># =&gt; nicer 1d labels</span>
 <span class='fu'>zenplot</span>(<span class='no'>iris.</span>, <span class='kw'>n2dplots</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='st'>"my_points_2d_ggplot"</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in zenplot(iris., n2dplots = 3, plot2d = "my_points_2d_ggplot",     pkg = "grid"): Function provided as argument 'plot2d' does not exist.</span></div><div class='input'><span class='fu'>zenplot</span>(<span class='no'>iris.</span>, <span class='kw'>n2dplots</span> <span class='kw'>=</span> <span class='fl'>3</span>,
         <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) <span class='fu'>my_points_2d_ggplot</span>(<span class='no'>zargs</span>, <span class='kw'>extract2d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
-        <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>)</div><div class='img'><img src='zenplot-33.png' alt='' width='700' height='433' /></div><div class='input'>
+        <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>)</div><div class='img'><img src='zenplot-36.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
 
-### Providing your own data structure ##########################################
 
-</div><div class='input'><span class='co'>## Danger zone: An example with a new data structure (here: a list of *lists*)</span>
+<span class='co'>### Providing your own data structure ##########################################</span>
+
+<span class='co'># \donttest{</span>
+<span class='co'>## Danger zone: An example with a new data structure (here: a list of *lists*)</span>
 <span class='co'>## Note: - In this case, we most likely need to provide both plot1d and plot2d</span>
 <span class='co'>##         (but not in this case here since arrow_1d_graphics() does not depend</span>
 <span class='co'>##         on the data structure)</span>
@@ -730,23 +759,25 @@ zenplot(U[,ord], # has correct variable names as column names
 <span class='co'>##         x/y axis of adjacent plots might not be the same anymore. This is</span>
 <span class='co'>##         fine if only a certain order of the plots is of interest, but</span>
 <span class='co'>##         not a comparison between adjacent plots.</span>
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>2</span>:<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>3</span>), <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>:<span class='fl'>2</span>))
+<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>2</span>:<span class='fl'>1</span>, <span class='fl'>1</span>:<span class='fl'>3</span>), <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>, <span class='fl'>1</span>:<span class='fl'>2</span>))
 <span class='fu'>zenplot</span>(<span class='no'>z</span>, <span class='kw'>n2dplots</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow"</span>, <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
         <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>zargs</span>, <span class='no'>...</span>) {
-            <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/unlist'>unlist</a></span>(<span class='no'>zargs</span>$<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+            <span class='no'>r</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span>(<span class='no'>zargs</span>$<span class='no'>x</span>, <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
             <span class='no'>num2d</span> <span class='kw'>&lt;-</span> <span class='no'>zargs</span>$<span class='no'>num</span>/<span class='fl'>2</span> <span class='co'># plot number among 2d plots</span>
             <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='no'>r</span><span class='kw'>[[</span><span class='no'>num2d</span>]]
             <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='no'>r</span><span class='kw'>[[</span><span class='no'>num2d</span> + <span class='fl'>1</span>]]
-            <span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x</span>) <span class='kw'>&lt;</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>y</span>)) <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>x</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>y</span>))
-            <span class='kw'>else</span> <span class='kw'>if</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>y</span>) <span class='kw'>&lt;</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x</span>)) <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='no'>y</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>x</span>))
-            <span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"b"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>)
-        }, <span class='kw'>ispace</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span>, <span class='fl'>0.1</span>))</div><div class='img'><img src='zenplot-34.png' alt='' width='700' height='433' /></div><div class='input'>
+            <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>) <span class='kw'>&lt;</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>y</span>)) <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='no'>x</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>y</span>))
+            <span class='kw'>else</span> <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>y</span>) <span class='kw'>&lt;</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>)) <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='no'>y</span>, <span class='kw'>length.out</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>))
+            <span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"b"</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='st'>""</span>)
+        }, <span class='kw'>ispace</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.2</span>, <span class='fl'>0.2</span>, <span class='fl'>0.1</span>, <span class='fl'>0.1</span>))</div><div class='img'><img src='zenplot-37.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
 
-### Zenplots based on 3d lattice plots #########################################
 
-</div><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>lattice</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>grid</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>gridExtra</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+<span class='co'>### Zenplots based on 3d lattice plots #########################################</span>
+
+<span class='co'># \donttest{</span>
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>lattice</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>grid</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>gridExtra</span>)</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘gridExtra’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:BiocGenerics’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    combine</span></div><div class='input'>
@@ -757,28 +788,28 @@ zenplot(U[,ord], # has correct variable names as column names
 <span class='co'>##   no applicable method for 'depth' applied to an object of class "NULL"'</span>
 <span class='co'>## - col = "black" inside scales is needed to make the ticks show</span>
 <span class='no'>mycloud</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>, <span class='no'>num</span>) {
-       <span class='no'>lim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/extendrange'>extendrange</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='fl'>0.04</span>)
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/lattice/topics/cloud'>cloud</a></span>(<span class='no'>x</span>[, <span class='fl'>3</span>] ~ <span class='no'>x</span>[, <span class='fl'>1</span>] * <span class='no'>x</span>[, <span class='fl'>2</span>], <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='no'>lim</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='no'>lim</span>, <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='no'>lim</span>,
-                   <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substitute'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span>)),
-                   <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substitute'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span> + <span class='fl'>1</span>)),
-                   <span class='kw'>zlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/substitute'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span> + <span class='fl'>2</span>)),
-                   <span class='kw'>zoom</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>arrows</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"black"</span>),
+       <span class='no'>lim</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/extendrange.html'>extendrange</a></span>(<span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='fl'>0.04</span>)
+       <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/lattice/man/cloud.html'>cloud</a></span>(<span class='no'>x</span>[, <span class='fl'>3</span>] ~ <span class='no'>x</span>[, <span class='fl'>1</span>] * <span class='no'>x</span>[, <span class='fl'>2</span>], <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='no'>lim</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='no'>lim</span>, <span class='kw'>zlim</span> <span class='kw'>=</span> <span class='no'>lim</span>,
+                   <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span>)),
+                   <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span> + <span class='fl'>1</span>)),
+                   <span class='kw'>zlab</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='no'>U</span>[<span class='no'>i.</span>], <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>i.</span> <span class='kw'>=</span> <span class='no'>num</span> + <span class='fl'>2</span>)),
+                   <span class='kw'>zoom</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>arrows</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"black"</span>),
                    <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
-                   <span class='kw'>par.settings</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/lattice/topics/trellis.device'>standard.theme</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
-                                       <span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>),
-                                       <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>panel</span> <span class='kw'>=</span> <span class='st'>"off"</span>))))
+                   <span class='kw'>par.settings</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/pkg/lattice/man/trellis.device.html'>standard.theme</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>),
+                                       <span class='kw'>axis.line</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"transparent"</span>),
+                                       <span class='kw'>clip</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>panel</span> <span class='kw'>=</span> <span class='st'>"off"</span>))))
    }
-<span class='no'>plst.3d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/lapply'>lapply</a></span>(<span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>function</span>(<span class='no'>i</span>)
-       <span class='fu'>mycloud</span>(<span class='no'>x</span>[,<span class='no'>i</span>:(<span class='no'>i</span>+<span class='fl'>2</span>)], <span class='kw'>num</span> <span class='kw'>=</span> <span class='no'>i</span>)) <span class='co'># list of trellis objects</span></div><div class='img'><img src='zenplot-35.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-36.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-37.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-38.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>plst.3d</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>function</span>(<span class='no'>i</span>)
+       <span class='fu'>mycloud</span>(<span class='no'>x</span>[,<span class='no'>i</span>:(<span class='no'>i</span>+<span class='fl'>2</span>)], <span class='kw'>num</span> <span class='kw'>=</span> <span class='no'>i</span>)) <span class='co'># list of trellis objects</span></div><div class='img'><img src='zenplot-38.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-39.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-40.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-41.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Preparing the zenplot</span>
-<span class='no'>num</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/length'>length</a></span>(<span class='no'>plst.3d</span>)
+<span class='no'>num</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>plst.3d</span>)
 <span class='no'>ncols</span> <span class='kw'>&lt;-</span> <span class='fl'>2</span>
-<span class='no'>turns</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>"r"</span>, <span class='fl'>2</span>*(<span class='no'>ncols</span>-<span class='fl'>1</span>)), <span class='st'>"d"</span>, <span class='st'>"d"</span>,
-           <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/rep'>rep</a></span>(<span class='st'>"l"</span>, <span class='fl'>2</span>*(<span class='no'>ncols</span>-<span class='fl'>1</span>)), <span class='st'>"d"</span>)
+<span class='no'>turns</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"r"</span>, <span class='fl'>2</span>*(<span class='no'>ncols</span>-<span class='fl'>1</span>)), <span class='st'>"d"</span>, <span class='st'>"d"</span>,
+           <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='st'>"l"</span>, <span class='fl'>2</span>*(<span class='no'>ncols</span>-<span class='fl'>1</span>)), <span class='st'>"d"</span>)
 <span class='no'>plot2d</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>zargs</span>) {
        <span class='no'>num2d</span> <span class='kw'>&lt;-</span> (<span class='no'>zargs</span>$<span class='no'>num</span>+<span class='fl'>1</span>)/<span class='fl'>2</span>
        <span class='no'>vp</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='vport.html'>vport</a></span>(<span class='no'>zargs</span>$<span class='no'>ispace</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>, <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fl'>0</span>:<span class='fl'>1</span>)
-       <span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/grid.grob'>grob</a></span>(<span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>zargs</span>$<span class='no'>x</span><span class='kw'>[[</span><span class='no'>num2d</span>]], <span class='kw'>vp</span> <span class='kw'>=</span> <span class='no'>vp</span>, <span class='kw'>cl</span> <span class='kw'>=</span> <span class='st'>"lattice"</span>) <span class='co'># convert trellis to grid object</span>
+       <span class='fu'><a href='https://rdrr.io/r/grid/grid.grob.html'>grob</a></span>(<span class='kw'>p</span> <span class='kw'>=</span> <span class='no'>zargs</span>$<span class='no'>x</span><span class='kw'>[[</span><span class='no'>num2d</span>]], <span class='kw'>vp</span> <span class='kw'>=</span> <span class='no'>vp</span>, <span class='kw'>cl</span> <span class='kw'>=</span> <span class='st'>"lattice"</span>) <span class='co'># convert trellis to grid object</span>
        <span class='co'>## Note: For further plots, Work with</span>
        <span class='co'>##       gTree(children = gList(grob(zargs$x[[num2d]], vp = vp,</span>
        <span class='co'>##                                   cl = "lattice")))</span>
@@ -787,24 +818,16 @@ zenplot(U[,ord], # has correct variable names as column names
 <span class='co'>## Zenplot</span>
 <span class='co'>## Note: We use a list of *plots* here already (not data)</span>
 <span class='fu'>zenplot</span>(<span class='no'>plst.3d</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='no'>turns</span>, <span class='kw'>n2dplots</span> <span class='kw'>=</span> <span class='no'>num</span>, <span class='kw'>pkg</span> <span class='kw'>=</span> <span class='st'>"grid"</span>, <span class='kw'>first1d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-        <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow_1d_grid"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='no'>plot2d</span>)</div><div class='img'><img src='zenplot-39.png' alt='' width='700' height='433' /></div></pre>
+        <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='st'>"arrow_1d_grid"</span>, <span class='kw'>plot2d</span> <span class='kw'>=</span> <span class='no'>plot2d</span>)</div><div class='img'><img src='zenplot-42.png' alt='' width='700' height='433' /></div><div class='input'># }
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Marius Hofert and Wayne Oldford</p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -812,13 +835,16 @@ zenplot(U[,ord], # has correct variable names as column names
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

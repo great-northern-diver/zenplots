@@ -16,9 +16,11 @@ A logical indicating whether x is of the above type
 Check Argument for Being a Vector, Matrix, Data Frame or a List of such
 }
 \seealso{
-Other zenplot technical tools: \code{\link{convert_occupancy}},
-  \code{\link{n2dcols_aux}}, \code{\link{num_cols}},
-  \code{\link{turn_checker}}
+Other zenplot technical tools: 
+\code{\link{convert_occupancy}()},
+\code{\link{n2dcols_aux}()},
+\code{\link{num_cols}()},
+\code{\link{turn_checker}()}
 }
 \author{
 Marius Hofert

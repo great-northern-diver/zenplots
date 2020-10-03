@@ -43,9 +43,12 @@ x[, indices]
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.
 
-Other tools related to constructing zenpaths: \code{\link{connect_pairs}},
-  \code{\link{extract_pairs}}, \code{\link{graph_pairs}},
-  \code{\link{groupData}}, \code{\link{zenpath}}
+Other tools related to constructing zenpaths: 
+\code{\link{connect_pairs}()},
+\code{\link{extract_pairs}()},
+\code{\link{graph_pairs}()},
+\code{\link{groupData}()},
+\code{\link{zenpath}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

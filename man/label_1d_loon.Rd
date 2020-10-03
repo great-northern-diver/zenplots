@@ -4,10 +4,23 @@
 \alias{label_1d_loon}
 \title{Label plot in 1d using the interactive loon package}
 \usage{
-label_1d_loon(zargs, loc.x = NULL, loc.y = NULL, label = NULL,
-  rot = NULL, size = 8, box = FALSE, color = NULL,
-  linkingGroup = NULL, showLabels = FALSE, showScales = FALSE,
-  showGuides = FALSE, baseplot = NULL, parent = NULL, ...)
+label_1d_loon(
+  zargs,
+  loc.x = NULL,
+  loc.y = NULL,
+  label = NULL,
+  rot = NULL,
+  size = 8,
+  box = FALSE,
+  color = NULL,
+  linkingGroup = NULL,
+  showLabels = FALSE,
+  showScales = FALSE,
+  showGuides = FALSE,
+  baseplot = NULL,
+  parent = NULL,
+  ...
+)
 }
 \arguments{
 \item{zargs}{The argument list as passed from \code{\link{zenplot}()}}
@@ -51,38 +64,48 @@ A loon::l_plot(...)
 Label plot in 1d using the interactive loon package
 }
 \seealso{
-Other default 1d plot functions using the interactive loon package: \code{\link{arrow_1d_loon}},
-  \code{\link{boxplot_1d_loon}},
-  \code{\link{density_1d_loon}},
-  \code{\link{hist_1d_loon}}, \code{\link{jitter_1d_loon}},
-  \code{\link{lines_1d_loon}},
-  \code{\link{points_1d_loon}}, \code{\link{rect_1d_loon}},
-  \code{\link{rug_1d_loon}}
+Other default 1d plot functions using the interactive loon package: 
+\code{\link{arrow_1d_loon}()},
+\code{\link{boxplot_1d_loon}()},
+\code{\link{density_1d_loon}()},
+\code{\link{hist_1d_loon}()},
+\code{\link{jitter_1d_loon}()},
+\code{\link{lines_1d_loon}()},
+\code{\link{points_1d_loon}()},
+\code{\link{rect_1d_loon}()},
+\code{\link{rug_1d_loon}()}
 
-Other default 1d plot functions: \code{\link{arrow_1d_graphics}},
-  \code{\link{arrow_1d_grid}}, \code{\link{arrow_1d_loon}},
-  \code{\link{boxplot_1d_graphics}},
-  \code{\link{boxplot_1d_grid}},
-  \code{\link{boxplot_1d_loon}},
-  \code{\link{density_1d_graphics}},
-  \code{\link{density_1d_grid}},
-  \code{\link{density_1d_loon}}, \code{\link{extract_1d}},
-  \code{\link{hist_1d_graphics}},
-  \code{\link{hist_1d_grid}}, \code{\link{hist_1d_loon}},
-  \code{\link{jitter_1d_graphics}},
-  \code{\link{jitter_1d_grid}},
-  \code{\link{jitter_1d_loon}},
-  \code{\link{label_1d_graphics}},
-  \code{\link{label_1d_grid}},
-  \code{\link{lines_1d_graphics}},
-  \code{\link{lines_1d_grid}}, \code{\link{lines_1d_loon}},
-  \code{\link{points_1d_graphics}},
-  \code{\link{points_1d_grid}},
-  \code{\link{points_1d_loon}},
-  \code{\link{rect_1d_graphics}},
-  \code{\link{rect_1d_grid}}, \code{\link{rect_1d_loon}},
-  \code{\link{rug_1d_graphics}}, \code{\link{rug_1d_grid}},
-  \code{\link{rug_1d_loon}}
+Other default 1d plot functions: 
+\code{\link{arrow_1d_graphics}()},
+\code{\link{arrow_1d_grid}()},
+\code{\link{arrow_1d_loon}()},
+\code{\link{boxplot_1d_graphics}()},
+\code{\link{boxplot_1d_grid}()},
+\code{\link{boxplot_1d_loon}()},
+\code{\link{density_1d_graphics}()},
+\code{\link{density_1d_grid}()},
+\code{\link{density_1d_loon}()},
+\code{\link{extract_1d}()},
+\code{\link{hist_1d_graphics}()},
+\code{\link{hist_1d_grid}()},
+\code{\link{hist_1d_loon}()},
+\code{\link{jitter_1d_graphics}()},
+\code{\link{jitter_1d_grid}()},
+\code{\link{jitter_1d_loon}()},
+\code{\link{label_1d_graphics}()},
+\code{\link{label_1d_grid}()},
+\code{\link{lines_1d_graphics}()},
+\code{\link{lines_1d_grid}()},
+\code{\link{lines_1d_loon}()},
+\code{\link{points_1d_graphics}()},
+\code{\link{points_1d_grid}()},
+\code{\link{points_1d_loon}()},
+\code{\link{rect_1d_graphics}()},
+\code{\link{rect_1d_grid}()},
+\code{\link{rect_1d_loon}()},
+\code{\link{rug_1d_graphics}()},
+\code{\link{rug_1d_grid}()},
+\code{\link{rug_1d_loon}()}
 }
 \author{
 Marius Hofert and Wayne Oldford

@@ -1,0 +1,18 @@
+bibentry(bibtype = "Article",
+  title        = "Zigzag Expanded Navigation Plots in {R}: The {R} Package {zenplots}",
+  author       = c(person(given = "Marius",
+                          family = "Hofert",
+                          email = "marius.hofert@uwaterloo.ca"),
+                   person(given = "Wayne",
+                          family = "Oldford",
+                          email = "rwoldford@uwaterloo.ca")),
+  journal      = "Journal of Statistical Software",
+  year         = "2020",
+  volume       = "95",
+  number       = "4",
+  pages        = "1--44",
+  doi          = "10.18637/jss.v095.i04",
+
+  header       = "To cite zenplots in publications use:"
+)
+

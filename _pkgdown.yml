@@ -19,6 +19,8 @@ navbar:
         
     - text: Publications
       menu:
+      - text: Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software
+        href: https://doi.org/10.18637/jss.v095.i04
       - text: visualizing dependence - S&P 500 data
         href: https://www.sciencedirect.com/science/article/pii/S245230621730031X
       - text: measuring association of random vectors
@@ -39,6 +41,7 @@ reference:
   - title: zenplots
     desc:  Main functions for creating zenplots
     contents:
+    - zenplots
     - zenplot
     - zenpath
   - title: Data

@@ -4,9 +4,14 @@
 \alias{get_path}
 \title{Computing the path according to the provided method}
 \usage{
-get_path(turns = NULL, n2dcols = c("letter", "square", "A4", "golden",
-  "legal"), n2dplots, method = c("tidy", "double.zigzag",
-  "single.zigzag", "rectangular"), first1d = TRUE, last1d = TRUE)
+get_path(
+  turns = NULL,
+  n2dcols = c("letter", "square", "A4", "golden", "legal"),
+  n2dplots,
+  method = c("tidy", "double.zigzag", "single.zigzag", "rectangular"),
+  first1d = TRUE,
+  last1d = TRUE
+)
 }
 \arguments{
 \item{turns}{The turns}

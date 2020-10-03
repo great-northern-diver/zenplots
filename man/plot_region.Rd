@@ -25,9 +25,11 @@ This is an auxiliary function used by the
 provided \pkg{graphics}-related 1d and 2d plots.
 }
 \seealso{
-Other graphical tools: \code{\link{l_ispace_config}},
-  \code{\link{na_omit_loon}}, \code{\link{vport}},
-  \code{\link{zenarrow}}
+Other graphical tools: 
+\code{\link{l_ispace_config}()},
+\code{\link{na_omit_loon}()},
+\code{\link{vport}()},
+\code{\link{zenarrow}()}
 }
 \author{
 Marius Hofert
