@@ -891,7 +891,7 @@ zenplot <- function(x, turns = NULL, first1d = TRUE, last1d = TRUE,
             if(!is.function(plot1d))
                 stop("'plot1d' has to be either a character string or a function.")
         }
-        if(!exists(as.character(substitute(plot1d))))
+        if(!plot_exists(plot1d))
             stop("Function provided as argument 'plot1d' does not exist.")
     } # => plot1d either NULL, "<defaults>_<pkg>", a string of an existing function or an existing function
 
@@ -910,7 +910,7 @@ zenplot <- function(x, turns = NULL, first1d = TRUE, last1d = TRUE,
             if(!is.function(plot2d))
                 stop("'plot2d' has to be either a character string or a function")
         }
-        if(!exists(as.character(substitute(plot2d))))
+        if(!plot_exists(plot2d))
             stop("Function provided as argument 'plot2d' does not exist.")
     } # => plot2d either NULL, "<defaults>_<pkg>", a string of an existing function or an existing function
 
