@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Argument for Being a Vector, Matrix, Data Frame or a List of such — is.standard • zenplots</title>
+<title>Check whether functions (plot*d to zenplot()) exist — plot_exists • zenplots</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,8 @@
 
 
 
-<meta property="og:title" content="Check Argument for Being a Vector, Matrix, Data Frame or a List of such — is.standard" />
-<meta property="og:description" content="Check Argument for Being a Vector, Matrix, Data Frame or a List of such" />
+<meta property="og:title" content="Check whether functions (plot*d to zenplot()) exist — plot_exists" />
+<meta property="og:description" content="Check whether functions (plot*d to zenplot()) exist" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -146,36 +146,33 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check Argument for Being a Vector, Matrix, Data Frame or a List of such</h1>
+    <h1>Check whether functions (plot*d to zenplot()) exist</h1>
     <small class="dont-index">Source: <a href='https://github.com/great-northern-diver/zenplots/blob/master/R/tools.R'><code>R/tools.R</code></a></small>
-    <div class="hidden name"><code>is.standard.Rd</code></div>
+    <div class="hidden name"><code>plot_exists.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Check Argument for Being a Vector, Matrix, Data Frame or a List of such</p>
+    <p>Check whether functions (plot*d to zenplot()) exist</p>
     </div>
 
-    <pre class="usage"><span class='fu'>is.standard</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_exists</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A vector, matrix, data.frame or list of such</p></td>
+      <td><p>arguments plot1d or plot2d of zenplot()</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A logical indicating whether x is of the above type</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <p>logical indicating whether x exists</p>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <div class='dont-index'><p>Other zenplot technical tools: 
-<code><a href='convert_occupancy.html'>convert_occupancy</a>()</code>,
-<code><a href='n2dcols_aux.html'>n2dcols_aux</a>()</code>,
-<code><a href='num_cols.html'>num_cols</a>()</code>,
-<code><a href='turn_checker.html'>turn_checker</a>()</code></p></div>
+    <p>Check first whether it's a function (have to rely on it being able to be evaluated,
+      cannot do more checks then) or, if a string, whether it exists</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

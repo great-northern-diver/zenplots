@@ -39,6 +39,14 @@ zenarrow <- function(turn, angle = 80, length = 1, coord.scale = 1)
     ## Return
     cbind(left = left, head = head, right = right) # (2, 3)-matrix
 }
+##' @title Check whether functions (plot*d to zenplot()) exist
+##' @param x arguments plot1d or plot2d of zenplot()
+##' @return logical indicating whether x exists
+##' @author Marius Hofert
+##' @note Check first whether it's a function (have to rely on it being able to be evaluated,
+##'       cannot do more checks then) or, if a string, whether it exists
+##' @export
+plot_exists <- function(x) is.function(x) || existsFunction(x)
 
 ##' @title Function to set up the plot region for graphics plots
 ##' @family graphical tools

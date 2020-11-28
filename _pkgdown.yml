@@ -140,6 +140,7 @@ reference:
     contents:
     - adjust_bb
     - l_ispace_config
+    - plot_exists
     - plot_region
     - vport
     - zenarrow
