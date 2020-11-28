@@ -25,7 +25,7 @@
 #' @importFrom PairViz eseq hpaths eulerian bipartite_graph
 #' @importFrom grDevices colorRampPalette contourLines hcl xy.coords
 #' @importFrom stats density qnorm quantile runif na.omit as.dist median qqplot approx
-#' @importFrom methods hasArg
+#' @importFrom methods hasArg existsFunction
 #' @importFrom utils head tail
 #' 
 #' 
