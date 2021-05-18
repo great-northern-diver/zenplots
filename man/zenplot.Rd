@@ -240,7 +240,7 @@ zenplot(z.)
 
 ### A dynamic plot based on 'loon' (if installed and R compiled with tcl support)
 
-\donttest{
+\dontrun{
     if(requireNamespace("loon", quietly = TRUE))
         zenplot(x, pkg = "loon")
 }

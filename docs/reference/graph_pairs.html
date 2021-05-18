@@ -82,7 +82,7 @@ The result can be displayed using plot()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -131,7 +131,7 @@ The result can be displayed using plot()." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -156,10 +156,10 @@ The result can be displayed using plot()." />
     <div class="ref-description">
     <p>Pairs are processed to produce a graph with the elements 
 of the pairs as vertices and the pairs as undirected edges.
-The result can be displayed using <code><a href='https://rdrr.io/r/base/plot.html'>plot</a>()</code>.</p>
+The result can be displayed using <code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a>()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>graph_pairs</span>(<span class='no'>x</span>, <span class='kw'>var.names</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>edgemode</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"undirected"</span>, <span class='st'>"directed"</span>))</pre>
+    <pre class="usage"><span class='fu'>graph_pairs</span><span class='op'>(</span><span class='va'>x</span>, var.names <span class='op'>=</span> <span class='cn'>NULL</span>, edgemode <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"undirected"</span>, <span class='st'>"directed"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,7 +185,7 @@ or <code>"directed"</code> (in which case the order of the nodes in each pair ma
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>a <code><a href='https://rdrr.io/pkg/graph/man/graphNEL-class.html'>graphNEL</a></code> object; can be displayed using 
-<code><a href='https://rdrr.io/r/base/plot.html'>plot</a>()</code>.</p>
+<code><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a>()</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
     <p><code><a href='zenplot.html'>zenplot</a>()</code> never use directed graphs nor graphs with isolated (disconnected) nodes.</p>
@@ -198,14 +198,15 @@ or <code>"directed"</code> (in which case the order of the nodes in each pair ma
 <code><a href='groupData.html'>groupData</a>()</code>,
 <code><a href='indexData.html'>indexData</a>()</code>,
 <code><a href='zenpath.html'>zenpath</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## Get some pairs</span>
-<span class='no'>pairs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>, <span class='fl'>5</span>,<span class='fl'>1</span>, <span class='fl'>3</span>,<span class='fl'>4</span>, <span class='fl'>2</span>,<span class='fl'>3</span>, <span class='fl'>4</span>,<span class='fl'>2</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>byrow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-<span class='no'>g</span> <span class='kw'>&lt;-</span> <span class='fu'>graph_pairs</span>(<span class='no'>pairs</span>)
-<span class='co'>## which can be displayed using plot(g) </span>
-<span class='co'>## if the graph package is installed.</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>graph</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: BiocGenerics</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: parallel</span></div><div class='output co'>#&gt; <span class='message'></span>
+    <pre class="examples"><div class='input'><span class='co'>## To display the graphs constructed the packages</span>
+<span class='co'>## graph and Rgraphviz packages need to be loaded</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>graph</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: BiocGenerics</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: parallel</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘BiocGenerics’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:parallel’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,</span>
@@ -219,25 +220,35 @@ or <code>"directed"</code> (in which case the order of the nodes in each pair ma
 #&gt; <span class='message'>    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,</span>
 #&gt; <span class='message'>    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,</span>
 #&gt; <span class='message'>    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,</span>
-#&gt; <span class='message'>    union, unique, unsplit, which, which.max, which.min</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>g</span>)</div><div class='img'><img src='graph_pairs-1.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; <span class='message'>    union, unique, unsplit, which, which.max, which.min</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>Rgraphviz</span><span class='op'>)</span> 
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: grid</span></div><div class='input'><span class='co'>##</span>
+<span class='co'>## Get some pairs</span>
+<span class='va'>pairs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>, <span class='fl'>5</span>,<span class='fl'>1</span>, <span class='fl'>3</span>,<span class='fl'>4</span>, <span class='fl'>2</span>,<span class='fl'>3</span>, <span class='fl'>4</span>,<span class='fl'>2</span><span class='op'>)</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>g</span> <span class='op'>&lt;-</span> <span class='fu'>graph_pairs</span><span class='op'>(</span><span class='va'>pairs</span><span class='op'>)</span>
+<span class='co'>## which can be displayed using plot(g) </span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>g</span><span class='op'>)</span> 
+</div><div class='img'><img src='graph_pairs-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Build a graph from a list of paths</span>
-<span class='no'>paths</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>3</span>:<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>5</span>,<span class='fl'>7</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>7</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>6</span>,<span class='fl'>7</span>))
-<span class='no'>gp</span> <span class='kw'>&lt;-</span> <span class='fu'>graph_pairs</span>(<span class='no'>paths</span>)
+<span class='va'>paths</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>:</span><span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>5</span>,<span class='fl'>7</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>7</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>gp</span> <span class='op'>&lt;-</span> <span class='fu'>graph_pairs</span><span class='op'>(</span><span class='va'>paths</span><span class='op'>)</span>
 <span class='co'>## graph package draws with grid, so clear</span>
-<span class='fu'>grid.newpage</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>gp</span>)</div><div class='img'><img src='graph_pairs-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>grid.newpage</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>gp</span><span class='op'>)</span>
+</div><div class='img'><img src='graph_pairs-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Nodes do not need to be numbers</span>
-<span class='no'>alpha_paths</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>3</span>:<span class='fl'>1</span>], <span class='no'>letters</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>,<span class='fl'>5</span>,<span class='fl'>7</span>)],
-                    <span class='no'>letters</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>7</span>)], <span class='no'>letters</span>[<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>6</span>,<span class='fl'>7</span>)])
-<span class='fu'>grid.newpage</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='fu'>graph_pairs</span>(<span class='no'>alpha_paths</span>))</div><div class='img'><img src='graph_pairs-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>alpha_paths</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>3</span><span class='op'>:</span><span class='fl'>1</span><span class='op'>]</span>, <span class='va'>letters</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>5</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>]</span>, 
+                    <span class='va'>letters</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>4</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>]</span>, <span class='va'>letters</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span>,<span class='fl'>7</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>
+<span class='fu'>grid.newpage</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'>graph_pairs</span><span class='op'>(</span><span class='va'>alpha_paths</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='graph_pairs-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Zenplots never uses this feature but you could</span>
 <span class='co'>## build a directed graph with a single isolated node</span>
-<span class='no'>dg</span> <span class='kw'>&lt;-</span> <span class='fu'>graph_pairs</span>(<span class='no'>alpha_paths</span>,
-                  <span class='kw'>var.names</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>7</span>], <span class='st'>"ALONE"</span>),
-                  <span class='kw'>edgemode</span> <span class='kw'>=</span> <span class='st'>"directed"</span> )
-<span class='fu'>grid.newpage</span>()
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>dg</span>)</div><div class='img'><img src='graph_pairs-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>dg</span> <span class='op'>&lt;-</span> <span class='fu'>graph_pairs</span><span class='op'>(</span><span class='va'>alpha_paths</span>, 
+                  var.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>letters</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>]</span>, <span class='st'>"ALONE"</span><span class='op'>)</span>,
+                  edgemode <span class='op'>=</span> <span class='st'>"directed"</span> <span class='op'>)</span>
+<span class='fu'>grid.newpage</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>dg</span><span class='op'>)</span>
+</div><div class='img'><img src='graph_pairs-4.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -254,7 +265,7 @@ or <code>"directed"</code> (in which case the order of the nodes in each pair ma
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

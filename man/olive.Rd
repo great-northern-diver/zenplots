@@ -12,8 +12,8 @@ data("olive")
 \format{
   A \code{\link{data.frame}()} with 10 columns:
   \describe{
-    \item{\code{area}:}{(larger) area.}
-    \item{\code{region}:}{(local) region.}
+    \item{\code{Area}:}{(larger) area.}
+    \item{\code{Region}:}{(local) region.}
     \item{\code{palmitic}, \code{palmitoleic}, \code{stearic},
       \code{oleic}, \code{linoleic}, \code{linolenic}, \code{arachidic},
       \code{eicosenoic}:}{the fatty acids measured.}

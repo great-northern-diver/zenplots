@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -129,7 +129,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -155,7 +155,7 @@
     <p>Convert an occupancy matrix to matrix with different symbols.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert_occupancy</span>(<span class='no'>x</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>""</span>, <span class='st'>"&lt;"</span>, <span class='st'>"&gt;"</span>, <span class='st'>"v"</span>, <span class='st'>"^"</span>))</pre>
+    <pre class="usage"><span class='fu'>convert_occupancy</span><span class='op'>(</span><span class='va'>x</span>, to <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>""</span>, <span class='st'>"&lt;"</span>, <span class='st'>"&gt;"</span>, <span class='st'>"v"</span>, <span class='st'>"^"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,16 +186,21 @@ should be mapped.</p></td>
 <code><a href='n2dcols_aux.html'>n2dcols_aux</a>()</code>,
 <code><a href='num_cols.html'>num_cols</a>()</code>,
 <code><a href='turn_checker.html'>turn_checker</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Generate some data</span>
-<span class='no'>n</span> <span class='kw'>&lt;-</span> <span class='fl'>1000</span> <span class='co'># sample size</span>
-<span class='no'>d</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span> <span class='co'># dimension</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>271</span>) <span class='co'># set seed (for reproducibility)</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='no'>n</span> * <span class='no'>d</span>), <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='no'>d</span>) <span class='co'># i.i.d. N(0,1) data</span>
+<span class='va'>n</span> <span class='op'>&lt;-</span> <span class='fl'>1000</span> <span class='co'># sample size</span>
+<span class='va'>d</span> <span class='op'>&lt;-</span> <span class='fl'>20</span> <span class='co'># dimension</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>271</span><span class='op'>)</span> <span class='co'># set seed (for reproducibility)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='va'>n</span> <span class='op'>*</span> <span class='va'>d</span><span class='op'>)</span>, ncol <span class='op'>=</span> <span class='va'>d</span><span class='op'>)</span> <span class='co'># i.i.d. N(0,1) data</span>
 
 <span class='co'>## Extract the occupancy matrix from a zenplot</span>
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='zenplot.html'>zenplot</a></span>(<span class='no'>x</span>)</div><div class='img'><img src='convert_occupancy-1.png' alt='' width='700' height='433' /></div><div class='input'>(<span class='no'>occ</span> <span class='kw'>&lt;-</span> <span class='no'>res</span><span class='kw'>[[</span><span class='st'>"path"</span>]]<span class='kw'>[[</span><span class='st'>"occupancy"</span>]])</div><div class='output co'>#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+<span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='zenplot.html'>zenplot</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='img'><img src='convert_occupancy-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='op'>(</span><span class='va'>occ</span> <span class='op'>&lt;-</span> <span class='va'>res</span><span class='op'>[[</span><span class='st'>"path"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[[</span><span class='st'>"occupancy"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
 #&gt;  [1,] "d"  ""   ""   ""   ""   ""   ""   ""   ""  
 #&gt;  [2,] "r"  "r"  "d"  ""   "r"  "r"  "d"  ""   ""  
 #&gt;  [3,] ""   ""   "d"  ""   "u"  ""   "d"  ""   ""  
@@ -209,7 +214,8 @@ should be mapped.</p></td>
 #&gt; [11,] ""   ""   "d"  ""   ""   ""   ""   ""   ""  
 #&gt; [12,] ""   ""   "r"  "r"  ""   ""   ""   ""   ""  </div><div class='input'>
 <span class='co'>## Convert the occupancy matrix</span>
-<span class='fu'>convert_occupancy</span>(<span class='no'>occ</span>)</div><div class='output co'>#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+<span class='fu'>convert_occupancy</span><span class='op'>(</span><span class='va'>occ</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
 #&gt;  [1,] "v"  ""   ""   ""   ""   ""   ""   ""   ""  
 #&gt;  [2,] "&gt;"  "&gt;"  "v"  ""   "&gt;"  "&gt;"  "v"  ""   ""  
 #&gt;  [3,] ""   ""   "v"  ""   "^"  ""   "v"  ""   ""  
@@ -237,7 +243,7 @@ should be mapped.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

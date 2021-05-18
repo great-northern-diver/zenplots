@@ -89,7 +89,7 @@ the high dimensional space." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ the high dimensional space." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -172,10 +172,10 @@ with a zenplot is what is alluded to as an "unfolding" of (at least a part of)
 the high dimensional space.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>unfold</span>(<span class='no'>nfaces</span>, <span class='kw'>turns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-       <span class='kw'>n2dcols</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span>),
-       <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span>),
-       <span class='kw'>first1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>last1d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>width1d</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>width2d</span> <span class='kw'>=</span> <span class='fl'>10</span>)</pre>
+    <pre class="usage"><span class='fu'>unfold</span><span class='op'>(</span><span class='va'>nfaces</span>, turns <span class='op'>=</span> <span class='cn'>NULL</span>,
+       n2dcols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span><span class='op'>)</span>,
+       method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span><span class='op'>)</span>,
+       first1d <span class='op'>=</span> <span class='cn'>TRUE</span>, last1d <span class='op'>=</span> <span class='cn'>TRUE</span>, width1d <span class='op'>=</span> <span class='fl'>1</span>, width2d <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -202,7 +202,7 @@ Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></
     <tr>
       <th>method</th>
       <td><p>The type of zigzag plot (a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code>).</p>
-<p>Available are:</p><dl'>
+<p>Available are:</p><dl>
     <dt><code>tidy</code>:</dt><dd><p>more tidied-up <code>double.zigzag</code>
          (slightly more compact placement of plots towards the end).</p></dd>
     <dt><code>double.zigzag</code>:</dt><dd><p>zigzag plot in the form of a
@@ -240,10 +240,10 @@ plot should be plotted</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> describing the unfolded path and its layout
- as a list of named components:</p><dl'>
+ as a list of named components:</p><dl>
     <dt><code>path</code>:</dt><dd><p>the path of the unfolding, itself given 
     as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
-    <dl'>
+    <dl>
     <dt><code>turns</code>:</dt><dd><p>the sequence of turns 
      -- each being one of &#8220;l&#8221; (for left), &#8220;r&#8221; (for right), 
     &#8220;d&#8221; (for down), and &#8220;u&#8221;  (for up) --
@@ -255,7 +255,7 @@ plot should be plotted</p></td>
     of the plots on the page.</p></dd></dl></p></dd>
     <dt><code>layout</code>:</dt><dd><p>the details of the visual layout of the plots and given 
     as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
-    <dl'>
+    <dl>
     <dt><code>orientations</code>:</dt><dd><p>a vector indicating the orientation of each of the
     displays in order -- &#8220;h&#8221; for horizontal, &#8220;v&#8221; for vertical, and
     &#8220;s&#8221; for square.</p></dd>
@@ -281,11 +281,15 @@ plot should be plotted</p></td>
 
     <div class='dont-index'><p>Other creating zenplots: 
 <code><a href='zenplot.html'>zenplot</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>dim</span> <span class='kw'>&lt;-</span> <span class='fl'>20</span>
-<span class='no'>unfolding</span> <span class='kw'>&lt;-</span> <span class='fu'>unfold</span>(<span class='kw'>nfaces</span> <span class='kw'>=</span> <span class='no'>dim</span> -<span class='fl'>1</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>unfolding</span>)</div><div class='output co'>#&gt; [1] "path"   "layout"</div></pre>
+    <pre class="examples"><div class='input'><span class='va'>dim</span> <span class='op'>&lt;-</span> <span class='fl'>20</span> 
+<span class='va'>unfolding</span> <span class='op'>&lt;-</span> <span class='fu'>unfold</span><span class='op'>(</span>nfaces <span class='op'>=</span> <span class='va'>dim</span> <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>unfolding</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "path"   "layout"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -301,7 +305,7 @@ plot should be plotted</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -83,7 +83,7 @@ This is an auxiliary function for checking and converting the data argument of z
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -132,7 +132,7 @@ This is an auxiliary function for checking and converting the data argument of z
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -161,7 +161,7 @@ group and variable information as well as labels.
 This is an auxiliary function for checking and converting the data argument of zenplot().</p>
     </div>
 
-    <pre class="usage"><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>())</pre>
+    <pre class="usage"><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -211,13 +211,17 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 <code><a href='extract_1d.html'>extract_1d</a>()</code>,
 <code><a href='extract_2d.html'>extract_2d</a>()</code>,
 <code><a href='plot_indices.html'>plot_indices</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Unnamed list of (some named, some unnamed) valid components</span>
-<span class='no'>A</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>1</span>:<span class='fl'>12</span>, <span class='kw'>ncol</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>A</span>, <span class='fl'>1</span>:<span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>A</span>))
+<span class='va'>A</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>12</span>, ncol <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='va'>A</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>"G"</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='st'>"V"</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>", "</span>))</div><div class='output co'>#&gt; $xcols
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='st'>"G"</span>, var <span class='op'>=</span> <span class='st'>"V"</span>, sep <span class='op'>=</span> <span class='st'>", "</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`G1, V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -251,7 +255,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>) <span class='co'># the same defaults as above</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='co'># the same defaults as above</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`G1, V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -285,7 +290,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" "</span>)) <span class='co'># only changing the separator</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>sep <span class='op'>=</span> <span class='st'>" "</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># only changing the separator</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`G1 V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -323,7 +329,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 <span class='co'>##         in the above call</span>
 <span class='co'>##        - The variable names are only constructed if not given</span>
 
-<span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='st'>""</span>))</div><div class='output co'>#&gt; $xcols
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='st'>""</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`1, V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -357,7 +364,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) <span class='co'># no group labels</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span>, group2d <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -394,7 +402,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; </div><div class='input'><span class='co'>##  Note: There's no effect of 'group2d = TRUE' visible here as</span>
 <span class='co'>##        'x' doesn't contain group labels</span>
 
-<span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># no group labels unless groups change</span></div><div class='output co'>#&gt; $xcols
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels unless groups change</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -428,7 +437,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># no variable labels</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>var <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no variable labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$G1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -462,7 +472,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "" "" "" "" "" "" ""
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># neither one</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span>, var <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># neither one</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols[[1]]
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -496,7 +507,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "" "" "" "" "" "" ""
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>) <span class='co'># similarly, without any labels at all</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='co'># similarly, without any labels at all</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols[[1]]
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -532,8 +544,9 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; NULL
 #&gt; </div><div class='input'>
 <span class='co'>##  Named list</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>mat</span> <span class='kw'>=</span> <span class='no'>A</span>, <span class='kw'>vec</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>, <span class='kw'>df</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>A</span>))
-<span class='fu'>burst</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $xcols
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>mat <span class='op'>=</span> <span class='va'>A</span>, vec <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, df <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`mat, V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -570,7 +583,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; </div><div class='input'><span class='co'>##  Note: - The given group labels are used</span>
 <span class='co'>##        - The variable names are only constructed if not given</span>
 
-<span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) <span class='co'># no group labels</span></div><div class='output co'>#&gt; $xcols
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span>, group2d <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -604,7 +618,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># no group labels unless groups change</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels unless groups change</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -641,8 +656,9 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; </div><div class='input'><span class='co'>##  Note: Now the effect of 'group2d' is visible.</span>
 
 <span class='co'>##  Partially named list</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>mat</span> <span class='kw'>=</span> <span class='no'>A</span>, <span class='kw'>vec</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='no'>A</span>))
-<span class='fu'>burst</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; $xcols
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>mat <span class='op'>=</span> <span class='va'>A</span>, vec <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$`mat, V1`
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -676,7 +692,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>group2d</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)) <span class='co'># no group labels</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span>, group2d <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -710,7 +727,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># no group labels unless groups change</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no group labels unless groups change</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$V1
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -744,7 +762,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "V1" "V2" "V3" "V1" "V1" "V2" "V3"
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># no variable labels</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>var <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># no variable labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols$mat
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -778,7 +797,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "" "" "" "" "" "" ""
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>var</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)) <span class='co'># only group labels and only if groups change</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='cn'>NULL</span>, var <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># only group labels and only if groups change</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols[[1]]
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -812,7 +832,8 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 #&gt; 
 #&gt; $vlabs
 #&gt; [1] "" "" "" "" "" "" ""
-#&gt; </div><div class='input'><span class='fu'>burst</span>(<span class='no'>x</span>, <span class='kw'>labs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>) <span class='co'># neither group nor variable labels</span></div><div class='output co'>#&gt; $xcols
+#&gt; </div><div class='input'><span class='fu'>burst</span><span class='op'>(</span><span class='va'>x</span>, labs <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='co'># neither group nor variable labels</span>
+</div><div class='output co'>#&gt; $xcols
 #&gt; $xcols[[1]]
 #&gt; [1] 1 2 3 4
 #&gt; 
@@ -862,7 +883,7 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -82,7 +82,7 @@ grouping and indexing data structures." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -131,7 +131,7 @@ grouping and indexing data structures." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -159,18 +159,18 @@ connecting and displaying pairs, as well as
 grouping and indexing data structures.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zenpath</span>(<span class='no'>x</span>, <span class='kw'>pairs</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-        <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"front.loaded"</span>, <span class='st'>"back.loaded"</span>,
-                   <span class='st'>"balanced"</span>, <span class='st'>"eulerian.cross"</span>,
-                   <span class='st'>"greedy.weighted"</span>, <span class='st'>"strictly.weighted"</span>),
-        <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>zenpath</span><span class='op'>(</span><span class='va'>x</span>, pairs <span class='op'>=</span> <span class='cn'>NULL</span>,
+        method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"front.loaded"</span>, <span class='st'>"back.loaded"</span>,
+                   <span class='st'>"balanced"</span>, <span class='st'>"eulerian.cross"</span>, 
+                   <span class='st'>"greedy.weighted"</span>, <span class='st'>"strictly.weighted"</span><span class='op'>)</span>,
+        decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><dl'>
+      <td><dl>
 method
     
         
@@ -194,7 +194,7 @@ weights. The <code>pairs</code> argument is only used for the <code>method</code
     <tr>
       <th>method</th>
       <td><p><code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string indicating the sorting
-method to be used. Available methods are:</p><dl'>
+method to be used. Available methods are:</p><dl>
        <dt><code>"front.loaded"</code>:</dt><dd><p>Sort all pairs such that the first variables appear
                        the most frequently early in the sequence;
                        an Eulerian path; note that it might be slightly
@@ -239,13 +239,18 @@ possibly a list of such), which can then be used to index the data
 <code><a href='graph_pairs.html'>graph_pairs</a>()</code>,
 <code><a href='groupData.html'>groupData</a>()</code>,
 <code><a href='indexData.html'>indexData</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Some calls of zenpath()</span>
-<span class='fu'>zenpath</span>(<span class='fl'>10</span>) <span class='co'># integer argument</span></div><div class='output co'>#&gt;  [1]  1  2  3  1  4  2  5  1  6  2  7  1  8  2  9  1 10  2  3  4  5  3  6  4  7
+<span class='fu'>zenpath</span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span> <span class='co'># integer argument</span>
+</div><div class='output co'>#&gt;  [1]  1  2  3  1  4  2  5  1  6  2  7  1  8  2  9  1 10  2  3  4  5  3  6  4  7
 #&gt; [26]  3  8  4  9  3 10  4  5  6  7  5  8  6  9  5 10  6  7  8  9  7 10  8  9 10</div><div class='input'><span class='co'>## Note that the result is of length 50 &gt; 10 choose 2 as the underlying graph has to</span>
 <span class='co'>## be even (and thus edges are added here)</span>
-(<span class='no'>zp</span> <span class='kw'>&lt;-</span> <span class='fu'>zenpath</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>5</span>), <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"eulerian.cross"</span>)) <span class='co'># integer(2) argument</span></div><div class='output co'>#&gt;  [1] 1 4 2 5 1 6 2 7 1 8 3 4 3 6 7 3 5 8 2</div><div class='input'>
+<span class='op'>(</span><span class='va'>zp</span> <span class='op'>&lt;-</span> <span class='fu'>zenpath</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>5</span><span class='op'>)</span>, method <span class='op'>=</span> <span class='st'>"eulerian.cross"</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># integer(2) argument</span>
+</div><div class='output co'>#&gt;  [1] 1 4 2 5 1 6 2 7 1 8 3 4 3 6 7 3 5 8 2</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -262,7 +267,7 @@ possibly a list of such), which can then be used to index the data
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
