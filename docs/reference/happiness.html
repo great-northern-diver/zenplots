@@ -81,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -130,7 +130,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -157,12 +157,12 @@
   the World Happiness Report over three years.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"happiness"</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"happiness"</span><span class='op'>)</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p><code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>()</code> with 12 columns:</p><dl'>
+    <p><code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>()</code> with 12 columns:</p><dl>
     <dt><code>Time</code>:</dt><dd><p>year of the World Happiness Report.</p></dd>
     <dt><code>Region</code>:</dt><dd><p>region of the world.</p></dd>
     <dt><code>Country</code>:</dt><dd><p>country.</p></dd>
@@ -208,11 +208,12 @@
     <p><a href='https://www.kaggle.com/unsdsn/world-happiness'>https://www.kaggle.com/unsdsn/world-happiness</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='st'>"happiness"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span>(<span class='no'>happiness</span>[,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"GDP"</span>, <span class='st'>"Family"</span>, <span class='st'>"Health"</span>, <span class='st'>"Freedom"</span>,
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"happiness"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/colSums.html'>rowSums</a></span><span class='op'>(</span><span class='va'>happiness</span><span class='op'>[</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GDP"</span>, <span class='st'>"Family"</span>, <span class='st'>"Health"</span>, <span class='st'>"Freedom"</span>,
                                          <span class='st'>"Corruption"</span>, <span class='st'>"Generosity"</span>,
-                                         <span class='st'>"Dystopia"</span>)]),
-                    <span class='no'>happiness</span>[, <span class='st'>"Happiness"</span>], <span class='kw'>tol</span> <span class='kw'>=</span> <span class='fl'>5e-5</span>))</div></pre>
+                                         <span class='st'>"Dystopia"</span><span class='op'>)</span><span class='op'>]</span><span class='op'>)</span>,
+                    <span class='va'>happiness</span><span class='op'>[</span>, <span class='st'>"Happiness"</span><span class='op'>]</span>, tol <span class='op'>=</span> <span class='fl'>5e-5</span><span class='op'>)</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -228,7 +229,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

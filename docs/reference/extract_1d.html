@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -129,7 +129,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -155,7 +155,7 @@
     <p>Extracting information for our default/provided plot1d()</p>
     </div>
 
-    <pre class="usage"><span class='fu'>extract_1d</span>(<span class='no'>zargs</span>)</pre>
+    <pre class="usage"><span class='fu'>extract_1d</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,7 +171,7 @@ see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of thes
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> with</p><dl'>
+    <p>A list <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> with</p><dl>
        <dt><code>x</code>:</dt><dd><p>the data to be plotted in the 1d plot</p></dd>
        <dt><code>xcols</code>:</dt><dd><p>a list with all columns of <code>x</code></p></dd>
        <dt><code>groups</code>:</dt><dd><p>the group numbers for each column of <code>x</code></p></dd>
@@ -235,42 +235,46 @@ see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of thes
 <code><a href='rug_1d_graphics.html'>rug_1d_graphics</a>()</code>,
 <code><a href='rug_1d_grid.html'>rug_1d_grid</a>()</code>,
 <code><a href='rug_1d_loon.html'>rug_1d_loon</a>()</code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## This function is used within the default (any user defined) </span>
 <span class='co'>## 1d plots</span>
-<span class='no'>my_1d_plot</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>zargs</span>, <span class='no'>your_name</span> <span class='kw'>=</span> <span class='st'>"Bob"</span>, <span class='no'>...</span>) {
-                   <span class='no'>data_1d</span> <span class='kw'>&lt;-</span> <span class='fu'>extract_1d</span>(<span class='no'>zargs</span>)
-                   <span class='no'>msg</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span>(<span class='st'>"Components of zargs available"</span>,
-                                <span class='st'>"to construct a 1d plot for "</span>,
-                                <span class='no'>your_name</span>)
-                   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>msg</span>)
+<span class='va'>my_1d_plot</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>zargs</span>, <span class='va'>your_name</span> <span class='op'>=</span> <span class='st'>"Bob"</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
+                   <span class='va'>data_1d</span> <span class='op'>&lt;-</span> <span class='fu'>extract_1d</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
+                   <span class='va'>msg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Components of zargs available"</span>,
+                                <span class='st'>"to construct a 1d plot for "</span>, 
+                                <span class='va'>your_name</span><span class='op'>)</span>
+                   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span>
                    <span class='co'>## just print the names of the data components </span>
                    <span class='co'>## which you might want to use in your plot</span>
-                   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>data_1d</span>))
+                   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>data_1d</span><span class='op'>)</span><span class='op'>)</span>
                    <span class='co'>## You might have to draw your 1d plot differently depending</span>
                    <span class='co'>## upon whether it is to appear horizontally or vertically</span>
-                   <span class='kw'>if</span> (<span class='no'>data_1d</span>$<span class='no'>horizontal</span>) {
-                          <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='st'>"This plot would be horizontal"</span>)
-                          } <span class='kw'>else</span> {
-                          <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='st'>"This one would be vertical"</span>)
-                    }
+                   <span class='kw'>if</span> <span class='op'>(</span><span class='va'>data_1d</span><span class='op'>$</span><span class='va'>horizontal</span><span class='op'>)</span> <span class='op'>{</span>
+                          <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='st'>"This plot would be horizontal"</span><span class='op'>)</span>
+                          <span class='op'>}</span> <span class='kw'>else</span> <span class='op'>{</span>
+                          <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='st'>"This one would be vertical"</span><span class='op'>)</span>
+                    <span class='op'>}</span>
                     <span class='co'>## You can plot whatever you want using the information in</span>
                     <span class='co'>## could use any of these to construct any 1d plot you want</span>
                     <span class='co'>## using R's graphics or any of zemplot's built in 1d plots.</span>
                     <span class='co'>##</span>
                     <span class='co'>## For example, here we use zenplot's base graphics functions</span>
                     <span class='co'>## First a histogram</span>
-                    <span class='fu'><a href='hist_1d_graphics.html'>hist_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='no'>...</span>)
+                    <span class='fu'><a href='hist_1d_graphics.html'>hist_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, <span class='va'>...</span><span class='op'>)</span>
                     <span class='co'>## to which we add the variable label</span>
-                    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span>(<span class='no'>zargs</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='no'>...</span>)
+                    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, <span class='va'>...</span><span class='op'>)</span>
                     <span class='co'>## similar functions could be called for the other packages.</span>
                     <span class='co'>## You can print the source of anyone of the default functions</span>
                     <span class='co'>## to get some idea of managing details.</span>
-                    }
+                    <span class='op'>}</span>
 
 <span class='co'>## And now try it out</span>
-<span class='fu'><a href='zenplot.html'>zenplot</a></span>(<span class='no'>iris</span>[,<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='kw'>plot1d</span> <span class='kw'>=</span> <span class='no'>my_1d_plot</span>)</div><div class='output co'>#&gt; [1] "Components of zargs available to construct a 1d plot for  Bob"
+<span class='fu'><a href='zenplot.html'>zenplot</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>]</span>, plot1d <span class='op'>=</span> <span class='va'>my_1d_plot</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Components of zargs available to construct a 1d plot for  Bob"
 #&gt; [1] "x"          "xcols"      "groups"     "vars"       "glabs"     
 #&gt; [6] "vlabs"      "horizontal" "xlim"      
 #&gt; [1] "This plot would be horizontal"</div><div class='output co'>#&gt; [1] "Components of zargs available to construct a 1d plot for  Bob"
@@ -296,7 +300,7 @@ see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of thes
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

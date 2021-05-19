@@ -222,12 +222,15 @@ connect_pairs <- function(x, duplicate.rm = FALSE)
 ##' @note \code{\link{zenplot}()} never use directed graphs nor graphs with isolated (disconnected) nodes.
 ##' @export
 ##' @examples 
+##' ## To display the graphs constructed the packages
+##' ## graph and Rgraphviz packages need to be loaded
+##' library(graph) 
+##' library(Rgraphviz) 
+##' ##
 ##' ## Get some pairs
 ##' pairs <- matrix(c(1,2, 5,1, 3,4, 2,3, 4,2), ncol = 2, byrow = TRUE)
 ##' g <- graph_pairs(pairs)
 ##' ## which can be displayed using plot(g) 
-##' ## if the graph package is installed.
-##' library(graph) 
 ##' plot(g) 
 ##' 
 ##' ## Build a graph from a list of paths
