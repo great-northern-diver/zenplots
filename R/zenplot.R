@@ -13,15 +13,15 @@ library(utils)
 ##' @family creating zenplots
 ##' @name unfold
 ##' @aliases unfold
-##' @description The \code{unfold()} function imagines each pair of variables/dimensions 
+##' @description The \code{unfold()} function imagines each pair of variables/dimensions
 ##' as a "face" of a high dimensional cube. These faces are "unfolded" from one 2d space
-##' or "face" to the next about the 1d face or "edge" they share.  The \code{unfold()} 
-##' function  takes, as first argument, \code{nfaces}, 
-##' the number of 2d plots/spaces to be "unfolded" and produces the zenpath and 
-##' zenplot layout required for the function zenplot().  Laying out these pairs 
-##' with a zenplot is what is alluded to as an "unfolding" of (at least a part of) 
+##' or "face" to the next about the 1d face or "edge" they share.  The \code{unfold()}
+##' function  takes, as first argument, \code{nfaces},
+##' the number of 2d plots/spaces to be "unfolded" and produces the zenpath and
+##' zenplot layout required for the function zenplot().  Laying out these pairs
+##' with a zenplot is what is alluded to as an "unfolding" of (at least a part of)
 ##' the high dimensional space.
-##' @usage 
+##' @usage
 ##' unfold(nfaces, turns = NULL,
 ##'        n2dcols = c("letter", "square", "A4", "golden", "legal"),
 ##'        method = c("tidy", "double.zigzag", "single.zigzag", "rectangular"),
@@ -34,10 +34,10 @@ library(utils)
 ##' constructed.
 ##' @param n2dcols number of columns of 2d plots (\eqn{\ge 1}{>= 1})
 ##' or one of \code{"letter"}, \code{"square"}, \code{"A4"},
-##' \code{"golden"} or \code{"legal"} in which case a similar layout is constructed. 
+##' \code{"golden"} or \code{"legal"} in which case a similar layout is constructed.
 ##' Note that \code{n2dcols} is ignored if \code{!is.null(turns)}.
 ##' @param method The type of zigzag plot (a \code{\link{character}}).
-##' 
+##'
 ##' Available are:
 ##' \describe{
 ##'     \item{\code{tidy}:}{more tidied-up \code{double.zigzag}
@@ -62,11 +62,11 @@ library(utils)
 ##' @return A \code{\link{list}} describing the unfolded path and its layout
 ##'  as a list of named components:
 ##' \describe{
-##'     \item{\code{path}:}{the path of the unfolding, itself given 
+##'     \item{\code{path}:}{the path of the unfolding, itself given
 ##'     as a structured \code{\link{list}} having components
 ##'     \describe{
-##'     \item{\code{turns}:}{the sequence of turns 
-##'      -- each being one of \dQuote{l} (for left), \dQuote{r} (for right), 
+##'     \item{\code{turns}:}{the sequence of turns
+##'      -- each being one of \dQuote{l} (for left), \dQuote{r} (for right),
 ##'     \dQuote{d} (for down), and \dQuote{u}  (for up) --
 ##'     required to move from the current plot location in the display to the next along
 ##'     the unfolded path.}
@@ -76,19 +76,19 @@ library(utils)
 ##'     of the plots on the page.}
 ##'     }
 ##'     }
-##'     \item{\code{layout}:}{the details of the visual layout of the plots and given 
+##'     \item{\code{layout}:}{the details of the visual layout of the plots and given
 ##'     as a structured \code{\link{list}} having components
 ##'     \describe{
 ##'     \item{\code{orientations}:}{a vector indicating the orientation of each of the
 ##'     displays in order -- \dQuote{h} for horizontal, \dQuote{v} for vertical, and
 ##'     \dQuote{s} for square.}
-##'     \item{\code{dimensions}:}{a vector giving the dimensionality of each 
+##'     \item{\code{dimensions}:}{a vector giving the dimensionality of each
 ##'     plot in order.}
 ##'     \item{\code{vars}:}{A matrix of the variable indices to be used in each plot -- \code{x}
 ##'     being the horizontal variable and \code{y} the vertical.}
-##'     \item{\code{layoutWidth}:}{A positive integer giving the display width of 
+##'     \item{\code{layoutWidth}:}{A positive integer giving the display width of
 ##'     a 2d plot.}
-##'     \item{\code{layoutHeight}:}{A positive integer giving the display height of 
+##'     \item{\code{layoutHeight}:}{A positive integer giving the display height of
 ##'     a 2d plot.}
 ##'     \item{\code{boundingBoxes}:}{A matrix of 4 columns giving locations (\code{left},
 ##'     \code{right}, \code{bottom}, and \code{top}) of the box which bound each of the
@@ -100,8 +100,8 @@ library(utils)
 ##' @export
 ##' @note Although \code{unfold()} is probably rather rarely used directly by a user,
 ##'  it provides insight into how zenplots are constructed.
-##' @examples 
-##' dim <- 20 
+##' @examples
+##' dim <- 20
 ##' unfolding <- unfold(nfaces = dim -1)
 ##' names(unfolding)
 unfold <- function(nfaces, turns = NULL,
@@ -153,13 +153,13 @@ unfold <- function(nfaces, turns = NULL,
 ##' @family creating zenplots
 ##' @name zenplot
 ##' @aliases zenplot
-##' @description Constructs and draws a zigzag expanded navigation plot for a 
-##' graphical exploratory analysis of a path of variables.  The result is an 
+##' @description Constructs and draws a zigzag expanded navigation plot for a
+##' graphical exploratory analysis of a path of variables.  The result is an
 ##' alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 ##' laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 ##' variates (or coordinates) in common with that of the 1d plot appearing between them.
-##' @usage 
-##' zenplot(x, turns = NULL, 
+##' @usage
+##' zenplot(x, turns = NULL,
 ##'         first1d = TRUE, last1d = TRUE,
 ##'         n2dcols = c("letter", "square", "A4", "golden", "legal"),
 ##'         n2dplots = NULL,
@@ -174,16 +174,16 @@ unfold <- function(nfaces, turns = NULL,
 ##'         labs = list(group = "G", var = "V", sep = ", ", group2d = FALSE),
 ##'         pkg = c("graphics", "grid", "loon"),
 ##'         method = c("tidy", "double.zigzag", "single.zigzag", "rectangular"),
-##'         width1d = if(is.null(plot1d)) 0.5 else 1, 
+##'         width1d = if(is.null(plot1d)) 0.5 else 1,
 ##'         width2d = 10,
 ##'         ospace = if(pkg == "loon") 0 else 0.02,
 ##'         ispace = if(pkg == "graphics") 0 else 0.037,
-##'         draw = TRUE, 
+##'         draw = TRUE,
 ##'         ...)
 ##' @param x A data object of "standard forms", being a \code{\link{vector}}, or a \code{\link{matrix}},
-##'        or a \code{\link{data.frame}}, or a \code{\link{list}} of any of these.  
-##'        In the case of a list, the components of \code{x} are interpreted as 
-##'        groups of data which are visually separated by a two-dimensional 
+##'        or a \code{\link{data.frame}}, or a \code{\link{list}} of any of these.
+##'        In the case of a list, the components of \code{x} are interpreted as
+##'        groups of data which are visually separated by a two-dimensional
 ##'        (group) plot.
 ##' @param turns A \code{\link{character}} vector (of length two times the
 ##'        number of variables to be plotted minus 1) consisting of \code{"d"},
@@ -196,54 +196,54 @@ unfold <- function(nfaces, turns = NULL,
 ##'        one-dimensional plot is included.
 ##' @param n2dcols number of columns of 2d plots (\eqn{\ge 1}{>= 1})
 ##'        or one of \code{"letter"}, \code{"square"}, \code{"A4"},
-##'        \code{"golden"} or \code{"legal"} 
-##'        in which case a similar layout is constructed. 
+##'        \code{"golden"} or \code{"legal"}
+##'        in which case a similar layout is constructed.
 ##'        Note that \code{n2dcols} is ignored if \code{!is.null(turns)}.
 ##' @param n2dplots The number of 2d plots.
 ##' @param plot1d A \code{\link{function}} to use to return a
 ##'        one-dimensional plot constructed with package \code{pkg}.
 ##'        Alternatively, a \code{\link{character}} string of an existing
-##'        function. 
+##'        function.
 ##'        For the defaults provided, the corresponding functions
-##'        are obtained when appending \code{_1d_graphics}, \code{_1d_grid} 
-##'        or \code{_1d_loon} depending on which \code{pkg} is used. 
-##'        
+##'        are obtained when appending \code{_1d_graphics}, \code{_1d_grid}
+##'        or \code{_1d_loon} depending on which \code{pkg} is used.
+##'
 ##'        If \code{plot1d = NULL}, then no 1d plot is produced in the \code{zenplot}.
-##' @param plot2d A \code{\link{function}} returning a two-dimensional plot 
+##' @param plot2d A \code{\link{function}} returning a two-dimensional plot
 ##'        constructed with package \code{pkg}.
 ##'        Alternatively, a \code{\link{character}} string of an existing
 ##'        function. For the defaults provided, the corresponding functions
 ##'        are obtained when appending \code{_2d_graphics}, \code{_2d_grid}
-##'        or \code{_2d_loon} depending on which \code{pkg} is used. 
-##'        
+##'        or \code{_2d_loon} depending on which \code{pkg} is used.
+##'
 ##'        As for \code{plot1d}, \code{plot2d} omits 2d plots if \code{plot2d = NULL}.
 ##' @param zargs A fully named \code{\link{logical}} \code{\link{vector}}
 ##'        indicating whether the respective arguments are (possibly) passed to
 ##'        \code{plot1d()} and \code{plot2d()} (if the latter contain the
 ##'        formal argument \code{zargs}, which they typically do/should, but
 ##'        see below for an example in which they do not).
-##'        
+##'
 ##'        \code{zargs} can maximally contain all variables as given in the default.
-##'        If one of those variables does not appear in \code{zargs}, it is 
+##'        If one of those variables does not appear in \code{zargs}, it is
 ##'        treated as \code{TRUE} and the corresponding arguments are passed
 ##'        on to \code{plot1d} and \code{plot2d}. If one of them is set to
 ##'        \code{FALSE}, the argument is not passed on.
-##' @param lim (x-/y-)axis limits. This can be a \code{\link{character}} string 
+##' @param lim (x-/y-)axis limits. This can be a \code{\link{character}} string
 ##'        or a \code{numeric(2)}.
-##'        
-##'        If \code{lim = "groupwise"} and \code{x} does not contain groups, 
+##'
+##'        If \code{lim = "groupwise"} and \code{x} does not contain groups,
 ##'        the behaviour is equivalent to \code{lim = "global"}.
-##'        
-##' @param labs The plot labels to be used; see the argument \code{labs} of 
+##'
+##' @param labs The plot labels to be used; see the argument \code{labs} of
 ##'        \code{\link{burst}()} for the exact specification.
-##'        \code{labs} can, in general, be anything as long as \code{plot1d} 
+##'        \code{labs} can, in general, be anything as long as \code{plot1d}
 ##'        and \code{plot2d} know how to deal with it.
-##' @param pkg The R package used for plotting (depends on how the 
-##'        functions \code{plot1d} and \code{plot2d} were constructed; 
+##' @param pkg The R package used for plotting (depends on how the
+##'        functions \code{plot1d} and \code{plot2d} were constructed;
 ##'        the user is responsible for choosing the appropriate package
 ##'        among the supported ones).
 ##' @param method The type of zigzag plot (a \code{\link{character}}).
-##' 
+##'
 ##'        Available are:
 ##'        \describe{
 ##'            \item{\code{tidy}:}{more tidied-up \code{double.zigzag}
@@ -262,12 +262,12 @@ unfold <- function(nfaces, turns = NULL,
 ##' @param width1d A graphical parameter > 0 giving the width of 1d plots.
 ##' @param width2d A graphical parameter > 0 giving the height of 2d plots.
 ##' @param ospace The outer space around the zenplot.   A vector
-##'        of length four (bottom, left, top, right), 
+##'        of length four (bottom, left, top, right),
 ##'        or one whose values are repeated to be of length four,
-##'        which gives the outer space between the device region and 
+##'        which gives the outer space between the device region and
 ##'        the inner plot region around the zenplot.
-##'        
-##'        Values should be in \eqn{[0,1]}  when \code{pkg} is \code{"graphics"} or 
+##'
+##'        Values should be in \eqn{[0,1]}  when \code{pkg} is \code{"graphics"} or
 ##'        \code{"grid"}, and as number of pixels when\code{pkg} is \code{"loon"}.
 ##' @param ispace The inner space in \eqn{[0,1]} between the each figure region
 ##'        and the region of the (1d/2d) plot it contains.
@@ -275,73 +275,73 @@ unfold <- function(nfaces, turns = NULL,
 ##'        whose values are repeated to produce a vector of length four.
 ##' @param draw A \code{\link{logical}} indicating whether a the \code{zenplot}
 ##'        is immediately displayed (the default) or not.
-##' @param ... arguments passed to the drawing functions for both \code{plot1d} and 
+##' @param ... arguments passed to the drawing functions for both \code{plot1d} and
 ##'        \code{plot2d}. If you need to pass certain arguments only to one
 ##'        of them, say, \code{plot2d}, consider providing your own
 ##'        \code{plot2d}; see the examples below.
 ##' @return (besides plotting) invisibly returns a list containing at least
-##'        the path and layout (see \code{\link{unfold}} for details). 
-##'        
+##'        the path and layout (see \code{\link{unfold}} for details).
+##'
 ##'        Depending on the graphics package \code{pkg} used, the returned list
-##'        includes additional components.  For \code{pkg = "grid"}, 
+##'        includes additional components.  For \code{pkg = "grid"},
 ##'        this will be the whole plot as a \code{\link[grid]{grob}} (grid object).
-##'        For \code{pkg = "loon"},  this will be the whole plot as a 
+##'        For \code{pkg = "loon"},  this will be the whole plot as a
 ##'        \code{loon} plot object as
 ##'        well as the toplevel \code{tk} object in which the plot appears.
-##'        
+##'
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso  All provided default \code{plot1d} and \code{plot2d} functions.
-##' 
+##'
 ##' \code{\link{extract_1d}()} and \code{\link{extract_2d}()}
 ##' for how \code{zargs} can be split up into a list of columns and corresponding
 ##' group and variable information.
-##' 
-##' \code{\link{burst}()} for how \code{x} can be split up into all sorts of 
+##'
+##' \code{\link{burst}()} for how \code{x} can be split up into all sorts of
 ##' information useful for plotting (see our default \code{plot1d} and \code{plot2d}).
-##' \code{\link{vport}()} for how to construct a viewport for 
+##' \code{\link{vport}()} for how to construct a viewport for
 ##' (our default) \pkg{grid} (\code{plot1d} and \code{plot2d}) functions.
-##' 
+##'
 ##' \code{\link{extract_pairs}()}, \code{\link{connect_pairs}()},
 ##' \code{\link{group}()} and \code{\link{zenpath}()} for
 ##' (zen)path-related functions.
-##' 
+##'
 ##' The various vignettes for additional examples.
 ##' @keywords hplot
 ##' @export
-##' @examples 
+##' @examples
 ##' ### Basics #####################################################################
-##' 
+##'
 ##' ## Generate some data
 ##' n <- 1000 # sample size
 ##' d <- 20 # dimension
 ##' set.seed(271) # set seed (for reproducibility)
 ##' x <- matrix(rnorm(n * d), ncol = d) # i.i.d. N(0,1) data
-##' 
+##'
 ##' ## A basic zenplot
 ##' res <- zenplot(x)
 ##' stopifnot(identical(res, unfold(nfaces = d - 1)))
 ##' ## => The return value of zenplot() is the underlying unfold()
-##' 
+##'
 ##' ## Some missing data
 ##' z <- x
 ##' z[seq_len(n-10), 5] <- NA # all NA except 10 points
 ##' zenplot(z)
-##' 
+##'
 ##' ## Another column with fully missing data (use arrows)
 ##' ## Note: This could be more 'compactified', but is technically
 ##' ##       more involved
 ##' z[, 6] <- NA # all NA
 ##' zenplot(z)
-##' 
+##'
 ##' ## Lists of vectors, matrices and data frames as arguments (=> groups of data)
 ##' ## Only two vectors
 ##' z <- list(x[,1], x[,2])
 ##' zenplot(z)
-##' 
+##'
 ##' ## A matrix and a vector
 ##' z <- list(x[,1:2], x[,3])
 ##' zenplot(z)
-##' 
+##'
 ##' ## A matrix, NA column and a vector
 ##' z <- list(x[,1:2], NA, x[,3])
 ##' zenplot(z)
@@ -349,7 +349,7 @@ unfold <- function(nfaces, turns = NULL,
 ##' zenplot(z)
 ##' z <- list(x[,1:2], 1:10, x[,3])
 ##' zenplot(z)
-##' 
+##'
 ##' ## Without labels or with different labels
 ##' z <- list(A = x[,1:2], B = cbind(NA, NA), C = x[,3])
 ##' zenplot(z, labs = NULL) # without any labels
@@ -357,15 +357,15 @@ unfold <- function(nfaces, turns = NULL,
 ##' zenplot(z, labs = list(group = NULL)) # without group labels unless groups change
 ##' zenplot(z, labs = list(var = NULL)) # without variable labels
 ##' zenplot(z, labs = list(var = "Variable ", sep = " - ")) # change default labels
-##' 
+##'
 ##' ## Example with a factor
 ##' zenplot(iris)
 ##' zenplot(iris, lim = "global") # global scaling of axis
 ##' zenplot(iris, lim = "groupwise") # acts as 'global' here (no groups in the data)
-##' 
-##' 
+##'
+##'
 ##' ### More sophisticated examples ################################################
-##' 
+##'
 ##' ## Note: The third component (data.frame) naturally has default labels.
 ##' ##       zenplot() uses these labels and prepends a default group label.
 ##' z <- list(x[,1:5], x[1:10, 6:7], NA,
@@ -382,18 +382,18 @@ unfold <- function(nfaces, turns = NULL,
 ##'                      }
 ##'             )
 ##' zenplot(z.)
-##' 
-##' 
+##'
+##'
 ##' ### A dynamic plot based on 'loon' (if installed and R compiled with tcl support)
-##' 
+##'
 ##' \dontrun{
 ##'     if(requireNamespace("loon", quietly = TRUE))
 ##'         zenplot(x, pkg = "loon")
 ##' }
-##' 
-##' 
+##'
+##'
 ##' ### Providing your own turns ###################################################
-##' 
+##'
 ##' ## A basic example
 ##' turns <- c("l","d","d","r","r","d","d","r","r","u","u","r","r","u","u","l","l",
 ##'            "u","u","l","l","u","u","l","l","d","d","l","l","d","d","l","l",
@@ -403,25 +403,25 @@ unfold <- function(nfaces, turns = NULL,
 ##' zenplot(x, plot1d = "layout", plot2d = "layout", turns = turns,
 ##'         pkg = "grid") # layout of plot regions with grid
 ##' ## => Here the tiles show the small (default) ispace
-##' 
+##'
 ##' ## Another example (with own turns and groups)
 ##' zenplot(list(x[,1:3], x[,4:7]), plot1d = "arrow", plot2d = "rect",
 ##'         turns = c("d", "r", "r", "r", "r", "d",
 ##'                   "d", "l", "l", "l", "l", "l"), last1d = FALSE)
-##' 
-##' 
+##'
+##'
 ##' ### Providing your own plot1d() or plot2d() ####################################
-##' 
+##'
 ##' ## Creating a box
 ##' zenplot(x, plot1d = "label", plot2d = function(zargs)
 ##'     density_2d_graphics(zargs, box = TRUE))
-##' 
+##'
 ##' ## With grid
 ##' \donttest{
 ##'     zenplot(x, plot1d = "label", plot2d = function(zargs)
 ##'         density_2d_grid(zargs, box = TRUE), pkg = "grid")
 ##' }
-##' 
+##'
 ##' ## An example with width1d = width2d and where no zargs are passed on.
 ##' ## Note: This could have also been done with 'rect_2d_graphics(zargs, col = ...)'
 ##' ##       as plot1d and plot2d.
@@ -433,7 +433,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'         n2dcol = "square", width1d = 10, width2d = 10,
 ##'         plot1d = function(...) myrect(col = "royalblue3"),
 ##'         plot2d = function(...) myrect(col = "maroon3"))
-##' 
+##'
 ##' ## Colorized rugs as plot1d()
 ##' basecol <- c("royalblue3", "darkorange2", "maroon3")
 ##' palette <- colorRampPalette(basecol, space = "Lab")
@@ -442,7 +442,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'               rug_1d_graphics(zargs, col = cols[(zargs$num+1)/2])
 ##'               }
 ##'        )
-##' 
+##'
 ##' ## With grid
 ##' library(grid) # for gTree() and gList()
 ##' \donttest{
@@ -450,7 +450,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'             plot1d = function(zargs)
 ##'                 rug_1d_grid(zargs, col = cols[(zargs$num+1)/2]))
 ##' }
-##' 
+##'
 ##' ## Rectangles with labels as plot2d() (shows how to overlay plots)
 ##' ## With graphics
 ##' ## Note: myplot2d() could be written directly in a simpler way, but is
@@ -459,14 +459,14 @@ unfold <- function(nfaces, turns = NULL,
 ##'     rect_2d_graphics(zargs)
 ##'     label_2d_graphics(zargs, add = TRUE)
 ##' })
-##' 
+##'
 ##' ## With grid
 ##' \donttest{
 ##'     zenplot(x, pkg = "grid", plot1d = "arrow", plot2d = function(zargs)
 ##'         gTree(children = gList(rect_2d_grid(zargs),
 ##'                                label_2d_grid(zargs))))
 ##' }
-##' 
+##'
 ##' ## Rectangles with labels outside the 2d plotting region as plot2d()
 ##' ## With graphics
 ##' zenplot(x, plot1d = "arrow", plot2d = function(zargs) {
@@ -474,7 +474,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'     label_2d_graphics(zargs, add = TRUE, xpd = NA, srt = 90,
 ##'                       loc = c(1.04, 0), adj = c(0,1), cex = 0.7)
 ##' })
-##' 
+##'
 ##' ## With grid
 ##' \donttest{
 ##'     zenplot(x, pkg = "grid", plot1d = "arrow", plot2d = function(zargs)
@@ -483,7 +483,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'                                              just = c("left", "top"),
 ##'                                              rot = 90, cex = 0.45))))
 ##' }
-##' 
+##'
 ##' ## 2d density with points, 1d arrows and labels
 ##' zenplot(x, plot1d = function(zargs) {
 ##'     rect_1d_graphics(zargs)
@@ -493,7 +493,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'     points_2d_graphics(zargs, col = adjustcolor("black", alpha.f = 0.4))
 ##'     density_2d_graphics(zargs, add = TRUE)
 ##' })
-##' 
+##'
 ##' ## 2d density with labels, 1d histogram with density and label
 ##' ## Note: The 1d plots are *improper* overlays here as the density
 ##' ##       plot does not know the heights of the histogram. In other
@@ -501,27 +501,27 @@ unfold <- function(nfaces, turns = NULL,
 ##' ##       region but are not correct relative to each other in the
 ##' ##       sense of covering the same are. For a *proper* overlay
 ##' ##       see below.
-##' zenplot(x, 
+##' zenplot(x,
 ##'     plot1d = function(zargs) {
 ##'                     hist_1d_graphics(zargs)
-##'                     density_1d_graphics(zargs, add = TRUE, 
-##'                                         border = "royalblue3", 
+##'                     density_1d_graphics(zargs, add = TRUE,
+##'                                         border = "royalblue3",
 ##'                                         lwd = 1.4)
-##'                     label_1d_graphics(zargs, add = TRUE, 
-##'                                       loc = c(0.2, 0.8), 
+##'                     label_1d_graphics(zargs, add = TRUE,
+##'                                       loc = c(0.2, 0.8),
 ##'                                       cex = 0.6, font = 2,
 ##'                                       col = "darkorange2")
-##'                     }, 
+##'                     },
 ##'     plot2d = function(zargs) {
 ##'                     density_2d_graphics(zargs)
 ##'                     points_2d_graphics(zargs, add = TRUE,
 ##'                                        col = adjustcolor("black", alpha.f = 0.3))
 ##'                                 }
 ##'             )
-##' 
-##' 
+##'
+##'
 ##' ### More sophisticated examples ################################################
-##' 
+##'
 ##' ### Example: Overlaying histograms with densities (the *proper* way)
 ##' \donttest{
 ##' ## Define proper 1d plot for overlaying histograms with densities
@@ -532,7 +532,7 @@ unfold <- function(nfaces, turns = NULL,
 ##' turn.out <- zargs$turns[num] # turn out of current position
 ##' horizontal <- turn.out == "d" || turn.out == "u"
 ##' # the indices of the 'x' variable to be displayed in the current plot
-##' ii <- plot_indices(zargs) 
+##' ii <- plot_indices(zargs)
 ##' label <- paste0("V", ii[1]) # label
 ##' srt <- if(horizontal) 0 else if(turn.out == "r") -90 else 90 # label rotation
 ##' x <- zargs$x[,ii[1]] # data
@@ -573,16 +573,16 @@ unfold <- function(nfaces, turns = NULL,
 ##' loc <- c(0.1, 0.6)
 ##'
 ##' # when walking downwards, change both left/right and up/down
-##' if(turn.out == "d") loc <- 1-loc 
+##' if(turn.out == "d") loc <- 1-loc
 ##'
 ##' # when walking to the right, coordinates change and 2nd is flipped
-##' if(turn.out == "r") { 
+##' if(turn.out == "r") {
 ##'     loc <- rev(loc)
 ##'     loc[2] <- 1-loc[2]
 ##' }
-##' 
+##'
 ##' # when walking to the left, coordinates change and 1st is flipped
-##' if(turn.out == "l") { 
+##' if(turn.out == "l") {
 ##'     loc <- rev(loc)
 ##'     loc[1] <- 1-loc[1]
 ##' }
@@ -595,21 +595,21 @@ unfold <- function(nfaces, turns = NULL,
 ##' text(x = loc[1], y = loc[2], labels = label, cex = 0.7, srt = srt, font = 2,
 ##'      col = "darkorange2") # label
 ##'     }
-##'     
+##'
 ##' ## Zenplot
-##' zenplot(x, 
+##' zenplot(x,
 ##' plot1d = "hist_with_density_1d",
 ##' plot2d = function(zargs) {
 ##'        density_2d_graphics(zargs)
-##'        points_2d_graphics(zargs, 
+##'        points_2d_graphics(zargs,
 ##'                           add = TRUE,
 ##'                           col = adjustcolor("black", alpha.f = 0.3))
 ##' }
 ##' )
 ##' }
-##' 
+##'
 ##' ### Example: A path through pairs of a grouped t copula sample
-##' 
+##'
 ##' \donttest{
 ##' ## 1) Build a random sample from a 17-dimensional grouped t copula
 ##' d. <- c(8, 5, 4) # sector dimensions
@@ -626,7 +626,7 @@ unfold <- function(nfaces, turns = NULL,
 ##' W <- sapply(nu, function(nu.) 1/qgamma(U., shape = nu./2, rate = nu./2)) # (n,d)-matrix
 ##' X <- sqrt(W) * Y # (n,d)-matrix
 ##' U <- sapply(1:d, function(j) pt(X[,j], df = nu[j])) # (n,d)-matrix
-##' 
+##'
 ##' ## 2) Plot the data with a pairs plot, colorizing the groups
 ##' cols <- matrix("black", nrow = d, ncol = d) # colors
 ##' start <- c(1, cumsum(head(d., n = -1))+1) # block start indices
@@ -685,15 +685,15 @@ unfold <- function(nfaces, turns = NULL,
 ##'                                  fontface = "bold") )))
 ##' ## => The points are colorized correctly (compare with the pairs plot).
 ##' }
-##' 
-##' 
+##'
+##'
 ##' ### Using ggplot2 ##############################################################
-##' 
+##'
 ##' ## Although not thoroughly tested, in principle ggplot2 can also be used via
 ##' ## pkg = "grid" as follows.
 ##' \donttest{
 ##' library(ggplot2)
-##' 
+##'
 ##' ## Define our own 2d plot
 ##' my_points_2d_ggplot <- function(zargs, extract2d = TRUE)
 ##'    {
@@ -716,7 +716,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'                                      legend.title = element_blank())
 ##'        ggplot_gtable(ggplot_build(p)) # 2d plot as grob
 ##'    }
-##'    
+##'
 ##' ## Plotting
 ##' iris. <- iris
 ##' colnames(iris.) <- gsub("\\\\.", " ", x = colnames(iris)) # => nicer 1d labels
@@ -725,10 +725,10 @@ unfold <- function(nfaces, turns = NULL,
 ##'         plot2d = function(zargs) my_points_2d_ggplot(zargs, extract2d = FALSE),
 ##'         pkg = "grid")
 ##' }
-##' 
-##' 
+##'
+##'
 ##' ### Providing your own data structure ##########################################
-##' 
+##'
 ##' \donttest{
 ##' ## Danger zone: An example with a new data structure (here: a list of *lists*)
 ##' ## Note: - In this case, we most likely need to provide both plot1d and plot2d
@@ -753,15 +753,15 @@ unfold <- function(nfaces, turns = NULL,
 ##'             plot(x, y, type = "b", xlab = "", ylab = "")
 ##'         }, ispace = c(0.2, 0.2, 0.1, 0.1))
 ##' }
-##' 
-##' 
+##'
+##'
 ##' ### Zenplots based on 3d lattice plots #########################################
-##' 
+##'
 ##' \donttest{
 ##' library(lattice)
 ##' library(grid)
 ##' library(gridExtra)
-##'    
+##'
 ##' ## Build a list of cloud() plots (trellis objects)
 ##' ## Note:
 ##' ## - 'grid' problem: Without print(), the below zenplot() may fail (e.g.,
@@ -782,7 +782,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'    }
 ##' plst.3d <- lapply(1:4, function(i)
 ##'        mycloud(x[,i:(i+2)], num = i)) # list of trellis objects
-##'    
+##'
 ##' ## Preparing the zenplot
 ##' num <- length(plst.3d)
 ##' ncols <- 2
@@ -796,7 +796,7 @@ unfold <- function(nfaces, turns = NULL,
 ##'        ##       gTree(children = gList(grob(zargs$x[[num2d]], vp = vp,
 ##'        ##                                   cl = "lattice")))
 ##'    }
-##'    
+##'
 ##' ## Zenplot
 ##' ## Note: We use a list of *plots* here already (not data)
 ##' zenplot(plst.3d, turns = turns, n2dplots = num, pkg = "grid", first1d = FALSE,
@@ -1059,7 +1059,9 @@ zenplot <- function(x, turns = NULL, first1d = TRUE, last1d = TRUE,
             rm("burst.x", envir = .zenplots_burst_envir) # remove 'burst.x'
 
         ## Return (the return value of unfold())
-        invisible(list(path = path, layout = layout))
+        zen <- list(path = path, layout = layout)
+        attr(zen, "class") <- c("zenGraphics", "zenplot", "list")
+        invisible(zen)
 
     },
     "grid" = { # grid ###################################################
@@ -1111,9 +1113,10 @@ zenplot <- function(x, turns = NULL, first1d = TRUE, last1d = TRUE,
         if(exists("burst.x", envir = .zenplots_burst_envir))
             rm("burst.x", envir = .zenplots_burst_envir) # remove 'burst.x'
 
+        zen <- list(path = path, layout = layout, grob = fg)
+        attr(zen, "class") <- c("zenGrid", "zenplot", "list")
         ## Return (the return value of unfold() and the frame grob)
-        invisible(list(path = path, layout = layout, grob = fg))
-
+        invisible(zen)
     },
     "loon" = { # loon ###################################################
 
@@ -1199,7 +1202,10 @@ zenplot <- function(x, turns = NULL, first1d = TRUE, last1d = TRUE,
             rm("burst.x", envir = .zenplots_burst_envir) # remove 'burst.x'
 
         ## Return (the return value of unfold() and more)
-        invisible(list(path = path, layout = layout, loon = parent, toplevel = tt))
+        zen <- list(path = path, layout = layout, loon = parent, toplevel = tt)
+        attr(zen, "class") <- c("zenLoon", "zenplot", "list")
+        ## Return (the return value of unfold() and the frame grob)
+        invisible(zen)
 
     },
     stop("Wrong 'pkg'"))
