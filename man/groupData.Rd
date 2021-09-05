@@ -14,15 +14,15 @@ convertible to such via \code{\link{as.matrix}()}).}
 which \code{x} is grouped; each vector of indices define a group.}
 
 \item{byrow}{\code{\link{logical}} indicating whether the grouping is
-done by row (\code{byrow = TRUE}) 
+done by row (\code{byrow = TRUE})
 or by column (\code{byrow = FALSE}, the default).}
 }
 \value{
-A \code{\link{list}} of matrices (one per group). 
+A \code{\link{list}} of matrices (one per group).
         Such a list, grouped by columns, is then typically passed on to \code{\link{zenplot}()}.
 }
 \description{
-Takes a matrix \code{x} and groups its rows (or columns) 
+Takes a matrix \code{x} and groups its rows (or columns)
 as specified by \code{indices}.  Returns a list of matrices, one for each group.
 }
 \examples{

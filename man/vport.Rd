@@ -24,11 +24,11 @@ if \code{NULL}, \code{0:1} is used.}
 The \code{\link{viewport}}.
 }
 \description{
-Auxiliary function for constructing viewports 
+Auxiliary function for constructing viewports
 for 1d and 2d (default) plots.
 }
 \details{
-This is an auxiliary function used by the provided 
+This is an auxiliary function used by the provided
 \pkg{grid}-related 1d and 2d plots.
 }
 \note{

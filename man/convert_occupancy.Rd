@@ -12,7 +12,7 @@ convert_occupancy(x, to = c("", "<", ">", "v", "^"))
 \code{"r"} (right), \code{"d"} (down) or \code{"u"} (up) as returned by
 \code{\link{zenplot}()}.}
 
-\item{to}{a \code{\link{vector}} of symbols to which \code{""}, 
+\item{to}{a \code{\link{vector}} of symbols to which \code{""},
 \code{"l"}, \code{"r"}, \code{"d"} and \code{"u"}
 should be mapped.}
 }

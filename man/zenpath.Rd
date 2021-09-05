@@ -6,7 +6,7 @@
 \usage{
 zenpath(x, pairs = NULL,
         method = c("front.loaded", "back.loaded",
-                   "balanced", "eulerian.cross", 
+                   "balanced", "eulerian.cross",
                    "greedy.weighted", "strictly.weighted"),
         decreasing = TRUE)
 }
@@ -52,8 +52,8 @@ method to be used. Available methods are:
                             Euler path with \code{x} as weights visiting each
                             edge precisely once.}
        \item{\code{"strictly.weighted"}:}{
-        Strictly respect the order of the weights - so the first, second, 
-        third, and so on, adjacent pair of numbers of the output of 
+        Strictly respect the order of the weights - so the first, second,
+        third, and so on, adjacent pair of numbers of the output of
         \code{zenpath()} corresponds to the pair with largest,
         second-largest, third-largest, and so on, weight.
        }
@@ -68,8 +68,8 @@ possibly a list of such), which can then be used to index the data
 (via \code{\link{groupData}()}for plotting via \code{\link{zenplot}()}.
 }
 \description{
-Constructing zenpaths and tools for extracting, 
-connecting and displaying pairs, as well as 
+Constructing zenpaths and tools for extracting,
+connecting and displaying pairs, as well as
 grouping and indexing data structures.
 }
 \examples{

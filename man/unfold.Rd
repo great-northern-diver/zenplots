@@ -21,7 +21,7 @@ constructed.}
 
 \item{n2dcols}{number of columns of 2d plots (\eqn{\ge 1}{>= 1})
 or one of \code{"letter"}, \code{"square"}, \code{"A4"},
-\code{"golden"} or \code{"legal"} in which case a similar layout is constructed. 
+\code{"golden"} or \code{"legal"} in which case a similar layout is constructed.
 Note that \code{n2dcols} is ignored if \code{!is.null(turns)}.}
 
 \item{method}{The type of zigzag plot (a \code{\link{character}}).
@@ -56,11 +56,11 @@ plot should be plotted}
 A \code{\link{list}} describing the unfolded path and its layout
  as a list of named components:
 \describe{
-    \item{\code{path}:}{the path of the unfolding, itself given 
+    \item{\code{path}:}{the path of the unfolding, itself given
     as a structured \code{\link{list}} having components
     \describe{
-    \item{\code{turns}:}{the sequence of turns 
-     -- each being one of \dQuote{l} (for left), \dQuote{r} (for right), 
+    \item{\code{turns}:}{the sequence of turns
+     -- each being one of \dQuote{l} (for left), \dQuote{r} (for right),
     \dQuote{d} (for down), and \dQuote{u}  (for up) --
     required to move from the current plot location in the display to the next along
     the unfolded path.}
@@ -70,19 +70,19 @@ A \code{\link{list}} describing the unfolded path and its layout
     of the plots on the page.}
     }
     }
-    \item{\code{layout}:}{the details of the visual layout of the plots and given 
+    \item{\code{layout}:}{the details of the visual layout of the plots and given
     as a structured \code{\link{list}} having components
     \describe{
     \item{\code{orientations}:}{a vector indicating the orientation of each of the
     displays in order -- \dQuote{h} for horizontal, \dQuote{v} for vertical, and
     \dQuote{s} for square.}
-    \item{\code{dimensions}:}{a vector giving the dimensionality of each 
+    \item{\code{dimensions}:}{a vector giving the dimensionality of each
     plot in order.}
     \item{\code{vars}:}{A matrix of the variable indices to be used in each plot -- \code{x}
     being the horizontal variable and \code{y} the vertical.}
-    \item{\code{layoutWidth}:}{A positive integer giving the display width of 
+    \item{\code{layoutWidth}:}{A positive integer giving the display width of
     a 2d plot.}
-    \item{\code{layoutHeight}:}{A positive integer giving the display height of 
+    \item{\code{layoutHeight}:}{A positive integer giving the display height of
     a 2d plot.}
     \item{\code{boundingBoxes}:}{A matrix of 4 columns giving locations (\code{left},
     \code{right}, \code{bottom}, and \code{top}) of the box which bound each of the
@@ -92,13 +92,13 @@ A \code{\link{list}} describing the unfolded path and its layout
     }
 }
 \description{
-The \code{unfold()} function imagines each pair of variables/dimensions 
+The \code{unfold()} function imagines each pair of variables/dimensions
 as a "face" of a high dimensional cube. These faces are "unfolded" from one 2d space
-or "face" to the next about the 1d face or "edge" they share.  The \code{unfold()} 
-function  takes, as first argument, \code{nfaces}, 
-the number of 2d plots/spaces to be "unfolded" and produces the zenpath and 
-zenplot layout required for the function zenplot().  Laying out these pairs 
-with a zenplot is what is alluded to as an "unfolding" of (at least a part of) 
+or "face" to the next about the 1d face or "edge" they share.  The \code{unfold()}
+function  takes, as first argument, \code{nfaces},
+the number of 2d plots/spaces to be "unfolded" and produces the zenpath and
+zenplot layout required for the function zenplot().  Laying out these pairs
+with a zenplot is what is alluded to as an "unfolding" of (at least a part of)
 the high dimensional space.
 }
 \note{
@@ -106,7 +106,7 @@ Although \code{unfold()} is probably rather rarely used directly by a user,
  it provides insight into how zenplots are constructed.
 }
 \examples{
-dim <- 20 
+dim <- 20
 unfolding <- unfold(nfaces = dim -1)
 names(unfolding)
 }

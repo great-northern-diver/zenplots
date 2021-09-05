@@ -9,11 +9,11 @@ extract_1d(zargs)
 \arguments{
 \item{zargs}{The argument list as passed from \code{\link{zenplot}()}.
 This must at least contain \code{x}, \code{orientations},
-\code{vars}, \code{num}, \code{lim} and \code{labs};  
+\code{vars}, \code{num}, \code{lim} and \code{labs};
 see \code{\link{zenplot}()} for an explanation of these variables.}
 }
 \value{
-A list \code{\link{list}} with 
+A list \code{\link{list}} with
     \describe{
        \item{\code{x}:}{the data to be plotted in the 1d plot}
        \item{\code{xcols}:}{a list with all columns of \code{x}}
@@ -31,7 +31,7 @@ Extracting information for our default/provided plot1d()
 }
 \details{
 This is an auxiliary function called on \code{zargs} within any
-         1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+         1d plotting function (e.g. \code{\link{hist_1d_grid}},
          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
          to extract the 1d data from \code{zargs} needed for plotting.
          For performance reasons, no checking of the input object is done.
@@ -40,15 +40,15 @@ This is an auxiliary function called on \code{zargs} within any
 Performance critical
 }
 \examples{
-## This function is used within the default (any user defined) 
+## This function is used within the default (any user defined)
 ## 1d plots
 my_1d_plot <- function(zargs, your_name = "Bob", ...) {
                    data_1d <- extract_1d(zargs)
                    msg <- paste("Components of zargs available",
-                                "to construct a 1d plot for ", 
+                                "to construct a 1d plot for ",
                                 your_name)
                    print(msg)
-                   ## just print the names of the data components 
+                   ## just print the names of the data components
                    ## which you might want to use in your plot
                    print(names(data_1d))
                    ## You might have to draw your 1d plot differently depending
