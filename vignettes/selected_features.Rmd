@@ -308,8 +308,13 @@ plot_indices
 ```
 
 Basic check that the return value of `zenplot()` is actually the return value of the
-underlying `unfold()`:
+underlying `unfold()` (note that, the output of `unfold` and `res` is not identical since `res` has specific class attributes):
 ```{r}
 n2dcols <- ncol(olive) - 1 # number of faces of the hypercube
-stopifnot(identical(res, unfold(nfaces = n2dcols)))
+uf <- unfold(nfaces = n2dcols)
+
+identical(res, uf) #return FALSE
+for(name in names(uf)) {
+   stopifnot(identical(res[[name]], uf[[name]]))
+}
 ```
