@@ -18,7 +18,7 @@ Depends: R (>= 3.4.0)
 Imports: grid, graphics, loon, stats, methods, MASS, graph, PairViz
 Suggests: knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
           qrmdata, qrmtools, rugarch, zoo, ggplot2, lattice, gridExtra,
-	  scagnostics
+	  scagnostics, testthat
 Enhances:
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
