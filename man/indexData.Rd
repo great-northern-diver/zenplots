@@ -7,15 +7,15 @@
 indexData(x, indices)
 }
 \arguments{
-\item{x}{A \code{\link{matrix}} or \code{\link{data.frame}} 
+\item{x}{A \code{\link{matrix}} or \code{\link{data.frame}}
 (most useful for the latter).}
 
 \item{indices}{vector of column indices of \code{x}
 (typically obtained from \code{\link{zenpath}()}).}
 }
 \value{
-An object as \code{x} 
-       (typically a \code{\link{data.frame}} or 
+An object as \code{x}
+       (typically a \code{\link{data.frame}} or
         \code{\link{matrix}}) containing \code{x}
         indexed by \code{indices}.
 }
@@ -30,10 +30,10 @@ Useful for constructing data.frames without .1, .2, ... in their
 ## The function is handiest for data frames
 ## where we want to reuse the variable names
 ## without adding a suffix like ".1" etc.
-## For example, 
+## For example,
 x <-  BOD  # Biochemical Oxygen Demand data in base R
 indices <- rep(1:2, 2)
-## now compare 
+## now compare
 indexData(x, indices)
 ## to
 x[, indices]

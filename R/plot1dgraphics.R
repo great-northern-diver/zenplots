@@ -1,7 +1,4 @@
 ## Default 1d plot functions based on graphics
-library(graphics)
-library(stats)
-
 ##' @title Rug plot in 1d using R's base graphics
 ##' @family default 1d plot functions using R's base graphics
 ##' @family default 1d plot functions

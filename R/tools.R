@@ -1,5 +1,4 @@
 ### Graphical tools ############################################################
-library(graphics)
 ##' @title Defining an arrow
 ##' @family graphical tools
 ##' @param turn The direction in which the arrow will point ("l", "r", "d", "u")
@@ -50,9 +49,9 @@ plot_exists <- function(x) is.function(x) || existsFunction(x)
 
 ##' @title Function to set up the plot region for graphics plots
 ##' @family graphical tools
-##' @description Auxiliary function for setting up the plot region 
+##' @description Auxiliary function for setting up the plot region
 ##' of 1d and 2d graphics plots.
-##' @details  This is an auxiliary function used by the 
+##' @details  This is an auxiliary function used by the
 ##' provided \pkg{graphics}-related 1d and 2d plots.
 ##' @usage plot_region(xlim, ylim, plot... = NULL)
 ##' @param xlim x-axis limits
@@ -75,9 +74,9 @@ plot_region <- function(xlim, ylim, plot... = NULL)
 ##' @title Viewport Constructing Function for Grid Functions
 ##' @family graphical tools
 ##' @name vport
-##' @description  Auxiliary function for constructing viewports 
+##' @description  Auxiliary function for constructing viewports
 ##' for 1d and 2d (default) plots.
-##' @details This is an auxiliary function used by the provided 
+##' @details This is an auxiliary function used by the provided
 ##' \pkg{grid}-related 1d and 2d plots.
 ##' @param ispace inner space (in \eqn{[0,1]}))
 ##' @param xlim x-axis limits; if  \code{NULL}, the data limits are used.
@@ -225,28 +224,28 @@ l_ispace_config <- function(baseplot, ispace = NULL,
 ##'        \code{\link{character}} \code{""} (unoccupied), \code{"l"} (left),
 ##'        \code{"r"} (right), \code{"d"} (down) or \code{"u"} (up) as returned by
 ##'        \code{\link{zenplot}()}.
-##' @param to a \code{\link{vector}} of symbols to which \code{""}, 
+##' @param to a \code{\link{vector}} of symbols to which \code{""},
 ##'        \code{"l"}, \code{"r"}, \code{"d"} and \code{"u"}
 ##'        should be mapped.
 ##' @return \code{\link{matrix}} as the occupancy matrix but with entries replaced
 ##'        by those in \code{to}.
 ##' @author Marius Hofert
 ##' @export
-##' @examples 
+##' @examples
 ##' ## Generate some data
 ##' n <- 1000 # sample size
 ##' d <- 20 # dimension
 ##' set.seed(271) # set seed (for reproducibility)
 ##' x <- matrix(rnorm(n * d), ncol = d) # i.i.d. N(0,1) data
-##' 
+##'
 ##' ## Extract the occupancy matrix from a zenplot
 ##' res <- zenplot(x)
 ##' (occ <- res[["path"]][["occupancy"]])
-##' 
+##'
 ##' ## Convert the occupancy matrix
 ##' convert_occupancy(occ)
 ##' @keywords utilities
-##' 
+##'
 convert_occupancy <- function(x, to = c("", "<", ">", "v", "^"))
 {
     stopifnot(x %in% c("", "l", "r", "d", "u"), length(to) == 5)
@@ -410,78 +409,78 @@ burst_aux <- function(x, labs = "V")
 
 ##' @title Splitting an Input Object into a List of Columns
 ##' @family tools for constructing your own plot1d and plot2d functions
-##' @description Splits a (numeric/logical/character) vector, matrix, 
-##' data.frame or a list of such into a list of columns, with corresponding 
-##' group and variable information as well as labels.  
+##' @description Splits a (numeric/logical/character) vector, matrix,
+##' data.frame or a list of such into a list of columns, with corresponding
+##' group and variable information as well as labels.
 ##' This is an auxiliary function for checking and converting the data argument of zenplot().
 ##' @usage burst(x, labs = list())
 ##' @param x A \code{\link{numeric}} \code{\link{vector}}, \code{\link{matrix}},
 ##' \code{\link{data.frame}} or, for \code{burst()}, a \code{\link{list}} of such.
-##' @param labs Either \code{\link{NULL}} 
-##' (in which case neither group nor variable labels are used or computed) or 
+##' @param labs Either \code{\link{NULL}}
+##' (in which case neither group nor variable labels are used or computed) or
 ##' a list with components
-##' 
-##'        \code{group} - the group label basename or labels for the groups 
+##'
+##'        \code{group} - the group label basename or labels for the groups
 ##'                      (or \code{\link{NULL}} for no group labels)
-##'        
-##'        \code{var} - the variable label basename or labels for the variables 
+##'
+##'        \code{var} - the variable label basename or labels for the variables
 ##'        (or \code{\link{NULL}} for no variable labels)
-##'        
-##'        \code{sep} - the string used as the separator between group and 
+##'
+##'        \code{sep} - the string used as the separator between group and
 ##'        variable labels
-##'        
-##'        \code{group2d} - a \code{\link{logical}} indicating whether labels of 
+##'
+##'        \code{group2d} - a \code{\link{logical}} indicating whether labels of
 ##'        \code{group_2d_*()} plots are affected by \code{group = NULL} (or printed anyway)
-##'            
+##'
 ##' If any of these components is not given, it is set to the defaults as described in
-##' \code{\link{zenplot}()}. 
-##' Note that if at least one (group or variable) label is given in \code{x}, 
-##' then those (original) labels will be used.       
+##' \code{\link{zenplot}()}.
+##' Note that if at least one (group or variable) label is given in \code{x},
+##' then those (original) labels will be used.
 ##' If labs = NULL, neither group nor variable labels are used.
-##' 
+##'
 ##' @return A \code{\link{list}} with components
-##' 
+##'
 ##'          \code{xcols} - a list containing the column vectors of  \code{x}
-##'          
+##'
 ##'          \code{groups} - the group number for each column of  \code{x}
-##'          
+##'
 ##'          \code{vars} - the variable number (within each group) for each column of  \code{x}
-##'          
+##'
 ##'          \code{glabs} - the group label for each column of  \code{x}
-##'          
+##'
 ##'          \code{labs} - the group and variable labels for each column of  \code{x}
-##' @examples 
+##' @examples
 ##' ## Unnamed list of (some named, some unnamed) valid components
 ##' A <- matrix(1:12, ncol = 3)
 ##' x <- list(A, 1:4, as.data.frame(A))
-##' 
+##'
 ##' burst(x, labs = list(group = "G", var = "V", sep = ", "))
 ##' burst(x) # the same defaults as above
 ##' burst(x, labs = list(sep = " ")) # only changing the separator
 ##' ## Note: - No group labels are given in 'x' and thus they are constructed
 ##' ##         in the above call
 ##' ##        - The variable names are only constructed if not given
-##' 
+##'
 ##' burst(x, labs = list(group = ""))
 ##' burst(x, labs = list(group = NULL, group2d = TRUE)) # no group labels
 ##' ##  Note: There's no effect of 'group2d = TRUE' visible here as
 ##' ##        'x' doesn't contain group labels
-##' 
+##'
 ##' burst(x, labs = list(group = NULL)) # no group labels unless groups change
 ##' burst(x, labs = list(var = NULL)) # no variable labels
 ##' burst(x, labs = list(group = NULL, var = NULL)) # neither one
 ##' burst(x, labs = NULL) # similarly, without any labels at all
-##' 
+##'
 ##' ##  Named list
 ##' x <- list(mat = A, vec = 1:4, df = as.data.frame(A))
 ##' burst(x)
 ##' ##  Note: - The given group labels are used
 ##' ##        - The variable names are only constructed if not given
-##' 
+##'
 ##' burst(x, labs = list(group = NULL, group2d = TRUE)) # no group labels
 ##' burst(x, labs = list(group = NULL)) # no group labels unless groups change
 ##' ##  Note: Now the effect of 'group2d' is visible.
-##' 
+##'
 ##' ##  Partially named list
 ##' x <- list(mat = A, vec = 1:4, as.data.frame(A))
 ##' burst(x)
@@ -635,9 +634,9 @@ check_zargs <- function(zargs, ...)
 ##' @family default 1d plot functions
 ##' @param zargs The argument list as passed from \code{\link{zenplot}()}.
 ##'        This must at least contain \code{x}, \code{orientations},
-##'        \code{vars}, \code{num}, \code{lim} and \code{labs};  
+##'        \code{vars}, \code{num}, \code{lim} and \code{labs};
 ##'        see \code{\link{zenplot}()} for an explanation of these variables.
-##' @return A list \code{\link{list}} with 
+##' @return A list \code{\link{list}} with
 ##'     \describe{
 ##'        \item{\code{x}:}{the data to be plotted in the 1d plot}
 ##'        \item{\code{xcols}:}{a list with all columns of \code{x}}
@@ -649,22 +648,22 @@ check_zargs <- function(zargs, ...)
 ##'                                  whether the plot is horizontal or vertical, and}
 ##'        \item{\code{xlim}:}{the axis limits.}
 ##'        }
-##' 
+##'
 ##' @details This is an auxiliary function called on \code{zargs} within any
-##'          1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+##'          1d plotting function (e.g. \code{\link{hist_1d_grid}},
 ##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
 ##'          to extract the 1d data from \code{zargs} needed for plotting.
 ##'          For performance reasons, no checking of the input object is done.
-##' @examples 
-##' ## This function is used within the default (any user defined) 
+##' @examples
+##' ## This function is used within the default (any user defined)
 ##' ## 1d plots
 ##' my_1d_plot <- function(zargs, your_name = "Bob", ...) {
 ##'                    data_1d <- extract_1d(zargs)
 ##'                    msg <- paste("Components of zargs available",
-##'                                 "to construct a 1d plot for ", 
+##'                                 "to construct a 1d plot for ",
 ##'                                 your_name)
 ##'                    print(msg)
-##'                    ## just print the names of the data components 
+##'                    ## just print the names of the data components
 ##'                    ## which you might want to use in your plot
 ##'                    print(names(data_1d))
 ##'                    ## You might have to draw your 1d plot differently depending
@@ -687,10 +686,10 @@ check_zargs <- function(zargs, ...)
 ##'                     ## You can print the source of anyone of the default functions
 ##'                     ## to get some idea of managing details.
 ##'                     }
-##' 
+##'
 ##' ## And now try it out
 ##' zenplot(iris[,1:3], plot1d = my_1d_plot)
-##' 
+##'
 ##' @author Marius Hofert and Wayne Oldford
 ##' @note Performance critical
 ##' @export
@@ -771,11 +770,11 @@ extract_1d <- function(zargs)
 ##' @family tools for constructing your own plot1d and plot2d functions
 ##' @family data extraction functions to build plots
 ##' @family default 2d plot functions
-##' @param zargs The argument list  as passed from \code{\link{zenplot}()}. 
+##' @param zargs The argument list  as passed from \code{\link{zenplot}()}.
 ##'         This must at least contain \code{x}, \code{vars}, \code{num}, \code{lim} and
 ##'         \code{labs} (for \code{extract_2d()});  see \code{\link{zenplot}()}
 ##'         for an explanation of these variables.
-##' @return A list \code{\link{list}} with 
+##' @return A list \code{\link{list}} with
 ##'     \describe{
 ##'        \item{\code{x} and \code{y}:}{the data to be plotted in the 2d plot}
 ##'        \item{\code{xcols}:}{a list with all columns of \code{x}}
@@ -787,31 +786,31 @@ extract_1d <- function(zargs)
 ##'        \item{\code{same.group}:}{a \code{\link{logical}} indicating
 ##'        whether the x and y variables belong to the same group.}
 ##'        }
-##' 
+##'
 ##' @details This is an auxiliary function called on \code{zargs} within any
-##'          1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+##'          1d plotting function (e.g. \code{\link{hist_1d_grid}},
 ##'          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
 ##'          to extract the 1d data from \code{zargs} needed for plotting.
 ##'          For performance reasons, no checking of the input object is done.
-##' @examples 
-##' ## This function is used within the default (any user defined) 
+##' @examples
+##' ## This function is used within the default (any user defined)
 ##' ## 2d plot functions
 ##' ##
 ##' my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
 ##'                    data_2d <- extract_2d(zargs)
 ##'                    msg <- paste("Components of zargs available",
-##'                                 "to construct a 2d plot for ", 
+##'                                 "to construct a 2d plot for ",
 ##'                                 your_name)
 ##'                    print(msg)
-##'                    ## just print the names of the data components 
+##'                    ## just print the names of the data components
 ##'                    ## which you might want to use in your plot
 ##'                    print(names(data_2d))
-##'                 
+##'
 ##'                    ## You can plot whatever you want using the information in
 ##'                    ## could use any of these to construct any 1d plot you want
 ##'                    ## using R's graphics or any of zemplot's built in 1d plots.
 ##'                    ##
-##'                    ## For example, here we could use 
+##'                    ## For example, here we could use
 ##'                    ## use zenplot's base graphics functions
 ##'                    ## First a scatterplot
 ##'                    points_2d_graphics(zargs, ...)
@@ -821,7 +820,7 @@ extract_1d <- function(zargs)
 ##'                    ## You can print the source of anyone of the default functions
 ##'                    ## to get some idea of managing details.
 ##'                 }
-##' 
+##'
 ##' ## And now try it out
 ##' zenplot(iris, plot2d = my_2d_plot)
 ##' @author Marius Hofert and Wayne Oldford

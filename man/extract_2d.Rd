@@ -7,13 +7,13 @@
 extract_2d(zargs)
 }
 \arguments{
-\item{zargs}{The argument list  as passed from \code{\link{zenplot}()}. 
+\item{zargs}{The argument list  as passed from \code{\link{zenplot}()}.
 This must at least contain \code{x}, \code{vars}, \code{num}, \code{lim} and
 \code{labs} (for \code{extract_2d()});  see \code{\link{zenplot}()}
 for an explanation of these variables.}
 }
 \value{
-A list \code{\link{list}} with 
+A list \code{\link{list}} with
     \describe{
        \item{\code{x} and \code{y}:}{the data to be plotted in the 2d plot}
        \item{\code{xcols}:}{a list with all columns of \code{x}}
@@ -31,7 +31,7 @@ Extracting information for our default/provided plot2d()
 }
 \details{
 This is an auxiliary function called on \code{zargs} within any
-         1d plotting function (e.g. \code{\link{hist_1d_grid}}, 
+         1d plotting function (e.g. \code{\link{hist_1d_grid}},
          \code{\link{density_1d_graphics}}, or \code{\link{points_1d_loon}})
          to extract the 1d data from \code{zargs} needed for plotting.
          For performance reasons, no checking of the input object is done.
@@ -40,24 +40,24 @@ This is an auxiliary function called on \code{zargs} within any
 Performance critical
 }
 \examples{
-## This function is used within the default (any user defined) 
+## This function is used within the default (any user defined)
 ## 2d plot functions
 ##
 my_2d_plot <- function(zargs, your_name = "BillyBob", ...) {
                    data_2d <- extract_2d(zargs)
                    msg <- paste("Components of zargs available",
-                                "to construct a 2d plot for ", 
+                                "to construct a 2d plot for ",
                                 your_name)
                    print(msg)
-                   ## just print the names of the data components 
+                   ## just print the names of the data components
                    ## which you might want to use in your plot
                    print(names(data_2d))
-                
+
                    ## You can plot whatever you want using the information in
                    ## could use any of these to construct any 1d plot you want
                    ## using R's graphics or any of zemplot's built in 1d plots.
                    ##
-                   ## For example, here we could use 
+                   ## For example, here we could use
                    ## use zenplot's base graphics functions
                    ## First a scatterplot
                    points_2d_graphics(zargs, ...)

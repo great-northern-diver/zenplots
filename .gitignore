@@ -10,3 +10,5 @@ zenplots.Rproj
 src/*.o
 src/*.so
 src/*.dll
+/doc/
+/Meta/

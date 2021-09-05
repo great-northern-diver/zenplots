@@ -10,7 +10,7 @@ extract_pairs(x, n)
 \item{x}{the path, a \code{\link{vector}} or
 \code{\link{list}} of indices of the variables to be plotted.}
 
-\item{n}{A \code{\link{vector}} of length two giving the number 
+\item{n}{A \code{\link{vector}} of length two giving the number
 of pairs to extract from the path \code{x} (if \code{NULL}, all pairs are
 returned (nothing extracted); if of length one, it is replicated in the pair).
 The first number corresponds to the beginning of the path,

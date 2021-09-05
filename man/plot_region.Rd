@@ -17,11 +17,11 @@ plot_region(xlim, ylim, plot... = NULL)
 \code{\link{invisible}()}
 }
 \description{
-Auxiliary function for setting up the plot region 
+Auxiliary function for setting up the plot region
 of 1d and 2d graphics plots.
 }
 \details{
-This is an auxiliary function used by the 
+This is an auxiliary function used by the
 provided \pkg{graphics}-related 1d and 2d plots.
 }
 \seealso{

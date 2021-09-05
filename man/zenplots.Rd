@@ -10,8 +10,8 @@ number of one- and two-dimensional plots in an organized way.
 }
 \details{
 Unlike pairs plots, zenplots can lay out a much larger number of
-plots by pursuing a zigzagging layout (following a zenpath) of 
-alternating one- and two-dimensional plots. 
+plots by pursuing a zigzagging layout (following a zenpath) of
+alternating one- and two-dimensional plots.
 
 The plots can be created by R's base graphics package, by the grid
 graphics package, or even made interactive (brushing, etc.) by using

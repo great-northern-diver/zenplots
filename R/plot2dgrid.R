@@ -1,7 +1,4 @@
 ## Default 2d plot functions based on grid
-library(grid)
-library(MASS) # for kde2d
-
 ##' @title Plot of labels indicating adjacent groups using the grid package
 ##' @family default 2d plot functions using the grid package
 ##' @family default 2d plot functions

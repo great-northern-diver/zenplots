@@ -15,17 +15,17 @@ the pairs to be connected.}
 pairs (up to permutation) are to be omitted.}
 }
 \value{
-A \code{\link{list}} each of whose elements give a path of connected pairs. 
-Each list element is a vector of length at least 2 
+A \code{\link{list}} each of whose elements give a path of connected pairs.
+Each list element is a vector of length at least 2
 (longer vectors > 2 in length identify the pairs connected in a path).
 }
 \description{
-Pairs, given as rows of a \code{\link{matrix}},  
+Pairs, given as rows of a \code{\link{matrix}},
 \code{\link{data.frame}}, or \code{\link{list}}, are processed to return
 a list of paths, each identifying the connected pairs in the rows of \code{x}.
 }
 \examples{
-## First something simple.  
+## First something simple.
 (pairs <- matrix(c(1,2,2,3,3,5,5,7,8,9), ncol = 2, byrow = TRUE))
 ## Connect pairs into separate paths defined by the row order.
 connect_pairs(pairs)
@@ -37,13 +37,13 @@ pairs <- expand.grid(1:nVars, 1:nVars)
 (pairs <- pairs[pairs[,1] < pairs[,2],])
 connect_pairs(pairs)
 
-## Something more complicated. 
+## Something more complicated.
 ## Get weights
 set.seed(27135)
 x <- runif(choose(nVars,2)) # weights
 
 ## We imagine pairs identify edges of a graph with these weights
-## Get a zenpath ordering the edges based on weights 
+## Get a zenpath ordering the edges based on weights
 (zp <- zenpath(x, pairs = pairs, method = "strictly.weighted"))
 
 ## And connect these giving the list of paths

@@ -1,7 +1,4 @@
 ## Default 1d plot functions based on loon
-# library(loon)
-library(stats)
-
 ##' @title Rug plot in 1d using the interactive loon package
 ##' @family default 1d plot functions using the interactive loon package
 ##' @family default 1d plot functions

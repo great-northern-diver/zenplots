@@ -4,7 +4,7 @@
 \alias{zenplot}
 \title{Main function to create a zenplot}
 \usage{
-zenplot(x, turns = NULL, 
+zenplot(x, turns = NULL,
         first1d = TRUE, last1d = TRUE,
         n2dcols = c("letter", "square", "A4", "golden", "legal"),
         n2dplots = NULL,
@@ -19,18 +19,18 @@ zenplot(x, turns = NULL,
         labs = list(group = "G", var = "V", sep = ", ", group2d = FALSE),
         pkg = c("graphics", "grid", "loon"),
         method = c("tidy", "double.zigzag", "single.zigzag", "rectangular"),
-        width1d = if(is.null(plot1d)) 0.5 else 1, 
+        width1d = if(is.null(plot1d)) 0.5 else 1,
         width2d = 10,
         ospace = if(pkg == "loon") 0 else 0.02,
         ispace = if(pkg == "graphics") 0 else 0.037,
-        draw = TRUE, 
+        draw = TRUE,
         ...)
 }
 \arguments{
 \item{x}{A data object of "standard forms", being a \code{\link{vector}}, or a \code{\link{matrix}},
-or a \code{\link{data.frame}}, or a \code{\link{list}} of any of these.  
-In the case of a list, the components of \code{x} are interpreted as 
-groups of data which are visually separated by a two-dimensional 
+or a \code{\link{data.frame}}, or a \code{\link{list}} of any of these.
+In the case of a list, the components of \code{x} are interpreted as
+groups of data which are visually separated by a two-dimensional
 (group) plot.}
 
 \item{turns}{A \code{\link{character}} vector (of length two times the
@@ -47,56 +47,56 @@ one-dimensional plot is included.}
 
 \item{n2dcols}{number of columns of 2d plots (\eqn{\ge 1}{>= 1})
 or one of \code{"letter"}, \code{"square"}, \code{"A4"},
-\code{"golden"} or \code{"legal"} 
-in which case a similar layout is constructed. 
+\code{"golden"} or \code{"legal"}
+in which case a similar layout is constructed.
 Note that \code{n2dcols} is ignored if \code{!is.null(turns)}.}
 
 \item{n2dplots}{The number of 2d plots.}
 
 \item{plot1d}{A \code{\link{function}} to use to return a
-one-dimensional plot constructed with package \code{pkg}.
-Alternatively, a \code{\link{character}} string of an existing
-function. 
-For the defaults provided, the corresponding functions
-are obtained when appending \code{_1d_graphics}, \code{_1d_grid} 
-or \code{_1d_loon} depending on which \code{pkg} is used. 
+       one-dimensional plot constructed with package \code{pkg}.
+       Alternatively, a \code{\link{character}} string of an existing
+       function.
+       For the defaults provided, the corresponding functions
+       are obtained when appending \code{_1d_graphics}, \code{_1d_grid}
+       or \code{_1d_loon} depending on which \code{pkg} is used.
 
-If \code{plot1d = NULL}, then no 1d plot is produced in the \code{zenplot}.}
+       If \code{plot1d = NULL}, then no 1d plot is produced in the \code{zenplot}.}
 
-\item{plot2d}{A \code{\link{function}} returning a two-dimensional plot 
-constructed with package \code{pkg}.
-Alternatively, a \code{\link{character}} string of an existing
-function. For the defaults provided, the corresponding functions
-are obtained when appending \code{_2d_graphics}, \code{_2d_grid}
-or \code{_2d_loon} depending on which \code{pkg} is used. 
+\item{plot2d}{A \code{\link{function}} returning a two-dimensional plot
+       constructed with package \code{pkg}.
+       Alternatively, a \code{\link{character}} string of an existing
+       function. For the defaults provided, the corresponding functions
+       are obtained when appending \code{_2d_graphics}, \code{_2d_grid}
+       or \code{_2d_loon} depending on which \code{pkg} is used.
 
-As for \code{plot1d}, \code{plot2d} omits 2d plots if \code{plot2d = NULL}.}
+       As for \code{plot1d}, \code{plot2d} omits 2d plots if \code{plot2d = NULL}.}
 
 \item{zargs}{A fully named \code{\link{logical}} \code{\link{vector}}
-indicating whether the respective arguments are (possibly) passed to
-\code{plot1d()} and \code{plot2d()} (if the latter contain the
-formal argument \code{zargs}, which they typically do/should, but
-see below for an example in which they do not).
+       indicating whether the respective arguments are (possibly) passed to
+       \code{plot1d()} and \code{plot2d()} (if the latter contain the
+       formal argument \code{zargs}, which they typically do/should, but
+       see below for an example in which they do not).
 
-\code{zargs} can maximally contain all variables as given in the default.
-If one of those variables does not appear in \code{zargs}, it is 
-treated as \code{TRUE} and the corresponding arguments are passed
-on to \code{plot1d} and \code{plot2d}. If one of them is set to
-\code{FALSE}, the argument is not passed on.}
+       \code{zargs} can maximally contain all variables as given in the default.
+       If one of those variables does not appear in \code{zargs}, it is
+       treated as \code{TRUE} and the corresponding arguments are passed
+       on to \code{plot1d} and \code{plot2d}. If one of them is set to
+       \code{FALSE}, the argument is not passed on.}
 
-\item{lim}{(x-/y-)axis limits. This can be a \code{\link{character}} string 
-or a \code{numeric(2)}.
+\item{lim}{(x-/y-)axis limits. This can be a \code{\link{character}} string
+       or a \code{numeric(2)}.
 
-If \code{lim = "groupwise"} and \code{x} does not contain groups, 
-the behaviour is equivalent to \code{lim = "global"}.}
+       If \code{lim = "groupwise"} and \code{x} does not contain groups,
+       the behaviour is equivalent to \code{lim = "global"}.}
 
-\item{labs}{The plot labels to be used; see the argument \code{labs} of 
+\item{labs}{The plot labels to be used; see the argument \code{labs} of
 \code{\link{burst}()} for the exact specification.
-\code{labs} can, in general, be anything as long as \code{plot1d} 
+\code{labs} can, in general, be anything as long as \code{plot1d}
 and \code{plot2d} know how to deal with it.}
 
-\item{pkg}{The R package used for plotting (depends on how the 
-functions \code{plot1d} and \code{plot2d} were constructed; 
+\item{pkg}{The R package used for plotting (depends on how the
+functions \code{plot1d} and \code{plot2d} were constructed;
 the user is responsible for choosing the appropriate package
 among the supported ones).}
 
@@ -123,13 +123,13 @@ among the supported ones).}
 \item{width2d}{A graphical parameter > 0 giving the height of 2d plots.}
 
 \item{ospace}{The outer space around the zenplot.   A vector
-of length four (bottom, left, top, right), 
-or one whose values are repeated to be of length four,
-which gives the outer space between the device region and 
-the inner plot region around the zenplot.
+       of length four (bottom, left, top, right),
+       or one whose values are repeated to be of length four,
+       which gives the outer space between the device region and
+       the inner plot region around the zenplot.
 
-Values should be in \eqn{[0,1]}  when \code{pkg} is \code{"graphics"} or 
-\code{"grid"}, and as number of pixels when\code{pkg} is \code{"loon"}.}
+       Values should be in \eqn{[0,1]}  when \code{pkg} is \code{"graphics"} or
+       \code{"grid"}, and as number of pixels when\code{pkg} is \code{"loon"}.}
 
 \item{ispace}{The inner space in \eqn{[0,1]} between the each figure region
 and the region of the (1d/2d) plot it contains.
@@ -139,25 +139,25 @@ whose values are repeated to produce a vector of length four.}
 \item{draw}{A \code{\link{logical}} indicating whether a the \code{zenplot}
 is immediately displayed (the default) or not.}
 
-\item{...}{arguments passed to the drawing functions for both \code{plot1d} and 
+\item{...}{arguments passed to the drawing functions for both \code{plot1d} and
 \code{plot2d}. If you need to pass certain arguments only to one
 of them, say, \code{plot2d}, consider providing your own
 \code{plot2d}; see the examples below.}
 }
 \value{
 (besides plotting) invisibly returns a list containing at least
-       the path and layout (see \code{\link{unfold}} for details). 
-       
+       the path and layout (see \code{\link{unfold}} for details).
+
        Depending on the graphics package \code{pkg} used, the returned list
-       includes additional components.  For \code{pkg = "grid"}, 
+       includes additional components.  For \code{pkg = "grid"},
        this will be the whole plot as a \code{\link[grid]{grob}} (grid object).
-       For \code{pkg = "loon"},  this will be the whole plot as a 
+       For \code{pkg = "loon"},  this will be the whole plot as a
        \code{loon} plot object as
        well as the toplevel \code{tk} object in which the plot appears.
 }
 \description{
-Constructs and draws a zigzag expanded navigation plot for a 
-graphical exploratory analysis of a path of variables.  The result is an 
+Constructs and draws a zigzag expanded navigation plot for a
+graphical exploratory analysis of a path of variables.  The result is an
 alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 variates (or coordinates) in common with that of the 1d plot appearing between them.
@@ -173,7 +173,13 @@ x <- matrix(rnorm(n * d), ncol = d) # i.i.d. N(0,1) data
 
 ## A basic zenplot
 res <- zenplot(x)
-stopifnot(identical(res, unfold(nfaces = d - 1)))
+uf <- unfold(nfaces = d - 1)
+## `res` and `uf` is not identical as `res` has specific
+## class attributes.
+for(name in names(uf)) {
+  stopifnot(identical(res[[name]], uf[[name]]))
+}
+
 ## => The return value of zenplot() is the underlying unfold()
 
 ## Some missing data
@@ -355,17 +361,17 @@ zenplot(x, plot1d = function(zargs) {
 ##       region but are not correct relative to each other in the
 ##       sense of covering the same are. For a *proper* overlay
 ##       see below.
-zenplot(x, 
+zenplot(x,
     plot1d = function(zargs) {
                     hist_1d_graphics(zargs)
-                    density_1d_graphics(zargs, add = TRUE, 
-                                        border = "royalblue3", 
+                    density_1d_graphics(zargs, add = TRUE,
+                                        border = "royalblue3",
                                         lwd = 1.4)
-                    label_1d_graphics(zargs, add = TRUE, 
-                                      loc = c(0.2, 0.8), 
+                    label_1d_graphics(zargs, add = TRUE,
+                                      loc = c(0.2, 0.8),
                                       cex = 0.6, font = 2,
                                       col = "darkorange2")
-                    }, 
+                    },
     plot2d = function(zargs) {
                     density_2d_graphics(zargs)
                     points_2d_graphics(zargs, add = TRUE,
@@ -386,7 +392,7 @@ num <- zargs$num # plot number (among all 1d and 2d plots)
 turn.out <- zargs$turns[num] # turn out of current position
 horizontal <- turn.out == "d" || turn.out == "u"
 # the indices of the 'x' variable to be displayed in the current plot
-ii <- plot_indices(zargs) 
+ii <- plot_indices(zargs)
 label <- paste0("V", ii[1]) # label
 srt <- if(horizontal) 0 else if(turn.out == "r") -90 else 90 # label rotation
 x <- zargs$x[,ii[1]] # data
@@ -427,16 +433,16 @@ if(horizontal) {
 loc <- c(0.1, 0.6)
 
 # when walking downwards, change both left/right and up/down
-if(turn.out == "d") loc <- 1-loc 
+if(turn.out == "d") loc <- 1-loc
 
 # when walking to the right, coordinates change and 2nd is flipped
-if(turn.out == "r") { 
+if(turn.out == "r") {
     loc <- rev(loc)
     loc[2] <- 1-loc[2]
 }
 
 # when walking to the left, coordinates change and 1st is flipped
-if(turn.out == "l") { 
+if(turn.out == "l") {
     loc <- rev(loc)
     loc[1] <- 1-loc[1]
 }
@@ -449,13 +455,13 @@ on.exit(par(opar))
 text(x = loc[1], y = loc[2], labels = label, cex = 0.7, srt = srt, font = 2,
      col = "darkorange2") # label
     }
-    
+
 ## Zenplot
-zenplot(x, 
+zenplot(x,
 plot1d = "hist_with_density_1d",
 plot2d = function(zargs) {
        density_2d_graphics(zargs)
-       points_2d_graphics(zargs, 
+       points_2d_graphics(zargs,
                           add = TRUE,
                           col = adjustcolor("black", alpha.f = 0.3))
 }
@@ -570,7 +576,7 @@ my_points_2d_ggplot <- function(zargs, extract2d = TRUE)
                                      legend.title = element_blank())
        ggplot_gtable(ggplot_build(p)) # 2d plot as grob
    }
-   
+
 ## Plotting
 iris. <- iris
 colnames(iris.) <- gsub("\\\\\\\\.", " ", x = colnames(iris)) # => nicer 1d labels
@@ -615,7 +621,7 @@ zenplot(z, n2dplots = 4, plot1d = "arrow", last1d = FALSE,
 library(lattice)
 library(grid)
 library(gridExtra)
-   
+
 ## Build a list of cloud() plots (trellis objects)
 ## Note:
 ## - 'grid' problem: Without print(), the below zenplot() may fail (e.g.,
@@ -636,7 +642,7 @@ mycloud <- function(x, num) {
    }
 plst.3d <- lapply(1:4, function(i)
        mycloud(x[,i:(i+2)], num = i)) # list of trellis objects
-   
+
 ## Preparing the zenplot
 num <- length(plst.3d)
 ncols <- 2
@@ -650,7 +656,7 @@ plot2d <- function(zargs) {
        ##       gTree(children = gList(grob(zargs$x[[num2d]], vp = vp,
        ##                                   cl = "lattice")))
    }
-   
+
 ## Zenplot
 ## Note: We use a list of *plots* here already (not data)
 zenplot(plst.3d, turns = turns, n2dplots = num, pkg = "grid", first1d = FALSE,
@@ -664,9 +670,9 @@ All provided default \code{plot1d} and \code{plot2d} functions.
 for how \code{zargs} can be split up into a list of columns and corresponding
 group and variable information.
 
-\code{\link{burst}()} for how \code{x} can be split up into all sorts of 
+\code{\link{burst}()} for how \code{x} can be split up into all sorts of
 information useful for plotting (see our default \code{plot1d} and \code{plot2d}).
-\code{\link{vport}()} for how to construct a viewport for 
+\code{\link{vport}()} for how to construct a viewport for
 (our default) \pkg{grid} (\code{plot1d} and \code{plot2d}) functions.
 
 \code{\link{extract_pairs}()}, \code{\link{connect_pairs}()},

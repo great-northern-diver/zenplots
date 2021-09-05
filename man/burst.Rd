@@ -10,45 +10,45 @@ burst(x, labs = list())
 \item{x}{A \code{\link{numeric}} \code{\link{vector}}, \code{\link{matrix}},
 \code{\link{data.frame}} or, for \code{burst()}, a \code{\link{list}} of such.}
 
-\item{labs}{Either \code{\link{NULL}} 
-(in which case neither group nor variable labels are used or computed) or 
+\item{labs}{Either \code{\link{NULL}}
+(in which case neither group nor variable labels are used or computed) or
 a list with components
 
-       \code{group} - the group label basename or labels for the groups 
+       \code{group} - the group label basename or labels for the groups
                      (or \code{\link{NULL}} for no group labels)
-       
-       \code{var} - the variable label basename or labels for the variables 
+
+       \code{var} - the variable label basename or labels for the variables
        (or \code{\link{NULL}} for no variable labels)
-       
-       \code{sep} - the string used as the separator between group and 
+
+       \code{sep} - the string used as the separator between group and
        variable labels
-       
-       \code{group2d} - a \code{\link{logical}} indicating whether labels of 
+
+       \code{group2d} - a \code{\link{logical}} indicating whether labels of
        \code{group_2d_*()} plots are affected by \code{group = NULL} (or printed anyway)
-           
+
 If any of these components is not given, it is set to the defaults as described in
-\code{\link{zenplot}()}. 
-Note that if at least one (group or variable) label is given in \code{x}, 
-then those (original) labels will be used.       
+\code{\link{zenplot}()}.
+Note that if at least one (group or variable) label is given in \code{x},
+then those (original) labels will be used.
 If labs = NULL, neither group nor variable labels are used.}
 }
 \value{
 A \code{\link{list}} with components
 
          \code{xcols} - a list containing the column vectors of  \code{x}
-         
+
          \code{groups} - the group number for each column of  \code{x}
-         
+
          \code{vars} - the variable number (within each group) for each column of  \code{x}
-         
+
          \code{glabs} - the group label for each column of  \code{x}
-         
+
          \code{labs} - the group and variable labels for each column of  \code{x}
 }
 \description{
-Splits a (numeric/logical/character) vector, matrix, 
-data.frame or a list of such into a list of columns, with corresponding 
-group and variable information as well as labels.  
+Splits a (numeric/logical/character) vector, matrix,
+data.frame or a list of such into a list of columns, with corresponding
+group and variable information as well as labels.
 This is an auxiliary function for checking and converting the data argument of zenplot().
 }
 \note{
