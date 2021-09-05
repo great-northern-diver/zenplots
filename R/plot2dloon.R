@@ -1,7 +1,4 @@
 ## Default 2d plot functions based on loon
-# library(loon)
-library(MASS) # for kde2d
-
 ##' @title Plot of labels indicating adjacent groups using the interactive loon package
 ##' @family default 2d plot functions using the interactive loon package
 ##' @family default 2d plot functions

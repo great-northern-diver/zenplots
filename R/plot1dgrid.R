@@ -1,7 +1,4 @@
 ## Default 1d plot functions based on grid
-library(grid)
-library(stats)
-
 ##' @title Rug plot in 1d using the grid package
 ##' @family default 1d plot functions using the grid package
 ##' @family default 1d plot functions
@@ -249,7 +246,7 @@ density_1d_grid <- function(zargs,
             y <- c(0, y., 0)
             ## Scaling (f(y) = a * y + b with f(0) = b = offset * ylim[2] and
             ## f(ylim[2]) = a * ylim[2] + b = (1-offset) * ylim[2])
-            y <- (1-2*offset) * y + offset * if(turn.out == "d") ylim[1] else ylim[2] 
+            y <- (1-2*offset) * y + offset * if(turn.out == "d") ylim[1] else ylim[2]
             # scale to [offset, 1-offset] * ylim[2]
         } else {
             xlim <- range(0, y.)

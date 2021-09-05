@@ -1,13 +1,4 @@
 ## Unfolding and zenplots
-library(graphics)
-library(grid)
-library(loon)
-library(grDevices)
-library(tcltk)
-library(methods)
-library(graph)
-library(utils)
-
 ##' @title Unfold the hypercube and produce all information concerning the zenpath
 ##'        and zenplot layout
 ##' @family creating zenplots
@@ -319,7 +310,13 @@ unfold <- function(nfaces, turns = NULL,
 ##'
 ##' ## A basic zenplot
 ##' res <- zenplot(x)
-##' stopifnot(identical(res, unfold(nfaces = d - 1)))
+##' uf <- unfold(nfaces = d - 1)
+##' ## `res` and `uf` is not identical as `res` has specific
+##' ## class attributes.
+##' for(name in names(uf)) {
+##'   stopifnot(identical(res[[name]], uf[[name]]))
+##' }
+##'
 ##' ## => The return value of zenplot() is the underlying unfold()
 ##'
 ##' ## Some missing data

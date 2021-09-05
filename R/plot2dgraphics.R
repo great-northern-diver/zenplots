@@ -1,7 +1,4 @@
 ## Default 2d plot functions based on graphics
-library(graphics)
-library(MASS) # for kde2d
-
 ##' @title Plot of labels indicating adjacent groups using R's base graphics
 ##' @family default 2d plot functions using R's base graphics
 ##' @family default 2d plot functions
@@ -191,7 +188,7 @@ density_2d_graphics <- function(zargs,
 ##'        takes place; see ?par
 ##' @param add logical indicating whether this plot should be added to the last one
 ##' @param group... list of arguments passed to group_2d_graphics (or NULL)
-##' @param plot... additional arguments passed to plot_region() 
+##' @param plot... additional arguments passed to plot_region()
 ##' @param ... additional arguments passed to points()
 ##' @return invisible()
 ##' @author Marius Hofert and Wayne Oldford
