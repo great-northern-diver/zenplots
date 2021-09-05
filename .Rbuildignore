@@ -15,3 +15,5 @@ zenplots.Rproj
 ./inst/doc/*
 ./misc
 TODO
+^doc$
+^Meta$
