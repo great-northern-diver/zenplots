@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Connecting Possibly Overlapping Pairs Into a List of Paths — connect_pairs" />
-<meta property="og:description" content="Pairs, given as rows of a matrix,  
+<meta property="og:description" content="Pairs, given as rows of a matrix,
 data.frame, or list, are processed to return
 a list of paths, each identifying the connected pairs in the rows of x." />
 <meta property="og:image" content="/logo.png" />
@@ -127,11 +127,14 @@ a list of paths, each identifying the connected pairs in the rows of x." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,7 +157,7 @@ a list of paths, each identifying the connected pairs in the rows of x." />
     </div>
 
     <div class="ref-description">
-    <p>Pairs, given as rows of a <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>,  
+    <p>Pairs, given as rows of a <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>,
 <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>, or <code><a href='https://rdrr.io/r/base/list.html'>list</a></code>, are processed to return
 a list of paths, each identifying the connected pairs in the rows of <code>x</code>.</p>
     </div>
@@ -179,8 +182,8 @@ pairs (up to permutation) are to be omitted.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> each of whose elements give a path of connected pairs. 
-Each list element is a vector of length at least 2 
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> each of whose elements give a path of connected pairs.
+Each list element is a vector of length at least 2
 (longer vectors &gt; 2 in length identify the pairs connected in a path).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
@@ -196,7 +199,7 @@ Each list element is a vector of length at least 2
     <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## First something simple.  </span>
+    <pre class="examples"><div class='input'><span class='co'>## First something simple.</span>
 <span class='op'>(</span><span class='va'>pairs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>3</span>,<span class='fl'>5</span>,<span class='fl'>5</span>,<span class='fl'>7</span>,<span class='fl'>8</span>,<span class='fl'>9</span><span class='op'>)</span>, ncol <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;      [,1] [,2]
 #&gt; [1,]    1    2
@@ -242,13 +245,13 @@ Each list element is a vector of length at least 2
 #&gt; [[5]]
 #&gt; [1] 3 5 4
 #&gt; </div><div class='input'>
-<span class='co'>## Something more complicated. </span>
+<span class='co'>## Something more complicated.</span>
 <span class='co'>## Get weights</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>27135</span><span class='op'>)</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Special.html'>choose</a></span><span class='op'>(</span><span class='va'>nVars</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># weights</span>
 
 <span class='co'>## We imagine pairs identify edges of a graph with these weights</span>
-<span class='co'>## Get a zenpath ordering the edges based on weights </span>
+<span class='co'>## Get a zenpath ordering the edges based on weights</span>
 <span class='op'>(</span><span class='va'>zp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='zenpath.html'>zenpath</a></span><span class='op'>(</span><span class='va'>x</span>, pairs <span class='op'>=</span> <span class='va'>pairs</span>, method <span class='op'>=</span> <span class='st'>"strictly.weighted"</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] 2 3

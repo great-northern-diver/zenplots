@@ -28,7 +28,10 @@ zenpath(x, pairs = NULL,
 
 \item{pairs}{a two-column \code{\link{matrix}} containing (row-wise)
 the pairs of connected variables to be sorted according to the
-weights. The \code{pairs} argument is only used for the \code{method}s
+weights. Note that the resulting graph must be connected 
+(i.e. any variable can be reached from any other variable 
+following the connections given by \code{pairs}).
+The \code{pairs} argument is only used for the \code{method}s
 \code{greedy.weighted} and \code{strictly.weighted} and can be
 \code{NULL} (in which case a default is constructed in lexicographical order).}
 

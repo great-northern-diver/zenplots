@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Main function to create a zenplot — zenplot" />
-<meta property="og:description" content="Constructs and draws a zigzag expanded navigation plot for a 
-graphical exploratory analysis of a path of variables.  The result is an 
+<meta property="og:description" content="Constructs and draws a zigzag expanded navigation plot for a
+graphical exploratory analysis of a path of variables.  The result is an
 alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 variates (or coordinates) in common with that of the 1d plot appearing between them." />
@@ -129,11 +129,14 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -156,14 +159,14 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
     </div>
 
     <div class="ref-description">
-    <p>Constructs and draws a zigzag expanded navigation plot for a 
-graphical exploratory analysis of a path of variables.  The result is an 
+    <p>Constructs and draws a zigzag expanded navigation plot for a
+graphical exploratory analysis of a path of variables.  The result is an
 alternating sequence of one-dimensional (1d) and two-dimensional (2d) plots
 laid out in a zigzag-like structure so that each consecutive pair of 2d plots has one of its
 variates (or coordinates) in common with that of the 1d plot appearing between them.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>, turns <span class='op'>=</span> <span class='cn'>NULL</span>, 
+    <pre class="usage"><span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>, turns <span class='op'>=</span> <span class='cn'>NULL</span>,
         first1d <span class='op'>=</span> <span class='cn'>TRUE</span>, last1d <span class='op'>=</span> <span class='cn'>TRUE</span>,
         n2dcols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"letter"</span>, <span class='st'>"square"</span>, <span class='st'>"A4"</span>, <span class='st'>"golden"</span>, <span class='st'>"legal"</span><span class='op'>)</span>,
         n2dplots <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -178,11 +181,11 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
         labs <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>group <span class='op'>=</span> <span class='st'>"G"</span>, var <span class='op'>=</span> <span class='st'>"V"</span>, sep <span class='op'>=</span> <span class='st'>", "</span>, group2d <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>,
         pkg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"graphics"</span>, <span class='st'>"grid"</span>, <span class='st'>"loon"</span><span class='op'>)</span>,
         method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidy"</span>, <span class='st'>"double.zigzag"</span>, <span class='st'>"single.zigzag"</span>, <span class='st'>"rectangular"</span><span class='op'>)</span>,
-        width1d <span class='op'>=</span> <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span><span class='op'>(</span><span class='va'>plot1d</span><span class='op'>)</span><span class='op'>)</span> <span class='fl'>0.5</span> <span class='kw'>else</span> <span class='fl'>1</span>, 
+        width1d <span class='op'>=</span> <span class='kw'>if</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span><span class='op'>(</span><span class='va'>plot1d</span><span class='op'>)</span><span class='op'>)</span> <span class='fl'>0.5</span> <span class='kw'>else</span> <span class='fl'>1</span>,
         width2d <span class='op'>=</span> <span class='fl'>10</span>,
         ospace <span class='op'>=</span> <span class='kw'>if</span><span class='op'>(</span><span class='va'>pkg</span> <span class='op'>==</span> <span class='st'>"loon"</span><span class='op'>)</span> <span class='fl'>0</span> <span class='kw'>else</span> <span class='fl'>0.02</span>,
         ispace <span class='op'>=</span> <span class='kw'>if</span><span class='op'>(</span><span class='va'>pkg</span> <span class='op'>==</span> <span class='st'>"graphics"</span><span class='op'>)</span> <span class='fl'>0</span> <span class='kw'>else</span> <span class='fl'>0.037</span>,
-        draw <span class='op'>=</span> <span class='cn'>TRUE</span>, 
+        draw <span class='op'>=</span> <span class='cn'>TRUE</span>,
         <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -191,9 +194,9 @@ variates (or coordinates) in common with that of the 1d plot appearing between t
     <tr>
       <th>x</th>
       <td><p>A data object of "standard forms", being a <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>, or a <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>,
-or a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>, or a <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of any of these.  
-In the case of a list, the components of <code>x</code> are interpreted as 
-groups of data which are visually separated by a two-dimensional 
+or a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>, or a <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of any of these.
+In the case of a list, the components of <code>x</code> are interpreted as
+groups of data which are visually separated by a two-dimensional
 (group) plot.</p></td>
     </tr>
     <tr>
@@ -218,8 +221,8 @@ one-dimensional plot is included.</p></td>
       <th>n2dcols</th>
       <td><p>number of columns of 2d plots (\(\ge 1\))
 or one of <code>"letter"</code>, <code>"square"</code>, <code>"A4"</code>,
-<code>"golden"</code> or <code>"legal"</code> 
-in which case a similar layout is constructed. 
+<code>"golden"</code> or <code>"legal"</code>
+in which case a similar layout is constructed.
 Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></td>
     </tr>
     <tr>
@@ -229,55 +232,55 @@ Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></
     <tr>
       <th>plot1d</th>
       <td><p>A <code><a href='https://rdrr.io/r/base/function.html'>function</a></code> to use to return a
-one-dimensional plot constructed with package <code>pkg</code>.
-Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
-function. 
-For the defaults provided, the corresponding functions
-are obtained when appending <code>_1d_graphics</code>, <code>_1d_grid</code> 
-or <code>_1d_loon</code> depending on which <code>pkg</code> is used.</p>
+       one-dimensional plot constructed with package <code>pkg</code>.
+       Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
+       function.
+       For the defaults provided, the corresponding functions
+       are obtained when appending <code>_1d_graphics</code>, <code>_1d_grid</code>
+       or <code>_1d_loon</code> depending on which <code>pkg</code> is used.</p>
 <p>If <code>plot1d = NULL</code>, then no 1d plot is produced in the <code>zenplot</code>.</p></td>
     </tr>
     <tr>
       <th>plot2d</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/function.html'>function</a></code> returning a two-dimensional plot 
-constructed with package <code>pkg</code>.
-Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
-function. For the defaults provided, the corresponding functions
-are obtained when appending <code>_2d_graphics</code>, <code>_2d_grid</code>
-or <code>_2d_loon</code> depending on which <code>pkg</code> is used.</p>
+      <td><p>A <code><a href='https://rdrr.io/r/base/function.html'>function</a></code> returning a two-dimensional plot
+       constructed with package <code>pkg</code>.
+       Alternatively, a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string of an existing
+       function. For the defaults provided, the corresponding functions
+       are obtained when appending <code>_2d_graphics</code>, <code>_2d_grid</code>
+       or <code>_2d_loon</code> depending on which <code>pkg</code> is used.</p>
 <p>As for <code>plot1d</code>, <code>plot2d</code> omits 2d plots if <code>plot2d = NULL</code>.</p></td>
     </tr>
     <tr>
       <th>zargs</th>
       <td><p>A fully named <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> <code><a href='https://rdrr.io/r/base/vector.html'>vector</a></code>
-indicating whether the respective arguments are (possibly) passed to
-<code>plot1d()</code> and <code>plot2d()</code> (if the latter contain the
-formal argument <code>zargs</code>, which they typically do/should, but
-see below for an example in which they do not).</p>
+       indicating whether the respective arguments are (possibly) passed to
+       <code>plot1d()</code> and <code>plot2d()</code> (if the latter contain the
+       formal argument <code>zargs</code>, which they typically do/should, but
+       see below for an example in which they do not).</p>
 <p><code>zargs</code> can maximally contain all variables as given in the default.
-If one of those variables does not appear in <code>zargs</code>, it is 
-treated as <code>TRUE</code> and the corresponding arguments are passed
-on to <code>plot1d</code> and <code>plot2d</code>. If one of them is set to
-<code>FALSE</code>, the argument is not passed on.</p></td>
+       If one of those variables does not appear in <code>zargs</code>, it is
+       treated as <code>TRUE</code> and the corresponding arguments are passed
+       on to <code>plot1d</code> and <code>plot2d</code>. If one of them is set to
+       <code>FALSE</code>, the argument is not passed on.</p></td>
     </tr>
     <tr>
       <th>lim</th>
-      <td><p>(x-/y-)axis limits. This can be a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string 
-or a <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>.</p>
-<p>If <code>lim = "groupwise"</code> and <code>x</code> does not contain groups, 
-the behaviour is equivalent to <code>lim = "global"</code>.</p></td>
+      <td><p>(x-/y-)axis limits. This can be a <code><a href='https://rdrr.io/r/base/character.html'>character</a></code> string
+       or a <code><a href='https://rdrr.io/r/base/numeric.html'>numeric(2)</a></code>.</p>
+<p>If <code>lim = "groupwise"</code> and <code>x</code> does not contain groups,
+       the behaviour is equivalent to <code>lim = "global"</code>.</p></td>
     </tr>
     <tr>
       <th>labs</th>
-      <td><p>The plot labels to be used; see the argument <code>labs</code> of 
+      <td><p>The plot labels to be used; see the argument <code>labs</code> of
 <code><a href='burst.html'>burst</a>()</code> for the exact specification.
-<code>labs</code> can, in general, be anything as long as <code>plot1d</code> 
+<code>labs</code> can, in general, be anything as long as <code>plot1d</code>
 and <code>plot2d</code> know how to deal with it.</p></td>
     </tr>
     <tr>
       <th>pkg</th>
-      <td><p>The R package used for plotting (depends on how the 
-functions <code>plot1d</code> and <code>plot2d</code> were constructed; 
+      <td><p>The R package used for plotting (depends on how the
+functions <code>plot1d</code> and <code>plot2d</code> were constructed;
 the user is responsible for choosing the appropriate package
 among the supported ones).</p></td>
     </tr>
@@ -310,12 +313,12 @@ among the supported ones).</p></td>
     <tr>
       <th>ospace</th>
       <td><p>The outer space around the zenplot.   A vector
-of length four (bottom, left, top, right), 
-or one whose values are repeated to be of length four,
-which gives the outer space between the device region and 
-the inner plot region around the zenplot.</p>
-<p>Values should be in \([0,1]\)  when <code>pkg</code> is <code>"graphics"</code> or 
-<code>"grid"</code>, and as number of pixels when<code>pkg</code> is <code>"loon"</code>.</p></td>
+       of length four (bottom, left, top, right),
+       or one whose values are repeated to be of length four,
+       which gives the outer space between the device region and
+       the inner plot region around the zenplot.</p>
+<p>Values should be in \([0,1]\)  when <code>pkg</code> is <code>"graphics"</code> or
+       <code>"grid"</code>, and as number of pixels when<code>pkg</code> is <code>"loon"</code>.</p></td>
     </tr>
     <tr>
       <th>ispace</th>
@@ -331,7 +334,7 @@ is immediately displayed (the default) or not.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>arguments passed to the drawing functions for both <code>plot1d</code> and 
+      <td><p>arguments passed to the drawing functions for both <code>plot1d</code> and
 <code>plot2d</code>. If you need to pass certain arguments only to one
 of them, say, <code>plot2d</code>, consider providing your own
 <code>plot2d</code>; see the examples below.</p></td>
@@ -340,12 +343,16 @@ of them, say, <code>plot2d</code>, consider providing your own
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>(besides plotting) invisibly returns a list containing at least
-       the path and layout (see <code><a href='unfold.html'>unfold</a></code> for details).</p>       
+    <p>(besides plotting) invisibly returns a list having additional classnames
+       marking it as a zenplot and a zenPkg object (with Pkg being one of Graphics,
+       Grid, or Loon, so as to identify the
+       package used to construct the plot).</p>       
+<p>As a list it contains at least
+       the path and layout (see <code><a href='unfold.html'>unfold</a></code> for details).</p>
 <p>Depending on the graphics package <code>pkg</code> used, the returned list
-       includes additional components.  For <code>pkg = "grid"</code>, 
+       includes additional components.  For <code>pkg = "grid"</code>,
        this will be the whole plot as a <code><a href='https://rdrr.io/r/grid/grid.grob.html'>grob</a></code> (grid object).
-       For <code>pkg = "loon"</code>,  this will be the whole plot as a 
+       For <code>pkg = "loon"</code>,  this will be the whole plot as a
        <code>loon</code> plot object as
        well as the toplevel <code>tk</code> object in which the plot appears.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -354,9 +361,9 @@ of them, say, <code>plot2d</code>, consider providing your own
 <p><code><a href='extract_1d.html'>extract_1d</a>()</code> and <code><a href='extract_2d.html'>extract_2d</a>()</code>
 for how <code>zargs</code> can be split up into a list of columns and corresponding
 group and variable information.</p>
-<p><code><a href='burst.html'>burst</a>()</code> for how <code>x</code> can be split up into all sorts of 
+<p><code><a href='burst.html'>burst</a>()</code> for how <code>x</code> can be split up into all sorts of
 information useful for plotting (see our default <code>plot1d</code> and <code>plot2d</code>).
-<code><a href='vport.html'>vport</a>()</code> for how to construct a viewport for 
+<code><a href='vport.html'>vport</a>()</code> for how to construct a viewport for
 (our default) <span class="pkg">grid</span> (<code>plot1d</code> and <code>plot2d</code>) functions.</p>
 <p><code><a href='extract_pairs.html'>extract_pairs</a>()</code>, <code><a href='connect_pairs.html'>connect_pairs</a>()</code>,
 <code><a href='https://ggplot2.tidyverse.org/reference/aes_group_order.html'>group</a>()</code> and <code><a href='zenpath.html'>zenpath</a>()</code> for
@@ -379,7 +386,13 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 
 <span class='co'>## A basic zenplot</span>
 <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
-</div><div class='img'><img src='zenplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='va'>res</span>, <span class='fu'><a href='unfold.html'>unfold</a></span><span class='op'>(</span>nfaces <span class='op'>=</span> <span class='va'>d</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='zenplot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>uf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='unfold.html'>unfold</a></span><span class='op'>(</span>nfaces <span class='op'>=</span> <span class='va'>d</span> <span class='op'>-</span> <span class='fl'>1</span><span class='op'>)</span>
+<span class='co'>## `res` and `uf` is not identical as `res` has specific</span>
+<span class='co'>## class attributes.</span>
+<span class='kw'>for</span><span class='op'>(</span><span class='va'>name</span> <span class='kw'>in</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>uf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/stopifnot.html'>stopifnot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/identical.html'>identical</a></span><span class='op'>(</span><span class='va'>res</span><span class='op'>[[</span><span class='va'>name</span><span class='op'>]</span><span class='op'>]</span>, <span class='va'>uf</span><span class='op'>[[</span><span class='va'>name</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
 <span class='co'>## =&gt; The return value of zenplot() is the underlying unfold()</span>
 
 <span class='co'>## Some missing data</span>
@@ -561,17 +574,17 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='co'>##       region but are not correct relative to each other in the</span>
 <span class='co'>##       sense of covering the same are. For a *proper* overlay</span>
 <span class='co'>##       see below.</span>
-<span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>, 
+<span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>,
     plot1d <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span> <span class='op'>{</span>
                     <span class='fu'><a href='hist_1d_graphics.html'>hist_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
-                    <span class='fu'><a href='density_1d_graphics.html'>density_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>, 
-                                        border <span class='op'>=</span> <span class='st'>"royalblue3"</span>, 
+                    <span class='fu'><a href='density_1d_graphics.html'>density_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                                        border <span class='op'>=</span> <span class='st'>"royalblue3"</span>,
                                         lwd <span class='op'>=</span> <span class='fl'>1.4</span><span class='op'>)</span>
-                    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>, 
-                                      loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>0.8</span><span class='op'>)</span>, 
+                    <span class='fu'><a href='label_1d_graphics.html'>label_1d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                                      loc <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.2</span>, <span class='fl'>0.8</span><span class='op'>)</span>,
                                       cex <span class='op'>=</span> <span class='fl'>0.6</span>, font <span class='op'>=</span> <span class='fl'>2</span>,
                                       col <span class='op'>=</span> <span class='st'>"darkorange2"</span><span class='op'>)</span>
-                    <span class='op'>}</span>, 
+                    <span class='op'>}</span>,
     plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span> <span class='op'>{</span>
                     <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
                     <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, add <span class='op'>=</span> <span class='cn'>TRUE</span>,
@@ -592,7 +605,7 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='va'>turn.out</span> <span class='op'>&lt;-</span> <span class='va'>zargs</span><span class='op'>$</span><span class='va'>turns</span><span class='op'>[</span><span class='va'>num</span><span class='op'>]</span> <span class='co'># turn out of current position</span>
 <span class='va'>horizontal</span> <span class='op'>&lt;-</span> <span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"d"</span> <span class='op'>||</span> <span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"u"</span>
 <span class='co'># the indices of the 'x' variable to be displayed in the current plot</span>
-<span class='va'>ii</span> <span class='op'>&lt;-</span> <span class='fu'><a href='plot_indices.html'>plot_indices</a></span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span> 
+<span class='va'>ii</span> <span class='op'>&lt;-</span> <span class='fu'><a href='plot_indices.html'>plot_indices</a></span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
 <span class='va'>label</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"V"</span>, <span class='va'>ii</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span> <span class='co'># label</span>
 <span class='va'>srt</span> <span class='op'>&lt;-</span> <span class='kw'>if</span><span class='op'>(</span><span class='va'>horizontal</span><span class='op'>)</span> <span class='fl'>0</span> <span class='kw'>else</span> <span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"r"</span><span class='op'>)</span> <span class='op'>-</span><span class='fl'>90</span> <span class='kw'>else</span> <span class='fl'>90</span> <span class='co'># label rotation</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='va'>zargs</span><span class='op'>$</span><span class='va'>x</span><span class='op'>[</span>,<span class='va'>ii</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='co'># data</span>
@@ -633,16 +646,16 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='va'>loc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.6</span><span class='op'>)</span>
 
 <span class='co'># when walking downwards, change both left/right and up/down</span>
-<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"d"</span><span class='op'>)</span> <span class='va'>loc</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>-</span><span class='va'>loc</span> 
+<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"d"</span><span class='op'>)</span> <span class='va'>loc</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>-</span><span class='va'>loc</span>
 
 <span class='co'># when walking to the right, coordinates change and 2nd is flipped</span>
-<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"r"</span><span class='op'>)</span> <span class='op'>{</span> 
+<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"r"</span><span class='op'>)</span> <span class='op'>{</span>
     <span class='va'>loc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span><span class='op'>(</span><span class='va'>loc</span><span class='op'>)</span>
     <span class='va'>loc</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>-</span><span class='va'>loc</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>
 <span class='op'>}</span>
 
 <span class='co'># when walking to the left, coordinates change and 1st is flipped</span>
-<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"l"</span><span class='op'>)</span> <span class='op'>{</span> 
+<span class='kw'>if</span><span class='op'>(</span><span class='va'>turn.out</span> <span class='op'>==</span> <span class='st'>"l"</span><span class='op'>)</span> <span class='op'>{</span>
     <span class='va'>loc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span><span class='op'>(</span><span class='va'>loc</span><span class='op'>)</span>
     <span class='va'>loc</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>-</span><span class='va'>loc</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>
 <span class='op'>}</span>
@@ -655,13 +668,13 @@ information useful for plotting (see our default <code>plot1d</code> and <code>p
 <span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>loc</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, y <span class='op'>=</span> <span class='va'>loc</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, labels <span class='op'>=</span> <span class='va'>label</span>, cex <span class='op'>=</span> <span class='fl'>0.7</span>, srt <span class='op'>=</span> <span class='va'>srt</span>, font <span class='op'>=</span> <span class='fl'>2</span>,
      col <span class='op'>=</span> <span class='st'>"darkorange2"</span><span class='op'>)</span> <span class='co'># label</span>
     <span class='op'>}</span>
-    
+
 <span class='co'>## Zenplot</span>
-<span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>, 
+<span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>x</span>,
 plot1d <span class='op'>=</span> <span class='st'>"hist_with_density_1d"</span>,
 plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span> <span class='op'>{</span>
        <span class='fu'><a href='density_2d_graphics.html'>density_2d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
-       <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>, 
+       <span class='fu'><a href='points_2d_graphics.html'>points_2d_graphics</a></span><span class='op'>(</span><span class='va'>zargs</span>,
                           add <span class='op'>=</span> <span class='cn'>TRUE</span>,
                           col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/adjustcolor.html'>adjustcolor</a></span><span class='op'>(</span><span class='st'>"black"</span>, alpha.f <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>}</span>
@@ -776,7 +789,7 @@ plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op
                                      legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot_gtable.html'>ggplot_gtable</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot_build.html'>ggplot_build</a></span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># 2d plot as grob</span>
    <span class='op'>}</span>
-   
+
 <span class='co'>## Plotting</span>
 <span class='va'>iris.</span> <span class='op'>&lt;-</span> <span class='va'>iris</span>
 <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>iris.</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>"\\\\."</span>, <span class='st'>" "</span>, x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># =&gt; nicer 1d labels</span>
@@ -824,7 +837,7 @@ plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op
 </div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: ‘gridExtra’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:BiocGenerics’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    combine</span></div><div class='input'>   
+#&gt; <span class='message'>    combine</span></div><div class='input'>
 <span class='co'>## Build a list of cloud() plots (trellis objects)</span>
 <span class='co'>## Note:</span>
 <span class='co'>## - 'grid' problem: Without print(), the below zenplot() may fail (e.g.,</span>
@@ -845,7 +858,7 @@ plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op
    <span class='op'>}</span>
 <span class='va'>plst.3d</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>4</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>i</span><span class='op'>)</span>
        <span class='fu'>mycloud</span><span class='op'>(</span><span class='va'>x</span><span class='op'>[</span>,<span class='va'>i</span><span class='op'>:</span><span class='op'>(</span><span class='va'>i</span><span class='op'>+</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>]</span>, num <span class='op'>=</span> <span class='va'>i</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># list of trellis objects</span>
-</div><div class='img'><img src='zenplot-38.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-39.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-40.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-41.png' alt='' width='700' height='433' /></div><div class='input'>   
+</div><div class='img'><img src='zenplot-38.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-39.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-40.png' alt='' width='700' height='433' /></div><div class='img'><img src='zenplot-41.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'>## Preparing the zenplot</span>
 <span class='va'>num</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>plst.3d</span><span class='op'>)</span>
 <span class='va'>ncols</span> <span class='op'>&lt;-</span> <span class='fl'>2</span>
@@ -859,7 +872,7 @@ plot2d <span class='op'>=</span> <span class='kw'>function</span><span class='op
        <span class='co'>##       gTree(children = gList(grob(zargs$x[[num2d]], vp = vp,</span>
        <span class='co'>##                                   cl = "lattice")))</span>
    <span class='op'>}</span>
-   
+
 <span class='co'>## Zenplot</span>
 <span class='co'>## Note: We use a list of *plots* here already (not data)</span>
 <span class='fu'>zenplot</span><span class='op'>(</span><span class='va'>plst.3d</span>, turns <span class='op'>=</span> <span class='va'>turns</span>, n2dplots <span class='op'>=</span> <span class='va'>num</span>, pkg <span class='op'>=</span> <span class='st'>"grid"</span>, first1d <span class='op'>=</span> <span class='cn'>FALSE</span>,

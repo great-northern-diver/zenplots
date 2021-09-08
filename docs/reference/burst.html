@@ -47,9 +47,9 @@
 
 
 <meta property="og:title" content="Splitting an Input Object into a List of Columns — burst" />
-<meta property="og:description" content="Splits a (numeric/logical/character) vector, matrix, 
-data.frame or a list of such into a list of columns, with corresponding 
-group and variable information as well as labels.  
+<meta property="og:description" content="Splits a (numeric/logical/character) vector, matrix,
+data.frame or a list of such into a list of columns, with corresponding
+group and variable information as well as labels.
 This is an auxiliary function for checking and converting the data argument of zenplot()." />
 <meta property="og:image" content="/logo.png" />
 
@@ -128,11 +128,14 @@ This is an auxiliary function for checking and converting the data argument of z
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -155,9 +158,9 @@ This is an auxiliary function for checking and converting the data argument of z
     </div>
 
     <div class="ref-description">
-    <p>Splits a (numeric/logical/character) vector, matrix, 
-data.frame or a list of such into a list of columns, with corresponding 
-group and variable information as well as labels.  
+    <p>Splits a (numeric/logical/character) vector, matrix,
+data.frame or a list of such into a list of columns, with corresponding
+group and variable information as well as labels.
 This is an auxiliary function for checking and converting the data argument of zenplot().</p>
     </div>
 
@@ -173,21 +176,21 @@ This is an auxiliary function for checking and converting the data argument of z
     </tr>
     <tr>
       <th>labs</th>
-      <td><p>Either <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code> 
-(in which case neither group nor variable labels are used or computed) or 
+      <td><p>Either <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code>
+(in which case neither group nor variable labels are used or computed) or
 a list with components</p>
-<p><code>group</code> - the group label basename or labels for the groups 
-                     (or <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code> for no group labels)</p>       
-<p><code>var</code> - the variable label basename or labels for the variables 
-       (or <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code> for no variable labels)</p>       
-<p><code>sep</code> - the string used as the separator between group and 
-       variable labels</p>       
-<p><code>group2d</code> - a <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether labels of 
-       <code>group_2d_*()</code> plots are affected by <code>group = NULL</code> (or printed anyway)</p>           
+<p><code>group</code> - the group label basename or labels for the groups
+                     (or <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code> for no group labels)</p>
+<p><code>var</code> - the variable label basename or labels for the variables
+       (or <code><a href='https://rdrr.io/r/base/NULL.html'>NULL</a></code> for no variable labels)</p>
+<p><code>sep</code> - the string used as the separator between group and
+       variable labels</p>
+<p><code>group2d</code> - a <code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether labels of
+       <code>group_2d_*()</code> plots are affected by <code>group = NULL</code> (or printed anyway)</p>
 <p>If any of these components is not given, it is set to the defaults as described in
-<code><a href='zenplot.html'>zenplot</a>()</code>. 
-Note that if at least one (group or variable) label is given in <code>x</code>, 
-then those (original) labels will be used.       
+<code><a href='zenplot.html'>zenplot</a>()</code>.
+Note that if at least one (group or variable) label is given in <code>x</code>,
+then those (original) labels will be used.
 If labs = NULL, neither group nor variable labels are used.</p></td>
     </tr>
     </table>
@@ -195,10 +198,10 @@ If labs = NULL, neither group nor variable labels are used.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> with components</p>
-<p><code>xcols</code> - a list containing the column vectors of  <code>x</code></p>         
-<p><code>groups</code> - the group number for each column of  <code>x</code></p>         
-<p><code>vars</code> - the variable number (within each group) for each column of  <code>x</code></p>         
-<p><code>glabs</code> - the group label for each column of  <code>x</code></p>         
+<p><code>xcols</code> - a list containing the column vectors of  <code>x</code></p>
+<p><code>groups</code> - the group number for each column of  <code>x</code></p>
+<p><code>vars</code> - the variable number (within each group) for each column of  <code>x</code></p>
+<p><code>glabs</code> - the group label for each column of  <code>x</code></p>
 <p><code>labs</code> - the group and variable labels for each column of  <code>x</code></p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
