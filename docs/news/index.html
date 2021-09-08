@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Density plot in 1d using R's base graphics — density_1d_graphics • zenplots</title>
+<title>Changelog • zenplots</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,7 @@
 
 
 
-<meta property="og:title" content="Density plot in 1d using R's base graphics — density_1d_graphics" />
-<meta property="og:description" content="Density plot in 1d using R's base graphics" />
+<meta property="og:title" content="Changelog" />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -67,7 +66,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -149,110 +148,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Density plot in 1d using R's base graphics</h1>
-    <small class="dont-index">Source: <a href='https://github.com/great-northern-diver/zenplots/blob/master/R/plot1dgraphics.R'><code>R/plot1dgraphics.R</code></a></small>
-    <div class="hidden name"><code>density_1d_graphics.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/great-northern-diver/zenplots/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>Density plot in 1d using R's base graphics</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>density_1d_graphics</span><span class='op'>(</span>
-  <span class='va'>zargs</span>,
-  density... <span class='op'>=</span> <span class='cn'>NULL</span>,
-  offset <span class='op'>=</span> <span class='fl'>0.08</span>,
-  add <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  plot... <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>zargs</th>
-      <td><p>argument list as passed from <code><a href='zenplot.html'>zenplot</a>()</code></p></td>
-    </tr>
-    <tr>
-      <th>density...</th>
-      <td><p>list of arguments for density()</p></td>
-    </tr>
-    <tr>
-      <th>offset</th>
-      <td><p>number in [0, 0.5] determining how far away the density stays
-from the plot margins (for creating space between the two)</p></td>
-    </tr>
-    <tr>
-      <th>add</th>
-      <td><p>logical indicating whether this plot should be added to the last one</p></td>
-    </tr>
-    <tr>
-      <th>plot...</th>
-      <td><p>additional arguments passed to plot_region()</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>additional arguments passed to polygon()</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>invisible()</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other default 1d plot functions using R's base graphics: 
-<code><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a>()</code>,
-<code><a href='boxplot_1d_graphics.html'>boxplot_1d_graphics</a>()</code>,
-<code><a href='hist_1d_graphics.html'>hist_1d_graphics</a>()</code>,
-<code><a href='jitter_1d_graphics.html'>jitter_1d_graphics</a>()</code>,
-<code><a href='label_1d_graphics.html'>label_1d_graphics</a>()</code>,
-<code><a href='lines_1d_graphics.html'>lines_1d_graphics</a>()</code>,
-<code><a href='points_1d_graphics.html'>points_1d_graphics</a>()</code>,
-<code><a href='rect_1d_graphics.html'>rect_1d_graphics</a>()</code>,
-<code><a href='rug_1d_graphics.html'>rug_1d_graphics</a>()</code></p>
-<p>Other default 1d plot functions: 
-<code><a href='arrow_1d_graphics.html'>arrow_1d_graphics</a>()</code>,
-<code><a href='arrow_1d_grid.html'>arrow_1d_grid</a>()</code>,
-<code><a href='arrow_1d_loon.html'>arrow_1d_loon</a>()</code>,
-<code><a href='boxplot_1d_graphics.html'>boxplot_1d_graphics</a>()</code>,
-<code><a href='boxplot_1d_grid.html'>boxplot_1d_grid</a>()</code>,
-<code><a href='boxplot_1d_loon.html'>boxplot_1d_loon</a>()</code>,
-<code><a href='density_1d_grid.html'>density_1d_grid</a>()</code>,
-<code><a href='density_1d_loon.html'>density_1d_loon</a>()</code>,
-<code><a href='extract_1d.html'>extract_1d</a>()</code>,
-<code><a href='hist_1d_graphics.html'>hist_1d_graphics</a>()</code>,
-<code><a href='hist_1d_grid.html'>hist_1d_grid</a>()</code>,
-<code><a href='hist_1d_loon.html'>hist_1d_loon</a>()</code>,
-<code><a href='jitter_1d_graphics.html'>jitter_1d_graphics</a>()</code>,
-<code><a href='jitter_1d_grid.html'>jitter_1d_grid</a>()</code>,
-<code><a href='jitter_1d_loon.html'>jitter_1d_loon</a>()</code>,
-<code><a href='label_1d_graphics.html'>label_1d_graphics</a>()</code>,
-<code><a href='label_1d_grid.html'>label_1d_grid</a>()</code>,
-<code><a href='label_1d_loon.html'>label_1d_loon</a>()</code>,
-<code><a href='lines_1d_graphics.html'>lines_1d_graphics</a>()</code>,
-<code><a href='lines_1d_grid.html'>lines_1d_grid</a>()</code>,
-<code><a href='lines_1d_loon.html'>lines_1d_loon</a>()</code>,
-<code><a href='points_1d_graphics.html'>points_1d_graphics</a>()</code>,
-<code><a href='points_1d_grid.html'>points_1d_grid</a>()</code>,
-<code><a href='points_1d_loon.html'>points_1d_loon</a>()</code>,
-<code><a href='rect_1d_graphics.html'>rect_1d_graphics</a>()</code>,
-<code><a href='rect_1d_grid.html'>rect_1d_grid</a>()</code>,
-<code><a href='rect_1d_loon.html'>rect_1d_loon</a>()</code>,
-<code><a href='rug_1d_graphics.html'>rug_1d_graphics</a>()</code>,
-<code><a href='rug_1d_grid.html'>rug_1d_grid</a>()</code>,
-<code><a href='rug_1d_loon.html'>rug_1d_loon</a>()</code></p></div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
-
-    <p>Marius Hofert and Wayne Oldford</p>
-
+    <div id="zenplots-105" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.5">
+<a href="#zenplots-105" class="anchor"></a>zenplots 1.0.5<small> Unreleased </small>
+</h1>
+<ul>
+<li>
+<p>zenplot now (invisibly) returns a list with two extra classes</p>
+<ul>
+<li>
+<code>zenplot</code> to identify that the structure is a zenplot</li>
+<li>one of <code>zengraphics</code>, <code>zenGrid</code>, or <code>zenLoon</code> to indicate which graphics package was used.</li>
+</ul>
+<p>documentation updated accordingly.</p>
+</li>
+<li><p>updated documentation on <code>zenpath</code> to mention that <code>pairs</code> must describe a connected graph.</p></li>
+</ul>
+</div>
+    <div id="zenplots-104" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.4">
+<a href="#zenplots-104" class="anchor"></a>zenplots 1.0.4<small> Unreleased </small>
+</h1>
+<ul>
+<li>CRAN release</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 

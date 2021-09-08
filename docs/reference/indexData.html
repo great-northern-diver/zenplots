@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -125,11 +125,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,7 +165,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> or <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> 
+      <td><p>A <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> or <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code>
 (most useful for the latter).</p></td>
     </tr>
     <tr>
@@ -174,8 +177,8 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object as <code>x</code> 
-       (typically a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or 
+    <p>An object as <code>x</code>
+       (typically a <code><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></code> or
         <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code>) containing <code>x</code>
         indexed by <code>indices</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
@@ -199,10 +202,10 @@
     <pre class="examples"><div class='input'><span class='co'>## The function is handiest for data frames</span>
 <span class='co'>## where we want to reuse the variable names</span>
 <span class='co'>## without adding a suffix like ".1" etc.</span>
-<span class='co'>## For example, </span>
+<span class='co'>## For example,</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span>  <span class='va'>BOD</span>  <span class='co'># Biochemical Oxygen Demand data in base R</span>
 <span class='va'>indices</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>
-<span class='co'>## now compare </span>
+<span class='co'>## now compare</span>
 <span class='fu'>indexData</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>indices</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   Time demand Time demand
 #&gt; 1    1    8.3    1    8.3

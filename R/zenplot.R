@@ -270,7 +270,12 @@ unfold <- function(nfaces, turns = NULL,
 ##'        \code{plot2d}. If you need to pass certain arguments only to one
 ##'        of them, say, \code{plot2d}, consider providing your own
 ##'        \code{plot2d}; see the examples below.
-##' @return (besides plotting) invisibly returns a list containing at least
+##' @return (besides plotting) invisibly returns a list having additional classnames
+##'        marking it as a zenplot and a zenPkg object (with Pkg being one of Graphics,
+##'        Grid, or Loon, so as to identify the
+##'        package used to construct the plot).  
+##'        
+##'        As a list it contains at least
 ##'        the path and layout (see \code{\link{unfold}} for details).
 ##'
 ##'        Depending on the graphics package \code{pkg} used, the returned list

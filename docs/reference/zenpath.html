@@ -47,8 +47,8 @@
 
 
 <meta property="og:title" content="Construct a Path of Indices to Order Variables — zenpath" />
-<meta property="og:description" content="Constructing zenpaths and tools for extracting, 
-connecting and displaying pairs, as well as 
+<meta property="og:description" content="Constructing zenpaths and tools for extracting,
+connecting and displaying pairs, as well as
 grouping and indexing data structures." />
 <meta property="og:image" content="/logo.png" />
 
@@ -82,7 +82,7 @@ grouping and indexing data structures." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -127,11 +127,14 @@ grouping and indexing data structures." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -154,14 +157,14 @@ grouping and indexing data structures." />
     </div>
 
     <div class="ref-description">
-    <p>Constructing zenpaths and tools for extracting, 
-connecting and displaying pairs, as well as 
+    <p>Constructing zenpaths and tools for extracting,
+connecting and displaying pairs, as well as
 grouping and indexing data structures.</p>
     </div>
 
     <pre class="usage"><span class='fu'>zenpath</span><span class='op'>(</span><span class='va'>x</span>, pairs <span class='op'>=</span> <span class='cn'>NULL</span>,
         method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"front.loaded"</span>, <span class='st'>"back.loaded"</span>,
-                   <span class='st'>"balanced"</span>, <span class='st'>"eulerian.cross"</span>, 
+                   <span class='st'>"balanced"</span>, <span class='st'>"eulerian.cross"</span>,
                    <span class='st'>"greedy.weighted"</span>, <span class='st'>"strictly.weighted"</span><span class='op'>)</span>,
         decreasing <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
@@ -187,7 +190,10 @@ method
       <th>pairs</th>
       <td><p>a two-column <code><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></code> containing (row-wise)
 the pairs of connected variables to be sorted according to the
-weights. The <code>pairs</code> argument is only used for the <code>method</code>s
+weights. Note that the resulting graph must be connected 
+(i.e. any variable can be reached from any other variable 
+following the connections given by <code>pairs</code>).
+The <code>pairs</code> argument is only used for the <code>method</code>s
 <code>greedy.weighted</code> and <code>strictly.weighted</code> and can be
 <code>NULL</code> (in which case a default is constructed in lexicographical order).</p></td>
     </tr>
@@ -211,8 +217,8 @@ method to be used. Available methods are:</p><dl>
        <dt><code>"greedy.weighted"</code>:</dt><dd><p>Sort all pairs according to a greedy (heuristic)
                             Euler path with <code>x</code> as weights visiting each
                             edge precisely once.</p></dd>
-       <dt><code>"strictly.weighted"</code>:</dt><dd><p>Strictly respect the order of the weights - so the first, second, 
-        third, and so on, adjacent pair of numbers of the output of 
+       <dt><code>"strictly.weighted"</code>:</dt><dd><p>Strictly respect the order of the weights - so the first, second,
+        third, and so on, adjacent pair of numbers of the output of
         <code>zenpath()</code> corresponds to the pair with largest,
         second-largest, third-largest, and so on, weight.</p></dd>
        

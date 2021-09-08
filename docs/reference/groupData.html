@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Splitting a Matrix into a List of Matrices — groupData" />
-<meta property="og:description" content="Takes a matrix x and groups its rows (or columns) 
+<meta property="og:description" content="Takes a matrix x and groups its rows (or columns)
 as specified by indices.  Returns a list of matrices, one for each group." />
 <meta property="og:image" content="/logo.png" />
 
@@ -81,7 +81,7 @@ as specified by indices.  Returns a list of matrices, one for each group." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -126,11 +126,14 @@ as specified by indices.  Returns a list of matrices, one for each group." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -153,7 +156,7 @@ as specified by indices.  Returns a list of matrices, one for each group." />
     </div>
 
     <div class="ref-description">
-    <p>Takes a matrix <code>x</code> and groups its rows (or columns) 
+    <p>Takes a matrix <code>x</code> and groups its rows (or columns)
 as specified by <code>indices</code>.  Returns a list of matrices, one for each group.</p>
     </div>
 
@@ -175,14 +178,14 @@ which <code>x</code> is grouped; each vector of indices define a group.</p></td>
     <tr>
       <th>byrow</th>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical</a></code> indicating whether the grouping is
-done by row (<code>byrow = TRUE</code>) 
+done by row (<code>byrow = TRUE</code>)
 or by column (<code>byrow = FALSE</code>, the default).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of matrices (one per group). 
+    <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> of matrices (one per group).
         Such a list, grouped by columns, is then typically passed on to <code><a href='zenplot.html'>zenplot</a>()</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 

@@ -49,13 +49,13 @@
 
 <meta property="og:title" content="Unfold the hypercube and produce all information concerning the zenpath
        and zenplot layout — unfold" />
-<meta property="og:description" content="The unfold() function imagines each pair of variables/dimensions 
+<meta property="og:description" content="The unfold() function imagines each pair of variables/dimensions
 as a &quot;face&quot; of a high dimensional cube. These faces are &quot;unfolded&quot; from one 2d space
-or &quot;face&quot; to the next about the 1d face or &quot;edge&quot; they share.  The unfold() 
-function  takes, as first argument, nfaces, 
-the number of 2d plots/spaces to be &quot;unfolded&quot; and produces the zenpath and 
-zenplot layout required for the function zenplot().  Laying out these pairs 
-with a zenplot is what is alluded to as an &quot;unfolding&quot; of (at least a part of) 
+or &quot;face&quot; to the next about the 1d face or &quot;edge&quot; they share.  The unfold()
+function  takes, as first argument, nfaces,
+the number of 2d plots/spaces to be &quot;unfolded&quot; and produces the zenpath and
+zenplot layout required for the function zenplot().  Laying out these pairs
+with a zenplot is what is alluded to as an &quot;unfolding&quot; of (at least a part of)
 the high dimensional space." />
 <meta property="og:image" content="/logo.png" />
 
@@ -89,7 +89,7 @@ the high dimensional space." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -134,11 +134,14 @@ the high dimensional space." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -162,13 +165,13 @@ the high dimensional space." />
     </div>
 
     <div class="ref-description">
-    <p>The <code>unfold()</code> function imagines each pair of variables/dimensions 
+    <p>The <code>unfold()</code> function imagines each pair of variables/dimensions
 as a "face" of a high dimensional cube. These faces are "unfolded" from one 2d space
-or "face" to the next about the 1d face or "edge" they share.  The <code>unfold()</code> 
-function  takes, as first argument, <code>nfaces</code>, 
-the number of 2d plots/spaces to be "unfolded" and produces the zenpath and 
-zenplot layout required for the function zenplot().  Laying out these pairs 
-with a zenplot is what is alluded to as an "unfolding" of (at least a part of) 
+or "face" to the next about the 1d face or "edge" they share.  The <code>unfold()</code>
+function  takes, as first argument, <code>nfaces</code>,
+the number of 2d plots/spaces to be "unfolded" and produces the zenpath and
+zenplot layout required for the function zenplot().  Laying out these pairs
+with a zenplot is what is alluded to as an "unfolding" of (at least a part of)
 the high dimensional space.</p>
     </div>
 
@@ -196,7 +199,7 @@ constructed.</p></td>
       <th>n2dcols</th>
       <td><p>number of columns of 2d plots (\(\ge 1\))
 or one of <code>"letter"</code>, <code>"square"</code>, <code>"A4"</code>,
-<code>"golden"</code> or <code>"legal"</code> in which case a similar layout is constructed. 
+<code>"golden"</code> or <code>"legal"</code> in which case a similar layout is constructed.
 Note that <code>n2dcols</code> is ignored if <code>!is.null(turns)</code>.</p></td>
     </tr>
     <tr>
@@ -241,11 +244,11 @@ plot should be plotted</p></td>
 
     <p>A <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> describing the unfolded path and its layout
  as a list of named components:</p><dl>
-    <dt><code>path</code>:</dt><dd><p>the path of the unfolding, itself given 
+    <dt><code>path</code>:</dt><dd><p>the path of the unfolding, itself given
     as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
     <dl>
-    <dt><code>turns</code>:</dt><dd><p>the sequence of turns 
-     -- each being one of &#8220;l&#8221; (for left), &#8220;r&#8221; (for right), 
+    <dt><code>turns</code>:</dt><dd><p>the sequence of turns
+     -- each being one of &#8220;l&#8221; (for left), &#8220;r&#8221; (for right),
     &#8220;d&#8221; (for down), and &#8220;u&#8221;  (for up) --
     required to move from the current plot location in the display to the next along
     the unfolded path.</p></dd>
@@ -253,19 +256,19 @@ plot should be plotted</p></td>
      the indices in the <code>occupancy</code> matrix of each plot in the path.</p></dd>
     <dt><code>occupancy</code>:</dt><dd><p>A rectangular array whose cells indicate the positions
     of the plots on the page.</p></dd></dl></p></dd>
-    <dt><code>layout</code>:</dt><dd><p>the details of the visual layout of the plots and given 
+    <dt><code>layout</code>:</dt><dd><p>the details of the visual layout of the plots and given
     as a structured <code><a href='https://rdrr.io/r/base/list.html'>list</a></code> having components
     <dl>
     <dt><code>orientations</code>:</dt><dd><p>a vector indicating the orientation of each of the
     displays in order -- &#8220;h&#8221; for horizontal, &#8220;v&#8221; for vertical, and
     &#8220;s&#8221; for square.</p></dd>
-    <dt><code>dimensions</code>:</dt><dd><p>a vector giving the dimensionality of each 
+    <dt><code>dimensions</code>:</dt><dd><p>a vector giving the dimensionality of each
     plot in order.</p></dd>
     <dt><code>vars</code>:</dt><dd><p>A matrix of the variable indices to be used in each plot -- <code>x</code>
     being the horizontal variable and <code>y</code> the vertical.</p></dd>
-    <dt><code>layoutWidth</code>:</dt><dd><p>A positive integer giving the display width of 
+    <dt><code>layoutWidth</code>:</dt><dd><p>A positive integer giving the display width of
     a 2d plot.</p></dd>
-    <dt><code>layoutHeight</code>:</dt><dd><p>A positive integer giving the display height of 
+    <dt><code>layoutHeight</code>:</dt><dd><p>A positive integer giving the display height of
     a 2d plot.</p></dd>
     <dt><code>boundingBoxes</code>:</dt><dd><p>A matrix of 4 columns giving locations (<code>left</code>,
     <code>right</code>, <code>bottom</code>, and <code>top</code>) of the box which bound each of the
@@ -286,7 +289,7 @@ plot should be plotted</p></td>
     <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>dim</span> <span class='op'>&lt;-</span> <span class='fl'>20</span> 
+    <pre class="examples"><div class='input'><span class='va'>dim</span> <span class='op'>&lt;-</span> <span class='fl'>20</span>
 <span class='va'>unfolding</span> <span class='op'>&lt;-</span> <span class='fu'>unfold</span><span class='op'>(</span>nfaces <span class='op'>=</span> <span class='va'>dim</span> <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>unfolding</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "path"   "layout"</div></pre>

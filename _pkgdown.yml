@@ -26,6 +26,10 @@ navbar:
       - text: measuring association of random vectors
         href: https://www.sciencedirect.com/science/article/pii/S0047259X1830023X
 
+    - text: Change log
+      href: news/index.html
+    
+    
   right:
     - icon: fa-github fa-lg
       href: https://github.com/great-northern-diver/zenplots
@@ -34,8 +38,6 @@ development:
   mode: release
 
 destination: ./docs/
-
-
 
 reference:
   - title: zenplots
@@ -172,3 +174,4 @@ reference:
     - n2dcols_aux
     - num_cols
     - turn_checker
+

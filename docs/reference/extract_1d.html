@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -125,11 +125,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -164,7 +167,7 @@
       <th>zargs</th>
       <td><p>The argument list as passed from <code><a href='zenplot.html'>zenplot</a>()</code>.
 This must at least contain <code>x</code>, <code>orientations</code>,
-<code>vars</code>, <code>num</code>, <code>lim</code> and <code>labs</code>;  
+<code>vars</code>, <code>num</code>, <code>lim</code> and <code>labs</code>;
 see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of these variables.</p></td>
     </tr>
     </table>
@@ -187,7 +190,7 @@ see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of thes
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>This is an auxiliary function called on <code>zargs</code> within any
-         1d plotting function (e.g. <code><a href='hist_1d_grid.html'>hist_1d_grid</a></code>, 
+         1d plotting function (e.g. <code><a href='hist_1d_grid.html'>hist_1d_grid</a></code>,
          <code><a href='density_1d_graphics.html'>density_1d_graphics</a></code>, or <code><a href='points_1d_loon.html'>points_1d_loon</a></code>)
          to extract the 1d data from <code>zargs</code> needed for plotting.
          For performance reasons, no checking of the input object is done.</p>
@@ -240,15 +243,15 @@ see <code><a href='zenplot.html'>zenplot</a>()</code> for an explanation of thes
     <p>Marius Hofert and Wayne Oldford</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## This function is used within the default (any user defined) </span>
+    <pre class="examples"><div class='input'><span class='co'>## This function is used within the default (any user defined)</span>
 <span class='co'>## 1d plots</span>
 <span class='va'>my_1d_plot</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>zargs</span>, <span class='va'>your_name</span> <span class='op'>=</span> <span class='st'>"Bob"</span>, <span class='va'>...</span><span class='op'>)</span> <span class='op'>{</span>
                    <span class='va'>data_1d</span> <span class='op'>&lt;-</span> <span class='fu'>extract_1d</span><span class='op'>(</span><span class='va'>zargs</span><span class='op'>)</span>
                    <span class='va'>msg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Components of zargs available"</span>,
-                                <span class='st'>"to construct a 1d plot for "</span>, 
+                                <span class='st'>"to construct a 1d plot for "</span>,
                                 <span class='va'>your_name</span><span class='op'>)</span>
                    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>msg</span><span class='op'>)</span>
-                   <span class='co'>## just print the names of the data components </span>
+                   <span class='co'>## just print the names of the data components</span>
                    <span class='co'>## which you might want to use in your plot</span>
                    <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>data_1d</span><span class='op'>)</span><span class='op'>)</span>
                    <span class='co'>## You might have to draw your 1d plot differently depending</span>

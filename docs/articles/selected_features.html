@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -83,11 +83,14 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Change log</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/great-northern-diver/zenplots">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -101,13 +104,13 @@
 
       
 
-      </header><script src="selected_features_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
+      </header><script src="selected_features_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Zigzag expanded navigation plots in R: The R package zenplots</h1>
                         <h4 class="author">M. Hofert and R. W. Oldford</h4>
             
-            <h4 class="date">2021-05-18</h4>
+            <h4 class="date">2021-09-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/great-northern-diver/zenplots/blob/master/vignettes/selected_features.Rmd"><code>vignettes/selected_features.Rmd</code></a></small>
       <div class="hidden name"><code>selected_features.Rmd</code></div>
@@ -402,7 +405,8 @@
 ##   ..$ boundingBoxes: num [1:19, 1:4] 0 0 10 11 11 11 21 22 22 22 ...
 ##   .. ..- attr(*, "dimnames")=List of 2
 ##   .. .. ..$ : NULL
-##   .. .. ..$ : chr [1:4] "left" "right" "bottom" "top"</code></pre>
+##   .. .. ..$ : chr [1:4] "left" "right" "bottom" "top"
+##  - attr(*, "class")= chr [1:3] "zenGraphics" "zenplot" "list"</code></pre>
 <p>Let’s have a look at the components. The occupancy matrix encodes the occupied cells in the rectangular layout:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">res</span><span class="op">[[</span><span class="st">"path"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"occupancy"</span><span class="op">]</span><span class="op">]</span></code></pre></div>
@@ -453,7 +457,7 @@
 ##         do.call(group_2d_graphics, args)
 ##     }
 ## }
-## &lt;bytecode: 0x7fb64dd98848&gt;
+## &lt;bytecode: 0x7f976209d608&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>For setting up the plot region of plots based on <code>graphics</code>:</p>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
@@ -470,19 +474,26 @@
 ##         do.call(fun, plot...)
 ##     }
 ## }
-## &lt;bytecode: 0x7fb64dfd19b8&gt;
+## &lt;bytecode: 0x7f97622ad0d8&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
 <p>Determining the indices of the two variables to be plotted in the current 1d or 2d plot (the same for 1d plots):</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plot_indices</span></code></pre></div>
 <pre><code>## function (zargs) 
 ## zargs$vars[zargs$num, ]
-## &lt;bytecode: 0x7fb68bef6d28&gt;
+## &lt;bytecode: 0x7f9762dbdcb0&gt;
 ## &lt;environment: namespace:zenplots&gt;</code></pre>
-<p>Basic check that the return value of <code><a href="../reference/zenplot.html">zenplot()</a></code> is actually the return value of the underlying <code><a href="../reference/unfold.html">unfold()</a></code>:</p>
+<p>Basic check that the return value of <code><a href="../reference/zenplot.html">zenplot()</a></code> is actually the return value of the underlying <code><a href="../reference/unfold.html">unfold()</a></code> (note that, the output of <code>unfold</code> and <code>res</code> is not identical since <code>res</code> has specific class attributes):</p>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">n2dcols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">olive</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span> <span class="co"># number of faces of the hypercube</span>
-<span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">res</span>, <span class="fu"><a href="../reference/unfold.html">unfold</a></span><span class="op">(</span>nfaces <span class="op">=</span> <span class="va">n2dcols</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="va">uf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unfold.html">unfold</a></span><span class="op">(</span>nfaces <span class="op">=</span> <span class="va">n2dcols</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">uf</span><span class="op">)</span> <span class="co">#return FALSE</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw">for</span><span class="op">(</span><span class="va">name</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">uf</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+   <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="va">name</span><span class="op">]</span><span class="op">]</span>, <span class="va">uf</span><span class="op">[[</span><span class="va">name</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 </div>
 </div>
   </div>
