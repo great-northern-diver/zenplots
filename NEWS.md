@@ -1,3 +1,9 @@
+# zenplots 1.0.5
+
+* zenplots package documentation file 
+
+  - roxygen2's @doctype package stopped adding -package alias (see roxygen2 issue 1491)
+
 # zenplots 1.0.4
 
 * zenplot now (invisibly) returns a list with two extra classes

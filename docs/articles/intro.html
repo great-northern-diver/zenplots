@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zenplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5</span>
       </span>
     </div>
 
@@ -51,7 +53,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -66,20 +68,20 @@
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Publications
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="https://doi.org/10.18637/jss.v095.i04">Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software</a>
+      <a href="https://doi.org/10.18637/jss.v095.i04" class="external-link">Zigzag Expanded Navigation Plots in R -- Journal of Statistical Software</a>
     </li>
     <li>
-      <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X">visualizing dependence - S&amp;P 500 data</a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S245230621730031X" class="external-link">visualizing dependence - S&amp;P 500 data</a>
     </li>
     <li>
-      <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X">measuring association of random vectors</a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0047259X1830023X" class="external-link">measuring association of random vectors</a>
     </li>
   </ul>
 </li>
@@ -89,7 +91,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/great-northern-diver/zenplots">
+  <a href="https://github.com/great-northern-diver/zenplots" class="external-link">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -104,15 +106,16 @@
 
       
 
-      </header><script src="intro_files/header-attrs-2.10/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to zenplots</h1>
-                        <h4 class="author">M. Hofert and R. W. Oldford</h4>
+                        <h4 data-toc-skip class="author">M. Hofert and
+R. W. Oldford</h4>
             
-            <h4 class="date">2021-09-08</h4>
+            <h4 data-toc-skip class="date">2023-08-25</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/great-northern-diver/zenplots/blob/master/vignettes/intro.Rmd"><code>vignettes/intro.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/great-northern-diver/zenplots/blob/HEAD/vignettes/intro.Rmd" class="external-link"><code>vignettes/intro.Rmd</code></a></small>
       <div class="hidden name"><code>intro.Rmd</code></div>
 
     </div>
@@ -120,468 +123,778 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/great-northern-diver/zenplots">zenplots</a></span><span class="op">)</span></code></pre></div>
-<div id="all-pairs" class="section level1">
-<h1 class="hasAnchor">
-<a href="#all-pairs" class="anchor"></a>All pairs</h1>
-<p>A <code>zenplot</code> can show the same information as a <code>pairs</code> plot but with two important display differences.</p>
-<p>First, the matrix organization of the <code>pairs</code> layout is replaced by the “zig-zag” layout of <code>zenplot</code>. Second, the number of plots produced is about half that of a <code>pairs</code> plot allowing each plot in a <code>zenplot</code> to be given more visual space.</p>
-<div id="producing-all-pairs-with-pairviz" class="section level2">
-<h2 class="hasAnchor">
-<a href="#producing-all-pairs-with-pairviz" class="anchor"></a>Producing all pairs with <code>PairViz</code>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/great-northern-diver/zenplots" class="external-link">zenplots</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="all-pairs">All pairs<a class="anchor" aria-label="anchor" href="#all-pairs"></a>
 </h2>
-<p>A convenient function to produce all pairs can be found in the <code>PairViz</code> package found on <code>cran</code> and installed in <code>R</code> via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("PairViz")</a></code>.</p>
+<p>A <code>zenplot</code> can show the same information as a
+<code>pairs</code> plot but with two important display differences.</p>
+<p>First, the matrix organization of the <code>pairs</code> layout is
+replaced by the “zig-zag” layout of <code>zenplot</code>. Second, the
+number of plots produced is about half that of a <code>pairs</code> plot
+allowing each plot in a <code>zenplot</code> to be given more visual
+space.</p>
+<div class="section level3">
+<h3 id="producing-all-pairs-with-pairviz">Producing all pairs with <code>PairViz</code><a class="anchor" aria-label="anchor" href="#producing-all-pairs-with-pairviz"></a>
+</h3>
+<p>A convenient function to produce all pairs can be found in the
+<code>PairViz</code> package found on <code>cran</code> and installed in
+<code>R</code> via <code>install.packages("PairViz")</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">PairViz</span><span class="op">)</span></code></pre></div>
-<p>We will illustrate this functionality and the difference between a <code>pairs</code> plot and a <code>zenplot</code> by first considering a small dataset on earthquakes having only a few variates. The difference between the two plots becomes much more important for data having larger numbers of variates – we illustrate the difference again using German data on voting patterns in two elections.</p>
-<div id="example-ground-acceleration-of-earthquakes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-ground-acceleration-of-earthquakes" class="anchor"></a>Example: Ground acceleration of earthquakes</h3>
-<p>The built-in <code>R</code> data set called <code>attenu</code> contains measurements to estimate the attenuating effect of distance on the ground acceleration of earthquakes in California.</p>
-<p>There are 5 different variates used to describe the peak acceleration of 23 California earthquakes measured at different observation stations. The data set contains 182 different peak acceleration measurements and has some missing data. The first few cases of the data set look like</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://cbhurley.github.io/PairViz/" class="external-link">PairViz</a></span><span class="op">)</span></span></code></pre></div>
+<p>We will illustrate this functionality and the difference between a
+<code>pairs</code> plot and a <code>zenplot</code> by first considering
+a small dataset on earthquakes having only a few variates. The
+difference between the two plots becomes much more important for data
+having larger numbers of variates – we illustrate the difference again
+using German data on voting patterns in two elections.</p>
+<div class="section level4">
+<h4 id="example-ground-acceleration-of-earthquakes">Example: Ground acceleration of earthquakes<a class="anchor" aria-label="anchor" href="#example-ground-acceleration-of-earthquakes"></a>
+</h4>
+<p>The built-in <code>R</code> data set called <code>attenu</code>
+contains measurements to estimate the attenuating effect of distance on
+the ground acceleration of earthquakes in California.</p>
+<p>There are 5 different variates used to describe the peak acceleration
+of 23 California earthquakes measured at different observation stations.
+The data set contains 182 different peak acceleration measurements and
+has some missing data. The first few cases of the data set look like</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/Rgraphviz/man/AgEdge-class.html">head</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span></code></pre></div>
-<pre><code>##   event mag station dist accel
-## 1     1 7.0     117   12 0.359
-## 2     2 7.4    1083  148 0.014
-## 3     2 7.4    1095   42 0.196
-## 4     2 7.4     283   85 0.135
-## 5     2 7.4     135  107 0.062
-## 6     2 7.4     475  109 0.054</code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   event mag station dist accel</span></span>
+<span><span class="co">## 1     1 7.0     117   12 0.359</span></span>
+<span><span class="co">## 2     2 7.4    1083  148 0.014</span></span>
+<span><span class="co">## 3     2 7.4    1095   42 0.196</span></span>
+<span><span class="co">## 4     2 7.4     283   85 0.135</span></span>
+<span><span class="co">## 5     2 7.4     135  107 0.062</span></span>
+<span><span class="co">## 6     2 7.4     475  109 0.054</span></span></code></pre>
 <p>Its variates are</p>
-<pre><code>## [1] "event"   "mag"     "station" "dist"    "accel"</code></pre>
+<pre><code><span><span class="co">## [1] "event"   "mag"     "station" "dist"    "accel"</span></span></code></pre>
 <p>and we are interested in all pairs of these variates.</p>
-<p>To get these, first imagine a graph having as its nodes the variates of the data. An edge of this graph connects two nodes and hence represents a pair of variates. If interest lies in all pairs of varates, then the graph is a complete graph – it will have an edge between every pair of nodes. An ordering of variate pairs corresponds to any path on the graph. To have an ordering of all pairs of variates, the path must visit all edges and is called an Eulerian, or Euler path. Such a path always exists for complete graphs on an odd number of nodes; when the number of nodes is even, extra edges must be added to the graph before an Eulerian can exist.</p>
-<p>For a complete graph with n nodes, the function <code>eseq</code> (for Euler sequence) function from the <code>PairViz</code> package returns an order in which the nodes (numbered 1 to n) can be visited to produce an Euler path. It works as follows.</p>
+<p>To get these, first imagine a graph having as its nodes the variates
+of the data. An edge of this graph connects two nodes and hence
+represents a pair of variates. If interest lies in all pairs of varates,
+then the graph is a complete graph – it will have an edge between every
+pair of nodes. An ordering of variate pairs corresponds to any path on
+the graph. To have an ordering of all pairs of variates, the path must
+visit all edges and is called an Eulerian, or Euler path. Such a path
+always exists for complete graphs on an odd number of nodes; when the
+number of nodes is even, extra edges must be added to the graph before
+an Eulerian can exist.</p>
+<p>For a complete graph with n nodes, the function <code>eseq</code>
+(for Euler sequence) function from the <code>PairViz</code> package
+returns an order in which the nodes (numbered 1 to n) can be visited to
+produce an Euler path. It works as follows.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Since attenu has 5 variates, the complete graph has n=5 nodes</span>
-<span class="co">## and an Euler sequence is given as</span>
-<span class="fu"><a href="https://rdrr.io/pkg/PairViz/man/eseq.html">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 1 2 3 1 4 2 5 3 4 5 1</code></pre>
+<code class="sourceCode R"><span><span class="co">## Since attenu has 5 variates, the complete graph has n=5 nodes</span></span>
+<span><span class="co">## and an Euler sequence is given as</span></span>
+<span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] 1 2 3 1 4 2 5 3 4 5 1</span></span></code></pre>
 <p>In terms of the variate names of <code>attenu</code>, this is:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/pkg/PairViz/man/eseq.html">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">]</span></code></pre></div>
-<pre><code>##  [1] "event"   "mag"     "station" "event"   "dist"    "mag"     "accel"  
-##  [8] "station" "dist"    "accel"   "event"</code></pre>
-<p>As can be seen in the corresponding complete graph below, <img src="intro_files/figure-html/unnamed-chunk-7-1.png" width="700" style="display: block; margin: auto;"> this sequence traces an Eulerian path on the complete graph and so presents every variate next to every other variate somewhere in the order.</p>
-<div id="euler-sequences-via-zenpath" class="section level4">
-<h4 class="hasAnchor">
-<a href="#euler-sequences-via-zenpath" class="anchor"></a>Euler sequences via <code>zenpath</code>
-</h4>
-<p>This functionality (and more) from <code>PairViz</code> has been bundled together in the <code>zenplots</code> package as a single function <code>zenpath</code>. For example,</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] "event"   "mag"     "station" "event"   "dist"    "mag"     "accel"  </span></span>
+<span><span class="co">##  [8] "station" "dist"    "accel"   "event"</span></span></code></pre>
+<p>As can be seen in the corresponding complete graph below,
+<img src="intro_files/figure-html/unnamed-chunk-7-1.png" width="700" style="display: block; margin: auto;">
+this sequence traces an Eulerian path on the complete graph and so
+presents every variate next to every other variate somewhere in the
+order.</p>
+<div class="section level5">
+<h5 id="euler-sequences-via-zenpath">Euler sequences via <code>zenpath</code><a class="anchor" aria-label="anchor" href="#euler-sequences-via-zenpath"></a>
+</h5>
+<p>This functionality (and more) from <code>PairViz</code> has been
+bundled together in the <code>zenplots</code> package as a single
+function <code>zenpath</code>. For example,</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 5 1 2 3 1 4 2 5 3 4 5</code></pre>
-<p>This sequence, while still Eulerian, is slightly different than that returned by <code><a href="https://rdrr.io/pkg/PairViz/man/eseq.html">eseq(5)</a></code>. The sequence is chosen so that all pairs involving the first index appear earliest in the sequence, then all pairs involving the second index, and so on. We call this a “front loaded” sequence and identify it with the <code>zenpath</code> argument <code>method = "front.loaded"</code>. Other possibilities are <code>method = "back.loaded"</code> and <code>method = "balanced"</code> giving the following sequences:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] 5 1 2 3 1 4 2 5 3 4 5</span></span></code></pre>
+<p>This sequence, while still Eulerian, is slightly different than that
+returned by <code>eseq(5)</code>. The sequence is chosen so that all
+pairs involving the first index appear earliest in the sequence, then
+all pairs involving the second index, and so on. We call this a “front
+loaded” sequence and identify it with the <code>zenpath</code> argument
+<code>method = "front.loaded"</code>. Other possibilities are
+<code>method = "back.loaded"</code> and <code>method = "balanced"</code>
+giving the following sequences:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Back loading ensures all pairs appear latest (back) for</span>
-<span class="co">## high values of the indices.</span>
-<span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"back.loaded"</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 1 2 3 1 4 2 5 3 4 5 1</code></pre>
+<code class="sourceCode R"><span><span class="co">## Back loading ensures all pairs appear latest (back) for</span></span>
+<span><span class="co">## high values of the indices.</span></span>
+<span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"back.loaded"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] 1 2 3 1 4 2 5 3 4 5 1</span></span></code></pre>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Frot loading ensures all pairs appear earliest (front) for</span>
-<span class="co">## low values of the indices.</span>
-<span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"front.loaded"</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 5 1 2 3 1 4 2 5 3 4 5</code></pre>
+<code class="sourceCode R"><span><span class="co">## Frot loading ensures all pairs appear earliest (front) for</span></span>
+<span><span class="co">## low values of the indices.</span></span>
+<span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"front.loaded"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] 5 1 2 3 1 4 2 5 3 4 5</span></span></code></pre>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Balanced loading ensures all pairs appear in groups of all</span>
-<span class="co">## indices (Hamiltonian paths -&gt; a Hamiltonian decomposition of the Eulerian)</span>
-<span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"balanced"</span><span class="op">)</span></code></pre></div>
-<pre><code>##  [1] 1 2 3 5 4 1 3 4 2 5 1</code></pre>
-<p>The differences are easier to see when there are more nodes. Below, we show the index ordering (top to bottom) for each of these three methods when the graph has 15 nodes, here labelled“a” to “o” (to make plotting easier).</p>
-<p>Starting from the bottom (the back of the sequence), “back loading” has the last index, “o”, complete its pairing with every other index before “n” completes all of its pairings. All of “n”’s pairings complete before those of “m”, all of “m”’s before “l”, and so on until the last pairing of “a” and “b” are completed. Note that the last indices still appear at the end of the sequence (since the sequence begins at the top of the display and moves down). The term “back loading” is used here in a double sense - the later (back) indices have their pairings appear as closely together as possible towards the back of the returned sequence. A simple reversal, that is <code><a href="https://rdrr.io/r/base/rev.html">rev(zenpath(15, method = "back.loaded"))</a></code>, would have them appear at the beginning of the sequence. In this case the “back loading” would only be in one sense, namely that the later indexed (back) nodes appear first in the reversed sequence.</p>
-<p>Analogously, “front loading” has the first (front) indices appear at the front of the sequence with their pairings appear as closely together as possible.</p>
-<p>The “balanced” case ensures that all indices appear in each block of pairings. In the figure there are 7 blocks.</p>
-<p>All three sequences are Eulerian, meaning all pairs appear somewhere in each sequence.</p>
+<code class="sourceCode R"><span><span class="co">## Balanced loading ensures all pairs appear in groups of all</span></span>
+<span><span class="co">## indices (Hamiltonian paths -&gt; a Hamiltonian decomposition of the Eulerian)</span></span>
+<span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"balanced"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] 1 2 3 5 4 1 3 4 2 5 1</span></span></code></pre>
+<p>The differences are easier to see when there are more nodes. Below,
+we show the index ordering (top to bottom) for each of these three
+methods when the graph has 15 nodes, here labelled”a” to “o” (to make
+plotting easier).</p>
+<p>Starting from the bottom (the back of the sequence), “back loading”
+has the last index, “o”, complete its pairing with every other index
+before “n” completes all of its pairings. All of “n”’s pairings complete
+before those of “m”, all of “m”’s before “l”, and so on until the last
+pairing of “a” and “b” are completed. Note that the last indices still
+appear at the end of the sequence (since the sequence begins at the top
+of the display and moves down). The term “back loading” is used here in
+a double sense - the later (back) indices have their pairings appear as
+closely together as possible towards the back of the returned sequence.
+A simple reversal, that is
+<code>rev(zenpath(15, method = "back.loaded"))</code>, would have them
+appear at the beginning of the sequence. In this case the “back loading”
+would only be in one sense, namely that the later indexed (back) nodes
+appear first in the reversed sequence.</p>
+<p>Analogously, “front loading” has the first (front) indices appear at
+the front of the sequence with their pairings appear as closely together
+as possible.</p>
+<p>The “balanced” case ensures that all indices appear in each block of
+pairings. In the figure there are 7 blocks.</p>
+<p>All three sequences are Eulerian, meaning all pairs appear somewhere
+in each sequence.</p>
 </div>
-<div id="pairs-plots-versus-zenplots" class="section level4">
-<h4 class="hasAnchor">
-<a href="#pairs-plots-versus-zenplots" class="anchor"></a>Pairs plots versus zenplots</h4>
-<p>Eulerian sequences can now be used to compare a <code>pairs</code> plot with a <code>zenplot</code> when all pairs of variates are to be displayed.</p>
+<div class="section level5">
+<h5 id="pairs-plots-versus-zenplots">Pairs plots versus zenplots<a class="anchor" aria-label="anchor" href="#pairs-plots-versus-zenplots"></a>
+</h5>
+<p>Eulerian sequences can now be used to compare a <code>pairs</code>
+plot with a <code>zenplot</code> when all pairs of variates are to be
+displayed.</p>
 <p>First a pairs plot:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## We remove the space between plots and suppress the axes</span>
-<span class="co">## so as to give maximal space to the individual scatterplots.</span>
-<span class="co">## We also choose a different plotting character and reduce</span>
-<span class="co">## its size to better distinguish points.</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">attenu</span>, oma<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>, gap<span class="op">=</span><span class="fl">0</span>, xaxt<span class="op">=</span><span class="st">"n"</span>, yaxt<span class="op">=</span><span class="st">"n"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## We remove the space between plots and suppress the axes</span></span>
+<span><span class="co">## so as to give maximal space to the individual scatterplots.</span></span>
+<span><span class="co">## We also choose a different plotting character and reduce</span></span>
+<span><span class="co">## its size to better distinguish points.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs</a></span><span class="op">(</span><span class="va">attenu</span>, oma<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span>, gap<span class="op">=</span><span class="fl">0</span>, xaxt<span class="op">=</span><span class="st">"n"</span>, yaxt<span class="op">=</span><span class="st">"n"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We now effect a display of all pairs using <code>zenplot</code>.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Plotting character and size are chosen to match that</span>
-<span class="co">## of the pairs plot.</span>
-<span class="co">## zenpath ensures that all pairs of variates appear</span>
-<span class="co">## in the zenplot.</span>
-<span class="co">## The last argument, n2dcol, is chosen so that the zenplot</span>
-<span class="co">## has the same number of plots across the page as does the</span>
-<span class="co">## pairs plot.</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, n2dcol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Plotting character and size are chosen to match that</span></span>
+<span><span class="co">## of the pairs plot.</span></span>
+<span><span class="co">## zenpath ensures that all pairs of variates appear</span></span>
+<span><span class="co">## in the zenplot.</span></span>
+<span><span class="co">## The last argument, n2dcol, is chosen so that the zenplot</span></span>
+<span><span class="co">## has the same number of plots across the page as does the</span></span>
+<span><span class="co">## pairs plot.</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, n2dcol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></p>
-<p>Each display shows scatterplot of all <code>choose(5,2) =</code> 10 pairs of variates for this data. Each display occupies the same total area.</p>
-<p>With <code>pairs</code> each plot is displayed twice and arranged in a symmetric matrix layout with the variate labels appearing along the diagonal. This makes for easy look-up but uses a lot of space.</p>
-<p>With <code>zenplot</code>, each plot appears only once with its coordinate defining variates appearing as labels on horizontal (top or bottom) and vertical (left or right) axis positions. The layout follows the order of the variates in which the variates appear in the call to <code>zenplot</code> beginning in the top left corner of the display and then zig-zagging from top left to bottom right; when the rightmost boundary or the display is reached, the direction is reversed horizontally and the zigzag moves from top right to bottom left. The following display illustrates the pattern (had by simply calling <code>zenplot</code>):</p>
+<p>Each display shows scatterplot of all <code>choose(5,2) =</code> 10
+pairs of variates for this data. Each display occupies the same total
+area.</p>
+<p>With <code>pairs</code> each plot is displayed twice and arranged in
+a symmetric matrix layout with the variate labels appearing along the
+diagonal. This makes for easy look-up but uses a lot of space.</p>
+<p>With <code>zenplot</code>, each plot appears only once with its
+coordinate defining variates appearing as labels on horizontal (top or
+bottom) and vertical (left or right) axis positions. The layout follows
+the order of the variates in which the variates appear in the call to
+<code>zenplot</code> beginning in the top left corner of the display and
+then zig-zagging from top left to bottom right; when the rightmost
+boundary or the display is reached, the direction is reversed
+horizontally and the zigzag moves from top right to bottom left. The
+following display illustrates the pattern (had by simply calling
+<code>zenplot</code>):</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Call zenplot exactly as before, except that each scatterplot is replaced</span>
-<span class="co">## by an arrow that shows the direction of the layout.</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span>, n2dcol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Call zenplot exactly as before, except that each scatterplot is replaced</span></span>
+<span><span class="co">## by an arrow that shows the direction of the layout.</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span>, n2dcol<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>The zig zag pattern of plots appears as follows.</p>
 <ul>
-<li>The top left plot (of either <code>zenplot</code> display) has horizontal variate <code>event</code> and vertical variate <code>mag</code>.</li>
-<li>To its right is a plot sharing the same vertical variate <code>mag</code> but now with horizontal variate <code>station</code>. Note that the variate <code>station</code> has some missing values and this is recorded on its label as <code>station (some NA)</code>.</li>
-<li>Below this a plot appears with the same horizontal variate <code>station</code> but now with vertical variate <code>event</code>. Since this is the first repeat appearance of <code>event</code> it appears with a suffix as <code>event.1</code>.</li>
-<li>To its right is a plot with shared vertical variate <code>event</code> and new horizontal variate <code>dist</code>.</li>
-<li>Below this is a plot having shared horizontal variate <code>dist</code> and as vertical variate the first repeat of the variate <code>mag</code>.</li>
-<li>To its right is a plot having shared vertical variate <code>mag</code> and new horizontal variate <code>accel</code>.</li>
-<li>The right edge of the display is reached and the zigzag changes horizontal direction repeating the pattern until either the left edge is reached (whereupon the horizontal direction is reversed) or the variates are exhausted.</li>
+<li>The top left plot (of either <code>zenplot</code> display) has
+horizontal variate <code>event</code> and vertical variate
+<code>mag</code>.</li>
+<li>To its right is a plot sharing the same vertical variate
+<code>mag</code> but now with horizontal variate <code>station</code>.
+Note that the variate <code>station</code> has some missing values and
+this is recorded on its label as <code>station (some NA)</code>.</li>
+<li>Below this a plot appears with the same horizontal variate
+<code>station</code> but now with vertical variate <code>event</code>.
+Since this is the first repeat appearance of <code>event</code> it
+appears with a suffix as <code>event.1</code>.</li>
+<li>To its right is a plot with shared vertical variate
+<code>event</code> and new horizontal variate <code>dist</code>.</li>
+<li>Below this is a plot having shared horizontal variate
+<code>dist</code> and as vertical variate the first repeat of the
+variate <code>mag</code>.</li>
+<li>To its right is a plot having shared vertical variate
+<code>mag</code> and new horizontal variate <code>accel</code>.</li>
+<li>The right edge of the display is reached and the zigzag changes
+horizontal direction repeating the pattern until either the left edge is
+reached (whereupon the horizontal direction is reversed) or the variates
+are exhausted.</li>
 </ul>
-<p>Like the <code>pairs</code> plot, the <code>zenplot</code> lays its plots out on a two dimensional grid – the argument <code>n2dcol=4</code> specifies the number of columns for the 2d plots (e.g. scatterplots). As shown, this can lead to a lot of unused space in the display.</p>
-<p>The <code>zenplot</code> layout can be made more compact by different choices of the argument <code>n2dcol</code> (odd values provide a more compact layout). For example,</p>
+<p>Like the <code>pairs</code> plot, the <code>zenplot</code> lays its
+plots out on a two dimensional grid – the argument <code>n2dcol=4</code>
+specifies the number of columns for the 2d plots (e.g. scatterplots). As
+shown, this can lead to a lot of unused space in the display.</p>
+<p>The <code>zenplot</code> layout can be made more compact by different
+choices of the argument <code>n2dcol</code> (odd values provide a more
+compact layout). For example,</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## The default n2dcol is used</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, n2dcol<span class="op">=</span><span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## The default n2dcol is used</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, n2dcol<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-13-1.png" width="960" style="display: block; margin: auto;"></p>
-<p>By default, <code>zenplot</code> tries to determine a value for <code>n2dcol</code> that minimizes the space unused by its zigzag layout.</p>
+<p>By default, <code>zenplot</code> tries to determine a value for
+<code>n2dcol</code> that minimizes the space unused by its zigzag
+layout.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## The default n2dcol is used</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<p><img src="intro_files/figure-html/unnamed-chunk-14-1.png" width="576" style="display: block; margin: auto;"> with layout directions as</p>
+<code class="sourceCode R"><span><span class="co">## The default n2dcol is used</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<p><img src="intro_files/figure-html/unnamed-chunk-14-1.png" width="576" style="display: block; margin: auto;">
+with layout directions as</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## The directions</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## The directions</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-15-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>As the direction arrows show, the default layout is to zigzag horizontally first as much as possible.</p>
-<p>This is clearly a much more compact display. Again, axes are shared wherever a label appears between plots.</p>
-<p>Unless explicitly specified, the value of <code>n2dcol</code> is determined by the aregument <code>scaling</code> which can either be a numerical value specifying the ratio of the height to the width of the <code>zenplot</code> layout or be a string describing a page whose ratio of height to width will be used. The possible strings are <code>letter'' (the default),</code>square’‘, <code>A4'',</code>golden’’ (for the golden ratio), or ``legal’’.</p>
+<p>As the direction arrows show, the default layout is to zigzag
+horizontally first as much as possible.</p>
+<p>This is clearly a much more compact display. Again, axes are shared
+wherever a label appears between plots.</p>
+<p>Unless explicitly specified, the value of <code>n2dcol</code> is
+determined by the aregument <code>scaling</code> which can either be a
+numerical value specifying the ratio of the height to the width of the
+<code>zenplot</code> layout or be a string describing a page whose ratio
+of height to width will be used. The possible strings are
+<code>letter'' (the default),</code>square’‘, <code>A4'',</code>golden’’
+(for the golden ratio), or ``legal’’.</p>
 </div>
 </div>
-<div id="visual-search" class="section level3">
-<h3 class="hasAnchor">
-<a href="#visual-search" class="anchor"></a>Visual search</h3>
-<p>The display arrangement of a scatterplot matrix facilitates the lookup of the scatterplot for any particular pair of variates by simply identifying the corresponding row and columns.</p>
-<p>The scatterplot matrix also simplifies the visual comparison of the one variate to each of several others by scanning along any single row (or column). Note however that this single row scan does come at the price of doubling the number of scatterplots in the display.</p>
-<p>These two visual search facilities are diminished by the layout of a <code>zenplot</code>. Although the same information is available in a <code>zenplot</code> the layout does not lend itself to easy lookup from variates to plots. If the <code>zenplot</code> layout is used in an interactive graphical system, other means of interaction could be implemented to have, for example, all plots containing a particular variate (or pair of variates) distinguish themselves visually by having their background colour change temporarily.</p>
-<p>On the other hand, the reverse lookup from plot to variates is simpler in a <code>zenplot</code> than in a scatterplot matrix, particularly for large numbers of variates.</p>
-<p>Both layouts allow a visual search for patterns in the point configurations. Having many plots be presented at once enables a quick visual search over a large space for the existence of interesting point configurations (e.g. correlations, outliers, grouping in data, lines, etc.).</p>
-<p>When the number of plots is very large, an efficient compact layout can dramatically increase the size of the visual search space. This is where <code>zenplot</code>’s zigzag layout outperforms the scatterplot matrix.</p>
+<div class="section level4">
+<h4 id="visual-search">Visual search<a class="anchor" aria-label="anchor" href="#visual-search"></a>
+</h4>
+<p>The display arrangement of a scatterplot matrix facilitates the
+lookup of the scatterplot for any particular pair of variates by simply
+identifying the corresponding row and columns.</p>
+<p>The scatterplot matrix also simplifies the visual comparison of the
+one variate to each of several others by scanning along any single row
+(or column). Note however that this single row scan does come at the
+price of doubling the number of scatterplots in the display.</p>
+<p>These two visual search facilities are diminished by the layout of a
+<code>zenplot</code>. Although the same information is available in a
+<code>zenplot</code> the layout does not lend itself to easy lookup from
+variates to plots. If the <code>zenplot</code> layout is used in an
+interactive graphical system, other means of interaction could be
+implemented to have, for example, all plots containing a particular
+variate (or pair of variates) distinguish themselves visually by having
+their background colour change temporarily.</p>
+<p>On the other hand, the reverse lookup from plot to variates is
+simpler in a <code>zenplot</code> than in a scatterplot matrix,
+particularly for large numbers of variates.</p>
+<p>Both layouts allow a visual search for patterns in the point
+configurations. Having many plots be presented at once enables a quick
+visual search over a large space for the existence of interesting point
+configurations (e.g. correlations, outliers, grouping in data, lines,
+etc.).</p>
+<p>When the number of plots is very large, an efficient compact layout
+can dramatically increase the size of the visual search space. This is
+where <code>zenplot</code>’s zigzag layout outperforms the scatterplot
+matrix.</p>
 <p>This could be illustrated this on the following example.</p>
 </div>
-<div id="example-german-election-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-german-election-data" class="anchor"></a>Example: German election data</h3>
-<p>In the <code>zenplots</code> package the data set <code>de_elect</code> contains the district results of two German federal elections (2002 and 2005) as well as a number of socio-economic variates as well.</p>
+<div class="section level4">
+<h4 id="example-german-election-data">Example: German election data<a class="anchor" aria-label="anchor" href="#example-german-election-data"></a>
+</h4>
+<p>In the <code>zenplots</code> package the data set
+<code>de_elect</code> contains the district results of two German
+federal elections (2002 and 2005) as well as a number of socio-economic
+variates as well.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Access the German election data from zenplots package</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">de_elect</span><span class="op">)</span></code></pre></div>
-<p>There are 299 districts and 68 variates yielding a possible <code>choose(68,2) =</code> 2278 different scatterplots.</p>
-<p>This many scatterplots will overwhelm a <code>pairs</code> plot. In its most compact form, the pairs plot for the first 34 variates already occupies a fair bit of space:</p>
+<code class="sourceCode R"><span><span class="co">## Access the German election data from zenplots package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">de_elect</span><span class="op">)</span></span></code></pre></div>
+<p>There are 299 districts and 68 variates yielding a possible
+<code>choose(68,2) =</code> 2278 different scatterplots.</p>
+<p>This many scatterplots will overwhelm a <code>pairs</code> plot. In
+its most compact form, the pairs plot for the first 34 variates already
+occupies a fair bit of space:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## pairs(de_elect[,1:34], oma=rep(0,4), gap=0, pch=".", xaxt="n", yaxt="n")</span></code></pre></div>
-<p>(N.B. We do not execute any of these large plots simply to keep the storage needs of this vignette to a minimum. We do encourage the reader to execute the code however on their own.)</p>
-<p>If you execute the above code you will see interesting point configurations including: some very strong positive correlations, some positive and negative correlations, non-linear relations, the existence of some outlying points, clustering, striation, etc.</p>
-<p>Because this scatterplot matrix is for only half of the variates it shows <code>choose(34,2) =</code> 561 different scatterplots, each one twice. For a display of 1122 plots, only about one quarter of all 2278 pairwise variate scatterplots available in the data set appear in this display.</p>
-<p>A second scatterplot matrix on the remaining 34 variates would also show only a quarter of the plots. The remaining half, <span class="math inline">\(34 \times 34 = 1156\)</span> plots, are missing from both plots.</p>
-<p>In contrast, the <code>zenplot</code> shows all 2278 plots at once. In fact, because an Eulerian sequence requires a graph to be even (i.e. each node has an even number of edges), whenever the number of variates, <span class="math inline">\(p\)</span>, is even <code><a href="../reference/zenpath.html">zenpath(...)</a></code> will repeat exactly <span class="math inline">\(p/2\)</span> pairs somewhere in the sequence it returns.</p>
-<p>To produce the <code>zenplot</code> of all pairs of variates on the German election data we call <code><a href="../reference/zenplot.html">zenplot(de_elect[,zenpath(68)], pch=".")</a></code>. (Again, we don’t produce it here so as to minimize the storage footprint of this vignette.)</p>
+<code class="sourceCode R"><span><span class="co">## pairs(de_elect[,1:34], oma=rep(0,4), gap=0, pch=".", xaxt="n", yaxt="n")</span></span></code></pre></div>
+<p>(N.B. We do not execute any of these large plots simply to keep the
+storage needs of this vignette to a minimum. We do encourage the reader
+to execute the code however on their own.)</p>
+<p>If you execute the above code you will see interesting point
+configurations including: some very strong positive correlations, some
+positive and negative correlations, non-linear relations, the existence
+of some outlying points, clustering, striation, etc.</p>
+<p>Because this scatterplot matrix is for only half of the variates it
+shows <code>choose(34,2) =</code> 561 different scatterplots, each one
+twice. For a display of 1122 plots, only about one quarter of all 2278
+pairwise variate scatterplots available in the data set appear in this
+display.</p>
+<p>A second scatterplot matrix on the remaining 34 variates would also
+show only a quarter of the plots. The remaining half, <span class="math inline">\(34 \times 34 = 1156\)</span> plots, are missing
+from both plots.</p>
+<p>In contrast, the <code>zenplot</code> shows all 2278 plots at once.
+In fact, because an Eulerian sequence requires a graph to be even
+(i.e. each node has an even number of edges), whenever the number of
+variates, <span class="math inline">\(p\)</span>, is even
+<code>zenpath(...)</code> will repeat exactly <span class="math inline">\(p/2\)</span> pairs somewhere in the sequence it
+returns.</p>
+<p>To produce the <code>zenplot</code> of all pairs of variates on the
+German election data we call
+<code>zenplot(de_elect[,zenpath(68)], pch=".")</code>. (Again, we don’t
+produce it here so as to minimize the storage footprint of this
+vignette.)</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Try invoking the plot with the following</span>
-<span class="co">## zenplot(de_elect[,zenpath(68)], pch=".", n2dcol="square",col=adjustcolor("black",0.5))</span></code></pre></div>
-<p>In approximately the same visual space as the scatterplot matrix (showing only 561 unique plots), the <code>zenplot</code> has efficiently and compactly laid out all 2278 different plots plus <code>r ncol(de_elect)</code> duplicate plots. This efficient layout means that <code>zenplot</code> can facilitate visual search for interesting point configurations over much larger collections of variate pairs – in the case of the German election data, this all possible pairs of variates are presented simultaneously.</p>
+<code class="sourceCode R"><span><span class="co">## Try invoking the plot with the following</span></span>
+<span><span class="co">## zenplot(de_elect[,zenpath(68)], pch=".", n2dcol="square",col=adjustcolor("black",0.5))</span></span></code></pre></div>
+<p>In approximately the same visual space as the scatterplot matrix
+(showing only 561 unique plots), the <code>zenplot</code> has
+efficiently and compactly laid out all 2278 different plots plus
+<code>r ncol(de_elect)</code> duplicate plots. This efficient layout
+means that <code>zenplot</code> can facilitate visual search for
+interesting point configurations over much larger collections of variate
+pairs – in the case of the German election data, this all possible pairs
+of variates are presented simultaneously.</p>
 <p>In contrast, all pairs loses most of the detail</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## pairs(de_elect, oma=rep(0,4), gap=0, pch=".", xaxt="n", yaxt="n",col=adjustcolor("black",0.5))</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## pairs(de_elect, oma=rep(0,4), gap=0, pch=".", xaxt="n", yaxt="n",col=adjustcolor("black",0.5))</span></span></code></pre></div>
 </div>
 </div>
 </div>
-<div id="groups-of-pairwise-plots" class="section level1">
-<h1 class="hasAnchor">
-<a href="#groups-of-pairwise-plots" class="anchor"></a>Groups of pairwise plots</h1>
-<p>Zenplots also accomodate a list of data sets whose pairwise contents are to be displayed. The need for this can arise quite naturally in many applications.</p>
-<p>The German election data, for instance, contains socio-economic data whose variates naturally group together. For example, we might gather variates related to education into one group and those related to employment into another.</p>
+<div class="section level2">
+<h2 id="groups-of-pairwise-plots">Groups of pairwise plots<a class="anchor" aria-label="anchor" href="#groups-of-pairwise-plots"></a>
+</h2>
+<p>Zenplots also accomodate a list of data sets whose pairwise contents
+are to be displayed. The need for this can arise quite naturally in many
+applications.</p>
+<p>The German election data, for instance, contains socio-economic data
+whose variates naturally group together. For example, we might gather
+variates related to education into one group and those related to
+employment into another.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Education</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"School.finishers"</span>,
-               <span class="st">"School.wo.2nd"</span>, <span class="st">"School.2nd"</span>,
-               <span class="st">"School.Real"</span>,  <span class="st">"School.UED"</span><span class="op">)</span>
-<span class="va">Employment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>,
-                <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span></code></pre></div>
-<p>We could plot all pairs for these two groups in a single <code>zenplot</code>.</p>
+<code class="sourceCode R"><span><span class="va">Education</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"School.finishers"</span>,</span>
+<span>               <span class="st">"School.wo.2nd"</span>, <span class="st">"School.2nd"</span>,</span>
+<span>               <span class="st">"School.Real"</span>,  <span class="st">"School.UED"</span><span class="op">)</span></span>
+<span><span class="va">Employment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>,</span>
+<span>                <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span></span></code></pre></div>
+<p>We could plot all pairs for these two groups in a single
+<code>zenplot</code>.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">EducationData</span> <span class="op">&lt;-</span> <span class="va">de_elect</span><span class="op">[</span>, <span class="va">Education</span><span class="op">]</span>
-<span class="va">EmploymentData</span> <span class="op">&lt;-</span> <span class="va">de_elect</span><span class="op">[</span>, <span class="va">Employment</span><span class="op">]</span>
-
-<span class="co">## Plot all pairs within each group</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Educ<span class="op">=</span> <span class="va">EducationData</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">EducationData</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>,
-             Empl<span class="op">=</span> <span class="va">EmploymentData</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">EmploymentData</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">EducationData</span> <span class="op">&lt;-</span> <span class="va">de_elect</span><span class="op">[</span>, <span class="va">Education</span><span class="op">]</span></span>
+<span><span class="va">EmploymentData</span> <span class="op">&lt;-</span> <span class="va">de_elect</span><span class="op">[</span>, <span class="va">Employment</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co">## Plot all pairs within each group</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Educ<span class="op">=</span> <span class="va">EducationData</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">EducationData</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>             Empl<span class="op">=</span> <span class="va">EmploymentData</span><span class="op">[</span>, <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">EmploymentData</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>All pairs of education variates are plotted first in zigzag order followed by a blank plot then continuing in the same zigzag pattern by plots all pairs of employment variates.</p>
-<div id="all-pairs-by-group" class="section level2">
-<h2 class="hasAnchor">
-<a href="#all-pairs-by-group" class="anchor"></a>All pairs by group</h2>
-<p>In addition to the <code>Education</code> and <code>Employment</code> groups above, a number of different groupings of variates having a shared context. For example, these might include the following:</p>
+<p>All pairs of education variates are plotted first in zigzag order
+followed by a blank plot then continuing in the same zigzag pattern by
+plots all pairs of employment variates.</p>
+<div class="section level3">
+<h3 id="all-pairs-by-group">All pairs by group<a class="anchor" aria-label="anchor" href="#all-pairs-by-group"></a>
+</h3>
+<p>In addition to the <code>Education</code> and <code>Employment</code>
+groups above, a number of different groupings of variates having a
+shared context. For example, these might include the following:</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Grouping variates in the German election data</span>
-<span class="va">Regions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"District"</span>, <span class="st">"State"</span>, <span class="st">"Density"</span><span class="op">)</span>
-<span class="va">PopDist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Men"</span>, <span class="st">"Citizens"</span>, <span class="st">"Pop.18.25"</span>, <span class="st">"Pop.25.35"</span>,
-             <span class="st">"Pop.35.60"</span>, <span class="st">"Pop.g.60"</span><span class="op">)</span>
-<span class="va">PopChange</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Births"</span>, <span class="st">"Deaths"</span>, <span class="st">"Move.in"</span>, <span class="st">"Move.out"</span>, <span class="st">"Increase"</span><span class="op">)</span>
-<span class="va">Agriculture</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Farms"</span>, <span class="st">"Agriculture"</span><span class="op">)</span>
-<span class="va">Mining</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mining"</span>, <span class="st">"Mining.employees"</span><span class="op">)</span>
-<span class="va">Apt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Apt.new"</span>, <span class="st">"Apt"</span><span class="op">)</span>
-<span class="va">Motorized</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Motorized"</span><span class="op">)</span>
-<span class="va">Education</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"School.finishers"</span>,
-               <span class="st">"School.wo.2nd"</span>, <span class="st">"School.2nd"</span>,
-               <span class="st">"School.Real"</span>,  <span class="st">"School.UED"</span><span class="op">)</span>
-<span class="va">Unemployment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Unemployment.03"</span>, <span class="st">"Unemployment.04"</span><span class="op">)</span>
-<span class="va">Employment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>, <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span>
-<span class="va">Voting.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Voters.05"</span>, <span class="st">"Votes.05"</span>, <span class="st">"Invalid.05"</span>, <span class="st">"Valid.05"</span><span class="op">)</span>
-<span class="va">Voting.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Voters.02"</span>, <span class="st">"Votes.02"</span>, <span class="st">"Invalid.02"</span>, <span class="st">"Valid.02"</span><span class="op">)</span>
-<span class="va">Voting</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Voting.02</span>, <span class="va">Voting.05</span><span class="op">)</span>
-<span class="va">VotesByParty.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Votes.SPD.02"</span>, <span class="st">"Votes.CDU.CSU.02"</span>, <span class="st">"Votes.Gruene.02"</span>,
-                     <span class="st">"Votes.FDP.02"</span>, <span class="st">"Votes.Linke.02"</span><span class="op">)</span>
-<span class="va">VotesByParty.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Votes.SPD.05"</span>, <span class="st">"Votes.CDU.CSU.05"</span>, <span class="st">"Votes.Gruene.05"</span>,
-                     <span class="st">"Votes.FDP.05"</span>, <span class="st">"Votes.Linke.05"</span><span class="op">)</span>
-<span class="va">VotesByParty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">VotesByParty.02</span>, <span class="va">VotesByParty.05</span><span class="op">)</span>
-<span class="va">PercentByParty.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD.02"</span>, <span class="st">"CDU.CSU.02"</span>, <span class="st">"Gruene.02"</span>,
-                       <span class="st">"FDP.02"</span>, <span class="st">"Linke.02"</span>, <span class="st">"Others.02"</span><span class="op">)</span>
-<span class="va">PercentByParty.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD.05"</span>, <span class="st">"CDU.CSU.05"</span>, <span class="st">"Gruene.05"</span>,
-                       <span class="st">"FDP.05"</span>, <span class="st">"Linke.05"</span>, <span class="st">"Others.05"</span><span class="op">)</span>
-<span class="va">PercentByParty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">PercentByParty.02</span>, <span class="va">PercentByParty.05</span><span class="op">)</span></code></pre></div>
-<p>The groups can now be used to explore internal group relations for many different groups in the same plot. Here the following helper function comes in handy.</p>
+<code class="sourceCode R"><span><span class="co">## Grouping variates in the German election data</span></span>
+<span><span class="va">Regions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"District"</span>, <span class="st">"State"</span>, <span class="st">"Density"</span><span class="op">)</span></span>
+<span><span class="va">PopDist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Men"</span>, <span class="st">"Citizens"</span>, <span class="st">"Pop.18.25"</span>, <span class="st">"Pop.25.35"</span>,</span>
+<span>             <span class="st">"Pop.35.60"</span>, <span class="st">"Pop.g.60"</span><span class="op">)</span></span>
+<span><span class="va">PopChange</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Births"</span>, <span class="st">"Deaths"</span>, <span class="st">"Move.in"</span>, <span class="st">"Move.out"</span>, <span class="st">"Increase"</span><span class="op">)</span></span>
+<span><span class="va">Agriculture</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Farms"</span>, <span class="st">"Agriculture"</span><span class="op">)</span></span>
+<span><span class="va">Mining</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Mining"</span>, <span class="st">"Mining.employees"</span><span class="op">)</span></span>
+<span><span class="va">Apt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Apt.new"</span>, <span class="st">"Apt"</span><span class="op">)</span></span>
+<span><span class="va">Motorized</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Motorized"</span><span class="op">)</span></span>
+<span><span class="va">Education</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"School.finishers"</span>,</span>
+<span>               <span class="st">"School.wo.2nd"</span>, <span class="st">"School.2nd"</span>,</span>
+<span>               <span class="st">"School.Real"</span>,  <span class="st">"School.UED"</span><span class="op">)</span></span>
+<span><span class="va">Unemployment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Unemployment.03"</span>, <span class="st">"Unemployment.04"</span><span class="op">)</span></span>
+<span><span class="va">Employment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>, <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span></span>
+<span><span class="va">Voting.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Voters.05"</span>, <span class="st">"Votes.05"</span>, <span class="st">"Invalid.05"</span>, <span class="st">"Valid.05"</span><span class="op">)</span></span>
+<span><span class="va">Voting.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Voters.02"</span>, <span class="st">"Votes.02"</span>, <span class="st">"Invalid.02"</span>, <span class="st">"Valid.02"</span><span class="op">)</span></span>
+<span><span class="va">Voting</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Voting.02</span>, <span class="va">Voting.05</span><span class="op">)</span></span>
+<span><span class="va">VotesByParty.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Votes.SPD.02"</span>, <span class="st">"Votes.CDU.CSU.02"</span>, <span class="st">"Votes.Gruene.02"</span>,</span>
+<span>                     <span class="st">"Votes.FDP.02"</span>, <span class="st">"Votes.Linke.02"</span><span class="op">)</span></span>
+<span><span class="va">VotesByParty.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Votes.SPD.05"</span>, <span class="st">"Votes.CDU.CSU.05"</span>, <span class="st">"Votes.Gruene.05"</span>,</span>
+<span>                     <span class="st">"Votes.FDP.05"</span>, <span class="st">"Votes.Linke.05"</span><span class="op">)</span></span>
+<span><span class="va">VotesByParty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">VotesByParty.02</span>, <span class="va">VotesByParty.05</span><span class="op">)</span></span>
+<span><span class="va">PercentByParty.02</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD.02"</span>, <span class="st">"CDU.CSU.02"</span>, <span class="st">"Gruene.02"</span>,</span>
+<span>                       <span class="st">"FDP.02"</span>, <span class="st">"Linke.02"</span>, <span class="st">"Others.02"</span><span class="op">)</span></span>
+<span><span class="va">PercentByParty.05</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD.05"</span>, <span class="st">"CDU.CSU.05"</span>, <span class="st">"Gruene.05"</span>,</span>
+<span>                       <span class="st">"FDP.05"</span>, <span class="st">"Linke.05"</span>, <span class="st">"Others.05"</span><span class="op">)</span></span>
+<span><span class="va">PercentByParty</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">PercentByParty.02</span>, <span class="va">PercentByParty.05</span><span class="op">)</span></span></code></pre></div>
+<p>The groups can now be used to explore internal group relations for
+many different groups in the same plot. Here the following helper
+function comes in handy.</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Regions<span class="op">=</span><span class="va">Regions</span>, Pop<span class="op">=</span><span class="va">PopDist</span>,
-               Change <span class="op">=</span> <span class="va">PopChange</span>, Agric<span class="op">=</span><span class="va">Agriculture</span>,
-               Mining<span class="op">=</span><span class="va">Mining</span>, Apt<span class="op">=</span><span class="va">Apt</span>,  Cars<span class="op">=</span><span class="va">Motorized</span>,
-               Educ<span class="op">=</span><span class="va">Education</span>, Unemployed<span class="op">=</span><span class="va">Unemployment</span>, Employed<span class="op">=</span><span class="va">Employment</span><span class="co">#,</span>
-               <span class="co"># Vote02=Voting.02, Vote05=Voting.05,</span>
-               <span class="co"># Party02=VotesByParty.02, Party05=VotesByParty.05,</span>
-               <span class="co"># Perc02=PercentByParty.02, Perc05=PercentByParty.05</span>
-               <span class="op">)</span>
-
-<span class="va">group_paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">groups</span>, FUN<span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">g</span><span class="op">)</span> <span class="va">g</span><span class="op">[</span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"front.loaded"</span><span class="op">)</span><span class="op">]</span> <span class="op">)</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/groupData.html">groupData</a></span><span class="op">(</span><span class="va">de_elect</span>, indices<span class="op">=</span><span class="va">group_paths</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">x</span>, pch <span class="op">=</span> <span class="st">"."</span>, cex<span class="op">=</span><span class="fl">0.7</span>, col <span class="op">=</span> <span class="st">"grey10"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Regions<span class="op">=</span><span class="va">Regions</span>, Pop<span class="op">=</span><span class="va">PopDist</span>,</span>
+<span>               Change <span class="op">=</span> <span class="va">PopChange</span>, Agric<span class="op">=</span><span class="va">Agriculture</span>,</span>
+<span>               Mining<span class="op">=</span><span class="va">Mining</span>, Apt<span class="op">=</span><span class="va">Apt</span>,  Cars<span class="op">=</span><span class="va">Motorized</span>,</span>
+<span>               Educ<span class="op">=</span><span class="va">Education</span>, Unemployed<span class="op">=</span><span class="va">Unemployment</span>, Employed<span class="op">=</span><span class="va">Employment</span><span class="co">#,</span></span>
+<span>               <span class="co"># Vote02=Voting.02, Vote05=Voting.05,</span></span>
+<span>               <span class="co"># Party02=VotesByParty.02, Party05=VotesByParty.05,</span></span>
+<span>               <span class="co"># Perc02=PercentByParty.02, Perc05=PercentByParty.05</span></span>
+<span>               <span class="op">)</span></span>
+<span></span>
+<span><span class="va">group_paths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">groups</span>, FUN<span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">g</span><span class="op">)</span> <span class="va">g</span><span class="op">[</span><span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">g</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"front.loaded"</span><span class="op">)</span><span class="op">]</span> <span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/groupData.html">groupData</a></span><span class="op">(</span><span class="va">de_elect</span>, indices<span class="op">=</span><span class="va">group_paths</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">x</span>, pch <span class="op">=</span> <span class="st">"."</span>, cex<span class="op">=</span><span class="fl">0.7</span>, col <span class="op">=</span> <span class="st">"grey10"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-23-1.png" width="1056" style="display: block; margin: auto;"></p>
-<p>All pairs within each group are presented following the zigzag pattern; each group is separated by an empty plot. The <code>zenplot</code> provides a quick overview of the pairwise relationships between variates within all groups.</p>
-<p>The plot can be improved some by using shorter names for the variates. With a little work we can replace these within each group of <code>x</code>.</p>
+<p>All pairs within each group are presented following the zigzag
+pattern; each group is separated by an empty plot. The
+<code>zenplot</code> provides a quick overview of the pairwise
+relationships between variates within all groups.</p>
+<p>The plot can be improved some by using shorter names for the
+variates. With a little work we can replace these within each group of
+<code>x</code>.</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#</span>
-<span class="co">## Grouping variates in the German election data</span>
-<span class="va">RegionsShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ED"</span>, <span class="st">"State"</span>, <span class="st">"density"</span><span class="op">)</span>
-<span class="va">PopDistShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"men"</span>, <span class="st">"citizen"</span>, <span class="st">"18-25"</span>, <span class="st">"25-35"</span>, <span class="st">"35-60"</span>, <span class="st">"&gt; 60"</span><span class="op">)</span>
-<span class="va">PopChangeShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"births"</span>, <span class="st">"deaths"</span>, <span class="st">"in"</span>, <span class="st">"out"</span>, <span class="st">"up"</span><span class="op">)</span>
-<span class="va">AgricultureShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"farms"</span>, <span class="st">"hectares"</span><span class="op">)</span>
-<span class="va">MiningShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"firms"</span>, <span class="st">"employees"</span><span class="op">)</span>
-<span class="va">AptShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"new"</span>, <span class="st">"all"</span><span class="op">)</span>
-<span class="va">TransportationShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cars"</span><span class="op">)</span>
-<span class="va">EducationShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"finishers"</span>, <span class="st">"no.2nd"</span>, <span class="st">"2nd"</span>, <span class="st">"Real"</span>, <span class="st">"UED"</span><span class="op">)</span>
-<span class="va">UnemploymentShort</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"03"</span>, <span class="st">"04"</span><span class="op">)</span>
-<span class="va">EmploymentShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>, <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span>
-<span class="va">Voting.05Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eligible"</span>, <span class="st">"votes"</span>, <span class="st">"invalid"</span>, <span class="st">"valid"</span><span class="op">)</span>
-<span class="va">Voting.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"eligible"</span>, <span class="st">"votes"</span>, <span class="st">"invalid"</span>, <span class="st">"valid"</span><span class="op">)</span>
-<span class="va">VotesByParty.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span><span class="op">)</span>
-<span class="va">VotesByParty.05Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span><span class="op">)</span>
-<span class="va">PercentByParty.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span>, <span class="st">"rest"</span><span class="op">)</span>
-<span class="va">PercentByParty.05Short</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span>, <span class="st">"rest"</span><span class="op">)</span>
-
-<span class="va">shortNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">RegionsShort</span>, <span class="va">PopDistShort</span>, <span class="va">PopChangeShort</span>, <span class="va">AgricultureShort</span>,
-                   <span class="va">MiningShort</span>, <span class="va">AptShort</span>, <span class="va">TransportationShort</span>, <span class="va">EducationShort</span>,
-                   <span class="va">UnemploymentShort</span>, <span class="va">EmploymentShort</span>, <span class="va">Voting.05Short</span>, <span class="va">Voting.02Short</span>,
-                   <span class="va">VotesByParty.02Short</span>, <span class="va">VotesByParty.05Short</span>, <span class="va">PercentByParty.02Short</span>,
-                   <span class="va">PercentByParty.05Short</span><span class="op">)</span>
-<span class="co"># Now replace the names in x by these.</span>
-
-<span class="va">nGroups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-
-<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nGroups</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">longNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-  <span class="va">newNames</span> <span class="op">&lt;-</span> <span class="va">shortNames</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>
-  <span class="va">oldNames</span> <span class="op">&lt;-</span> <span class="va">groups</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>
-  <span class="co">#print(longNames)</span>
-  <span class="co">#print(newNames)</span>
-  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">longNames</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">newNames</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="va">oldNames</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, <span class="va">longNames</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-        <span class="va">longNames</span><span class="op">[</span><span class="va">longNames</span> <span class="op">==</span> <span class="va">longNames</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">newNames</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>
-      <span class="op">}</span>
-    <span class="op">}</span>
-  <span class="op">}</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">longNames</span>
-<span class="op">}</span>
-
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">x</span>, pch <span class="op">=</span> <span class="st">"."</span>, cex<span class="op">=</span><span class="fl">0.75</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#</span></span>
+<span><span class="co">## Grouping variates in the German election data</span></span>
+<span><span class="va">RegionsShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ED"</span>, <span class="st">"State"</span>, <span class="st">"density"</span><span class="op">)</span></span>
+<span><span class="va">PopDistShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"men"</span>, <span class="st">"citizen"</span>, <span class="st">"18-25"</span>, <span class="st">"25-35"</span>, <span class="st">"35-60"</span>, <span class="st">"&gt; 60"</span><span class="op">)</span></span>
+<span><span class="va">PopChangeShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"births"</span>, <span class="st">"deaths"</span>, <span class="st">"in"</span>, <span class="st">"out"</span>, <span class="st">"up"</span><span class="op">)</span></span>
+<span><span class="va">AgricultureShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"farms"</span>, <span class="st">"hectares"</span><span class="op">)</span></span>
+<span><span class="va">MiningShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"firms"</span>, <span class="st">"employees"</span><span class="op">)</span></span>
+<span><span class="va">AptShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"new"</span>, <span class="st">"all"</span><span class="op">)</span></span>
+<span><span class="va">TransportationShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cars"</span><span class="op">)</span></span>
+<span><span class="va">EducationShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"finishers"</span>, <span class="st">"no.2nd"</span>, <span class="st">"2nd"</span>, <span class="st">"Real"</span>, <span class="st">"UED"</span><span class="op">)</span></span>
+<span><span class="va">UnemploymentShort</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"03"</span>, <span class="st">"04"</span><span class="op">)</span></span>
+<span><span class="va">EmploymentShort</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"employed"</span>, <span class="st">"FFF"</span>, <span class="st">"Industry"</span>, <span class="st">"CTT"</span>, <span class="st">"OS"</span> <span class="op">)</span></span>
+<span><span class="va">Voting.05Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eligible"</span>, <span class="st">"votes"</span>, <span class="st">"invalid"</span>, <span class="st">"valid"</span><span class="op">)</span></span>
+<span><span class="va">Voting.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"eligible"</span>, <span class="st">"votes"</span>, <span class="st">"invalid"</span>, <span class="st">"valid"</span><span class="op">)</span></span>
+<span><span class="va">VotesByParty.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span><span class="op">)</span></span>
+<span><span class="va">VotesByParty.05Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span><span class="op">)</span></span>
+<span><span class="va">PercentByParty.02Short</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span>, <span class="st">"rest"</span><span class="op">)</span></span>
+<span><span class="va">PercentByParty.05Short</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SPD"</span>, <span class="st">"CDU.CSU"</span>, <span class="st">"Gruene"</span>, <span class="st">"FDP"</span>, <span class="st">"Linke"</span>, <span class="st">"rest"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">shortNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">RegionsShort</span>, <span class="va">PopDistShort</span>, <span class="va">PopChangeShort</span>, <span class="va">AgricultureShort</span>,</span>
+<span>                   <span class="va">MiningShort</span>, <span class="va">AptShort</span>, <span class="va">TransportationShort</span>, <span class="va">EducationShort</span>,</span>
+<span>                   <span class="va">UnemploymentShort</span>, <span class="va">EmploymentShort</span>, <span class="va">Voting.05Short</span>, <span class="va">Voting.02Short</span>,</span>
+<span>                   <span class="va">VotesByParty.02Short</span>, <span class="va">VotesByParty.05Short</span>, <span class="va">PercentByParty.02Short</span>,</span>
+<span>                   <span class="va">PercentByParty.05Short</span><span class="op">)</span></span>
+<span><span class="co"># Now replace the names in x by these.</span></span>
+<span></span>
+<span><span class="va">nGroups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">nGroups</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">longNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">newNames</span> <span class="op">&lt;-</span> <span class="va">shortNames</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="va">oldNames</span> <span class="op">&lt;-</span> <span class="va">groups</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span></span>
+<span>  <span class="co">#print(longNames)</span></span>
+<span>  <span class="co">#print(newNames)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">longNames</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">for</span> <span class="op">(</span><span class="va">k</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">newNames</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/grep.html" class="external-link">grepl</a></span><span class="op">(</span><span class="va">oldNames</span><span class="op">[</span><span class="va">k</span><span class="op">]</span>, <span class="va">longNames</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">longNames</span><span class="op">[</span><span class="va">longNames</span> <span class="op">==</span> <span class="va">longNames</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">newNames</span><span class="op">[</span><span class="va">k</span><span class="op">]</span></span>
+<span>      <span class="op">}</span></span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">x</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">longNames</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">x</span>, pch <span class="op">=</span> <span class="st">"."</span>, cex<span class="op">=</span><span class="fl">0.75</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-24-1.png" width="960" style="display: block; margin: auto;"></p>
 </div>
-<div id="crossing-pairs-between-groups" class="section level2">
-<h2 class="hasAnchor">
-<a href="#crossing-pairs-between-groups" class="anchor"></a>Crossing pairs between groups</h2>
-<p>It can also be of interest to compare variates between groups. For example, to compare the various levels of education with the employment categories.</p>
+<div class="section level3">
+<h3 id="crossing-pairs-between-groups">Crossing pairs between groups<a class="anchor" aria-label="anchor" href="#crossing-pairs-between-groups"></a>
+</h3>
+<p>It can also be of interest to compare variates between groups. For
+example, to compare the various levels of education with the employment
+categories.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">crossedGroups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Employment</span>, <span class="va">Education</span><span class="op">)</span>
-<span class="va">crossedPaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Employment</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">Education</span><span class="op">)</span><span class="op">)</span>, method<span class="op">=</span><span class="st">"eulerian.cross"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">de_elect</span><span class="op">[</span>,<span class="va">crossedGroups</span><span class="op">]</span><span class="op">[</span><span class="va">crossedPaths</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">crossedGroups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">Employment</span>, <span class="va">Education</span><span class="op">)</span></span>
+<span><span class="va">crossedPaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">Employment</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">Education</span><span class="op">)</span><span class="op">)</span>, method<span class="op">=</span><span class="st">"eulerian.cross"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">de_elect</span><span class="op">[</span>,<span class="va">crossedGroups</span><span class="op">]</span><span class="op">[</span><span class="va">crossedPaths</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-25-1.png" width="960" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="other-plots" class="section level1">
-<h1 class="hasAnchor">
-<a href="#other-plots" class="anchor"></a>Other plots</h1>
-<p>A <code>zenplot</code> can be thought of as taking a data set whose variates are to be plotted in the order given. A sequence of one dimensional plots, as determined by the argument <code>plot1d</code>, are constructed in the order of the variates. Between each pair of these <code>1d</code> plots, a two dimensional plot is constructed from the variates of the <code>1d</code> plots. One variate provides the vertical <code>y</code> values and the other the horizontal <code>x</code> values. If the orientation of the preceding one-dimensional plot is horizontal, then that variate gives the <code>x</code> values; if it’s vertical then the vertical <code>y</code> coordinates.</p>
-<div id="built-in-1d-and-2d-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#built-in-1d-and-2d-plots" class="anchor"></a>Built in <code>1d</code> and <code>2d</code> plots</h2>
-<p>The actual displays depend on the arguments <code>plot1d</code> and <code>plot2d</code>. There are numerous built-in choices provided.</p>
-<p>For <code>plot1d</code> any of the following strings may be selected to produce a one-dimensional plot: <code>"label"</code>, <code>"rug"</code>, <code>"points"</code>, <code>"jitter"</code>, <code>"density"</code>, <code>"boxplot"</code>, <code>"hist"</code>, <code>"arrow"</code>, <code>"rect"</code>, <code>"lines"</code>. The first in the list is the default.</p>
-<p>For <code>plot2d</code> any of the following strings can be given: <code>"points"</code>, <code>"density"</code>, <code>"axes"</code>, <code>"label"</code>, <code>"arrow"</code>, <code>"rect"</code>. Again, the first of these is the default value.</p>
-</div>
-<div id="arbitrary-layout-using-turns" class="section level2">
-<h2 class="hasAnchor">
-<a href="#arbitrary-layout-using-turns" class="anchor"></a>Arbitrary layout using <code>turns</code>
+<div class="section level2">
+<h2 id="other-plots">Other plots<a class="anchor" aria-label="anchor" href="#other-plots"></a>
 </h2>
-<p>For example, we could produce a <code>boxplot</code> for the measured variates of the earthquake data as follows:</p>
+<p>A <code>zenplot</code> can be thought of as taking a data set whose
+variates are to be plotted in the order given. A sequence of one
+dimensional plots, as determined by the argument <code>plot1d</code>,
+are constructed in the order of the variates. Between each pair of these
+<code>1d</code> plots, a two dimensional plot is constructed from the
+variates of the <code>1d</code> plots. One variate provides the vertical
+<code>y</code> values and the other the horizontal <code>x</code>
+values. If the orientation of the preceding one-dimensional plot is
+horizontal, then that variate gives the <code>x</code> values; if it’s
+vertical then the vertical <code>y</code> coordinates.</p>
+<div class="section level3">
+<h3 id="built-in-1d-and-2d-plots">Built in <code>1d</code> and <code>2d</code> plots<a class="anchor" aria-label="anchor" href="#built-in-1d-and-2d-plots"></a>
+</h3>
+<p>The actual displays depend on the arguments <code>plot1d</code> and
+<code>plot2d</code>. There are numerous built-in choices provided.</p>
+<p>For <code>plot1d</code> any of the following strings may be selected
+to produce a one-dimensional plot: <code>"label"</code>,
+<code>"rug"</code>, <code>"points"</code>, <code>"jitter"</code>,
+<code>"density"</code>, <code>"boxplot"</code>, <code>"hist"</code>,
+<code>"arrow"</code>, <code>"rect"</code>, <code>"lines"</code>. The
+first in the list is the default.</p>
+<p>For <code>plot2d</code> any of the following strings can be given:
+<code>"points"</code>, <code>"density"</code>, <code>"axes"</code>,
+<code>"label"</code>, <code>"arrow"</code>, <code>"rect"</code>. Again,
+the first of these is the default value.</p>
+</div>
+<div class="section level3">
+<h3 id="arbitrary-layout-using-turns">Arbitrary layout using <code>turns</code><a class="anchor" aria-label="anchor" href="#arbitrary-layout-using-turns"></a>
+</h3>
+<p>For example, we could produce a <code>boxplot</code> for the measured
+variates of the earthquake data as follows:</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">earthquakes</span> <span class="op">&lt;-</span> <span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>  <span class="co"># ignore the station id</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,
-        plot1d<span class="op">=</span><span class="st">"boxplot"</span>, plot2d<span class="op">=</span><span class="cn">NULL</span>,
-        width1d<span class="op">=</span><span class="fl">5</span>, width2d<span class="op">=</span><span class="fl">1</span>,
-        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">earthquakes</span> <span class="op">&lt;-</span> <span class="va">attenu</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>  <span class="co"># ignore the station id</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,</span>
+<span>        plot1d<span class="op">=</span><span class="st">"boxplot"</span>, plot2d<span class="op">=</span><span class="cn">NULL</span>,</span>
+<span>        width1d<span class="op">=</span><span class="fl">5</span>, width2d<span class="op">=</span><span class="fl">1</span>,</span>
+<span>        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span>,<span class="st">"r"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;"></p>
-<p>There are a few things to note here. First that every variate in the data set has a boxplot of its values presented and that the extent of boxplot display is that variate’s range. Second, the argument specification <code>plot2d=NULL</code> causes a null plot to be produced for each of the variate pairs. Third, the arguments <code>width1d</code> and <code>width2d</code> determine the relative widths of the two displays.</p>
-<p>Finally, the argument <code>turns</code> determines the layout of the plots by specifying where the next display (<code>1d</code> or <code>2d</code>) is to appear in relation to the current one. Here every display appears to the right of the existing display.</p>
-<p>An alternative layout of the same boxplots can be had by adjusting the <code>turns</code>.</p>
+<p>There are a few things to note here. First that every variate in the
+data set has a boxplot of its values presented and that the extent of
+boxplot display is that variate’s range. Second, the argument
+specification <code>plot2d=NULL</code> causes a null plot to be produced
+for each of the variate pairs. Third, the arguments <code>width1d</code>
+and <code>width2d</code> determine the relative widths of the two
+displays.</p>
+<p>Finally, the argument <code>turns</code> determines the layout of the
+plots by specifying where the next display (<code>1d</code> or
+<code>2d</code>) is to appear in relation to the current one. Here every
+display appears to the right of the existing display.</p>
+<p>An alternative layout of the same boxplots can be had by adjusting
+the <code>turns</code>.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,
-        plot1d<span class="op">=</span><span class="st">"boxplot"</span>, plot2d<span class="op">=</span><span class="cn">NULL</span>,
-        width1d<span class="op">=</span><span class="fl">1</span>, width2d<span class="op">=</span><span class="fl">1</span>,  <span class="co"># now widths must be the same</span>
-        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,</span>
+<span>        plot1d<span class="op">=</span><span class="st">"boxplot"</span>, plot2d<span class="op">=</span><span class="cn">NULL</span>,</span>
+<span>        width1d<span class="op">=</span><span class="fl">1</span>, width2d<span class="op">=</span><span class="fl">1</span>,  <span class="co"># now widths must be the same</span></span>
+<span>        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-27-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>To better see how the turns work, arrows could be used instead to show the directions of the turns.</p>
+<p>To better see how the turns work, arrows could be used instead to
+show the directions of the turns.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,
-        plot1d<span class="op">=</span> <span class="st">"arrow"</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span>,
-        width1d<span class="op">=</span><span class="fl">1</span>, width2d<span class="op">=</span><span class="fl">2</span>,
-        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,</span>
+<span>        plot1d<span class="op">=</span> <span class="st">"arrow"</span>, plot2d<span class="op">=</span><span class="st">"arrow"</span>,</span>
+<span>        width1d<span class="op">=</span><span class="fl">1</span>, width2d<span class="op">=</span><span class="fl">2</span>,</span>
+<span>        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-28-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>Adding a rectangle to outline the drawing space will make the layout a little clearer and illustrate the arguments that are passed on to the pne and two dimensional plot functions.</p>
+<p>Adding a rectangle to outline the drawing space will make the layout
+a little clearer and illustrate the arguments that are passed on to the
+pne and two dimensional plot functions.</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,
-        plot1d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-          <span class="fu"><a href="../reference/rect_1d_graphics.html">rect_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>,  <span class="va">...</span><span class="op">)</span>
-          <span class="fu"><a href="../reference/arrow_1d_graphics.html">arrow_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="st">"firebrick"</span>, lwd<span class="op">=</span><span class="fl">3</span>, add<span class="op">=</span><span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-        <span class="op">}</span>,
-        plot2d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-          <span class="fu"><a href="../reference/rect_2d_graphics.html">rect_2d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>,  <span class="va">...</span><span class="op">)</span>
-          <span class="fu"><a href="../reference/arrow_2d_graphics.html">arrow_2d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="st">"steelblue"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">2</span>, add<span class="op">=</span><span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span>
-        <span class="op">}</span>,
-        width1d <span class="op">=</span> <span class="fl">1</span>, width2d <span class="op">=</span> <span class="fl">2</span>,
-        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span>,</span>
+<span>        plot1d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>          <span class="fu"><a href="../reference/rect_1d_graphics.html">rect_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>,  <span class="va">...</span><span class="op">)</span></span>
+<span>          <span class="fu"><a href="../reference/arrow_1d_graphics.html">arrow_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="st">"firebrick"</span>, lwd<span class="op">=</span><span class="fl">3</span>, add<span class="op">=</span><span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>        <span class="op">}</span>,</span>
+<span>        plot2d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>          <span class="fu"><a href="../reference/rect_2d_graphics.html">rect_2d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>,  <span class="va">...</span><span class="op">)</span></span>
+<span>          <span class="fu"><a href="../reference/arrow_2d_graphics.html">arrow_2d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="st">"steelblue"</span>, lwd<span class="op">=</span><span class="fl">3</span>, lty<span class="op">=</span><span class="fl">2</span>, add<span class="op">=</span><span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>        <span class="op">}</span>,</span>
+<span>        width1d <span class="op">=</span> <span class="fl">1</span>, width2d <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>        turns<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>,<span class="st">"d"</span>,<span class="st">"d"</span>,<span class="st">"l"</span>,<span class="st">"l"</span>,<span class="st">"u"</span>,<span class="st">"u"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-29-1.png" width="384" style="display: block; margin: auto;"></p>
-<p>The red arrows are the turns for the <code>1d</code> plots, the blue dashed arrows for the <code>2d</code> plots. The turns are interlaced and begin at the topmost red arrow for the <code>1d</code> plot. It points right, matching the first turn <code>"r"</code> in the list of <code>turns</code>. The remaining arrows follow each other in clockwise order. As can be seen, there is an arrow for each plot: red for the <code>1d</code> plots, black for the <code>2d</code> plots.</p>
+<p>The red arrows are the turns for the <code>1d</code> plots, the blue
+dashed arrows for the <code>2d</code> plots. The turns are interlaced
+and begin at the topmost red arrow for the <code>1d</code> plot. It
+points right, matching the first turn <code>"r"</code> in the list of
+<code>turns</code>. The remaining arrows follow each other in clockwise
+order. As can be seen, there is an arrow for each plot: red for the
+<code>1d</code> plots, black for the <code>2d</code> plots.</p>
 </div>
-<div id="arbitrary-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#arbitrary-plots" class="anchor"></a>Arbitrary plots</h2>
-<p>The above example also introduces some other important features of <code>zenplot</code>.</p>
-<p>The value <code>"arrow"</code> of <code>plot2d</code> argument caused an arrow to be drawn wherever a <code>2d</code> plot was to appear in the direction of the turn associated with that plot. As the value of <code>plot1d</code> here suggests, the argument could also have been a function.</p>
-<p>In fact, when given a string value for <code>plot2d</code>, <code>zenplot</code> calls a function whose name is constructed with this string. In the case of <code>plot2d = "arrow"</code>, <code>zenplot</code> calls the function <code>arrow_2d_graphics</code> to produce a <code>2d</code> plot whenever one is required. The naming convention constructs the function name from the string supplied, here “arrow”, the dimensionality of the plot (here <code>2d</code>) and the <code>R</code> graphics package that is being used (here the base <code>graphics</code> package). The function of that name is called on arguments appropriate to draw the plot.</p>
-<p>The same construction is also used when a string is given as the value of the <code>plot1d</code> argument. For example <code>plot1d = "arrow"</code> causes the function named <code>arrow_1d_graphics</code> to be called to draw the <code>1d</code> plots.</p>
-<p>Should, for example, the user wish to extend the base functionality of <code>zenplot</code> to include say <code>"myplot"</code>, they need only write functions <code>myplot_1d_graphics</code> and/or <code>myplot_2d_graphics</code> to allow the value <code>"myplot"</code> to be used for <code>plot1d</code> and/or <code>plot2d</code> in the base <code>graphics</code> package in <code>R</code>. Note that two other <code>R</code> plotting packages besides the base <code>graphics</code> are supported by <code>zenplot</code>, namely either the highly customizable <code>grid</code> package or the highly interactive <code>loon</code> package. The default package is <code>graphics</code> but either of the other two may be specified via the <code>pkg</code> argument to <code>zenplot</code> as in <code>pkg = "grid"</code> or <code>pkg = "loon"</code>.</p>
-<p>When <code>zenplot</code> is called with <code>plot1d="arrow"</code>, say, then one of the functions <code>arrow_1d_graphics</code>, <code>arrow_1d_grid</code>, or <code>arrow_1d_loon</code> will be called upon depending on the value of the argument <code>pkg</code>. This means that a true extension of <code>zenplot</code> to include, say, <code>plot1d = "myplot"</code> would require writing three functions, namely <code>myplot_1d_graphics</code>, <code>myplot_1d_grid</code>, and <code>myplot_1d_loon</code>, to complete the functionality.</p>
-<p>More often, as shown in the boxplot example, it will be a one-off functionality that might be required for either <code>plot2d</code> or <code>plot1d</code>.</p>
-<p>In this case, any function passed as the argument value will be used by <code>zenplot</code> to construct the corresponding plots. In the boxplot example, the default functions <code>boxplot_1d_graphics</code> and <code>arrow_1d_graphics</code> were both called so that one could be plotted on top of the other in each <code>1d</code> plot of the <code>zenplot</code>.</p>
-<div id="example-mixing-plots-to-assess-distributions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-mixing-plots-to-assess-distributions" class="anchor"></a>Example: mixing plots to assess distributions</h3>
-<p><code>zenplot</code> can be used to layout graphics produced by any of the three <code>pkg</code> (i.e. <code>graphics</code>, <code>grid</code>, or <code>loon</code>) provided all graphics used are from the <strong>same</strong> package.</p>
-<p>For example, suppose we were interested in the marginal distributions of the earthquake data. We might craft the following plot to investigate all marginal distributions and to compare each marginal to every other (i.e. all pairs).</p>
+<div class="section level3">
+<h3 id="arbitrary-plots">Arbitrary plots<a class="anchor" aria-label="anchor" href="#arbitrary-plots"></a>
+</h3>
+<p>The above example also introduces some other important features of
+<code>zenplot</code>.</p>
+<p>The value <code>"arrow"</code> of <code>plot2d</code> argument caused
+an arrow to be drawn wherever a <code>2d</code> plot was to appear in
+the direction of the turn associated with that plot. As the value of
+<code>plot1d</code> here suggests, the argument could also have been a
+function.</p>
+<p>In fact, when given a string value for <code>plot2d</code>,
+<code>zenplot</code> calls a function whose name is constructed with
+this string. In the case of <code>plot2d = "arrow"</code>,
+<code>zenplot</code> calls the function <code>arrow_2d_graphics</code>
+to produce a <code>2d</code> plot whenever one is required. The naming
+convention constructs the function name from the string supplied, here
+“arrow”, the dimensionality of the plot (here <code>2d</code>) and the
+<code>R</code> graphics package that is being used (here the base
+<code>graphics</code> package). The function of that name is called on
+arguments appropriate to draw the plot.</p>
+<p>The same construction is also used when a string is given as the
+value of the <code>plot1d</code> argument. For example
+<code>plot1d = "arrow"</code> causes the function named
+<code>arrow_1d_graphics</code> to be called to draw the <code>1d</code>
+plots.</p>
+<p>Should, for example, the user wish to extend the base functionality
+of <code>zenplot</code> to include say <code>"myplot"</code>, they need
+only write functions <code>myplot_1d_graphics</code> and/or
+<code>myplot_2d_graphics</code> to allow the value <code>"myplot"</code>
+to be used for <code>plot1d</code> and/or <code>plot2d</code> in the
+base <code>graphics</code> package in <code>R</code>. Note that two
+other <code>R</code> plotting packages besides the base
+<code>graphics</code> are supported by <code>zenplot</code>, namely
+either the highly customizable <code>grid</code> package or the highly
+interactive <code>loon</code> package. The default package is
+<code>graphics</code> but either of the other two may be specified via
+the <code>pkg</code> argument to <code>zenplot</code> as in
+<code>pkg = "grid"</code> or <code>pkg = "loon"</code>.</p>
+<p>When <code>zenplot</code> is called with <code>plot1d="arrow"</code>,
+say, then one of the functions <code>arrow_1d_graphics</code>,
+<code>arrow_1d_grid</code>, or <code>arrow_1d_loon</code> will be called
+upon depending on the value of the argument <code>pkg</code>. This means
+that a true extension of <code>zenplot</code> to include, say,
+<code>plot1d = "myplot"</code> would require writing three functions,
+namely <code>myplot_1d_graphics</code>, <code>myplot_1d_grid</code>, and
+<code>myplot_1d_loon</code>, to complete the functionality.</p>
+<p>More often, as shown in the boxplot example, it will be a one-off
+functionality that might be required for either <code>plot2d</code> or
+<code>plot1d</code>.</p>
+<p>In this case, any function passed as the argument value will be used
+by <code>zenplot</code> to construct the corresponding plots. In the
+boxplot example, the default functions <code>boxplot_1d_graphics</code>
+and <code>arrow_1d_graphics</code> were both called so that one could be
+plotted on top of the other in each <code>1d</code> plot of the
+<code>zenplot</code>.</p>
+<div class="section level4">
+<h4 id="example-mixing-plots-to-assess-distributions">Example: mixing plots to assess distributions<a class="anchor" aria-label="anchor" href="#example-mixing-plots-to-assess-distributions"></a>
+</h4>
+<p><code>zenplot</code> can be used to layout graphics produced by any
+of the three <code>pkg</code> (i.e. <code>graphics</code>,
+<code>grid</code>, or <code>loon</code>) provided all graphics used are
+from the <strong>same</strong> package.</p>
+<p>For example, suppose we were interested in the marginal distributions
+of the earthquake data. We might craft the following plot to investigate
+all marginal distributions and to compare each marginal to every other
+(i.e. all pairs).</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rwoldford/qqtest">qqtest</a></span><span class="op">)</span>
-<span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span><span class="op">[</span>,<span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">earthquakes</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>,
-        width1d <span class="op">=</span> <span class="fl">1</span>, width2d <span class="op">=</span> <span class="fl">2</span>, n2dcol<span class="op">=</span><span class="fl">5</span>,
-        plot1d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-          <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_1d.html">extract_1d</a></span><span class="op">(</span><span class="va">zargs</span><span class="op">)</span> <span class="co"># extract arguments for 1d</span>
-          <span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/adjustcolor.html">adjustcolor</a></span><span class="op">(</span><span class="kw">if</span> <span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">horizontal</span><span class="op">)</span> <span class="st">"firebrick"</span> <span class="kw">else</span> <span class="st">"steelblue"</span>,
-                             alpha.f <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span>
-          <span class="fu"><a href="../reference/hist_1d_graphics.html">hist_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="va">col</span>, <span class="va">...</span><span class="op">)</span>
-          <span class="op">}</span>,
-        plot2d<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span>
-          <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_2d.html">extract_2d</a></span><span class="op">(</span><span class="va">zargs</span><span class="op">)</span> <span class="co"># extract arguments for 2d</span>
-          <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">x</span><span class="op">)</span>
-          <span class="va">xlim</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">$</span><span class="va">xlim</span>
-          <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">y</span><span class="op">)</span>
-          <span class="va">ylim</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">$</span><span class="va">ylim</span>
-          <span class="fu"><a href="https://rwoldford.github.io/qqtest/reference/qqtest.html">qqtest</a></span><span class="op">(</span><span class="va">y</span>, dataTest<span class="op">=</span><span class="va">x</span>,
-                 xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span>,
-                 cex<span class="op">=</span><span class="fl">0.3</span>, col<span class="op">=</span><span class="st">"black"</span>,  pch<span class="op">=</span><span class="fl">19</span>,
-                 legend<span class="op">=</span><span class="cn">FALSE</span>, main<span class="op">=</span><span class="st">""</span>, axes<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span>
-
-          <span class="op">}</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rwoldford/qqtest" class="external-link">qqtest</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">earthquakes</span><span class="op">[</span>,<span class="fu"><a href="../reference/zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">earthquakes</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>,</span>
+<span>        width1d <span class="op">=</span> <span class="fl">1</span>, width2d <span class="op">=</span> <span class="fl">2</span>, n2dcol<span class="op">=</span><span class="fl">5</span>,</span>
+<span>        plot1d <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>          <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_1d.html">extract_1d</a></span><span class="op">(</span><span class="va">zargs</span><span class="op">)</span> <span class="co"># extract arguments for 1d</span></span>
+<span>          <span class="va">col</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor</a></span><span class="op">(</span><span class="kw">if</span> <span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">horizontal</span><span class="op">)</span> <span class="st">"firebrick"</span> <span class="kw">else</span> <span class="st">"steelblue"</span>,</span>
+<span>                             alpha.f <span class="op">=</span> <span class="fl">0.7</span><span class="op">)</span></span>
+<span>          <span class="fu"><a href="../reference/hist_1d_graphics.html">hist_1d_graphics</a></span><span class="op">(</span><span class="va">zargs</span>, col<span class="op">=</span><span class="va">col</span>, <span class="va">...</span><span class="op">)</span></span>
+<span>          <span class="op">}</span>,</span>
+<span>        plot2d<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">zargs</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>          <span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_2d.html">extract_2d</a></span><span class="op">(</span><span class="va">zargs</span><span class="op">)</span> <span class="co"># extract arguments for 2d</span></span>
+<span>          <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
+<span>          <span class="va">xlim</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">$</span><span class="va">xlim</span></span>
+<span>          <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">r</span><span class="op">$</span><span class="va">y</span><span class="op">)</span></span>
+<span>          <span class="va">ylim</span> <span class="op">&lt;-</span> <span class="va">r</span><span class="op">$</span><span class="va">ylim</span></span>
+<span>          <span class="fu"><a href="https://rwoldford.github.io/qqtest/reference/qqtest.html" class="external-link">qqtest</a></span><span class="op">(</span><span class="va">y</span>, dataTest<span class="op">=</span><span class="va">x</span>,</span>
+<span>                 xlim<span class="op">=</span><span class="va">xlim</span>, ylim<span class="op">=</span><span class="va">ylim</span>,</span>
+<span>                 cex<span class="op">=</span><span class="fl">0.3</span>, col<span class="op">=</span><span class="st">"black"</span>,  pch<span class="op">=</span><span class="fl">19</span>,</span>
+<span>                 legend<span class="op">=</span><span class="cn">FALSE</span>, main<span class="op">=</span><span class="st">""</span>, axes<span class="op">=</span><span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span>          <span class="op">}</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;"></p>
-<p>Here we are using the function <code>qqtest</code> from the package of that name and whose display capability is built using only the base <code>graphics</code> package. For <code>2d</code> data <code>qqtest</code> compares the two empirical distributions by drawing an empirical quantile-quantile plot which should be near a straight line if the marginal distributions are of the same shape. The empirical quantile-quantile plot is supplemented by simulated values of empirical quantiles from the empirical distribution of the horizontal variate. The results of 1,000 draws from this distribution are shown in shades of grey on the qqplot. The <code>1d</code> plots are shown as histograms coloured <code>"grey"</code> when that histogram was used to generate the simulated values and in <code>"steelblue"</code> when the histogram was not.</p>
-<p>As can be seen from the qqplots, since numerous points are outside the gray envelopes of each plot, no two marginal distributions would appear to be alike.</p>
+<p>Here we are using the function <code>qqtest</code> from the package
+of that name and whose display capability is built using only the base
+<code>graphics</code> package. For <code>2d</code> data
+<code>qqtest</code> compares the two empirical distributions by drawing
+an empirical quantile-quantile plot which should be near a straight line
+if the marginal distributions are of the same shape. The empirical
+quantile-quantile plot is supplemented by simulated values of empirical
+quantiles from the empirical distribution of the horizontal variate. The
+results of 1,000 draws from this distribution are shown in shades of
+grey on the qqplot. The <code>1d</code> plots are shown as histograms
+coloured <code>"grey"</code> when that histogram was used to generate
+the simulated values and in <code>"steelblue"</code> when the histogram
+was not.</p>
+<p>As can be seen from the qqplots, since numerous points are outside
+the gray envelopes of each plot, no two marginal distributions would
+appear to be alike.</p>
 </div>
 </div>
-<div id="arguments-to-plot1d-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#arguments-to-plot1d-functions" class="anchor"></a>Arguments to <code>plot1d</code> functions</h2>
-<p>Every <code>plot1d</code> function must take arbitrarily many arguments, accepting at least the following set:</p>
+<div class="section level3">
+<h3 id="arguments-to-plot1d-functions">Arguments to <code>plot1d</code> functions<a class="anchor" aria-label="anchor" href="#arguments-to-plot1d-functions"></a>
+</h3>
+<p>Every <code>plot1d</code> function must take arbitrarily many
+arguments, accepting at least the following set:</p>
 <ul>
 <li>
 <code>x</code>, a vector of values for a single variate</li>
 <li>
-<code>horizontal</code>, which is <code>TRUE</code> if the <code>1d</code> plot is to be horizontal,</li>
+<code>horizontal</code>, which is <code>TRUE</code> if the
+<code>1d</code> plot is to be horizontal,</li>
 <li>
-<code>plotAsp</code>, the aspect ratio of the plot (i.e. the smaller/larger side ration in [0,1])</li>
+<code>plotAsp</code>, the aspect ratio of the plot (i.e. the
+smaller/larger side ration in [0,1])</li>
 <li>
-<code>turn</code>, the single character turn out from the current plot</li>
+<code>turn</code>, the single character turn out from the current
+plot</li>
 <li>
-<code>plotID</code>, a list containing information on the identification of the <code>plot</code>.</li>
+<code>plotID</code>, a list containing information on the
+identification of the <code>plot</code>.</li>
 </ul>
-<p>If the <code>plot1d</code> function is from the package <code>grid</code>, then it should also expect to receive a <code>vp</code> or viewport argument; if it is from the package <code>loon</code>, it might also receive a <code>parent</code> argument. These arguments should be familiar to users of either package.</p>
-<p>For a <code>plot1d</code> function, the <code>plotID</code> consists of</p>
+<p>If the <code>plot1d</code> function is from the package
+<code>grid</code>, then it should also expect to receive a
+<code>vp</code> or viewport argument; if it is from the package
+<code>loon</code>, it might also receive a <code>parent</code> argument.
+These arguments should be familiar to users of either package.</p>
+<p>For a <code>plot1d</code> function, the <code>plotID</code> consists
+of</p>
 <ul>
 <li>
-<code>group</code>, the number of the group in which this <code>1d</code> plot is placed,</li>
+<code>group</code>, the number of the group in which this
+<code>1d</code> plot is placed,</li>
 <li>
-<code>number.within.group</code>, the within group index of this variate,</li>
+<code>number.within.group</code>, the within group index of this
+variate,</li>
 <li>
-<code>index</code> , the index of the variate among all variates in the data set(s)</li>
+<code>index</code> , the index of the variate among all variates in
+the data set(s)</li>
 <li>
 <code>label</code>, the variate label, and</li>
 <li>
-<code>plotNo</code>, the number of the <code>1d</code> plot being displayed (i.e its position in order among only those which are <code>1d</code>).</li>
+<code>plotNo</code>, the number of the <code>1d</code> plot being
+displayed (i.e its position in order among only those which are
+<code>1d</code>).</li>
 </ul>
-<p>All other functions in the ellipsis, <code>...</code>, are passed on to the drawing functions.</p>
+<p>All other functions in the ellipsis, <code>...</code>, are passed on
+to the drawing functions.</p>
 </div>
-<div id="arguments-to-plot2d-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#arguments-to-plot2d-functions" class="anchor"></a>Arguments to <code>plot2d</code> functions</h2>
-<p>Every <code>plot2d</code> function must take arbitrarily many arguments, accepting at least the following set:</p>
+<div class="section level3">
+<h3 id="arguments-to-plot2d-functions">Arguments to <code>plot2d</code> functions<a class="anchor" aria-label="anchor" href="#arguments-to-plot2d-functions"></a>
+</h3>
+<p>Every <code>plot2d</code> function must take arbitrarily many
+arguments, accepting at least the following set:</p>
 <ul>
 <li>
 <code>x</code>, a vector of values for the horizontal variate</li>
 <li>
 <code>y</code>, a vector of values for the vertical variate</li>
 <li>
-<code>turn</code>, the single character turn out from the current plot</li>
+<code>turn</code>, the single character turn out from the current
+plot</li>
 <li>
-<code>plotID</code>, a list containing information on the identification of the <code>plot</code>.</li>
+<code>plotID</code>, a list containing information on the
+identification of the <code>plot</code>.</li>
 </ul>
-<p>If the <code>plot2d</code> function is from the package <code>grid</code>, then it should also expect to receive a <code>vp</code> or viewport argument; if it is from the package <code>loon</code>, it might also receive a <code>parent</code> argument. These arguments should be familiar to users of either package.</p>
-<p>For a <code>plot2d</code> function, the <code>plotID</code> consists of</p>
+<p>If the <code>plot2d</code> function is from the package
+<code>grid</code>, then it should also expect to receive a
+<code>vp</code> or viewport argument; if it is from the package
+<code>loon</code>, it might also receive a <code>parent</code> argument.
+These arguments should be familiar to users of either package.</p>
+<p>For a <code>plot2d</code> function, the <code>plotID</code> consists
+of</p>
 <ul>
 <li>
-<code>group</code>, the number of the group in which this <code>2d</code> plot is placed,</li>
+<code>group</code>, the number of the group in which this
+<code>2d</code> plot is placed,</li>
 <li>
-<code>number.within.group</code>, the within group index for these variates (same index),</li>
+<code>number.within.group</code>, the within group index for these
+variates (same index),</li>
 <li>
-<code>index</code> , the indices of the variates among all variates in the data set(s)</li>
+<code>index</code> , the indices of the variates among all variates
+in the data set(s)</li>
 <li>
 <code>label</code>, the labels of the variates, and</li>
 <li>
-<code>plotNo</code>, the number of the <code>2d</code> the plot being displayed (i.e its position in order among only those which are <code>2d</code>).</li>
+<code>plotNo</code>, the number of the <code>2d</code> the plot
+being displayed (i.e its position in order among only those which are
+<code>2d</code>).</li>
 </ul>
-<p>All other functions in the ellipsis, <code>...</code>, are passed on to the drawing functions.</p>
+<p>All other functions in the ellipsis, <code>...</code>, are passed on
+to the drawing functions.</p>
 </div>
 </div>
   </div>
@@ -597,11 +910,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Marius Hofert, Wayne Oldford.</p>
+  <p></p>
+<p>Developed by Marius Hofert, Wayne Oldford.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -609,6 +924,8 @@
 
   
 
+
+  
 
   </body>
 </html>

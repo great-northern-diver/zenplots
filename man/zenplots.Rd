@@ -3,6 +3,7 @@
 \docType{package}
 \name{zenplots}
 \alias{zenplots}
+\alias{zenplots-package}
 \title{zenplots: Zigzag Expanded Navigation Plots}
 \description{
 Zenplots, like pairs plots (scatterplot matrices), lay out a large
