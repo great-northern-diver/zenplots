@@ -13,6 +13,7 @@
 #'
 #'
 #' @docType package
+#' @aliases zenplots-package
 #' @name zenplots
 #' @useDynLib zenplots, .registration=TRUE
 #'

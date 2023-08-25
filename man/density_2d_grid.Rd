@@ -93,8 +93,6 @@ Other default 2d plot functions:
 }
 \author{
 Marius Hofert and Wayne Oldford
-
-Marius Hofert and Wayne Oldford
 }
 \concept{default 2d plot functions}
 \concept{default 2d plot functions using the grid package}
