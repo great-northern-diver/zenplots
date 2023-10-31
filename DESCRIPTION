@@ -15,10 +15,10 @@ Author: Marius Hofert [aut], Wayne Oldford [aut, cre]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
 URL: https://github.com/great-northern-diver/zenplots
 Depends: R (>= 3.4.0)
-Imports: grid, graphics, loon, stats, methods, MASS, graph, PairViz
+Imports: grid, graphics, stats, methods, MASS, graph, PairViz
 Suggests: knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
           qrmdata, qrmtools, rugarch, zoo, ggplot2, lattice, gridExtra,
-	  scagnostics, testthat
+	  scagnostics, testthat, loon
 Enhances:
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
