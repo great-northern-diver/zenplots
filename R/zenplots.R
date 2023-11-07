@@ -19,7 +19,6 @@
 #'
 #' @import graphics
 #' @import grid
-#' @import loon
 #' @importFrom MASS kde2d
 #' @importFrom tcltk tktoplevel tktitle<- tkgrid tkconfigure tkgrid.rowconfigure tkgrid.columnconfigure tkframe tkpack
 #' @importFrom graph ftM2graphNEL
