@@ -1,3 +1,7 @@
+# zenplots 1.0.6
+
+* moved package loon to the "Suggests" list in the DESCRIPTON to accommodate non-GI R use. 
+
 # zenplots 1.0.5
 
 * zenplots package documentation file 
