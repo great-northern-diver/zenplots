@@ -214,7 +214,7 @@ connect_pairs <- function(x, duplicate.rm = FALSE)
 ##' @param var.names names of the variables appearing in \code{x}.
 ##' @param edgemode type of edges to be used: either \code{"undirected"} (the default)
 ##'        or \code{"directed"} (in which case the order of the nodes in each pair matters).
-##' @return a \code{\link{graphNEL}} object; can be displayed using
+##' @return a \code{\link[graph:graphNEL-class]{graphNEL}} object; can be displayed using
 ##' \code{\link{plot}()}.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.

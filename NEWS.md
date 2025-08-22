@@ -1,3 +1,10 @@
+# zenplots 1.0.7
+
+* fixed link to `graphNEL` from `graph` package in documentation of `graph_pairs`.
+
+* added `mvtnorm`, `crop` to suggests in DESCRIPTION for demo; also made explicit calls to 
+  `crop::dev.off.crop()` in `SP500` demo.
+  
 # zenplots 1.0.6
 
 * moved package loon to the "Suggests" list in the DESCRIPTON to accommodate non-GI R use. 

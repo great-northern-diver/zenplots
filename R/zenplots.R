@@ -7,27 +7,19 @@
 #' plots by pursuing a zigzagging layout (following a zenpath) of
 #' alternating one- and two-dimensional plots.
 #'
-#' The plots can be created by R's base graphics package, by the grid
-#' graphics package, or even made interactive (brushing, etc.) by using
-#' using the loon package.
+#' The plots can be created by R's base graphics, by the grid graphics
+#' system, or made interactive (brushing, etc.) using the \pkg{loon} package.
 #'
-#'
-#' @docType package
-#' @aliases zenplots-package
-#' @name zenplots
-#' @useDynLib zenplots, .registration=TRUE
-#'
+#' @keywords internal
 #' @import graphics
 #' @import grid
 #' @importFrom MASS kde2d
-#' @importFrom tcltk tktoplevel tktitle<- tkgrid tkconfigure tkgrid.rowconfigure tkgrid.columnconfigure tkframe tkpack
+#' @importFrom tcltk tktoplevel `tktitle<-` tkgrid tkconfigure tkgrid.rowconfigure tkgrid.columnconfigure tkframe tkpack
 #' @importFrom graph ftM2graphNEL
 #' @importFrom PairViz eseq hpaths eulerian bipartite_graph
 #' @importFrom grDevices colorRampPalette contourLines hcl xy.coords
 #' @importFrom stats density qnorm quantile runif na.omit as.dist median qqplot approx
 #' @importFrom methods hasArg existsFunction
 #' @importFrom utils head tail
-#'
-#'
-NULL
-#> NULL
+#' @useDynLib zenplots, .registration=TRUE
+"_PACKAGE"

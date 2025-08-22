@@ -18,7 +18,7 @@ the list).}
 or \code{"directed"} (in which case the order of the nodes in each pair matters).}
 }
 \value{
-a \code{\link{graphNEL}} object; can be displayed using
+a \code{\link[graph:graphNEL-class]{graphNEL}} object; can be displayed using
 \code{\link{plot}()}.
 }
 \description{
