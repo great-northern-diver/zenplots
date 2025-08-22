@@ -19,8 +19,8 @@ Checking whether certain arguments appear in zargs
 }
 \seealso{
 Other tools for constructing your own plot1d and plot2d functions: 
-\code{\link{burst_aux}()},
 \code{\link{burst}()},
+\code{\link{burst_aux}()},
 \code{\link{extract_1d}()},
 \code{\link{extract_2d}()},
 \code{\link{plot_indices}()}

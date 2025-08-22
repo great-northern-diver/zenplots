@@ -18,7 +18,7 @@ library(zenplots)
 library(lattice)
 library(qrmdata)
 library(qrmtools)
-doPNG <- require(crop)
+doPNG <- require("crop", quietly = TRUE)
 
 ## Set working directory (to find existing objects!)
 ## usr <- Sys.getenv("USER")
@@ -156,7 +156,7 @@ if(doPNG)
 png(file = (file <- paste0("fig_SP500_NA.png")),
     width = 7.5, height = 6, units = "in", res = 300, bg = "transparent")
 NA_plot(x)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Keep the time series with at most 20% missing data and fill NAs
 keep <- apply(x, 2, function(x.) mean(is.na(x.)) <= 0.2) # keep those with <= 20% NA
@@ -169,7 +169,7 @@ if(doPNG)
 png(file = (file <- paste0("fig_SP500_NA<=0.2.png")),
     width = 7.5, height = 6, units = "in", res = 300, bg = "transparent")
 NA_plot(x) # => only very little NA (yet still introduces interesting shape in some pobs below)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 colnames(x)[apply(x, 2, function(x) any(is.na(x)))] # components with <= 20% NA
 x <- na.fill(x, fill = "extend") # fill NAs
 stopifnot(all(!is.na(x)))
@@ -243,7 +243,7 @@ plot(U.[,1:2], pch = 19, col = adjustcolor("black", alpha.f = 0.4))
 plot(U.[,2:3], pch = 19, col = adjustcolor("black", alpha.f = 0.4))
 plot(U.[,3:4], pch = 19, col = adjustcolor("black", alpha.f = 0.4))
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## In more than two or three dimensions, one typically uses a scatterplot matrix
 ## to visualize the pseudo-observations. As the following plot shows, as the dimensions increase
@@ -256,7 +256,7 @@ if(doPNG)
         width = 10, height = 10, units = "in", res = 600, bg = "transparent")
 pairs(U.[,1:22], gap = 0, cex = 0.1, cex.labels = 0.9, oma = rep(0.2, 4),
       col = adjustcolor("black", alpha.f = 0.5), xaxt="n", yaxt="n")
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Note that we have far too many pairs to be visible in a scatterplot matrix!
 ## A zenplot, visualizing some of the pairs of variables, makes more sense here.
@@ -269,7 +269,7 @@ zenplot(U., n2dcols = 23, ospace = 0,
         plot1d = function(zargs) label_1d_graphics(zargs, cex = 0.5),
         plot2d = function(zargs) points_2d_graphics(zargs, cex = 0.1,
                                                     col = adjustcolor("black", alpha.f = 0.5)))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## From a risk management perspective, for example, the pairs we are most
 ## interested in are those with the strongest tail dependence, and possibly
@@ -344,7 +344,7 @@ if(doPNG)
 matrix_plot(LamPWnp, at = seq(0, 1, length.out = 200),
             col.regions = grey(c(seq(1, 0, length.out = 200))),
             panel = sector_panel_function(LamPWnp, sectors = dsec, subsectors = dssec))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Density of all pairwise lambdas
 if(doPNG)
@@ -352,7 +352,7 @@ if(doPNG)
         width = 7.5, height = 6, units = "in", res = 200, bg = "transparent")
 matrix_density_plot(LamPWnp, xlim = 0:1,
                     xlab = expression("Pairwise"~lambda[U]~"(conditional Spearman's rhos)"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 4.2 Parametric estimators (bivariate t copulas) ############################
@@ -385,7 +385,7 @@ matrix_plot(LamPW, at = seq(0, 1, length.out = 200),
             col.regions = grey(c(seq(1, 0, length.out = 200))),
             panel = sector_panel_function(LamPWnp, sectors = dsec, subsectors = dssec,
                                           colsec="black", lwdsec=0.8, lwdsubs=0.2, colsubs="black"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Density of all pairwise lambdas
 if(doPNG)
@@ -393,7 +393,7 @@ if(doPNG)
         width = 7.5, height = 6, units = "in", res = 200, bg = "transparent")
 matrix_density_plot(LamPW, xlim = 0:1,
                     xlab = expression("Pairwise"~lambda[U]~"(bivariate t copulas)"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Density of all degrees of freedom
 if(doPNG)
@@ -406,7 +406,7 @@ legend("topright", bty = "n", lty = 1:2,
        legend = c("Density",
                   as.expression(substitute("Joint t copula"~hat(nu)==nu.,
                                            list(nu. = 12.98)))))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 whch <- NuPW > 999
 sum(whch, na.rm = TRUE) / choose(465, 2) * 100 # % pairs with estimated d.o.f. > 999 (1.57%)
 summary(LamPW[whch]) # => they are (numerically correctly treated as) 0
@@ -445,7 +445,7 @@ zenplot(U.groups, n2dcols = 5, ospace = 0, ispace = 0.01,
         plot2d = function(zargs) points_2d_graphics(zargs, box = TRUE,
                                                     col = adjustcolor("black", alpha.f = 0.4)),
         labs = list(group = "Path ", var = "V", sep = ", "))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 5.2 Largest among all (cross-)pairs (= pairs whose components belong to
@@ -488,7 +488,7 @@ zenplot(U.groups, n2dcols = 5, ospace = 0, ispace = 0.01,
         plot2d = function(zargs) points_2d_graphics(zargs, box = TRUE,
                                                     col = adjustcolor("black", alpha.f = 0.4)),
         labs = list(group = "Path ", var = "V", sep = ", "))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 5.3 Among all pairs within a group (for all groups) ########################
@@ -519,7 +519,7 @@ zenplot(U.groups, n2dcols = 5, ospace = 0, ispace = 0.01,
         plot2d = function(zargs) points_2d_graphics(zargs, box = TRUE,
                                                     col = adjustcolor("black", alpha.f = 0.4)),
         labs = list(group = "GICS ", var = "V", sep = ", "))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 6 Fitting a proper multivariate t copula ###################################
@@ -558,7 +558,7 @@ matrix_plot(Lam, at = seq(0, 1, length.out = 200),
             col.regions = grey(c(seq(1, 0, length.out = 200))),
             panel = sector_panel_function(LamPWnp, sectors = dsec, subsectors = dssec,
                                           colsec="black", lwdsec=0.8, lwdsubs=0.2, colsubs="black"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Compare Lam with LamPW in a scatter plot
 lamPW <- LamPW[lower.tri(LamPW)]
@@ -574,7 +574,7 @@ plot(lamPW, lam, xlim = 0:1, ylim = 0:1,
      # pch = ".", col = "black"  # An alternative to the above
      )
 abline(b = 1, a = 0, lwd = 0.5)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Compare pobs of Lam and lamPW
 if(doPNG)
@@ -585,7 +585,7 @@ plot(pobs(cbind(lamPW, lam)), xlim = 0:1, ylim = 0:1,
      xlab = expression("Pseudo-observations of pairwise"~lambda[U]~"(bivariate t copulas)"),
      ylab = expression("Pseudo-observations of pairwise"~lambda[U]~"(t copula)"),
      pch = ".", col = adjustcolor("black", alpha.f = 0.4))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Compare Lam with LamPW in a density plot
 dists <- LamPW-Lam # in [-1,1]
@@ -596,7 +596,7 @@ if(doPNG)
         width = 7.5, height = 6, units = "in", res = 200, bg = "transparent")
 matrix_density_plot(dists, xlim = xran,
                     xlab = expression("Pairwise"~lambda[U]~"differences (bivariate t copulas minus full t copula)"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Density of all pairwise implied lambdas
 if(doPNG)
@@ -604,7 +604,7 @@ if(doPNG)
         width = 7.5, height = 6, units = "in", res = 200, bg = "transparent")
 matrix_density_plot(Lam, xlim = 0:1,
                     xlab = expression("Pairwise"~lambda[U]~"(t copula)"))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 7 Goodness-of-fit ##########################################################
@@ -662,7 +662,7 @@ zenplot(Z.ord[,1:(n.col*n.row+1)], # fill it completely
         plot1d = "arrow", plot2d = function(zargs, ...) {
             acf_2d(zargs, pvalues = pvals.margins.ord, nus = nu.margins.ord, ...)
 })
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ## Checking the time series which had NA
@@ -693,7 +693,7 @@ opar <- par(pty = "s")
 plot(Z..[2:lZ..], Z..[1:(lZ..-1)], xlab = expression(Z[t+1]), ylab = expression(Z[t]))
 abline(a = 0, b = 1, lty = 2, col = "gray60")
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## DFS
 x. <- x[,"DFS"]
@@ -715,7 +715,7 @@ opar <- par(pty = "s")
 plot(Z..[2:lZ..], Z..[1:(lZ..-1)], xlab = expression(Z[t+1]), ylab = expression(Z[t]))
 abline(a = 0, b = 1, lty = 2, col = "gray60")
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## TWC
 x. <- x[,"TWC"]
@@ -741,7 +741,7 @@ opar <- par(pty = "s")
 plot(index(x..), Z.., type = "l", xlab = "t",
      ylab = expression("Standardized residuals"~~Z[t])) # ... suddenly a peak
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 day <- index(x..)[which(Z.. > 10)]
 x..[c(day-2, day-1, day)] # ... at the first *two* trading days
 acf(Z..) # ... ACF *is* affected
@@ -754,7 +754,7 @@ opar <- par(pty = "s")
 plot(Z..[2:lZ..], Z..[1:(lZ..-1)], xlab = expression(Z[t+1]), ylab = expression(Z[t]))
 abline(a = 0, b = 1, lty = 2, col = "gray60")
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## How about just using an ARMA(1,1)?
 uspec <- ugarchspec(variance.model = list(garchOrder = c(0, 0)), distribution.model = "std")
@@ -771,7 +771,7 @@ opar <- par(pty = "s")
 plot(Z..[2:lZ..], Z..[1:(lZ..-1)], xlab = expression(Z[t+1]), ylab = expression(Z[t])) # => fine
 abline(a = 0, b = 1, lty = 2, col = "gray60")
 par(opar)
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Note: When only using a GARCH(1,1), there is only one spike (much larger)
 ##       which does not affect the ACF.
@@ -831,7 +831,7 @@ zenplot(Z.ord[,1:(n.col*n.row+1)], # fill it completely
             qqtest_t_2d(zargs, pvalues = pvals.margins.ord, nus = nu.margins.ord, nreps = 1000, ...)
             abline(0, 1, col = adjustcolor("black", 0.5), lwd = 0.5)
 })
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 7.2 Single test: Full model ################################################
@@ -866,7 +866,7 @@ if(doPNG)
 qqtest(URosenFull.K, dist = "kay", df = d, nreps = 1000, pch = 1,
        col = adjustcolor("black", alpha.f = 0.5), main = "", cex = 0.3,
        xlab = substitute(K[dof]~"quantiles", list(dof = d))) # envelope = FALSE, nexemplars = 5,
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Do the same for random permutation of the order of the variables
 set.seed(271)
@@ -886,7 +886,7 @@ if(doPNG)
 qqtest(URosenFull.K., dist = "kay", df = d, nreps = 1000, pch = 1,
        col = adjustcolor("black", alpha.f = 0.5), main = "", cex = 0.3,
        xlab = substitute(K[dof]~"quantiles", list(dof = d)))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 7.3 Pairwise tests: With full ("wrong dof?") and pairwise fitted models
@@ -965,7 +965,7 @@ matrix_plot(rej, at = c(0, 2/3, 4/3, 2), col.regions = c("white", "black", "maro
                                                                 "Only full t's p-value < 0.05",
                                                                 "Both models' p-values < 0.05"))),
             panel = sector_panel_function(rej, sectors = dsec, subsectors = dssec))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Omit the empty rows/cols in the above matrix plots, only do the one where
 ## the full model is rejected and indicate those pairs where also the bivariate
@@ -1007,7 +1007,7 @@ matrix_plot(rej., at = c(0, 2/3, 4/3, 2), col.regions = c("white", "black", "mar
             panel = sector_panel_function(rej., sectors = dsec.., subsectors = dssec..,
                                           colsec="black", lwdsec=0.8, lwdsubs=0.5, colsubs="grey90"))
 
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Plot of p-values
 vpvalsMatPWFull <- as.vector(pvalsMatPWFull)
@@ -1018,7 +1018,7 @@ if(doPNG)
 plot(vpvalsMatPWFull, vpvalsMatPWPW, col = adjustcolor("black", alpha.f = 0.08),
      cex = 0.3, xlab = "p-values of pairwise AD tests (t copula)",
      ylab = "p-values of pairwise AD tests (bivariate t copulas)")
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 ## Plot of corresponding pseudo-observations
 pobs.vpvals <- pobs(cbind(vpvalsMatPWFull, vpvalsMatPWPW))
@@ -1028,7 +1028,7 @@ if(doPNG)
 plot(pobs.vpvals, col = adjustcolor("black", alpha.f = 0.08),
      cex = 0.3, xlab = "Pseudo-observations of p-values of pairwise AD tests (t copula)",
      ylab = "Pseudo-observations of p-values of pairwise AD tests (bivariate t copulas)")
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)
 
 
 ### 7.3.4 Pobs plots of all pairs with smallest p-value for the bivariate t copulas
@@ -1084,4 +1084,4 @@ zenplot(U.lst, n2dcol = 17, ospace = 0, ispace = 0.01,
         plot1d = function(zargs) label_1d_graphics(zargs, cex = 0.4),
         plot2d = function(zargs) points_2d_graphics(zargs, cex = 0.1,
                                                     col = adjustcolor("black", alpha.f = 0.2)))
-if(doPNG) dev.off.crop(file)
+if(doPNG) crop::dev.off.crop(file)

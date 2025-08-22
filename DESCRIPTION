@@ -1,5 +1,5 @@
 Package: zenplots
-Version: 1.0.6
+Version: 1.0.7
 Encoding: UTF-8
 Title: Zigzag Expanded Navigation Plots
 Description: Graphical tools for visualizing high-dimensional data along a path
@@ -18,11 +18,11 @@ Depends: R (>= 3.4.0)
 Imports: grid, graphics, stats, methods, MASS, graph, PairViz
 Suggests: knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
           qrmdata, qrmtools, rugarch, zoo, ggplot2, lattice, gridExtra,
-	  scagnostics, testthat, loon
+	      scagnostics, testthat, loon, mvtnorm, crop
 Enhances:
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
 VignetteBuilder: knitr, rmarkdown
 Repository: CRAN
-Date: 2023-11-07
-RoxygenNote: 7.2.3
+Date: 2025-08-21
+RoxygenNote: 7.3.2

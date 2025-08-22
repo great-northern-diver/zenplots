@@ -73,8 +73,8 @@ zenplot(iris, plot2d = my_2d_plot)
 }
 \seealso{
 Other tools for constructing your own plot1d and plot2d functions: 
-\code{\link{burst_aux}()},
 \code{\link{burst}()},
+\code{\link{burst_aux}()},
 \code{\link{check_zargs}()},
 \code{\link{extract_1d}()},
 \code{\link{plot_indices}()}
