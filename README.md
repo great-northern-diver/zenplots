@@ -5,7 +5,7 @@
 ## Plotting paths to data enlightenment
 
 <p align="center">
-  <img src="reference/figures/logo.png" width="400" alt="zenplots logo">
+  <img src="man/figures/logo.png" width="400" alt="zenplots logo">
 </p>
 
 
