@@ -13,16 +13,18 @@ Authors@R: c(person(given = "Marius", family = "Hofert", role = "aut",
                     email = "rwoldford@uwaterloo.ca"))
 Author: Marius Hofert [aut], Wayne Oldford [aut, cre]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
-URL: https://github.com/great-northern-diver/zenplots
+URL: https://great-northern-diver.github.io/zenplots, https://github.com/great-northern-diver/zenplots
 Depends: R (>= 3.4.0)
-Imports: grid, graphics, stats, methods, MASS, graph, PairViz
-Suggests: knitr, rmarkdown, Rgraphviz, ADGofTest, copula, Matrix, pcaPP, qqtest,
+Imports: grid, graphics, stats, methods, MASS, PairViz,
+         graph 
+Suggests: knitr, rmarkdown, ADGofTest, copula, Matrix, pcaPP, qqtest,
           qrmdata, qrmtools, rugarch, zoo, ggplot2, lattice, gridExtra,
-	      scagnostics, testthat, loon, mvtnorm, crop
+	      scagnostics, testthat, loon, mvtnorm, crop, 
+	      Rgraphviz, BiocManager 
 Enhances:
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
 VignetteBuilder: knitr, rmarkdown
 Repository: CRAN
-Date: 2025-08-21
-RoxygenNote: 7.3.2
+Date: 2025-09-05
+RoxygenNote: 7.3.3
