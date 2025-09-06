@@ -2,9 +2,12 @@
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/zenplots)](https://cran.r-project.org/package=zenplots)
 
-Plotting paths to data enlightenment <img src="man/figures/logo.png" align="right" width="120" />
+## Plotting paths to data enlightenment
 
-* Online documentation is available [here](https://great-northern-diver.github.io/zenplots/)
+<p align="center">
+  <img src="reference/figures/logo.png" width="400" alt="zenplots logo">
+</p>
+
 
 The package zenplots (**z**igzag
 **e**xpanded **n**avigation **plots**) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate. 
@@ -23,4 +26,15 @@ One important feature is that `zenplot()` and its auxiliary functions in zenplot
 
 Try it. 
 
-Become one with your data!
+**Become one with your data!**
+
+### Note
+
+Since **zenplots** relies on the `graph` package from Bioconductor, and optionally also `Rgraphviz` to plot any graph structures, it might be simplest to install it using Bioconductor:
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("zenplots")
+```
+

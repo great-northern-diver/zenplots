@@ -1,5 +1,8 @@
 # zenplots 1.0.7
 
+* updated examples, documentation, and vignettes to not rely on the `Rgraphviz` package from Bioconductor.  Also added some information
+  for the user to install this package if they want to draw any of the graphs constructed by `zenplots`
+  
 * fixed link to `graphNEL` from `graph` package in documentation of `graph_pairs`.
 
 * added `mvtnorm`, `crop` to suggests in DESCRIPTION for demo; also made explicit calls to 
