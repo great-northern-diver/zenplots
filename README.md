@@ -9,8 +9,6 @@
 </p>
 
 
-* Online documentation is available [here](https://great-northern-diver.github.io/zenplots/)
-
 The package zenplots (**z**igzag
 **e**xpanded **n**avigation **plots**) displays high-dimensional data by laying out alternating one- and two-dimensional plots in a zigzag-like pattern where adjacent axes share the same variate. 
 

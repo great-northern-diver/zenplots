@@ -20,8 +20,8 @@ system, or made interactive (brushing, etc.) using the \pkg{loon} package.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://great-northern-diver.github.io/zenplots}
-  \item \url{https://github.com/great-northern-diver/zenplots}
+  \item \url{https://great-northern-diver.github.io/zenplots/}
+  \item \url{https://github.com/great-northern-diver/zenplots/}
 }
 
 }

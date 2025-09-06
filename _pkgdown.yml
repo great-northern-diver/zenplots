@@ -14,9 +14,6 @@ template:
 
 home:
   strip_header: false
-  links:
-  - text: Source on GitHub
-    href: https://github.com/great-northern-diver/zenplots
 
 navbar:
   structure:

@@ -13,7 +13,7 @@ Authors@R: c(person(given = "Marius", family = "Hofert", role = "aut",
                     email = "rwoldford@uwaterloo.ca"))
 Author: Marius Hofert [aut], Wayne Oldford [aut, cre]
 Maintainer: Wayne Oldford <rwoldford@uwaterloo.ca>
-URL: https://great-northern-diver.github.io/zenplots, https://github.com/great-northern-diver/zenplots
+URL: https://great-northern-diver.github.io/zenplots/, https://github.com/great-northern-diver/zenplots/
 Depends: R (>= 3.4.0)
 Imports: grid, graphics, stats, methods, MASS, PairViz,
          graph 
