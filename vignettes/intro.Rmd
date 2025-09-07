@@ -3,15 +3,9 @@ title: Introduction to zenplots
 author: M. Hofert and R. W. Oldford
 date: '`r Sys.Date()`'
 output:
-  html_vignette:
-    toc: yes
+  rmarkdown::html_vignette:
+    toc: true
     css: style.css
-  pdf_document:
-    keep_tex: yes
-    latex_engine: xelatex
-    number_sections: yes
-    toc: yes
-  word_document: default
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Introduction to zenplots}
@@ -25,11 +19,12 @@ knitr::opts_chunk$set(
 )
 
 has_rgraphviz <- requireNamespace("Rgraphviz", quietly = TRUE)
+has_pairviz   <- requireNamespace("PairViz",   quietly = TRUE)
 rebuild_figs  <- identical(Sys.getenv("ZENPLOTS_REBUILD"), "TRUE") && has_rgraphviz
 
 note_rgraphviz <- function() {
   if (!has_rgraphviz) {
-    cat("> **Optional dependency**: All graphs in this vignette can be displayed as Graphviz plots using the plot() function method for graphs from the Bioconductor package **Rgraphviz**.\n",
+    cat("> **Optional dependency**: All graphs in this vignette can be displayed as Graphviz plots using **Rgraphviz** (Bioconductor).\n",
         "> To install locally:\n\n",
         "```r\n",
         "if (!requireNamespace(\"BiocManager\", quietly=TRUE)) install.packages(\"BiocManager\")\n",
@@ -39,22 +34,24 @@ note_rgraphviz <- function() {
 }
 
 install_rgraphviz <- function() {
-    cat("> **Optional dependency**: This graph, and any other graph, in this vignette can be displayed as a Graphviz plot using the plot() function method for graphs from the Bioconductor package **Rgraphviz**.\n",
-        "> To install locally:\n\n",
-        "```r\n",
-        "if (!requireNamespace(\"BiocManager\", quietly=TRUE)) install.packages(\"BiocManager\")\n",
-        "BiocManager::install(\"Rgraphviz\")\n",
-        "```\n\n", sep = "")
-  
+  cat("> **Optional dependency**: This graph, and any other graph, in this vignette can be displayed as a Graphviz plot using the plot() method from **Rgraphviz**.\n",
+      "> To install locally:\n\n",
+      "```r\n",
+      "if (!requireNamespace(\"BiocManager\", quietly=TRUE)) install.packages(\"BiocManager\")\n",
+      "BiocManager::install(\"Rgraphviz\")\n",
+      "```\n\n", sep = "")
 }
-```
-```{r rgraphviz-note, results='asis', echo=FALSE}
-note_rgraphviz()
 ```
 
 
 ```{r, message=FALSE, warning=FALSE}
 library(zenplots)
+```
+
+This vignette introduces `zenplots` (zigzag expanded navigation plots): compact displays for high-dimensional data that alternate 1D and 2D plots along a zigzag path, sharing axes when adjacent.
+
+```{r rgraphviz-note, results='asis', echo=FALSE}
+note_rgraphviz()
 ```
 
 # All pairs
@@ -72,9 +69,15 @@ visual space.
 A convenient function to produce all pairs can be found in the `PairViz` package
 found on `cran` and installed in `R` via `install.packages("PairViz")`.
 
+
 ```{r, message=FALSE, warning=FALSE}
-library(PairViz)
+if (!has_pairviz) {
+  cat("> **Optional dependency**: Examples using the **PairViz** package are skipped if it’s not installed. Install with `install.packages(\"PairViz\")`.\n\n")
+} else {
+  library(PairViz)
+}
 ```
+
 We will illustrate this functionality and the difference between a `pairs` plot
 and a `zenplot` by first considering a small dataset on earthquakes having only
 a few variates.  The difference between the two plots becomes much more
@@ -117,15 +120,15 @@ For a complete graph with n nodes, the function `eseq` (for Euler sequence)
 function from the `PairViz` package returns an order in which the nodes
 (numbered 1 to n) can be visited to produce an Euler path.  It works as follows.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=has_pairviz}
 ## Since attenu has 5 variates, the complete graph has n=5 nodes
 ## and an Euler sequence is given as
-eseq(5)
+PairViz::eseq(5)
 ```
 
 In terms of the variate names of `attenu`, this is:
-```{r, message=FALSE, warning=FALSE}
-names(attenu)[eseq(5)]
+```{r, message=FALSE, warning=FALSE, eval=has_pairviz}
+names(attenu)[PairViz::eseq(5)]
 ```
 
 As can be seen in the corresponding complete graph below,
@@ -142,7 +145,6 @@ install_rgraphviz()
 
 If the `Rgraphviz` package is installed, then the above graph could be produced as follows:
 ```{r plot-a-graph, eval = FALSE}
-library(Rgraphviz)
 mygraph <- PairViz::mk_complete_graph(names(attenu))
 Rgraphviz::plot(mygraph)
 ```

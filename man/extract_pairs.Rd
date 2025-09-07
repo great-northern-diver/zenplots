@@ -25,17 +25,13 @@ pairs of \code{x}.
 Extracts pairs from a path of indices, representing the path
 by the pairs (connected by common variable) and return a shortened path.
 }
+\details{
+This function is self-contained and has no external package dependencies.
+}
 \examples{
-## Begin with a path
-(zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
-
-## Extract the first two pairs and last four of indices
+(zp <- zenpath(c(3, 5), method = "eulerian.cross"))
 extract_pairs(zp, n = c(2, 4))
-
-## Extract the first and last three pairs of indices
-extract_pairs(zp, n = 3) # the 3 is repeated automatically
-
-
+extract_pairs(zp, n = 3)
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.

@@ -73,7 +73,7 @@
                         <h4 data-toc-skip class="author">M. Hofert and
 R. W. Oldford</h4>
             
-            <h4 data-toc-skip class="date">2025-09-06</h4>
+            <h4 data-toc-skip class="date">2025-09-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/great-northern-diver/zenplots/blob/HEAD/vignettes/selected_features.Rmd" class="external-link"><code>vignettes/selected_features.Rmd</code></a></small>
       <div class="d-none name"><code>selected_features.Rmd</code></div>
@@ -86,10 +86,7 @@ in R: The R package zenplots”. Note that sections are numbered
 accordingly (or omitted). Furthermore, it is recommended to read the
 paper to follow this vignette.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># attaching required packages</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://cbhurley.github.io/PairViz/" class="external-link">PairViz</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/" class="external-link">MASS</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://great-northern-diver.github.io/zenplots/">zenplots</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://great-northern-diver.github.io/zenplots/">zenplots</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="zenplots">2. Zenplots<a class="anchor" aria-label="anchor" href="#zenplots"></a>
 </h2>
@@ -286,8 +283,7 @@ plot):</p>
 </h3>
 <p>Find the “convexity” scagnostic for each pair of olive acids.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.rforge.net/scagnostics/" class="external-link">scagnostics</a></span><span class="op">)</span></span>
-<span><span class="va">Y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/scagnostics/man/scagnostics.html" class="external-link">scagnostics</a></span><span class="op">(</span><span class="va">oliveAcids</span><span class="op">)</span> <span class="co"># compute scagnostics (scatter-plot diagonstics)</span></span>
+<code class="sourceCode R"><span><span class="va">Y</span> <span class="op">&lt;-</span> <span class="fu">scagnostics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/scagnostics/man/scagnostics.html" class="external-link">scagnostics</a></span><span class="op">(</span><span class="va">oliveAcids</span><span class="op">)</span> <span class="co"># compute scagnostics (scatter-plot diagonstics)</span></span>
 <span><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">Y</span><span class="op">[</span><span class="st">"Convex"</span>,<span class="op">]</span> <span class="co"># pick out component 'convex'</span></span>
 <span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">oliveAcids</span><span class="op">)</span></span>
 <span><span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">d</span>, ncol <span class="op">=</span> <span class="va">d</span><span class="op">)</span> <span class="co"># matrix with all 'convex' scagnostics</span></span>
@@ -334,23 +330,14 @@ Reproducing Figure 7 (visualizing the pairs):
 Precomputed complete graph.
 </p>
 </div>
-<blockquote>
-<p><strong>Optional dependency</strong>: This graph, and any other
-graph, in this vignette can be displayed as a Graphviz plot using the
-plot() function method for graphs from the Bioconductor package
-<strong>Rgraphviz</strong>. To install locally:</p>
-</blockquote>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
-<span><span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://bioconductor.github.io/BiocManager/reference/install.html" class="external-link">install</a></span><span class="op">(</span><span class="st">"Rgraphviz"</span><span class="op">)</span></span></code></pre></div>
 <p>Once installed, the graph could be reproduced via the following
 code:</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">graph</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">Rgraphviz</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="../reference/graph_pairs.html">graph_pairs</a></span><span class="op">(</span><span class="va">ezpath</span><span class="op">)</span><span class="op">)</span> <span class="co"># depict the six most convex pairs (edge = pair)</span></span></code></pre></div>
 <p>Connect them:</p>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">cezpath</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/connect_pairs.html">connect_pairs</a></span><span class="op">(</span><span class="va">ezpath</span><span class="op">)</span><span class="op">)</span> <span class="co"># keep the same order but connect the pairs</span></span></code></pre></div>
 <pre><code><span><span class="co">## [[1]]</span></span>
 <span><span class="co">## [1] 7 6</span></span>
@@ -364,11 +351,11 @@ code:</p>
 <span><span class="co">## [[4]]</span></span>
 <span><span class="co">## [1] 3 1 4</span></span></code></pre>
 <p>Build the corresponding list of matrices:</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">oliveAcids.grouped</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/groupData.html">groupData</a></span><span class="op">(</span><span class="va">oliveAcids</span>, indices <span class="op">=</span> <span class="va">cezpath</span><span class="op">)</span> <span class="co"># group data for (zen)plotting</span></span></code></pre></div>
 <p>Reproducing Figure 8 (zenplot of the six pairs of acids with largest
 “convexity” scagnostic):</p>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">oliveAcids.grouped</span><span class="op">)</span></span></code></pre></div>
 <p><img src="selected_features_files/figure-html/unnamed-chunk-32-1.png" alt="Figure generated by zenplots; see caption and/or surrounding text for details." width="576" style="display: block; margin: auto;"></p>
 </div>
@@ -381,7 +368,7 @@ code:</p>
 </h3>
 <p>Here is the structure of a return object of
 <code><a href="../reference/zenplot.html">zenplot()</a></code>:</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/zenplot.html">zenplot</a></span><span class="op">(</span><span class="va">olive</span>, plot1d <span class="op">=</span> <span class="st">"layout"</span>, plot2d <span class="op">=</span> <span class="st">"layout"</span>, draw <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## List of 2</span></span>
@@ -408,7 +395,7 @@ code:</p>
 <span><span class="co">##  - attr(*, "class")= chr [1:3] "zenGraphics" "zenplot" "list"</span></span></code></pre>
 <p>Let’s have a look at the components. The occupancy matrix encodes the
 occupied cells in the rectangular layout:</p>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span><span class="op">[[</span><span class="st">"path"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"occupancy"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code><span><span class="co">##      [,1] [,2] [,3] [,4] [,5] [,6]</span></span>
 <span><span class="co">## [1,] ""   "d"  ""   ""   ""   ""  </span></span>
@@ -422,7 +409,7 @@ occupied cells in the rectangular layout:</p>
 <p>The two-column matrix <code>positions</code> contains in the
 <em>i</em>th row the row and column index (in the occupancy matrix) of
 the <em>i</em>th plot:</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="st">"path"</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="st">"positions"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##      x y</span></span>
 <span><span class="co">## [1,] 1 2</span></span>
@@ -436,7 +423,7 @@ the <em>i</em>th plot:</p>
 <h3 id="tools-for-writing-1d-and-2d-plot-functions">5.2 Tools for writing 1d and 2d plot functions<a class="anchor" aria-label="anchor" href="#tools-for-writing-1d-and-2d-plot-functions"></a>
 </h3>
 <p>Example structure of 2d plot based on <code>graphics</code>:</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">points_2d_graphics</span></span></code></pre></div>
 <pre><code><span><span class="co">## function (zargs, cex = 0.4, box = FALSE, add = FALSE, group... = NULL, </span></span>
 <span><span class="co">##     plot... = NULL, ...) </span></span>
@@ -459,11 +446,11 @@ the <em>i</em>th plot:</p>
 <span><span class="co">##         do.call(group_2d_graphics, args)</span></span>
 <span><span class="co">##     }</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x7ff19b92af88&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x7f82c51c69d0&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:zenplots&gt;</span></span></code></pre>
 <p>For setting up the plot region of plots based on
 <code>graphics</code>:</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_region</span></span></code></pre></div>
 <pre><code><span><span class="co">## function (xlim, ylim, plot... = NULL) </span></span>
 <span><span class="co">## {</span></span>
@@ -477,27 +464,27 @@ the <em>i</em>th plot:</p>
 <span><span class="co">##         do.call(fun, plot...)</span></span>
 <span><span class="co">##     }</span></span>
 <span><span class="co">## }</span></span>
-<span><span class="co">## &lt;bytecode: 0x7ff19bc22580&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x7f82c5601b88&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:zenplots&gt;</span></span></code></pre>
 <p>Determining the indices of the two variables to be plotted in the
 current 1d or 2d plot (the same for 1d plots):</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plot_indices</span></span></code></pre></div>
 <pre><code><span><span class="co">## function (zargs) </span></span>
 <span><span class="co">## zargs$vars[zargs$num, ]</span></span>
-<span><span class="co">## &lt;bytecode: 0x7ff19b059840&gt;</span></span>
+<span><span class="co">## &lt;bytecode: 0x7f82a68f9580&gt;</span></span>
 <span><span class="co">## &lt;environment: namespace:zenplots&gt;</span></span></code></pre>
 <p>Basic check that the return value of <code><a href="../reference/zenplot.html">zenplot()</a></code> is
 actually the return value of the underlying <code><a href="../reference/unfold.html">unfold()</a></code> (note
 that, the output of <code>unfold</code> and <code>res</code> is not
 identical since <code>res</code> has specific class attributes):</p>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">n2dcols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">olive</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span> <span class="co"># number of faces of the hypercube</span></span>
 <span><span class="va">uf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/unfold.html">unfold</a></span><span class="op">(</span>nfaces <span class="op">=</span> <span class="va">n2dcols</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">res</span>, <span class="va">uf</span><span class="op">)</span> <span class="co">#return FALSE</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] FALSE</span></span></code></pre>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">for</span><span class="op">(</span><span class="va">name</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">uf</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>   <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="va">name</span><span class="op">]</span><span class="op">]</span>, <span class="va">uf</span><span class="op">[[</span><span class="va">name</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>

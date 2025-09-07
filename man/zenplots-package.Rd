@@ -22,6 +22,7 @@ Useful links:
 \itemize{
   \item \url{https://great-northern-diver.github.io/zenplots/}
   \item \url{https://github.com/great-northern-diver/zenplots/}
+  \item Report bugs at \url{https://github.com/great-northern-diver/zenplots/issues}
 }
 
 }

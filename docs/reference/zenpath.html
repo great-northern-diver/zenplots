@@ -139,7 +139,20 @@ sorting is done according to increasing or decreasing weights.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Returns a sequence of variables (indices or names,
 possibly a list of such), which can then be used to index the data
-(via <code><a href="groupData.html">groupData</a>()</code>for plotting via <code><a href="zenplot.html">zenplot</a>()</code>.</p>
+(via <code><a href="groupData.html">groupData</a>()</code> for plotting via <code><a href="zenplot.html">zenplot</a>()</code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>Most methods do not require any non-CRAN packages. However,
+<code>method = "greedy.weighted"</code> constructs an Eulerian path via a
+<code><a href="https://rdrr.io/pkg/graph/man/graphNEL-class.html" class="external-link">graphNEL</a></code> object and therefore
+requires Bioconductor package <span class="pkg">graph</span> at runtime.
+The <code>"strictly.weighted"</code> method does <em>not</em> require <span class="pkg">graph</span>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>For <code>method = "greedy.weighted"</code> only, <span class="pkg">graph</span> must be installed.
+If <span class="pkg">graph</span> is unavailable, an informative error should be raised by the function.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -158,15 +171,18 @@ possibly a list of such), which can then be used to index the data
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Some calls of zenpath()</span></span></span>
-<span class="r-in"><span><span class="fu">zenpath</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="co"># integer argument</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1  2  3  1  4  2  5  1  6  2  7  1  8  2  9  1 10  2  3  4  5  3  6  4  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [26]  3  8  4  9  3 10  4  5  6  7  5  8  6  9  5 10  6  7  8  9  7 10  8  9 10</span>
-<span class="r-in"><span><span class="co">## Note that the result is of length 50 &gt; 10 choose 2 as the underlying graph has to</span></span></span>
-<span class="r-in"><span><span class="co">## be even (and thus edges are added here)</span></span></span>
-<span class="r-in"><span><span class="op">(</span><span class="va">zp</span> <span class="op">&lt;-</span> <span class="fu">zenpath</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"eulerian.cross"</span><span class="op">)</span><span class="op">)</span> <span class="co"># integer(2) argument</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 4 2 5 1 6 2 7 1 8 3 4 3 6 7 3 5 8 2</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Methods that do not need Bioconductor:</span></span></span>
+<span class="r-in"><span><span class="fu">zenpath</span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"front.loaded"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 5 1 2 3 1 4 2 5 3 4 5</span>
+<span class="r-in"><span><span class="fu">zenpath</span><span class="op">(</span><span class="fl">5</span>, method <span class="op">=</span> <span class="st">"balanced"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 2 3 5 4 1 3 4 2 5 1</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Greedy weighted (requires Bioconductor 'graph' at runtime):</span></span></span>
+<span class="r-in"><span><span class="co">## Not run:</span></span></span>
+<span class="r-in"><span><span class="co">## if (requireNamespace("graph", quietly = TRUE)) {</span></span></span>
+<span class="r-in"><span><span class="co">##   w &lt;- runif(choose(5, 2))</span></span></span>
+<span class="r-in"><span><span class="co">##   zp &lt;- zenpath(w, method = "greedy.weighted")</span></span></span>
+<span class="r-in"><span><span class="co">## }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

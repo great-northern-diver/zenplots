@@ -19,8 +19,7 @@ zenpath(x, pairs = NULL,
         \item{\code{"eulerian.cross"}:}{two \code{\link{integer}}s >= 1
             representing the group sizes.}
         \item{\code{"greedy.weighted"}:}{\code{\link{numeric}} weight
-            \code{\link{vector}} (or
-                                  \code{\link{matrix}} or distance matrix).}
+            \code{\link{vector}} (or \code{\link{matrix}} or distance matrix).}
         \item{\code{"strictly.weighted"}:}{as for
             \code{method = "greedy.weighted"}.}
     }
@@ -68,20 +67,35 @@ sorting is done according to increasing or decreasing weights.}
 \value{
 Returns a sequence of variables (indices or names,
 possibly a list of such), which can then be used to index the data
-(via \code{\link{groupData}()}for plotting via \code{\link{zenplot}()}.
+(via \code{\link{groupData}()} for plotting via \code{\link{zenplot}()}.
 }
 \description{
 Constructing zenpaths and tools for extracting,
 connecting and displaying pairs, as well as
 grouping and indexing data structures.
 }
+\details{
+Most methods do not require any non-CRAN packages. However,
+\code{method = "greedy.weighted"} constructs an Eulerian path via a
+\code{\link[graph:graphNEL-class]{graphNEL}} object and therefore
+requires Bioconductor package \pkg{graph} at runtime.
+The \code{"strictly.weighted"} method does \emph{not} require \pkg{graph}.
+}
+\note{
+For \code{method = "greedy.weighted"} only, \pkg{graph} must be installed.
+If \pkg{graph} is unavailable, an informative error should be raised by the function.
+}
 \examples{
-## Some calls of zenpath()
-zenpath(10) # integer argument
-## Note that the result is of length 50 > 10 choose 2 as the underlying graph has to
-## be even (and thus edges are added here)
-(zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
+## Methods that do not need Bioconductor:
+zenpath(5, method = "front.loaded")
+zenpath(5, method = "balanced")
 
+## Greedy weighted (requires Bioconductor 'graph' at runtime):
+## Not run:
+## if (requireNamespace("graph", quietly = TRUE)) {
+##   w <- runif(choose(5, 2))
+##   zp <- zenpath(w, method = "greedy.weighted")
+## }
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.
