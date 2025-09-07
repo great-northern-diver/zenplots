@@ -79,6 +79,10 @@ the second to the end; at least one of the two numbers should be &gt;= 1.</p></d
 pairs of <code>x</code>.</p>
     </div>
     <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>This function is self-contained and has no external package dependencies.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="zenplot.html">zenplot</a>()</code> which provides the zenplot.</p>
 <p>Other tools related to constructing zenpaths:
@@ -95,19 +99,12 @@ pairs of <code>x</code>.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Begin with a path</span></span></span>
-<span class="r-in"><span><span class="op">(</span><span class="va">zp</span> <span class="op">&lt;-</span> <span class="fu"><a href="zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"eulerian.cross"</span><span class="op">)</span><span class="op">)</span> <span class="co"># integer(2) argument</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="op">(</span><span class="va">zp</span> <span class="op">&lt;-</span> <span class="fu"><a href="zenpath.html">zenpath</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"eulerian.cross"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 4 2 5 1 6 2 7 1 8 3 4 3 6 7 3 5 8 2</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## Extract the first two pairs and last four of indices</span></span></span>
 <span class="r-in"><span><span class="fu">extract_pairs</span><span class="op">(</span><span class="va">zp</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 4 2 7 3 5 8 2</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## Extract the first and last three pairs of indices</span></span></span>
-<span class="r-in"><span><span class="fu">extract_pairs</span><span class="op">(</span><span class="va">zp</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="co"># the 3 is repeated automatically</span></span></span>
+<span class="r-in"><span><span class="fu">extract_pairs</span><span class="op">(</span><span class="va">zp</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 4 2 5 3 5 8 2</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

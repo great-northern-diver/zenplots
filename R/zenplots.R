@@ -15,7 +15,6 @@
 #' @import grid
 #' @importFrom MASS kde2d
 #' @importFrom tcltk tktoplevel `tktitle<-` tkgrid tkconfigure tkgrid.rowconfigure tkgrid.columnconfigure tkframe tkpack
-#' @importFrom graph ftM2graphNEL
 #' @importFrom PairViz eseq hpaths eulerian bipartite_graph
 #' @importFrom grDevices colorRampPalette contourLines hcl xy.coords
 #' @importFrom stats density qnorm quantile runif na.omit as.dist median qqplot approx

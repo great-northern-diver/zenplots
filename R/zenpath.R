@@ -1,5 +1,7 @@
 ## Tools for computing a path through all variables which can then be plotted
 ## with a zen plot
+
+
 ##' @title Extract Pairs from a Path of Indices
 ##' @usage extract_pairs(x, n)
 ##' @description Extracts pairs from a path of indices, representing the path
@@ -17,19 +19,14 @@
 ##' pairs of \code{x}.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @export
+##' @details This function is self-contained and has no external package dependencies.
 ##' @import PairViz
 ##' @examples
-##' ## Begin with a path
-##' (zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
-##'
-##' ## Extract the first two pairs and last four of indices
+##' (zp <- zenpath(c(3, 5), method = "eulerian.cross"))
 ##' extract_pairs(zp, n = c(2, 4))
-##'
-##' ## Extract the first and last three pairs of indices
-##' extract_pairs(zp, n = 3) # the 3 is repeated automatically
-##'
-##'
+##' extract_pairs(zp, n = 3)
+##' @export
+
 extract_pairs <- function(x, n)
 {
     if(is.null(n))
@@ -107,32 +104,15 @@ extract_pairs <- function(x, n)
 ##' (longer vectors > 2 in length identify the pairs connected in a path).
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @export
+##' @details This function is self-contained and has no external package dependencies.
 ##' @examples
-##' ## First something simple.
 ##' (pairs <- matrix(c(1,2,2,3,3,5,5,7,8,9), ncol = 2, byrow = TRUE))
-##' ## Connect pairs into separate paths defined by the row order.
 ##' connect_pairs(pairs)
-##'
-##' ## Now something different
 ##' nVars <- 5
 ##' pairs <- expand.grid(1:nVars, 1:nVars)
-##' ## and take those where
 ##' (pairs <- pairs[pairs[,1] < pairs[,2],])
 ##' connect_pairs(pairs)
-##'
-##' ## Something more complicated.
-##' ## Get weights
-##' set.seed(27135)
-##' x <- runif(choose(nVars,2)) # weights
-##'
-##' ## We imagine pairs identify edges of a graph with these weights
-##' ## Get a zenpath ordering the edges based on weights
-##' (zp <- zenpath(x, pairs = pairs, method = "strictly.weighted"))
-##'
-##' ## And connect these giving the list of paths
-##' connect_pairs(zp)
-##'
+##' @export
 connect_pairs <- function(x, duplicate.rm = FALSE)
 {
     if(is.list(x)) {
@@ -206,7 +186,9 @@ connect_pairs <- function(x, duplicate.rm = FALSE)
 ##' @aliases graph_pairs
 ##' @description Pairs are processed to produce a graph with the elements
 ##' of the pairs as vertices and the pairs as undirected edges.
-##' The result can be displayed using \code{\link{plot}()}.
+##' The result can be displayed using \code{\link{plot}()} if the
+##' Bioconductor packages \pkg{graph} (for the \code{graphNEL} object)
+##' and optionally \pkg{Rgraphviz} (for plotting) are installed.
 ##' @param x \code{\link{matrix}} or \code{\link{list}} of pairs along a zenpath.
 ##'        Can also be a list containing vectors representing paths in the graph.
 ##'        Every path must be of length at least 2 (i.e. each vector element of
@@ -215,112 +197,77 @@ connect_pairs <- function(x, duplicate.rm = FALSE)
 ##' @param edgemode type of edges to be used: either \code{"undirected"} (the default)
 ##'        or \code{"directed"} (in which case the order of the nodes in each pair matters).
 ##' @return a \code{\link[graph:graphNEL-class]{graphNEL}} object; can be displayed using
-##' \code{\link{plot}()}.
+##' \code{\link{plot}()} if \pkg{Rgraphviz} is installed.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @note \code{\link{zenplot}()} never use directed graphs nor graphs with isolated (disconnected) nodes.
-##' @export
+##' @note This function requires the Bioconductor package \pkg{graph}.
+##' If \pkg{graph} is not installed, an informative error is raised.
+##' Plotting also requires \pkg{Rgraphviz}, but all functionality of
+##' \code{graph_pairs()} is available without it.
 ##' @examples
-##' ## To display the graphs,
-##' ## the Rgraphviz package from Bioconductor
-##' ##
 ##' has_Rgraphviz <- requireNamespace("Rgraphviz", quietly = TRUE)
-##' 
-##' ## Get some pairs
 ##' pairs <- matrix(c(1,2, 5,1, 3,4, 2,3, 4,2), ncol = 2, byrow = TRUE)
 ##' g <- graph_pairs(pairs)
-##' ## which can be displayed using plot(g) from Rgraphviz
 ##' if (has_Rgraphviz){
 ##'   Rgraphviz::plot(g)
 ##' }
-##'
-##' ## Build a graph from a list of paths
-##' paths <- list(3:1, c(3,5,7), c(1,4,7), c(6,7))
-##' gp <- graph_pairs(paths)
-##' if (has_Rgraphviz){
-##'   ## graph package draws with grid, so clear
-##'   grid::grid.newpage()   
-##'   Rgraphviz::plot(gp)
-##' }
-##'
-##' ## Nodes do not need to be numbers
-##' alpha_paths <- list(letters[3:1], letters[c(3,5,7)],
-##'                     letters[c(1,4,7)], letters[c(6,7)])
-##' if (has_Rgraphviz){
-##'   grid::grid.newpage()
-##'   Rgraphviz::plot(graph_pairs(alpha_paths))
-##'   }
-##'
-##' ## Zenplots never uses this feature but you could
-##' ## build a directed graph with a single isolated node
-##' dg <- graph_pairs(alpha_paths,
-##'                   var.names = c(letters[1:7], "ALONE"),
-##'                   edgemode = "directed" )
-##' 
-##' if (has_Rgraphviz){
-##'   grid::grid.newpage()
-##'   Rgraphviz::plot(dg)
-##'   }
-##'
+##' @export
 graph_pairs <- function(x, var.names = NULL,
                         edgemode = c("undirected", "directed"))
 {
     edgemode <- match.arg(edgemode)
-    ## If x a list (even with different lengths of its components, so
+    
+    # --- New: guard + informative install hint (Bioconductor) ---
+    if (!requireNamespace("graph", quietly = TRUE)) {
+        stop("The 'graph' package is required for graph construction in graph_pairs().\n",
+             "To install from Bioconductor:\n",
+             "  if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager')\n",
+             "  BiocManager::install('graph')",
+             call. = FALSE)
+    }
+    
+    ## If x is a list (even with different lengths of its components, so
     ## 'grouped'), convert x to a 2-column matrix
-    if(is.list(x) && !is.data.frame(x)) {
+    if (is.list(x) && !is.data.frame(x)) {
         stopifnot(all(sapply(x, function(x.) length(x.) >= 2)))
         x.. <- lapply(x, function(x.) {
             l <- length(x.)
-            if(l > 2) {
+            if (l > 2) {
                 c(x.[1], rep(x.[2:(l-1)], each = 2), x.[l]) # recycle all elements except first and last
             } else x.
         })
         x <- matrix(unlist(x..), ncol = 2, byrow = TRUE)
     }
     ## => x is now a two-column matrix of the (ordered) pairs to be graphed
-    ##    according to the weights
-
-    ## Deal with weights
-    ## Works but not needed
-    ## if(!is.null(weights)) {
-    ##     if(is.vector(weights)) {
-    ##         stopifnot(length(weights) == nrow(x))
-    ##     } else if(is.matrix(weights)) {
-    ##         stopifnot(nrow(weights) == ncol(weights))
-    ##         weights <- weights[x] # grab out
-    ##     } else stop("'weights' must either be a vector or a square matrix")
-    ##     ## => weights is now a vector
-    ## }
-
+    
     ## Build vertex names
     var.x <- as.character(sort(unique(as.vector(x)))) # vertices in x as characters
-    if(is.null(var.names)) {
+    if (is.null(var.names)) {
         var.names <- var.x
     } else {
         # var.names must be a character vector
         var.names <- as.character(var.names)
-        # Must have at least as many names in
-        # var.names as in var.x
-        if(length(var.names) < length(var.x)){
-            stop("'var.names' must be at least of length ",length(var.x))
+        # Must have at least as many names in var.names as in var.x
+        if (length(var.names) < length(var.x)) {
+            stop("'var.names' must be at least of length ", length(var.x))
         }
         # check that var.names contain all of var.x
-        var.x_notin_var.names <-setdiff(var.x, var.names)
+        var.x_notin_var.names <- setdiff(var.x, var.names)
         if (length(var.x_notin_var.names) != 0) {
             stop(paste("var.names are missing",
                        paste(var.x_notin_var.names, collapse = ", "),
                        "from `x`."))
         }
     }
-
-
-    ## Build graph
-    ftM2graphNEL(x, V = var.names, edgemode = edgemode) # possibly uneven, disconnected
+    
+    ## Build graph (fully qualified call; no import)
+    graph::ftM2graphNEL(x, V = var.names, edgemode = edgemode) # possibly uneven, disconnected
 }
+
 
 ##' @title Splitting a Matrix into a List of Matrices
 ##' @family tools related to constructing zenpaths
+##' @details No external packages are required.
 ##' @usage groupData(x, indices, byrow = FALSE)
 ##' @name groupData
 ##' @aliases groupData
@@ -337,7 +284,6 @@ graph_pairs <- function(x, var.names = NULL,
 ##'         Such a list, grouped by columns, is then typically passed on to \code{\link{zenplot}()}.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @export
 ##' @examples
 ##' ## get a matrix
 ##' x <- matrix(1:15, ncol = 3)
@@ -345,8 +291,7 @@ graph_pairs <- function(x, var.names = NULL,
 ##' rowGroups <- list(c(1,4), list(2:3))
 ##' groupData(x, indices = colGroups)
 ##' groupData(x, indices = rowGroups, byrow = TRUE)
-##'
-##'
+##' @export
 groupData <- function(x, indices, byrow = FALSE)
 {
     if(length(dim(x)) != 2)
@@ -360,6 +305,7 @@ groupData <- function(x, indices, byrow = FALSE)
 ##' @title Indexing a Matrix or Data Frame According to Given Indices
 ##' @usage indexData(x, indices)
 ##' @family tools related to constructing zenpaths
+##' @details No external packages are required.
 ##' @param x A \code{\link{matrix}} or \code{\link{data.frame}}
 ##'       (most useful for the latter).
 ##' @param indices vector of column indices of \code{x}
@@ -372,7 +318,6 @@ groupData <- function(x, indices, byrow = FALSE)
 ##' @note Useful for constructing data.frames without .1, .2, ... in their
 ##'       names when indexing a data.frame with a zenpath.
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @export
 ##' @examples
 ##' ## The function is handiest for data frames
 ##' ## where we want to reuse the variable names
@@ -385,7 +330,7 @@ groupData <- function(x, indices, byrow = FALSE)
 ##' ## to
 ##' x[, indices]
 ##' ## zenplots prefer not to have the suffixes.
-##'
+##' @export
 indexData <- function(x, indices)
 {
     if(length(dim(x)) != 2)
@@ -424,13 +369,11 @@ indexData <- function(x, indices)
 ##'             \item{\code{"eulerian.cross"}:}{two \code{\link{integer}}s >= 1
 ##'                 representing the group sizes.}
 ##'             \item{\code{"greedy.weighted"}:}{\code{\link{numeric}} weight
-##'                 \code{\link{vector}} (or
-##'                                       \code{\link{matrix}} or distance matrix).}
+##'                 \code{\link{vector}} (or \code{\link{matrix}} or distance matrix).}
 ##'             \item{\code{"strictly.weighted"}:}{as for
 ##'                 \code{method = "greedy.weighted"}.}
 ##'         }
 ##'     }
-##'
 ##' @param pairs a two-column \code{\link{matrix}} containing (row-wise)
 ##' the pairs of connected variables to be sorted according to the
 ##' weights. Note that the resulting graph must be connected 
@@ -469,17 +412,28 @@ indexData <- function(x, indices)
 ##' sorting is done according to increasing or decreasing weights.
 ##' @return Returns a sequence of variables (indices or names,
 ##' possibly a list of such), which can then be used to index the data
-##' (via \code{\link{groupData}()}for plotting via \code{\link{zenplot}()}.
+##' (via \code{\link{groupData}()} for plotting via \code{\link{zenplot}()}.
 ##' @author Marius Hofert and Wayne Oldford
 ##' @seealso \code{\link{zenplot}()} which provides the zenplot.
-##' @export
+##' @details Most methods do not require any non-CRAN packages. However,
+##' \code{method = "greedy.weighted"} constructs an Eulerian path via a
+##' \code{\link[graph:graphNEL-class]{graphNEL}} object and therefore
+##' requires Bioconductor package \pkg{graph} at runtime.
+##' The \code{"strictly.weighted"} method does \emph{not} require \pkg{graph}.
+##' @note For \code{method = "greedy.weighted"} only, \pkg{graph} must be installed.
+##' If \pkg{graph} is unavailable, an informative error should be raised by the function.
 ##' @examples
-##' ## Some calls of zenpath()
-##' zenpath(10) # integer argument
-##' ## Note that the result is of length 50 > 10 choose 2 as the underlying graph has to
-##' ## be even (and thus edges are added here)
-##' (zp <- zenpath(c(3, 5), method = "eulerian.cross")) # integer(2) argument
+##' ## Methods that do not need Bioconductor:
+##' zenpath(5, method = "front.loaded")
+##' zenpath(5, method = "balanced")
 ##'
+##' ## Greedy weighted (requires Bioconductor 'graph' at runtime):
+##' ## Not run:
+##' ## if (requireNamespace("graph", quietly = TRUE)) {
+##' ##   w <- runif(choose(5, 2))
+##' ##   zp <- zenpath(w, method = "greedy.weighted")
+##' ## }
+##' @export
 zenpath <- function(x, pairs = NULL,
                     method = c("front.loaded", "back.loaded", "balanced",
                                "eulerian.cross", "greedy.weighted",
@@ -571,13 +525,17 @@ zenpath <- function(x, pairs = NULL,
             stop("'pairs' needs to have unique rows (possibly after applying rev()).")
 
         ## Now distinguish between the methods
-        if(method == "greedy.weighted") { # method "greedy.weighted"
-
-            if(decreasing) x <- -x
-            eul <- eulerian(ftM2graphNEL(ft = pairs, W = x, edgemode = "undirected"))
-            eul.lst <- lapply(eul, as.numeric) # returns character otherwise
-            if(is.vector(eul)) as.numeric(eul) else eul.lst
-
+        if (method == "greedy.weighted") {
+            if (!requireNamespace("graph", quietly = TRUE)) {
+                stop("Method 'greedy.weighted' requires Bioconductor package 'graph'.\n",
+                     "Install via BiocManager::install('graph').", call. = FALSE)
+            }
+            if (decreasing) x <- -x
+            eul <- PairViz::eulerian(
+                graph::ftM2graphNEL(ft = pairs, W = x, edgemode = "undirected")
+            )
+            eul.lst <- lapply(eul, as.numeric)
+            if (is.vector(eul)) as.numeric(eul) else eul.lst
         } else { # method "strictly.weighted"
 
             pairs. <- pairs[order(x, decreasing = decreasing),] # sort pairs according to decreasing/increasing weights

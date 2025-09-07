@@ -24,31 +24,16 @@ Pairs, given as rows of a \code{\link{matrix}},
 \code{\link{data.frame}}, or \code{\link{list}}, are processed to return
 a list of paths, each identifying the connected pairs in the rows of \code{x}.
 }
+\details{
+This function is self-contained and has no external package dependencies.
+}
 \examples{
-## First something simple.
 (pairs <- matrix(c(1,2,2,3,3,5,5,7,8,9), ncol = 2, byrow = TRUE))
-## Connect pairs into separate paths defined by the row order.
 connect_pairs(pairs)
-
-## Now something different
 nVars <- 5
 pairs <- expand.grid(1:nVars, 1:nVars)
-## and take those where
 (pairs <- pairs[pairs[,1] < pairs[,2],])
 connect_pairs(pairs)
-
-## Something more complicated.
-## Get weights
-set.seed(27135)
-x <- runif(choose(nVars,2)) # weights
-
-## We imagine pairs identify edges of a graph with these weights
-## Get a zenpath ordering the edges based on weights
-(zp <- zenpath(x, pairs = pairs, method = "strictly.weighted"))
-
-## And connect these giving the list of paths
-connect_pairs(zp)
-
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.

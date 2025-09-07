@@ -22,6 +22,9 @@ An object as \code{x}
 \description{
 Indexing a Matrix or Data Frame According to Given Indices
 }
+\details{
+No external packages are required.
+}
 \note{
 Useful for constructing data.frames without .1, .2, ... in their
       names when indexing a data.frame with a zenpath.
@@ -38,7 +41,6 @@ indexData(x, indices)
 ## to
 x[, indices]
 ## zenplots prefer not to have the suffixes.
-
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.

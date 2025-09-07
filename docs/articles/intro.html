@@ -73,7 +73,7 @@
                         <h4 data-toc-skip class="author">M. Hofert and
 R. W. Oldford</h4>
             
-            <h4 data-toc-skip class="date">2025-09-06</h4>
+            <h4 data-toc-skip class="date">2025-09-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/great-northern-diver/zenplots/blob/HEAD/vignettes/intro.Rmd" class="external-link"><code>vignettes/intro.Rmd</code></a></small>
       <div class="d-none name"><code>intro.Rmd</code></div>
@@ -83,6 +83,10 @@ R. W. Oldford</h4>
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://great-northern-diver.github.io/zenplots/">zenplots</a></span><span class="op">)</span></span></code></pre></div>
+<p>This vignette introduces <code>zenplots</code> (zigzag expanded
+navigation plots): compact displays for high-dimensional data that
+alternate 1D and 2D plots along a zigzag path, sharing axes when
+adjacent.</p>
 <div class="section level2">
 <h2 id="all-pairs">All pairs<a class="anchor" aria-label="anchor" href="#all-pairs"></a>
 </h2>
@@ -100,7 +104,11 @@ space.</p>
 <code>PairViz</code> package found on <code>cran</code> and installed in
 <code>R</code> via <code>install.packages("PairViz")</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://cbhurley.github.io/PairViz/" class="external-link">PairViz</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="va">has_pairviz</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"&gt; **Optional dependency**: Examples using the **PairViz** package are skipped if it’s not installed. Install with `install.packages(\"PairViz\")`.\n\n"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://cbhurley.github.io/PairViz/" class="external-link">PairViz</a></span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <p>We will illustrate this functionality and the difference between a
 <code>pairs</code> plot and a <code>zenplot</code> by first considering
 a small dataset on earthquakes having only a few variates. The
@@ -146,11 +154,11 @@ produce an Euler path. It works as follows.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Since attenu has 5 variates, the complete graph has n=5 nodes</span></span>
 <span><span class="co">## and an Euler sequence is given as</span></span>
-<span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">PairViz</span><span class="fu">::</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##  [1] 1 2 3 1 4 2 5 3 4 5 1</span></span></code></pre>
 <p>In terms of the variate names of <code>attenu</code>, this is:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">[</span><span class="fu">PairViz</span><span class="fu">::</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/eseq.html" class="external-link">eseq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <pre><code><span><span class="co">##  [1] "event"   "mag"     "station" "event"   "dist"    "mag"     "accel"  </span></span>
 <span><span class="co">##  [8] "station" "dist"    "accel"   "event"</span></span></code></pre>
 As can be seen in the corresponding complete graph below,
@@ -165,8 +173,7 @@ order.</p>
 <blockquote>
 <p><strong>Optional dependency</strong>: This graph, and any other
 graph, in this vignette can be displayed as a Graphviz plot using the
-plot() function method for graphs from the Bioconductor package
-<strong>Rgraphviz</strong>. To install locally:</p>
+plot() method from <strong>Rgraphviz</strong>. To install locally:</p>
 </blockquote>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"BiocManager"</span>, quietly<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span></span>
@@ -174,8 +181,7 @@ plot() function method for graphs from the Bioconductor package
 <p>If the <code>Rgraphviz</code> package is installed, then the above
 graph could be produced as follows:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">Rgraphviz</span><span class="op">)</span></span>
-<span><span class="va">mygraph</span> <span class="op">&lt;-</span> <span class="fu">PairViz</span><span class="fu">::</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/mk_complete_graph.html" class="external-link">mk_complete_graph</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">mygraph</span> <span class="op">&lt;-</span> <span class="fu">PairViz</span><span class="fu">::</span><span class="fu"><a href="https://cbhurley.github.io/PairViz/reference/mk_complete_graph.html" class="external-link">mk_complete_graph</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attenu</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">Rgraphviz</span><span class="fu">::</span><span class="fu">plot</span><span class="op">(</span><span class="va">mygraph</span><span class="op">)</span></span></code></pre></div>
 <div class="section level5">
 <h5 id="euler-sequences-via-zenpath">Euler sequences via <code>zenpath</code><a class="anchor" aria-label="anchor" href="#euler-sequences-via-zenpath"></a>

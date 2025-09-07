@@ -25,6 +25,9 @@ A \code{\link{list}} of matrices (one per group).
 Takes a matrix \code{x} and groups its rows (or columns)
 as specified by \code{indices}.  Returns a list of matrices, one for each group.
 }
+\details{
+No external packages are required.
+}
 \examples{
 ## get a matrix
 x <- matrix(1:15, ncol = 3)
@@ -32,8 +35,6 @@ colGroups <- list(c(1,2), list(2:3))
 rowGroups <- list(c(1,4), list(2:3))
 groupData(x, indices = colGroups)
 groupData(x, indices = rowGroups, byrow = TRUE)
-
-
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.

@@ -19,58 +19,28 @@ or \code{"directed"} (in which case the order of the nodes in each pair matters)
 }
 \value{
 a \code{\link[graph:graphNEL-class]{graphNEL}} object; can be displayed using
-\code{\link{plot}()}.
+\code{\link{plot}()} if \pkg{Rgraphviz} is installed.
 }
 \description{
 Pairs are processed to produce a graph with the elements
 of the pairs as vertices and the pairs as undirected edges.
-The result can be displayed using \code{\link{plot}()}.
+The result can be displayed using \code{\link{plot}()} if the
+Bioconductor packages \pkg{graph} (for the \code{graphNEL} object)
+and optionally \pkg{Rgraphviz} (for plotting) are installed.
 }
 \note{
-\code{\link{zenplot}()} never use directed graphs nor graphs with isolated (disconnected) nodes.
+This function requires the Bioconductor package \pkg{graph}.
+If \pkg{graph} is not installed, an informative error is raised.
+Plotting also requires \pkg{Rgraphviz}, but all functionality of
+\code{graph_pairs()} is available without it.
 }
 \examples{
-## To display the graphs,
-## the Rgraphviz package from Bioconductor
-##
 has_Rgraphviz <- requireNamespace("Rgraphviz", quietly = TRUE)
-
-## Get some pairs
 pairs <- matrix(c(1,2, 5,1, 3,4, 2,3, 4,2), ncol = 2, byrow = TRUE)
 g <- graph_pairs(pairs)
-## which can be displayed using plot(g) from Rgraphviz
 if (has_Rgraphviz){
   Rgraphviz::plot(g)
 }
-
-## Build a graph from a list of paths
-paths <- list(3:1, c(3,5,7), c(1,4,7), c(6,7))
-gp <- graph_pairs(paths)
-if (has_Rgraphviz){
-  ## graph package draws with grid, so clear
-  grid::grid.newpage()   
-  Rgraphviz::plot(gp)
-}
-
-## Nodes do not need to be numbers
-alpha_paths <- list(letters[3:1], letters[c(3,5,7)],
-                    letters[c(1,4,7)], letters[c(6,7)])
-if (has_Rgraphviz){
-  grid::grid.newpage()
-  Rgraphviz::plot(graph_pairs(alpha_paths))
-  }
-
-## Zenplots never uses this feature but you could
-## build a directed graph with a single isolated node
-dg <- graph_pairs(alpha_paths,
-                  var.names = c(letters[1:7], "ALONE"),
-                  edgemode = "directed" )
-
-if (has_Rgraphviz){
-  grid::grid.newpage()
-  Rgraphviz::plot(dg)
-  }
-
 }
 \seealso{
 \code{\link{zenplot}()} which provides the zenplot.
