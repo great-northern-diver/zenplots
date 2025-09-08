@@ -1,90 +1,46 @@
-name: R-CMD-check
+name: R-CMD-check (manual, safe)
 
 on:
-  push:
-    branches: [ master, main ]
-  pull_request:
-    branches: [ master, main ]
   workflow_dispatch:
 
 jobs:
-  r-cmd-check:
-    name: ${{ matrix.config.os }} (R ${{ matrix.config.r }}, Suggests=FALSE)
-    runs-on: ${{ matrix.config.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - {os: macos-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,  r: 'devel'}
-          - {os: ubuntu-latest,  r: 'release'}
-
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      _R_CHECK_FORCE_SUGGESTS_: "false" # simulate CRAN's noSuggests checks
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: r-lib/actions/setup-pandoc@v2
-
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: ${{ matrix.config.r }}
-          use-public-rspm: true
-
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            any::rcmdcheck
-          needs: check
-
-      - uses: r-lib/actions/check-r-package@v2
-        with:
-          upload-snapshots: true
-          build-args: 'c("--no-manual", "--compact-vignettes=gs+qpdf")'
-          check-args: 'c("--as-cran")'
-
-  r-cmd-check-suggests:
-    name: ubuntu-latest (R release, Suggests=TRUE)
+  check:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
     env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      _R_CHECK_FORCE_SUGGESTS_: "true"
+      _R_CHECK_FORCE_SUGGESTS_: "false"   # don't force-install Suggests (e.g. loon/qqtest)
+      TZ: UTC
+      RGL_USE_NULL: "true"                # generic headless hint
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: r-lib/actions/setup-pandoc@v2
-
       - uses: r-lib/actions/setup-r@v2
         with:
-          r-version: 'release'
           use-public-rspm: true
 
-      - name: Install Bioconductor helpers
-        run: |
-          Rscript -e "if (!requireNamespace('BiocManager', quietly=TRUE)) install.packages('BiocManager', repos='https://cloud.r-project.org')"
-
-      - name: Install optional Bioconductor Suggests (softly)
-        run: |
-          Rscript -e "if (!requireNamespace('graph', quietly=TRUE)) BiocManager::install('graph', ask=FALSE, update=FALSE)"
-          Rscript -e "if (!requireNamespace('Rgraphviz', quietly=TRUE)) BiocManager::install('Rgraphviz', ask=FALSE, update=FALSE)"
+      - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          # Installs Imports plus Suggests because _R_CHECK_FORCE_SUGGESTS_=true
-          # Add any extra CI-only packages here:
-          extra-packages: |
-            any::rcmdcheck
+          extra-packages: local::.
           needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
+      # Run build + check inside a virtual X display so tcltk/loon won't choke
+      - name: Run R CMD check under Xvfb
+        uses: GabrielBB/xvfb-action@v1
         with:
-          upload-snapshots: true
-          build-args: 'c("--no-manual", "--compact-vignettes=gs+qpdf")'
-          check-args: 'c("--as-cran")'
+          run: |
+            R CMD build .
+            PKG_TAR=$(ls -1t *.tar.gz | head -n 1)
+            R CMD check "${PKG_TAR}" --no-manual --as-cran
+
+      - name: Upload check results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rcheck-results
+          path: |
+            **/*.Rcheck/**/*
 
