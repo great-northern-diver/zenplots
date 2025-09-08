@@ -8,9 +8,8 @@ on:
 
 jobs:
   R-CMD-check:
-    name: ${{ matrix.config.os }} (R ${{ matrix.config.r }}, Suggests except loon)
+    name: ${{ matrix.config.os }} (R ${{ matrix.config.r }}, Suggests except loon/graph/Rgraphviz)
     runs-on: ${{ matrix.config.os }}
-
     strategy:
       fail-fast: false
       matrix:
@@ -21,50 +20,86 @@ jobs:
           - {os: ubuntu-latest,  r: 'release'}
           - {os: ubuntu-latest,  r: 'oldrel-1'}
 
+    env:
+      _R_CHECK_FORCE_SUGGESTS_: "false"
+      R_KEEP_PKG_SOURCE: "yes"
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
+          use-public-rspm: true
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - name: Install dependencies (skip loon)
+      - name: Install remotes
         run: |
-          install.packages("remotes")
-          remotes::install_deps(dependencies = TRUE)
-          pkgs <- setdiff(
-            tools::package_dependencies("zenplots", db = available.packages(), which = "Suggests")[[1]],
-            "loon"
-          )
-          if (length(pkgs)) install.packages(pkgs, repos = "https://cloud.r-project.org")
+          Rscript -e 'install.packages("remotes", repos="https://cloud.r-project.org")'
+
+      - name: Install hard dependencies (no Suggests)
+        run: |
+          Rscript - <<'RS'
+          remotes::install_deps(dependencies = c("Depends","Imports","LinkingTo"))
+          RS
+
+      - name: Install Suggests except loon/graph/Rgraphviz (CRAN-only)
+        run: |
+          Rscript - <<'RS'
+          d <- read.dcf("DESCRIPTION")
+          sugs <- if ("Suggests" %in% colnames(d)) strsplit(d[1,"Suggests"], ",")[[1]] else character(0)
+          sugs <- trimws(gsub("\\(.*\\)", "", sugs))
+          skip <- c("loon","graph","Rgraphviz")
+          want <- setdiff(sugs, skip)
+          ap <- available.packages(repos = "https://cloud.r-project.org")
+          cran_ok <- intersect(want, rownames(ap))
+          not_cran <- setdiff(want, cran_ok)
+          if (length(not_cran)) message("Skipping non-CRAN suggests: ", paste(not_cran, collapse=", "))
+          if (length(cran_ok)) install.packages(cran_ok, repos="https://cloud.r-project.org")
+          RS
 
       - name: Check
         run: |
+          Rscript - <<'RS'
+          install.packages("devtools", repos="https://cloud.r-project.org")
           options(crayon.enabled = TRUE)
-          devtools::check(args = c("--no-manual", "--as-cran"), error_on = "warning")
+          devtools::check(args = c("--no-manual","--as-cran"), error_on = "warning")
+          RS
 
+  # Optional: try loon on Linux, but don't fail the workflow if it breaks DISPLAY
   loon-test:
     name: Ubuntu loon test (non-blocking)
     runs-on: ubuntu-latest
     continue-on-error: true
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'release'
-
-      - name: Install all dependencies including loon
+          use-public-rspm: true
+      - name: Install deps (incl. Suggests except Bioc)
         run: |
-          install.packages("remotes")
-          remotes::install_deps(dependencies = TRUE)
-          install.packages("loon", repos = "https://cloud.r-project.org")
-
-      - name: Check (with loon)
+          Rscript - <<'RS'
+          install.packages("remotes", repos="https://cloud.r-project.org")
+          remotes::install_deps(dependencies = c("Depends","Imports","LinkingTo"))
+          d <- read.dcf("DESCRIPTION")
+          sugs <- if ("Suggests" %in% colnames(d)) strsplit(d[1,"Suggests"], ",")[[1]] else character(0)
+          sugs <- trimws(gsub("\\(.*\\)", "", sugs))
+          skip <- c("graph","Rgraphviz") # we'll still try loon here
+          want <- setdiff(sugs, skip)
+          ap <- available.packages(repos = "https://cloud.r-project.org")
+          cran_ok <- intersect(want, rownames(ap))
+          if (length(cran_ok)) install.packages(cran_ok, repos="https://cloud.r-project.org")
+          RS
+      - name: Try installing loon (may fail headless)
         run: |
+          Rscript -e 'install.packages("loon", repos="https://cloud.r-project.org")'
+      - name: Check (with whatever installed)
+        run: |
+          Rscript - <<'RS'
+          install.packages("devtools", repos="https://cloud.r-project.org")
           options(crayon.enabled = TRUE)
-          devtools::check(args = c("--no-manual", "--as-cran"), error_on = "warning")
+          devtools::check(args = c("--no-manual","--as-cran"), error_on = "warning")
+          RS
 
