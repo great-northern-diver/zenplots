@@ -1,46 +1,70 @@
-name: R-CMD-check (manual, safe)
+name: R-CMD-check
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    env:
-      _R_CHECK_FORCE_SUGGESTS_: "false"   # don't force-install Suggests (e.g. loon/qqtest)
-      TZ: UTC
-      RGL_USE_NULL: "true"                # generic headless hint
+  R-CMD-check:
+    name: ${{ matrix.config.os }} (R ${{ matrix.config.r }}, Suggests except loon)
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macos-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          - {os: ubuntu-latest,  r: 'devel'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: 'oldrel-1'}
 
     steps:
       - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-r@v2
         with:
-          use-public-rspm: true
+          r-version: ${{ matrix.config.r }}
 
       - uses: r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: local::.
-          needs: check
+      - name: Install dependencies (skip loon)
+        run: |
+          install.packages("remotes")
+          remotes::install_deps(dependencies = TRUE)
+          pkgs <- setdiff(
+            tools::package_dependencies("zenplots", db = available.packages(), which = "Suggests")[[1]],
+            "loon"
+          )
+          if (length(pkgs)) install.packages(pkgs, repos = "https://cloud.r-project.org")
 
-      # Run build + check inside a virtual X display so tcltk/loon won't choke
-      - name: Run R CMD check under Xvfb
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: |
-            R CMD build .
-            PKG_TAR=$(ls -1t *.tar.gz | head -n 1)
-            R CMD check "${PKG_TAR}" --no-manual --as-cran
+      - name: Check
+        run: |
+          options(crayon.enabled = TRUE)
+          devtools::check(args = c("--no-manual", "--as-cran"), error_on = "warning")
 
-      - name: Upload check results
-        if: always()
-        uses: actions/upload-artifact@v4
+  loon-test:
+    name: Ubuntu loon test (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
         with:
-          name: Rcheck-results
-          path: |
-            **/*.Rcheck/**/*
+          r-version: 'release'
+
+      - name: Install all dependencies including loon
+        run: |
+          install.packages("remotes")
+          remotes::install_deps(dependencies = TRUE)
+          install.packages("loon", repos = "https://cloud.r-project.org")
+
+      - name: Check (with loon)
+        run: |
+          options(crayon.enabled = TRUE)
+          devtools::check(args = c("--no-manual", "--as-cran"), error_on = "warning")
 
