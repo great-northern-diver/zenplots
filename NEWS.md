@@ -1,5 +1,9 @@
 # zenplots 1.0.7
 
+* Fixed URLs
+
+* Ensured suggested packages appear only conditionally everywhere.
+
 * updated examples, documentation, and vignettes to not rely on the `Rgraphviz` package from Bioconductor.  Also added some information
   for the user to install this package if they want to draw any of the graphs constructed by `zenplots`
   

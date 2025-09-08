@@ -1,7 +1,7 @@
 Package: zenplots
 Title: Zigzag Expanded Navigation Plots
 Version: 1.0.7
-Date: 2025-09-05
+Date: 2025-09-08
 Authors@R: c(
     person("Marius", "Hofert", , "marius.hofert@uwaterloo.ca", role = "aut"),
     person("Wayne", "Oldford", , "rwoldford@uwaterloo.ca", role = c("aut", "cre"))

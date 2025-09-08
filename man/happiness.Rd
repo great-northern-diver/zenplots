@@ -38,20 +38,28 @@ data("happiness")
       countries can be favorably compared).}
   }
 }
-\source{
-  The data set was obtained from \url{https://www.kaggle.com/unsdsn/world-happiness}
-  on 2018-04-20 in three different .csv files (one for each year). Joint
-  columns (variables) where then built, the rows expanded (to be the
-  same for each year) and sorted acorrding to Region and
-  Country. Finally, Time was added to obtain a single data set.
-}
+
 \details{
   GDP, Family, Health, Freedom, Corruption and Generosity describe the
   extent to which these factors contribute in evaluating the happiness
   in each country. If added together with Dystopia, one receives the
   happiness score.
+  
+  The data set is based on the World Happiness Report
+(\url{https://www.worldhappiness.report/}) and 
+derived from the public tables provided with the report and provided by Kaggle on 2018-04-20 (historical
+mirrors such as Kaggle may require an account and change over time, so
+we refer to the official site above).  Downloaded from Kaggle as three separate .csv files (one for each year), 
+joint columns (variables) were then built, rows expanded (to be the
+  same for each year) and sorted according to Region and
+  Country, and Time was added to obtain a single data set.
 }
-\references{ \url{https://www.kaggle.com/unsdsn/world-happiness} }
+
+\references{
+Helliwell, Layard, Sachs, et al. World Happiness Report (annual).
+Available at \url{https://www.worldhappiness.report/}.
+}
+
 \examples{
 data("happiness")
 stopifnot(all.equal(rowSums(happiness[,c("GDP", "Family", "Health", "Freedom",

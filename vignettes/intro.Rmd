@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 
 has_rgraphviz <- requireNamespace("Rgraphviz", quietly = TRUE)
 has_pairviz   <- requireNamespace("PairViz",   quietly = TRUE)
+has_qqtest <- requireNamespace("qqtest", quietly = TRUE)
 rebuild_figs  <- identical(Sys.getenv("ZENPLOTS_REBUILD"), "TRUE") && has_rgraphviz
 
 note_rgraphviz <- function() {
@@ -719,27 +720,50 @@ For example, suppose we were interested in the marginal distributions of the
 earthquake data.  We might craft the following plot to investigate all marginal
 distributions and to compare each marginal to every other (i.e. all pairs).
 ```{r, message=FALSE, warning=FALSE, results="hide", fig.align="center", fig.width=6, fig.height=3, fig.alt="Novel plot of alternating histograms and qqtest plots via user defined and built in one and two dimensional functions."}
-library(qqtest)
-zenplot(earthquakes[,zenpath(ncol(earthquakes))],
-        width1d = 1, width2d = 2, n2dcol=5,
-        plot1d = function(zargs, ...) {
-          r <- extract_1d(zargs) # extract arguments for 1d
-          col <- adjustcolor(if (r$horizontal) "firebrick" else "steelblue",
-                             alpha.f = 0.7)
-          hist_1d_graphics(zargs, col=col, ...)
-          },
-        plot2d=function(zargs, ...) {
-          r <- extract_2d(zargs) # extract arguments for 2d
-          x <- as.matrix(r$x)
-          xlim <- r$xlim
-          y <- as.matrix(r$y)
-          ylim <- r$ylim
-          qqtest(y, dataTest=x,
-                 xlim=xlim, ylim=ylim,
-                 cex=0.3, col="black",  pch=19,
-                 legend=FALSE, main="", axes=FALSE, ...)
+#
+# qqtest is preferred to the base qqplot so will be used if available.
+# 
+has_qqtest <- requireNamespace("qqtest", quietly = TRUE)
 
-          })
+zenplot(earthquakes[, zenpath(ncol(earthquakes))],
+        width1d = 1, width2d = 2, n2dcols = 5,
+        plot1d = function(zargs, ...) {
+            r <- extract_1d(zargs) # extract args for 1d
+            col <- grDevices::adjustcolor(
+                if (r$horizontal) "firebrick" else "steelblue", alpha.f = 0.7)
+            hist_1d_graphics(zargs, col = col, ...)
+        },
+        plot2d = function(zargs, ...) {
+            r <- extract_2d(zargs) # extract args for 2d
+            x <- as.matrix(r$x)    # r$x is a data frame with one named variate
+                                   # one-column data frame -> matrix
+            xlim <- r$xlim
+            y <- as.matrix(r$y)    # r$y is a data frame with one named variate
+            ylim <- r$ylim
+            
+            # use the better quantile-quantile plot (qqtest) if available
+            # qqtest has bands testing whether y comes from the same 
+            # distribution as x or not;  all points in the band
+            # indicate no evidence against the hypothesis of the
+            # same distribution,
+            if (has_qqtest) { 
+                # qqtest draws directly into the current region
+                qqtest::qqtest(y, dataTest = x,
+                               xlim = xlim, ylim = ylim,
+                               cex = 0.3, col = "black", pch = 19,
+                               legend = FALSE, main = "", axes = FALSE, ...)
+            } else {
+                # base fallback: 
+                #   construct the qqplot by hand 
+                #   adding the points into our region
+                xx <<- stats::na.omit(as.numeric(x))
+                yy <<- stats::na.omit(as.numeric(y))
+                qq <- stats::qqplot(xx, yy, plot.it = FALSE)
+                plot_region(xlim, ylim)
+                box()
+                points(qq$x, qq$y, pch = 19, cex = 0.3)
+            }
+        })
 ```
 
 Here we are using the function `qqtest` from the package of that name and whose
